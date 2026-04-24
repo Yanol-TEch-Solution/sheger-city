@@ -7,55 +7,65 @@ const Home = () => {
   return (
     <div className="bg-slate-50 font-sans">
       {/* Hero Section */}
-      <section className="relative bg-slate-900 text-white overflow-hidden min-h-[90vh] flex items-center">
-        {/* Animated Background Blobs */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/30 blur-[100px] animate-pulse"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-cyan-600/20 blur-[120px] animate-pulse delay-1000"></div>
-          <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-600/20 blur-[80px] animate-pulse delay-700"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDEzNGg3djFoLTd6bTAtNWg3djFoLTd6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30 mix-blend-overlay"></div>
+      <section className="relative text-white overflow-hidden min-h-[95vh] flex items-center bg-slate-900">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('/sheger-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+           {/* Overlay to ensure text readability */}
+           <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full">
-          <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-blue-300 font-medium text-sm mb-6 border border-white/10 shadow-lg">
+        {/* The curvy line from the first image */}
+        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay">
+          <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-90 drop-shadow-2xl" preserveAspectRatio="xMidYMid slice">
+            {/* Curvy looping path */}
+            <path d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1500,200" stroke="white" strokeWidth="16" strokeLinecap="round" />
+            
+            {/* Map Pin 1 */}
+            <g transform="translate(480, 520)">
+              <circle cx="0" cy="0" r="20" fill="white" className="shadow-lg" />
+              <circle cx="0" cy="0" r="6" fill="#ef4444" />
+            </g>
+
+            {/* Map Pin 2 */}
+            <g transform="translate(600, 200)">
+              <circle cx="0" cy="0" r="20" fill="white" className="shadow-lg" />
+              <circle cx="0" cy="0" r="6" fill="#3b82f6" />
+            </g>
+          </svg>
+        </div>
+
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full mt-12">
+          <div className="max-w-xl">
+            <div className="uppercase tracking-[0.2em] text-xs font-bold mb-6 text-white/90">
               {t('home.hero.badge')}
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-              {t('home.hero.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">{t('home.hero.city')}</span>
+            <h1 className="text-5xl md:text-7xl font-semibold mb-6 leading-tight tracking-tight text-white drop-shadow-lg">
+              {t('home.hero.title')} <br/>
+              {t('home.hero.city')}
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-md leading-relaxed drop-shadow-md">
               {t('home.hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/services"
-                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-500 transition-all duration-300 shadow-[0_0_40px_-10px_rgba(37,99,235,0.7)] hover:shadow-[0_0_60px_-15px_rgba(37,99,235,0.9)] hover:-translate-y-1 overflow-hidden"
+                className="inline-flex items-center justify-center px-10 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all duration-300 shadow-xl hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
-                <span className="relative flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  {t('home.hero.explore')}
-                </span>
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 backdrop-blur-md text-white font-semibold rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/30 hover:-translate-y-1"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                {t('home.hero.find_office')}
+                Let's go!
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 translate-y-[1px]">
+        {/* Wave Divider from original design */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f8fafc" />
           </svg>
@@ -63,86 +73,79 @@ const Home = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 bg-white relative z-20">
+      <section className="py-24 bg-slate-50 text-slate-900 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">{t('home.leadership.title')}</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">{t('home.leadership.subtitle')}</p>
+          <div className="text-center mb-24 relative">
+            <h2 className="inline-block text-4xl md:text-5xl font-extrabold tracking-widest uppercase mb-6 bg-slate-50 px-8 relative z-10 text-slate-900">
+              {t('home.leadership.title')}
+            </h2>
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0"></div>
           </div>
 
-          {/* Mayor Section */}
-          <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] mb-16 flex flex-col md:flex-row items-center gap-12 group hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-500">
-            <div className="w-full md:w-2/5 shrink-0 relative overflow-hidden rounded-2xl aspect-[4/5] shadow-lg">
-              {/* Note to user: Replace this src with the actual screenshot/image of the Mayor */}
-              <img
-                src="/dr.teshome.jpg"
-                alt="Dr. Teshome Aduna"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <h3 className="text-2xl font-bold">Dr. Teshome Aduna (Ph.D.)</h3>
-                <p className="text-blue-200 font-medium">Mayor of Sheger City</p>
-              </div>
-            </div>
-            <div className="w-full md:w-3/5">
-              <h3 className="text-3xl font-bold text-slate-900 mb-4">Welcome</h3>
-              <h4 className="text-xl text-blue-600 font-semibold mb-6">A Warm Welcome to the Residents and Visitors of Sheger City</h4>
-              <p className="text-slate-600 text-lg leading-relaxed mb-6">
-                As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents.
-              </p>
-              <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
-                Read Full Message
-              </button>
-            </div>
-          </div>
+          <div className="relative max-w-5xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-1/2"></div>
 
-          {/* Deputy Mayors Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Mr. Guyo Galgalo */}
-            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
-              <div className="h-80 sm:h-96 relative overflow-hidden">
-                <img
-                  src="/mr.guyo.png"
-                  alt="Mr. Guyo Galgalo"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+            {/* Mayor */}
+            <div className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
+              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
+                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Mayor of Sheger City</div>
+                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Dr. Teshome Aduna (Ph.D.)</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents."
+                </p>
               </div>
-              <div className="p-8 text-center">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Guyo Galgalo</h4>
-                <p className="text-sm text-slate-500 line-clamp-3">We invite all stakeholders—businesses, community leaders, and residents—to engage actively in these efforts to foster an inclusive environment.</p>
+              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
+              <div className="md:w-5/12 w-full pl-16 md:pl-8">
+                <img src="/dr.teshome.jpg" alt="Dr. Teshome Aduna" className="w-full max-w-[280px] rounded-2xl shadow-xl grayscale hover:grayscale-0 transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
               </div>
             </div>
 
-            {/* Mr. Gugsa Dejene */}
-            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
-              <div className="h-80 sm:h-96 relative overflow-hidden">
-                <img
-                  src="/mr.gugsa.png"
-                  alt="Mr. Gugsa Dejene"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+            {/* Deputy 1 */}
+            <div className="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 md:mb-32 group">
+              <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
+                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
+                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Guyo Galgalo</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  We invite all stakeholders—businesses, community leaders, and residents—to engage actively in these efforts to foster an inclusive environment.
+                </p>
               </div>
-              <div className="p-8 text-center">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Gugsa Dejene</h4>
-                <p className="text-sm text-slate-500 line-clamp-3">Deputy Mayor and Head of the Administration and Service Sector, committed to enhancing the quality of public services.</p>
+              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
+              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
+                <img src="/mr.guyo.png" alt="Mr. Guyo Galgalo" className="w-full max-w-[280px] rounded-2xl shadow-xl grayscale hover:grayscale-0 transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
               </div>
             </div>
 
-            {/* Mr. Hailu Girma */}
-            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
-              <div className="h-80 sm:h-96 relative overflow-hidden">
-                <img
-                  src="/mr.hailu.png"
-                  alt="Mr. Hailu Girma"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+            {/* Deputy 2 */}
+            <div className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
+              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
+                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
+                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Gugsa Dejene</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  Head of the Administration and Service Sector, committed to enhancing the quality of public services.
+                </p>
               </div>
-              <div className="p-8 text-center">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Hailu Girma</h4>
-                <p className="text-sm text-slate-500 line-clamp-3">Deputy Mayor and Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.</p>
+              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
+              <div className="md:w-5/12 w-full pl-16 md:pl-8">
+                <img src="/mr.gugsa.png" alt="Mr. Gugsa Dejene" className="w-full max-w-[280px] rounded-2xl shadow-xl grayscale hover:grayscale-0 transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
               </div>
             </div>
+
+            {/* Deputy 3 */}
+            <div className="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+              <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
+                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
+                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Hailu Girma</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">
+                  Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.
+                </p>
+              </div>
+              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
+              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
+                <img src="/mr.hailu.png" alt="Mr. Hailu Girma" className="w-full max-w-[280px] rounded-2xl shadow-xl grayscale hover:grayscale-0 transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
