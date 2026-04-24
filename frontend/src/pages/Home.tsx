@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import ChatBot from '../components/ChatBot';
 
 const HERO_IMAGES = [
   '/hero-1.jpg',
@@ -21,11 +22,12 @@ const Home = () => {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [weather, setWeather] = useState<{ temp: number, desc: string } | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll();
   const yParallax = useTransform(scrollY, [0, 500], [0, 200]);
+  const weatherY = useTransform(scrollY, [0, 500], [0, 100]); // Move hook to top level
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -58,20 +60,11 @@ const Home = () => {
     fetchWeather();
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setMousePos({ x, y });
-  };
-
   return (
     <div className="bg-slate-50 font-sans">
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        onMouseMove={handleMouseMove}
         className="relative text-white overflow-hidden min-h-[98vh] flex items-center bg-slate-950"
       >
         {/* Background Image Slideshow with Ken Burns Effect */}
@@ -81,14 +74,14 @@ const Home = () => {
             initial={{ scale: 1 }}
             animate={{ 
               opacity: idx === currentSlide ? 1 : 0,
-              scale: idx === currentSlide ? 1.1 : 1,
+              scale: idx === currentSlide ? 1.15 : 1,
             }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 3, ease: "easeInOut" }}
             className="absolute inset-0 z-0"
             style={{
               backgroundImage: `url('${img}')`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center 30%'
             }}
           >
              {/* Dynamic Gradient Overlay */}
@@ -98,32 +91,24 @@ const Home = () => {
         ))}
 
         {/* Floating Ambient Glows */}
-        <motion.div 
-          animate={{ 
-            x: mousePos.x * 100, 
-            y: mousePos.y * 100,
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-10"
-        />
-        <motion.div 
-          animate={{ 
-            x: mousePos.x * -80, 
-            y: mousePos.y * -80,
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none z-10"
-        />
+        <div className="hidden lg:block">
+          <motion.div 
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[10%] right-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-10"
+          />
+          <motion.div 
+            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none z-10"
+          />
+        </div>
 
         {/* Real-time Weather & Location Widget */}
         {weather && (
           <motion.div 
-            style={{ y: yParallax }}
-            className="absolute top-32 right-16 z-30 hidden lg:flex flex-col gap-10"
+            style={{ y: weatherY }}
+            className="absolute top-28 right-16 z-30 hidden lg:flex flex-col gap-10"
           >
             {/* Weather Block */}
             <div className="flex items-start gap-4">
@@ -167,8 +152,8 @@ const Home = () => {
           </motion.div>
         )}
 
-        {/* Slide Indicators - Right Side */}
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-30 hidden md:flex items-end">
+        {/* Slide Indicators */}
+        <div className="absolute right-8 top-[45%] -translate-y-1/2 flex flex-col gap-6 z-30 hidden md:flex items-end">
           {HERO_IMAGES.map((_, idx) => (
             <button 
               key={idx}
@@ -181,16 +166,9 @@ const Home = () => {
           ))}
         </div>
 
-        {/* The curvy line from the first image */}
-        <motion.div 
-          style={{ 
-            x: mousePos.x * -50, 
-            y: mousePos.y * -50,
-          }}
-          className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay"
-        >
-          <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-90 drop-shadow-2xl" preserveAspectRatio="xMidYMid slice">
-            {/* Curvy looping path */}
+        {/* The curvy line */}
+        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay -translate-y-12">
+          <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-60 sm:opacity-90 drop-shadow-2xl" preserveAspectRatio="xMidYMid slice">
             <motion.path 
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
@@ -199,50 +177,11 @@ const Home = () => {
               d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1500,200" 
               stroke="white" strokeWidth="16" strokeLinecap="round" 
             />
-            
-            {/* Map Pin 1 */}
-            <motion.g 
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ delay: 1.5, type: "spring", stiffness: 100 }}
-              transform="translate(480, 520)"
-            >
-              <motion.circle 
-                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }} 
-                transition={{ repeat: Infinity, duration: 2 }}
-                cx="0" cy="0" r="20" fill="white" className="shadow-lg" 
-              />
-              <circle cx="0" cy="0" r="6" fill="#ef4444" />
-            </motion.g>
-
-            {/* Map Pin 2 */}
-            <motion.g 
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ delay: 2, type: "spring", stiffness: 100 }}
-              transform="translate(600, 200)"
-            >
-              <motion.circle 
-                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }} 
-                transition={{ repeat: Infinity, duration: 2.5, delay: 0.5 }}
-                cx="0" cy="0" r="20" fill="white" className="shadow-lg" 
-              />
-              <circle cx="0" cy="0" r="6" fill="#3b82f6" />
-            </motion.g>
           </svg>
-        </motion.div>
+        </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 w-full">
-          <motion.div 
-            style={{ 
-              x: mousePos.x * 40, 
-              y: mousePos.y * 40,
-            }}
-            className="max-w-2xl bg-white/5 backdrop-blur-md border border-white/10 p-12 rounded-[40px] shadow-2xl relative overflow-hidden group"
-          >
-            {/* Subtle internal glow */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 w-full mt-4 sm:mt-0">
+          <motion.div className="max-w-2xl bg-white/5 sm:backdrop-blur-md border border-white/10 p-6 sm:p-12 rounded-[24px] sm:rounded-[40px] shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
             <motion.div 
@@ -250,13 +189,13 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }} 
               viewport={{ once: false }}
               transition={{ delay: 0.8 }}
-              className="uppercase tracking-[0.4em] text-xs font-black mb-8 text-amber-400 drop-shadow-md flex items-center gap-4"
+              className="uppercase tracking-[0.2em] sm:tracking-[0.4em] text-[10px] sm:text-xs font-black mb-6 sm:mb-8 text-amber-400 drop-shadow-md flex items-center gap-2 sm:gap-4"
             >
-              <span className="w-12 h-px bg-amber-400/50"></span>
+              <span className="w-8 sm:w-12 h-px bg-amber-400/50"></span>
               {t('home.hero.badge')}
             </motion.div>
             
-            <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter text-white">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-6 sm:mb-8 leading-[0.9] tracking-tighter text-white">
               <motion.span 
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -282,7 +221,7 @@ const Home = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: false }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-lg md:text-xl text-white/80 mb-12 max-w-lg leading-relaxed font-medium"
+              className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-12 max-w-lg leading-relaxed font-medium"
             >
               {t('home.hero.subtitle')}
             </motion.p>
@@ -292,11 +231,11 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: false }}
               transition={{ delay: 1.2 }}
-              className="flex flex-wrap gap-6"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6"
             >
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-12 py-5 bg-amber-500 text-slate-950 font-black rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:-translate-y-2 group"
+                className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-amber-500 text-slate-950 font-black rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] sm:hover:-translate-y-2 group text-sm sm:text-base"
               >
                 Start Exploring
                 <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -307,65 +246,50 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Wave Divider with Parallax */}
-        <motion.div 
-          style={{ y: useTransform(scrollY, [0, 800], [0, 100]) }}
-          className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]"
-        >
+        {/* Wave Divider */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#ffffff" />
           </svg>
-        </motion.div>
+        </div>
       </section>
 
       {/* City Highlights Cards */}
-      <section className="bg-white pt-32 pb-24 relative z-20 border-b border-slate-100">
+      <section className="bg-white pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">
+            <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">
               A Glimpse of the Future
             </h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight">
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight">
               Divinity and Earth Meet in Sheger
             </h3>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {SLIDESHOW_IMAGES.map((img, idx) => (
               <motion.div 
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: idx * 0.15 }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: idx * 0.1 }}
                 whileHover={{ scale: 1.03, y: -10, zIndex: 10 }}
-                className="group relative h-[500px] overflow-hidden rounded-sm cursor-pointer shadow-2xl transition-shadow duration-300"
+                className="group relative h-[400px] sm:h-[500px] overflow-hidden rounded-2xl cursor-pointer shadow-xl"
               >
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"
-                  style={{ backgroundImage: `url('${img}')` }}
-                ></div>
-                
-                {/* Overlay Gradients */}
+                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110" style={{ backgroundImage: `url('${img}')` }}></div>
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                
-                {/* Big Number in Center */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span className="text-white text-5xl font-black drop-shadow-lg transition-transform duration-500 group-hover:-translate-y-4">
-                    {idx + 1}
-                  </span>
+                  <span className="text-white text-4xl sm:text-5xl font-black drop-shadow-lg group-hover:-translate-y-4 transition-transform duration-500">{idx + 1}</span>
                 </div>
-                
-                {/* Text at Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
+                <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white text-sm font-medium leading-relaxed drop-shadow-md">
                     {idx === 0 && "The Sheger National Aquatics Center and towering skyline."}
                     {idx === 1 && "As discussed, Sheger's main square is full of vibrant life."}
@@ -380,109 +304,44 @@ const Home = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 bg-slate-50 text-slate-900 relative z-20">
+      <section className="py-24 bg-slate-50 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center mb-24 relative"
-          >
-            <h2 className="inline-block text-4xl md:text-5xl font-extrabold tracking-widest uppercase mb-6 bg-slate-50 px-8 relative z-10 text-slate-900">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ duration: 1.2 }} className="text-center mb-16 sm:mb-24 relative">
+            <h2 className="inline-block text-3xl sm:text-5xl font-black tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight">
               {t('home.leadership.title')}
             </h2>
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0"></div>
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0 hidden sm:block"></div>
           </motion.div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Vertical Line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-1/2"></div>
+          <div className="relative max-w-5xl mx-auto px-4 sm:px-0">
+            {/* Vertical Line - Hidden on small mobile */}
+            <div className="absolute left-0 sm:left-1/2 top-0 bottom-0 w-px bg-slate-200 sm:-translate-x-1/2"></div>
 
-            {/* Mayor */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
-            >
-              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
-                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Mayor of Sheger City</div>
-                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Dr. Teshome Aduna (Ph.D.)</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents."
-                </p>
-              </div>
-              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
-              <div className="md:w-5/12 w-full pl-16 md:pl-8">
-                <img src="/dr.teshome.jpg" alt="Dr. Teshome Aduna" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
-              </div>
-            </motion.div>
-
-            {/* Deputy 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 md:mb-32 group"
-            >
-              <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
-                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
-                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Guyo Galgalo</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  We invite all stakeholders—businesses, community leaders, and residents—to engage actively in these efforts to foster an inclusive environment.
-                </p>
-              </div>
-              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
-              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
-                <img src="/mr.guyo.png" alt="Mr. Guyo Galgalo" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
-              </div>
-            </motion.div>
-
-            {/* Deputy 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
-            >
-              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
-                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
-                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Gugsa Dejene</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  Head of the Administration and Service Sector, committed to enhancing the quality of public services.
-                </p>
-              </div>
-              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
-              <div className="md:w-5/12 w-full pl-16 md:pl-8">
-                <img src="/mr.gugsa.png" alt="Mr. Gugsa Dejene" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
-              </div>
-            </motion.div>
-
-            {/* Deputy 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-              className="relative flex flex-col md:flex-row-reverse items-center justify-between group"
-            >
-              <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
-                <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
-                <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Hailu Girma</h3>
-                <p className="text-slate-600 leading-relaxed text-sm">
-                  Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.
-                </p>
-              </div>
-              <div className="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10 shadow-[0_0_0_4px_rgba(248,250,252,1)] group-hover:scale-150 transition-transform duration-300"></div>
-              <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
-                <img src="/mr.hailu.png" alt="Mr. Hailu Girma" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
-              </div>
-            </motion.div>
-
+            {[
+              { title: "Mayor of Sheger City", name: "Dr. Teshome Aduna (Ph.D.)", text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community.", img: "/dr.teshome.jpg", reverse: false },
+              { title: "Deputy Mayor", name: "Mr. Guyo Galgalo", text: "We invite all stakeholders—businesses, community leaders, and residents—to engage actively.", img: "/mr.guyo.png", reverse: true },
+              { title: "Deputy Mayor", name: "Mr. Gugsa Dejene", text: "Head of the Administration and Service Sector, committed to enhancing the quality of public services.", img: "/mr.gugsa.png", reverse: false },
+              { title: "Deputy Mayor", name: "Mr. Hailu Girma", text: "Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.", img: "/mr.hailu.png", reverse: true }
+            ].map((person, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1 }}
+                className={`relative flex flex-col sm:flex-row items-center justify-between mb-20 sm:mb-32 ${person.reverse ? 'sm:flex-row-reverse' : ''}`}
+              >
+                <div className={`sm:w-5/12 w-full pl-8 sm:pl-0 mb-8 sm:mb-0 ${person.reverse ? 'sm:pl-12' : 'sm:text-right sm:pr-12'}`}>
+                  <div className="text-blue-600 font-bold tracking-widest text-[10px] sm:text-xs mb-3 uppercase">{person.title}</div>
+                  <h3 className="text-2xl sm:text-3xl font-black mb-4 text-slate-900">{person.name}</h3>
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{person.text}</p>
+                </div>
+                <div className="absolute left-0 sm:left-1/2 top-0 sm:top-1/2 -translate-x-1/2 sm:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10"></div>
+                <div className="sm:w-5/12 w-full pl-8 sm:pl-0">
+                  <img src={person.img} alt={person.name} className="w-full max-w-[280px] rounded-2xl shadow-2xl object-cover aspect-[4/5] mx-auto sm:mx-0" />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -490,72 +349,43 @@ const Home = () => {
       {/* Explore Sheger Section */}
       <section className="py-24 bg-white relative z-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
-          >
+          <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">Discover the City</h2>
-              <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Explore Sheger</h3>
+              <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">Discover the City</h2>
+              <h3 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">Explore Sheger</h3>
             </div>
-            <Link to="/explore" className="group flex items-center gap-2 text-slate-600 font-bold hover:text-amber-500 transition-colors px-6 py-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md border border-slate-200">
+            <Link to="/explore" className="w-full sm:w-auto flex items-center justify-center gap-2 text-slate-600 font-bold hover:text-amber-500 transition-colors px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200">
               View Map
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
-            {/* Large Feature */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
-            >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} className="sm:col-span-2 sm:row-span-2 min-h-[400px] relative rounded-3xl overflow-hidden group shadow-lg">
               <div className="absolute inset-0 bg-[url('/city-2.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-10">
-                <span className="px-3 py-1 bg-amber-500 text-slate-900 text-xs font-bold uppercase tracking-widest rounded-full mb-4 inline-block">Heritage</span>
-                <h4 className="text-3xl font-bold text-white mb-2">The Grand Square</h4>
-                <p className="text-white/80 max-w-md">Experience the vibrant cultural heart of Sheger City, where tradition meets modern public spaces.</p>
+              <div className="absolute bottom-0 left-0 p-6 sm:p-10">
+                <span className="px-3 py-1 bg-amber-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">Heritage</span>
+                <h4 className="text-2xl sm:text-4xl font-black text-white mb-2">The Grand Square</h4>
+                <p className="text-white/80 max-w-md text-sm sm:text-base">Experience the vibrant cultural heart of Sheger City, where tradition meets modern public spaces.</p>
               </div>
             </motion.div>
 
-            {/* Small Feature 1 */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
-            >
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ delay: 0.1 }} className="min-h-[300px] relative rounded-3xl overflow-hidden group shadow-lg">
               <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
-                <h4 className="text-2xl font-bold text-white mb-2">Eco-Parks</h4>
-                <p className="text-white/80 text-sm">Over 500 hectares of interconnected green space.</p>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-2">Eco-Parks</h4>
+                <p className="text-white/80 text-sm">Over 500 hectares of green space.</p>
               </div>
             </motion.div>
 
-            {/* Small Feature 2 */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="relative rounded-3xl overflow-hidden group cursor-pointer bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500"
-            >
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ delay: 0.2 }} className="min-h-[300px] relative rounded-3xl overflow-hidden group shadow-lg bg-slate-900">
               <div className="absolute inset-0 bg-[url('/city-1.jpg')] bg-cover bg-center opacity-60 transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
-                <h4 className="text-2xl font-bold text-white mb-2">Tech Hub</h4>
-                <p className="text-white/80 text-sm">The leading innovation center in East Africa.</p>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-2">Tech Hub</h4>
+                <p className="text-white/80 text-sm">The innovation center of East Africa.</p>
               </div>
             </motion.div>
           </div>
@@ -565,192 +395,72 @@ const Home = () => {
       {/* Latest News */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
-          >
+          <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Latest Updates</h2>
-              <p className="text-xl text-slate-600 max-w-2xl">Stay informed about city developments and community announcements.</p>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight">Latest Updates</h2>
+              <p className="text-lg sm:text-xl text-slate-600 max-w-2xl">Stay informed about city developments and announcements.</p>
             </div>
-            <Link to="/news" className="group flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors px-6 py-3 bg-white rounded-xl shadow-sm hover:shadow-md border border-slate-200">
-              View All News
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+            <Link to="/news" className="w-full sm:w-auto flex items-center justify-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors px-6 py-4 bg-white rounded-2xl border border-slate-200">
+              View All News <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.article 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: false }} 
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
-              <div className="h-56 bg-gradient-to-br from-blue-500 to-cyan-600 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-700">MAR 12, 2026</div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md mb-4 uppercase tracking-wider">New Service</span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">Online Property Registration Launch</h3>
-                <p className="text-slate-600 mb-6 line-clamp-2">Register your property online without visiting offices. Fast, secure, and incredibly convenient for all Sheger residents.</p>
-                <Link to="/news/1" className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm group-hover:gap-3 transition-all">
-                  Read Full Story <span className="text-xl leading-none">&rarr;</span>
-                </Link>
-              </div>
-            </motion.article>
-
-            <motion.article 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: false }} 
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
-              <div className="h-56 bg-gradient-to-br from-emerald-500 to-green-600 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-700">MAR 10, 2026</div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md mb-4 uppercase tracking-wider">Update</span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors leading-snug">Extended Service Hours Announced</h3>
-                <p className="text-slate-600 mb-6 line-clamp-2">All major administrative offices are now open until 6 PM on weekdays to accommodate working professionals.</p>
-                <Link to="/news/2" className="inline-flex items-center gap-2 text-emerald-600 font-bold text-sm group-hover:gap-3 transition-all">
-                  Read Full Story <span className="text-xl leading-none">&rarr;</span>
-                </Link>
-              </div>
-            </motion.article>
-
-            <motion.article 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: false }} 
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
-              <div className="h-56 bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
-                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-700">MAR 08, 2026</div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block px-3 py-1 bg-purple-50 text-purple-700 text-xs font-bold rounded-md mb-4 uppercase tracking-wider">Event</span>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors leading-snug">Public Consultation on Smart City</h3>
-                <p className="text-slate-600 mb-6 line-clamp-2">Join city planners for an interactive discussion on integrating AI and smart tech into Sheger City infrastructure.</p>
-                <Link to="/news/3" className="inline-flex items-center gap-2 text-purple-600 font-bold text-sm group-hover:gap-3 transition-all">
-                  Read Full Story <span className="text-xl leading-none">&rarr;</span>
-                </Link>
-              </div>
-            </motion.article>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { title: "Online Property Registration Launch", cat: "New Service", color: "blue", text: "Register your property online without visiting offices. Fast and secure." },
+              { title: "Extended Service Hours Announced", cat: "Update", color: "emerald", text: "Major offices are now open until 6 PM on weekdays for your convenience." },
+              { title: "Public Consultation on Smart City", cat: "Event", color: "purple", text: "Join planners for an interactive discussion on integrating AI and tech." }
+            ].map((news, idx) => (
+              <motion.article key={idx} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ delay: idx * 0.1 }} className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
+                <div className={`h-48 sm:h-56 bg-gradient-to-br ${news.color === 'blue' ? 'from-blue-500 to-cyan-600' : news.color === 'emerald' ? 'from-emerald-500 to-green-600' : 'from-purple-500 to-pink-600'} relative`}></div>
+                <div className="p-6 sm:p-8">
+                  <span className={`inline-block px-3 py-1 bg-${news.color}-50 text-${news.color}-700 text-[10px] font-bold rounded-md mb-4 uppercase tracking-wider`}>{news.cat}</span>
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">{news.title}</h3>
+                  <p className="text-slate-600 mb-6 text-sm sm:text-base line-clamp-2">{news.text}</p>
+                  <Link to="/news" className="text-blue-600 font-bold text-sm">Read Full Story &rarr;</Link>
+                </div>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
 
       {/* The Investment Hub */}
-      <section className="py-32 relative bg-slate-900 overflow-hidden z-20">
-        {/* Background elements */}
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }} 
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"
-        ></motion.div>
-        <motion.div 
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }} 
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none"
-        ></motion.div>
-        
+      <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              className="text-amber-400 font-bold tracking-[0.2em] uppercase text-sm mb-4"
-            >
-              Business & Economy
-            </motion.h2>
-            <motion.h3 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-extrabold text-white tracking-tight"
-            >
-              The Investment Hub
-            </motion.h3>
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">Business & Economy</h2>
+            <h3 className="text-3xl sm:text-6xl font-black text-white tracking-tight">The Investment Hub</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
-            >
-              <div className="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
-              </div>
-              <h4 className="text-2xl font-bold text-white mb-4">Special Economic Zones</h4>
-              <p className="text-white/60 leading-relaxed mb-8">Access massive tax incentives, streamlined customs, and zero-tariff export opportunities designed for global enterprises.</p>
-              <Link to="/invest" className="text-amber-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
-                Learn More <span className="text-xl">&rarr;</span>
-              </Link>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ delay: 0.3 }}
-              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
-            >
-              <div className="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-              </div>
-              <h4 className="text-2xl font-bold text-white mb-4">Global Connectivity</h4>
-              <p className="text-white/60 leading-relaxed mb-8">Direct access to the new international transit hub and an integrated high-speed rail network connecting major African markets.</p>
-              <Link to="/invest" className="text-blue-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
-                Learn More <span className="text-xl">&rarr;</span>
-              </Link>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
-            >
-              <div className="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
-              </div>
-              <h4 className="text-2xl font-bold text-white mb-4">Smart Infrastructure</h4>
-              <p className="text-white/60 leading-relaxed mb-8">Plug into a 100% renewable energy grid and city-wide 5G fiber networks designed for tech giants and modern industries.</p>
-              <Link to="/invest" className="text-emerald-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
-                Learn More <span className="text-xl">&rarr;</span>
-              </Link>
-            </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              { title: "Special Economic Zones", icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", color: "amber", text: "Access massive tax incentives and zero-tariff export opportunities." },
+              { title: "Global Connectivity", icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3", color: "blue", text: "Direct access to the new international transit hub and rail network." },
+              { title: "Smart Infrastructure", icon: "M9 3v2m6-2v2M9 19v2m6-2v2", color: "emerald", text: "Plug into a 100% renewable energy grid and city-wide 5G networks." }
+            ].map((hub, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ delay: idx * 0.1 }} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-[32px] hover:bg-white/10 transition-all shadow-2xl">
+                <div className={`w-14 h-14 bg-${hub.color}-500/20 text-${hub.color}-400 rounded-2xl flex items-center justify-center mb-8`}>
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={hub.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </div>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-4">{hub.title}</h4>
+                <p className="text-white/60 text-sm sm:text-base mb-8">{hub.text}</p>
+                <Link to="/invest" className={`text-${hub.color}-400 font-bold flex items-center gap-2`}>Learn More &rarr;</Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Floating AI Assistant */}
-      <button className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-tr from-blue-600 to-cyan-500 text-white rounded-full shadow-[0_10px_40px_-10px_rgba(37,99,235,0.8)] hover:shadow-[0_15px_50px_-10px_rgba(37,99,235,0.9)] transition-all duration-300 flex items-center justify-center group hover:w-auto hover:px-8 z-50 hover:-translate-y-2 border border-white/20">
-        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-        <span className="hidden group-hover:inline-block ml-3 font-bold whitespace-nowrap">AI Assistant</span>
+      <button 
+        onClick={() => setIsChatOpen(!isChatOpen)}
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-tr from-blue-600 to-cyan-500 text-white rounded-full shadow-2xl z-50 flex items-center justify-center active:scale-90 transition-all border border-white/20"
+      >
+        <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z M12 6v12M6 12h12M7.5 7.5l9 9M16.5 7.5l-9 9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>
+
+      <ChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
