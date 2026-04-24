@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -16,9 +22,9 @@ const Header = () => {
               <a href="mailto:info@shegercity.gov.et" className="hover:text-blue-400 transition hidden sm:block">✉️ info@shegercity.gov.et</a>
             </div>
             <div className="flex items-center gap-3">
-              <button className="px-3 py-1 text-xs font-medium hover:bg-slate-800 rounded transition">EN</button>
-              <button className="px-3 py-1 text-xs font-medium hover:bg-slate-800 rounded transition">አማ</button>
-              <button className="px-3 py-1 text-xs font-medium hover:bg-slate-800 rounded transition">ORO</button>
+              <button onClick={() => changeLanguage('en')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'en' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>EN</button>
+              <button onClick={() => changeLanguage('am')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'am' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>አማ</button>
+              <button onClick={() => changeLanguage('om')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'om' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>ORO</button>
             </div>
           </div>
         </div>
@@ -33,18 +39,18 @@ const Header = () => {
               <span className="text-white font-bold text-2xl">SC</span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-slate-900">Sheger City</h1>
-              <p className="text-sm text-slate-600">Digital Government Portal</p>
+              <h1 className="text-2xl font-bold text-slate-900">{t('header.title')}</h1>
+              <p className="text-sm text-slate-600">{t('header.subtitle')}</p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             <Link to="/" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-              Home
+              {t('header.home')}
             </Link>
             <Link to="/about" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-              About
+              {t('header.about')}
             </Link>
             
             {/* Sub City Dropdown */}
@@ -54,7 +60,7 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-                Sub City
+                {t('header.subcity')}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -82,7 +88,7 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-                Services
+                {t('header.services')}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -117,10 +123,10 @@ const Header = () => {
 
 
             <Link to="/news" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-              News
+              {t('header.news')}
             </Link>
             <Link to="/contact" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-              Contact
+              {t('header.contact')}
             </Link>
           </nav>
 
@@ -130,7 +136,7 @@ const Header = () => {
               to="/sector/land"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30"
             >
-              Apply for Service
+              {t('header.apply')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -153,11 +159,11 @@ const Header = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <div className="px-4 py-4 space-y-2">
-            <Link to="/" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">Home</Link>
-            <Link to="/about" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">About</Link>
+            <Link to="/" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">{t('header.home')}</Link>
+            <Link to="/about" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">{t('header.about')}</Link>
 
-            <Link to="/news" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">News</Link>
-            <Link to="/contact" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">Contact</Link>
+            <Link to="/news" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">{t('header.news')}</Link>
+            <Link to="/contact" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">{t('header.contact')}</Link>
           </div>
         </div>
       )}
