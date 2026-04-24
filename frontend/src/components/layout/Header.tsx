@@ -13,23 +13,6 @@ const Header = () => {
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      {/* Top Bar */}
-      <div className="bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-10 text-sm">
-            <div className="flex items-center gap-6">
-              <a href="tel:+251" className="hover:text-blue-400 transition">📞 +251 11 XXX XXXX</a>
-              <a href="mailto:info@shegercity.gov.et" className="hover:text-blue-400 transition hidden sm:block">✉️ info@shegercity.gov.et</a>
-            </div>
-            <div className="flex items-center gap-3">
-              <button onClick={() => changeLanguage('en')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'en' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>EN</button>
-              <button onClick={() => changeLanguage('am')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'am' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>አማ</button>
-              <button onClick={() => changeLanguage('om')} className={`px-3 py-1 text-xs font-medium rounded transition ${i18n.language === 'om' ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>ORO</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -130,8 +113,29 @@ const Header = () => {
             </Link>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Button & Language */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Language Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setActiveDropdown('language')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button className="flex items-center gap-1 px-3 py-2 text-sm font-bold text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition uppercase">
+                {i18n.language || 'en'}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {activeDropdown === 'language' && (
+                <div className="absolute right-0 top-full mt-2 w-24 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50">
+                  <button onClick={() => changeLanguage('en')} className="block w-full text-left px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">EN</button>
+                  <button onClick={() => changeLanguage('am')} className="block w-full text-left px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">አማ</button>
+                  <button onClick={() => changeLanguage('om')} className="block w-full text-left px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition">ORO</button>
+                </div>
+              )}
+            </div>
+
             <Link
               to="/sector/land"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30"
