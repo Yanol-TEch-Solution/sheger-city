@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const HERO_IMAGES = [
   '/hero-1.jpg',
@@ -21,11 +21,16 @@ const Home = () => {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [weather, setWeather] = useState<{ temp: number, desc: string } | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 500], [0, 200]);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -53,29 +58,73 @@ const Home = () => {
     fetchWeather();
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setMousePos({ x, y });
+  };
+
   return (
     <div className="bg-slate-50 font-sans">
       {/* Hero Section */}
-      <section className="relative text-white overflow-hidden min-h-[95vh] flex items-center bg-slate-900">
-        {/* Background Image Slideshow */}
+      <section 
+        ref={heroRef}
+        onMouseMove={handleMouseMove}
+        className="relative text-white overflow-hidden min-h-[98vh] flex items-center bg-slate-950"
+      >
+        {/* Background Image Slideshow with Ken Burns Effect */}
         {HERO_IMAGES.map((img, idx) => (
-          <div 
+          <motion.div 
             key={idx}
-            className={`absolute inset-0 z-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+            initial={{ scale: 1 }}
+            animate={{ 
+              opacity: idx === currentSlide ? 1 : 0,
+              scale: idx === currentSlide ? 1.1 : 1,
+            }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="absolute inset-0 z-0"
             style={{
               backgroundImage: `url('${img}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           >
-             {/* Overlay to ensure text readability */}
-             <div className="absolute inset-0 bg-black/50 mix-blend-multiply"></div>
-          </div>
+             {/* Dynamic Gradient Overlay */}
+             <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/50 to-transparent"></div>
+             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30"></div>
+          </motion.div>
         ))}
+
+        {/* Floating Ambient Glows */}
+        <motion.div 
+          animate={{ 
+            x: mousePos.x * 100, 
+            y: mousePos.y * 100,
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-10"
+        />
+        <motion.div 
+          animate={{ 
+            x: mousePos.x * -80, 
+            y: mousePos.y * -80,
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none z-10"
+        />
 
         {/* Real-time Weather & Location Widget */}
         {weather && (
-          <div className="absolute top-32 right-16 z-30 hidden lg:flex flex-col gap-10">
+          <motion.div 
+            style={{ y: yParallax }}
+            className="absolute top-32 right-16 z-30 hidden lg:flex flex-col gap-10"
+          >
             {/* Weather Block */}
             <div className="flex items-start gap-4">
               <div className="text-white mt-0.5">
@@ -115,25 +164,31 @@ const Home = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Slide Indicators - Right Side */}
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex-col gap-6 z-30 hidden md:flex items-end">
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-30 hidden md:flex items-end">
           {HERO_IMAGES.map((_, idx) => (
             <button 
               key={idx}
               onClick={() => setCurrentSlide(idx)}
               className={`text-lg font-bold transition-all duration-300 flex items-center gap-4 ${idx === currentSlide ? 'text-amber-400 scale-110' : 'text-white/40 hover:text-white/80'}`}
             >
-              {idx === currentSlide && <span className="w-8 h-[2px] bg-amber-400 block rounded-full"></span>}
+              {idx === currentSlide && <motion.span layoutId="activeDot" className="w-8 h-[2px] bg-amber-400 block rounded-full"></motion.span>}
               0{idx + 1}
             </button>
           ))}
         </div>
 
         {/* The curvy line from the first image */}
-        <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay">
+        <motion.div 
+          style={{ 
+            x: mousePos.x * -50, 
+            y: mousePos.y * -50,
+          }}
+          className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay"
+        >
           <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-90 drop-shadow-2xl" preserveAspectRatio="xMidYMid slice">
             {/* Curvy looping path */}
             <motion.path 
@@ -177,48 +232,90 @@ const Home = () => {
               <circle cx="0" cy="0" r="6" fill="#3b82f6" />
             </motion.g>
           </svg>
-        </div>
+        </motion.div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full mt-12">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 w-full">
           <motion.div 
-            className="max-w-xl"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            style={{ 
+              x: mousePos.x * 40, 
+              y: mousePos.y * 40,
+            }}
+            className="max-w-2xl bg-white/5 backdrop-blur-md border border-white/10 p-12 rounded-[40px] shadow-2xl relative overflow-hidden group"
           >
+            {/* Subtle internal glow */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
             <motion.div 
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-              className="uppercase tracking-[0.2em] text-xs font-extrabold mb-6 text-amber-400 drop-shadow-md"
+              initial={{ opacity: 0, x: -20 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: false }}
+              transition={{ delay: 0.8 }}
+              className="uppercase tracking-[0.4em] text-xs font-black mb-8 text-amber-400 drop-shadow-md flex items-center gap-4"
             >
+              <span className="w-12 h-px bg-amber-400/50"></span>
               {t('home.hero.badge')}
             </motion.div>
-            <h1 className="text-5xl md:text-7xl font-semibold mb-6 leading-tight tracking-tight text-white drop-shadow-lg">
-              {t('home.hero.title')} <br/>
-              {t('home.hero.city')}
+            
+            <h1 className="text-5xl md:text-8xl font-black mb-8 leading-[0.9] tracking-tighter text-white">
+              <motion.span 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="block"
+              >
+                {t('home.hero.title')}
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="block text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]"
+              >
+                {t('home.hero.city')}
+              </motion.span>
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-md leading-relaxed drop-shadow-md">
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1, delay: 1 }}
+              className="text-lg md:text-xl text-white/80 mb-12 max-w-lg leading-relaxed font-medium"
+            >
               {t('home.hero.subtitle')}
-            </p>
+            </motion.p>
+            
             <motion.div 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: false }}
+              transition={{ delay: 1.2 }}
+              className="flex flex-wrap gap-6"
             >
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center px-10 py-4 bg-amber-500 text-slate-900 font-extrabold rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:-translate-y-1"
+                className="inline-flex items-center justify-center px-12 py-5 bg-amber-500 text-slate-950 font-black rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:-translate-y-2 group"
               >
-                Let's go!
+                Start Exploring
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7-7 7" />
+                </svg>
               </Link>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Wave Divider from original design */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]">
+        {/* Wave Divider with Parallax */}
+        <motion.div 
+          style={{ y: useTransform(scrollY, [0, 800], [0, 100]) }}
+          className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]"
+        >
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#f8fafc" />
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#ffffff" />
           </svg>
-        </div>
+        </motion.div>
       </section>
 
       {/* City Highlights Cards */}
@@ -227,8 +324,8 @@ const Home = () => {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-16"
           >
             <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">
@@ -245,9 +342,10 @@ const Home = () => {
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: idx * 0.15, ease: "easeOut" }}
-                className="group relative h-[500px] overflow-hidden rounded-sm cursor-pointer"
+                viewport={{ once: false }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: idx * 0.15 }}
+                whileHover={{ scale: 1.03, y: -10, zIndex: 10 }}
+                className="group relative h-[500px] overflow-hidden rounded-sm cursor-pointer shadow-2xl transition-shadow duration-300"
               >
                 {/* Background Image */}
                 <div 
@@ -287,8 +385,8 @@ const Home = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-24 relative"
           >
             <h2 className="inline-block text-4xl md:text-5xl font-extrabold tracking-widest uppercase mb-6 bg-slate-50 px-8 relative z-10 text-slate-900">
@@ -305,8 +403,8 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
             >
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
@@ -326,8 +424,8 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
               className="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 md:mb-32 group"
             >
               <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
@@ -347,8 +445,8 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
             >
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
@@ -368,8 +466,8 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
               className="relative flex flex-col md:flex-row-reverse items-center justify-between group"
             >
               <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
@@ -389,13 +487,14 @@ const Home = () => {
         </div>
       </section>
 
-            {/* Explore Sheger Section */}
+      {/* Explore Sheger Section */}
       <section className="py-24 bg-white relative z-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
           >
             <div>
@@ -415,8 +514,9 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
-              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer"
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <div className="absolute inset-0 bg-[url('/city-2.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -431,9 +531,9 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ delay: 0.1 }}
-              className="relative rounded-3xl overflow-hidden group cursor-pointer"
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+              className="relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
@@ -447,9 +547,9 @@ const Home = () => {
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ delay: 0.2 }}
-              className="relative rounded-3xl overflow-hidden group cursor-pointer bg-slate-900"
+              viewport={{ once: false }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="relative rounded-3xl overflow-hidden group cursor-pointer bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <div className="absolute inset-0 bg-[url('/city-1.jpg')] bg-cover bg-center opacity-60 transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
@@ -468,7 +568,8 @@ const Home = () => {
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: false }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
           >
             <div>
@@ -485,7 +586,10 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.article 
-              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: false }} 
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-blue-500 to-cyan-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -502,7 +606,10 @@ const Home = () => {
             </motion.article>
 
             <motion.article 
-              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: false }} 
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
               className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-emerald-500 to-green-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -519,7 +626,10 @@ const Home = () => {
             </motion.article>
 
             <motion.article 
-              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: false }} 
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
               className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -580,7 +690,8 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ delay: 0.2 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
+              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
             >
               <div className="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
@@ -598,7 +709,8 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ delay: 0.3 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
+              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
             >
               <div className="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
@@ -616,7 +728,8 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ delay: 0.4 }}
-              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
+              whileHover={{ y: -15, scale: 1.02, backgroundColor: "rgba(255,255,255,0.1)" }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl transition-all duration-300 group shadow-2xl"
             >
               <div className="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
