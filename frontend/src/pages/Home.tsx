@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 const HERO_IMAGES = [
   '/hero-1.jpg',
@@ -135,27 +136,62 @@ const Home = () => {
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay">
           <svg viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover opacity-90 drop-shadow-2xl" preserveAspectRatio="xMidYMid slice">
             {/* Curvy looping path */}
-            <path d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1500,200" stroke="white" strokeWidth="16" strokeLinecap="round" />
+            <motion.path 
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 3, ease: "easeInOut", delay: 0.5 }}
+              d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1500,200" 
+              stroke="white" strokeWidth="16" strokeLinecap="round" 
+            />
             
             {/* Map Pin 1 */}
-            <g transform="translate(480, 520)">
-              <circle cx="0" cy="0" r="20" fill="white" className="shadow-lg" />
+            <motion.g 
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ delay: 1.5, type: "spring", stiffness: 100 }}
+              transform="translate(480, 520)"
+            >
+              <motion.circle 
+                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }} 
+                transition={{ repeat: Infinity, duration: 2 }}
+                cx="0" cy="0" r="20" fill="white" className="shadow-lg" 
+              />
               <circle cx="0" cy="0" r="6" fill="#ef4444" />
-            </g>
+            </motion.g>
 
             {/* Map Pin 2 */}
-            <g transform="translate(600, 200)">
-              <circle cx="0" cy="0" r="20" fill="white" className="shadow-lg" />
+            <motion.g 
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ delay: 2, type: "spring", stiffness: 100 }}
+              transform="translate(600, 200)"
+            >
+              <motion.circle 
+                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }} 
+                transition={{ repeat: Infinity, duration: 2.5, delay: 0.5 }}
+                cx="0" cy="0" r="20" fill="white" className="shadow-lg" 
+              />
               <circle cx="0" cy="0" r="6" fill="#3b82f6" />
-            </g>
+            </motion.g>
           </svg>
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 w-full mt-12">
-          <div className="max-w-xl">
-            <div className="uppercase tracking-[0.2em] text-xs font-extrabold mb-6 text-amber-400 drop-shadow-md">
+          <motion.div 
+            className="max-w-xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          >
+            <motion.div 
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
+              className="uppercase tracking-[0.2em] text-xs font-extrabold mb-6 text-amber-400 drop-shadow-md"
+            >
               {t('home.hero.badge')}
-            </div>
+            </motion.div>
             <h1 className="text-5xl md:text-7xl font-semibold mb-6 leading-tight tracking-tight text-white drop-shadow-lg">
               {t('home.hero.title')} <br/>
               {t('home.hero.city')}
@@ -163,15 +199,18 @@ const Home = () => {
             <p className="text-lg md:text-xl text-white/90 mb-10 max-w-md leading-relaxed drop-shadow-md">
               {t('home.hero.subtitle')}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+              className="flex flex-wrap gap-4"
+            >
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center px-10 py-4 bg-amber-500 text-slate-900 font-extrabold rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] hover:-translate-y-1"
               >
                 Let's go!
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Wave Divider from original design */}
@@ -185,19 +224,29 @@ const Home = () => {
       {/* City Highlights Cards */}
       <section className="bg-white pt-32 pb-24 relative z-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">
               A Glimpse of the Future
             </h2>
             <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight">
               Divinity and Earth Meet in Sheger
             </h3>
-          </div>
+          </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {SLIDESHOW_IMAGES.map((img, idx) => (
-              <div 
+              <motion.div 
                 key={idx}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: idx * 0.15, ease: "easeOut" }}
                 className="group relative h-[500px] overflow-hidden rounded-sm cursor-pointer"
               >
                 {/* Background Image */}
@@ -226,7 +275,7 @@ const Home = () => {
                     {idx === 3 && "Though Sheger does have a city center, its beauty spans far beyond."}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -235,19 +284,31 @@ const Home = () => {
       {/* Leadership Section */}
       <section className="py-24 bg-slate-50 text-slate-900 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24 relative">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-24 relative"
+          >
             <h2 className="inline-block text-4xl md:text-5xl font-extrabold tracking-widest uppercase mb-6 bg-slate-50 px-8 relative z-10 text-slate-900">
               {t('home.leadership.title')}
             </h2>
             <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0"></div>
-          </div>
+          </motion.div>
 
           <div className="relative max-w-5xl mx-auto">
             {/* Vertical Line */}
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 md:-translate-x-1/2"></div>
 
             {/* Mayor */}
-            <div className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
+            >
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
                 <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Mayor of Sheger City</div>
                 <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Dr. Teshome Aduna (Ph.D.)</h3>
@@ -259,10 +320,16 @@ const Home = () => {
               <div className="md:w-5/12 w-full pl-16 md:pl-8">
                 <img src="/dr.teshome.jpg" alt="Dr. Teshome Aduna" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
               </div>
-            </div>
+            </motion.div>
 
             {/* Deputy 1 */}
-            <div className="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 md:mb-32 group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="relative flex flex-col md:flex-row-reverse items-center justify-between mb-24 md:mb-32 group"
+            >
               <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
                 <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
                 <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Guyo Galgalo</h3>
@@ -274,10 +341,16 @@ const Home = () => {
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
                 <img src="/mr.guyo.png" alt="Mr. Guyo Galgalo" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
               </div>
-            </div>
+            </motion.div>
 
             {/* Deputy 2 */}
-            <div className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative flex flex-col md:flex-row items-center justify-between mb-24 md:mb-32 group"
+            >
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:text-right md:pr-12 mb-8 md:mb-0">
                 <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
                 <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Gugsa Dejene</h3>
@@ -289,10 +362,16 @@ const Home = () => {
               <div className="md:w-5/12 w-full pl-16 md:pl-8">
                 <img src="/mr.gugsa.png" alt="Mr. Gugsa Dejene" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 mx-auto md:mx-0 object-cover aspect-[4/5] border border-slate-200" />
               </div>
-            </div>
+            </motion.div>
 
             {/* Deputy 3 */}
-            <div className="relative flex flex-col md:flex-row-reverse items-center justify-between group">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative flex flex-col md:flex-row-reverse items-center justify-between group"
+            >
               <div className="md:w-5/12 w-full pl-16 md:pl-12 mb-8 md:mb-0">
                 <div className="text-blue-600 font-bold tracking-widest text-sm mb-3 uppercase">Deputy Mayor</div>
                 <h3 className="text-3xl font-extrabold mb-4 text-slate-900">Mr. Hailu Girma</h3>
@@ -304,100 +383,81 @@ const Home = () => {
               <div className="md:w-5/12 w-full pl-16 md:pl-0 md:pr-12">
                 <img src="/mr.hailu.png" alt="Mr. Hailu Girma" className="w-full max-w-[280px] rounded-2xl shadow-xl transition-all duration-700 ml-0 md:ml-auto object-cover aspect-[4/5] border border-slate-200" />
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* Quick Services */}
-      <section className="py-24 bg-slate-50 relative z-20">
+            {/* Explore Sheger Section */}
+      <section className="py-24 bg-white relative z-20 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">{t('home.quick_services.title')}</h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">{t('home.quick_services.subtitle')}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Link to="/sector/land/permits" className="group relative bg-white p-8 rounded-3xl border border-slate-100 hover:border-blue-200 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(37,99,235,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110 z-0"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">Building Permits</h3>
-                <p className="text-slate-600 leading-relaxed">Apply for construction and building permits seamlessly online.</p>
-                <div className="mt-6 flex items-center text-blue-600 font-semibold opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  Apply Now <span className="ml-2">&rarr;</span>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/sector/business/license" className="group relative bg-white p-8 rounded-3xl border border-slate-100 hover:border-green-200 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(34,197,94,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110 z-0"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-green-600 transition-colors">Business License</h3>
-                <p className="text-slate-600 leading-relaxed">Register and license your new or existing business quickly.</p>
-                <div className="mt-6 flex items-center text-green-600 font-semibold opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  Apply Now <span className="ml-2">&rarr;</span>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/sector/transport/license" className="group relative bg-white p-8 rounded-3xl border border-slate-100 hover:border-purple-200 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(168,85,247,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110 z-0"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" /></svg>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-purple-600 transition-colors">Driver's License</h3>
-                <p className="text-slate-600 leading-relaxed">Apply, renew or replace your driver's license with ease.</p>
-                <div className="mt-6 flex items-center text-purple-600 font-semibold opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  Apply Now <span className="ml-2">&rarr;</span>
-                </div>
-              </div>
-            </Link>
-
-            <Link to="/sector/health" className="group relative bg-white p-8 rounded-3xl border border-slate-100 hover:border-red-200 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(239,68,68,0.15)] transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110 z-0"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300 shadow-inner">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-red-600 transition-colors">Health Services</h3>
-                <p className="text-slate-600 leading-relaxed">Access healthcare facilities, records, and medical services.</p>
-                <div className="mt-6 flex items-center text-red-600 font-semibold opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300">
-                  Apply Now <span className="ml-2">&rarr;</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            <div className="text-center group">
-              <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-4 group-hover:scale-110 transition-transform duration-300">11</div>
-              <div className="text-slate-500 font-bold uppercase tracking-wider text-sm">Sub Cities</div>
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
+          >
+            <div>
+              <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">Discover the City</h2>
+              <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">Explore Sheger</h3>
             </div>
-            <div className="text-center group">
-              <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500 mb-4 group-hover:scale-110 transition-transform duration-300">50+</div>
-              <div className="text-slate-500 font-bold uppercase tracking-wider text-sm">Online Services</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 mb-4 group-hover:scale-110 transition-transform duration-300">24/7</div>
-              <div className="text-slate-500 font-bold uppercase tracking-wider text-sm">Digital Access</div>
-            </div>
-            <div className="text-center group">
-              <div className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500 mb-4 group-hover:scale-110 transition-transform duration-300">98%</div>
-              <div className="text-slate-500 font-bold uppercase tracking-wider text-sm">Citizen Satisfaction</div>
-            </div>
+            <Link to="/explore" className="group flex items-center gap-2 text-slate-600 font-bold hover:text-amber-500 transition-colors px-6 py-3 bg-slate-50 rounded-xl shadow-sm hover:shadow-md border border-slate-200">
+              View Map
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            {/* Large Feature */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, margin: "-50px" }}
+              className="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-[url('/city-2.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-10">
+                <span className="px-3 py-1 bg-amber-500 text-slate-900 text-xs font-bold uppercase tracking-widest rounded-full mb-4 inline-block">Heritage</span>
+                <h4 className="text-3xl font-bold text-white mb-2">The Grand Square</h4>
+                <p className="text-white/80 max-w-md">Experience the vibrant cultural heart of Sheger City, where tradition meets modern public spaces.</p>
+              </div>
+            </motion.div>
+
+            {/* Small Feature 1 */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ delay: 0.1 }}
+              className="relative rounded-3xl overflow-hidden group cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8">
+                <h4 className="text-2xl font-bold text-white mb-2">Eco-Parks</h4>
+                <p className="text-white/80 text-sm">Over 500 hectares of interconnected green space.</p>
+              </div>
+            </motion.div>
+
+            {/* Small Feature 2 */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ delay: 0.2 }}
+              className="relative rounded-3xl overflow-hidden group cursor-pointer bg-slate-900"
+            >
+              <div className="absolute inset-0 bg-[url('/city-1.jpg')] bg-cover bg-center opacity-60 transition-transform duration-[10000ms] group-hover:scale-110"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8">
+                <h4 className="text-2xl font-bold text-white mb-2">Tech Hub</h4>
+                <p className="text-white/80 text-sm">The leading innovation center in East Africa.</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -405,7 +465,12 @@ const Home = () => {
       {/* Latest News */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6"
+          >
             <div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Latest Updates</h2>
               <p className="text-xl text-slate-600 max-w-2xl">Stay informed about city developments and community announcements.</p>
@@ -416,10 +481,12 @@ const Home = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <article className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
+            <motion.article 
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-blue-500 to-cyan-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-700">MAR 12, 2026</div>
@@ -432,9 +499,11 @@ const Home = () => {
                   Read Full Story <span className="text-xl leading-none">&rarr;</span>
                 </Link>
               </div>
-            </article>
+            </motion.article>
 
-            <article className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
+            <motion.article 
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-emerald-500 to-green-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-700">MAR 10, 2026</div>
@@ -447,9 +516,11 @@ const Home = () => {
                   Read Full Story <span className="text-xl leading-none">&rarr;</span>
                 </Link>
               </div>
-            </article>
+            </motion.article>
 
-            <article className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
+            <motion.article 
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-50px" }} transition={{ duration: 0.6 }}
+              className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-700">MAR 08, 2026</div>
@@ -462,37 +533,100 @@ const Home = () => {
                   Read Full Story <span className="text-xl leading-none">&rarr;</span>
                 </Link>
               </div>
-            </article>
+            </motion.article>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-50"></div>
+      {/* The Investment Hub */}
+      <section className="py-32 relative bg-slate-900 overflow-hidden z-20">
+        {/* Background elements */}
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }} 
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"
+        ></motion.div>
+        <motion.div 
+          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }} 
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none"
+        ></motion.div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              className="text-amber-400 font-bold tracking-[0.2em] uppercase text-sm mb-4"
+            >
+              Business & Economy
+            </motion.h2>
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-6xl font-extrabold text-white tracking-tight"
+            >
+              The Investment Hub
+            </motion.h3>
+          </div>
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-8 tracking-tight">Ready to Get Started?</h2>
-          <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            Create an account today to manage all your government interactions from one unified dashboard.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link
-              to="/services"
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-10 py-5 bg-white text-blue-700 font-bold rounded-2xl hover:bg-blue-50 transition-all duration-300 shadow-[0_0_40px_-10px_rgba(255,255,255,0.5)] hover:shadow-[0_0_60px_-15px_rgba(255,255,255,0.8)] hover:-translate-y-1 text-lg"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.2 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
             >
-              Start Application Now
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-            <Link
-              to="/about"
-              className="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-10 py-5 bg-transparent text-white font-bold rounded-2xl border-2 border-white/30 hover:border-white transition-all duration-300 hover:bg-white/10 text-lg"
+              <div className="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+              </div>
+              <h4 className="text-2xl font-bold text-white mb-4">Special Economic Zones</h4>
+              <p className="text-white/60 leading-relaxed mb-8">Access massive tax incentives, streamlined customs, and zero-tariff export opportunities designed for global enterprises.</p>
+              <Link to="/invest" className="text-amber-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                Learn More <span className="text-xl">&rarr;</span>
+              </Link>
+            </motion.div>
+
+            {/* Card 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.3 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
             >
-              Learn More
-            </Link>
+              <div className="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+              </div>
+              <h4 className="text-2xl font-bold text-white mb-4">Global Connectivity</h4>
+              <p className="text-white/60 leading-relaxed mb-8">Direct access to the new international transit hub and an integrated high-speed rail network connecting major African markets.</p>
+              <Link to="/invest" className="text-blue-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                Learn More <span className="text-xl">&rarr;</span>
+              </Link>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.4 }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl hover:bg-white/10 transition-colors group"
+            >
+              <div className="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+              </div>
+              <h4 className="text-2xl font-bold text-white mb-4">Smart Infrastructure</h4>
+              <p className="text-white/60 leading-relaxed mb-8">Plug into a 100% renewable energy grid and city-wide 5G fiber networks designed for tech giants and modern industries.</p>
+              <Link to="/invest" className="text-emerald-400 font-semibold tracking-wide flex items-center gap-2 group-hover:gap-3 transition-all">
+                Learn More <span className="text-xl">&rarr;</span>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
