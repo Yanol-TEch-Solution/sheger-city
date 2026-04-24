@@ -59,6 +59,91 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Leadership Section */}
+      <section className="py-24 bg-white relative z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">City Leadership</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">Meet the dedicated leaders working to transform Sheger City into a model smart city.</p>
+          </div>
+
+          {/* Mayor Section */}
+          <div className="bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] mb-16 flex flex-col md:flex-row items-center gap-12 group hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] transition-all duration-500">
+            <div className="w-full md:w-1/3 shrink-0 relative overflow-hidden rounded-2xl aspect-[4/5] shadow-lg">
+              {/* Note to user: Replace this src with the actual screenshot/image of the Mayor */}
+              <img 
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600&h=750" 
+                alt="Dr. Teshome Aduna" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-2xl font-bold">Dr. Teshome Aduna (Ph.D.)</h3>
+                <p className="text-blue-200 font-medium">Mayor of Sheger City</p>
+              </div>
+            </div>
+            <div className="w-full md:w-2/3">
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Welcome</h3>
+              <h4 className="text-xl text-blue-600 font-semibold mb-6">A Warm Welcome to the Residents and Visitors of Sheger City</h4>
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents.
+              </p>
+              <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-md hover:shadow-lg">
+                Read Full Message
+              </button>
+            </div>
+          </div>
+
+          {/* Deputy Mayors Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Mr. Guyo Galgalo */}
+            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
+              <div className="h-64 relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500&h=400" 
+                  alt="Mr. Guyo Galgalo" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8 text-center">
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Guyo Galgalo</h4>
+                <p className="text-sm text-slate-500 line-clamp-3">We invite all stakeholders—businesses, community leaders, and residents—to engage actively in these efforts to foster an inclusive environment.</p>
+              </div>
+            </div>
+
+            {/* Mr. Gugsa Dejene */}
+            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
+              <div className="h-64 relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=500&h=400" 
+                  alt="Mr. Gugsa Dejene" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8 text-center">
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Gugsa Dejene</h4>
+                <p className="text-sm text-slate-500 line-clamp-3">Deputy Mayor and Head of the Administration and Service Sector, committed to enhancing the quality of public services.</p>
+              </div>
+            </div>
+
+            {/* Mr. Hailu Girma */}
+            <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2 group">
+              <div className="h-64 relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=500&h=400" 
+                  alt="Mr. Hailu Girma" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+              <div className="p-8 text-center">
+                <h4 className="text-xl font-bold text-slate-900 mb-2">Mr. Hailu Girma</h4>
+                <p className="text-sm text-slate-500 line-clamp-3">Deputy Mayor and Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Quick Services */}
       <section className="py-24 bg-slate-50 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

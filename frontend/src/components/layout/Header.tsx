@@ -115,9 +115,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/leadership" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
-              Leadership
-            </Link>
+
             <Link to="/news" className="px-4 py-2 text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition">
               News
             </Link>
@@ -157,7 +155,7 @@ const Header = () => {
           <div className="px-4 py-4 space-y-2">
             <Link to="/" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">Home</Link>
             <Link to="/about" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">About</Link>
-            <Link to="/leadership" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">Leadership</Link>
+
             <Link to="/news" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">News</Link>
             <Link to="/contact" className="block px-4 py-2 text-sm font-medium text-slate-700 hover:bg-blue-50 rounded-lg">Contact</Link>
           </div>

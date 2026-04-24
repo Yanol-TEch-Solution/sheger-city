@@ -21,9 +21,7 @@ const AppRoutes = () => {
         <Route path="/news" element={<News />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/transparency" element={<Transparency />} />
-        <Route path="/subcity" element={<SubCity />} />
         <Route path="/subcity/:id" element={<SubCity />} />
-        <Route path="/services" element={<Services />} />
         <Route path="/sector/:name/*" element={<Sector />} />
       </Routes>
     </Layout>
