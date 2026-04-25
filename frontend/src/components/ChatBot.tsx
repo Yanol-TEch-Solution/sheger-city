@@ -7,7 +7,8 @@ interface Message {
   content: string;
 }
 
-const GEMINI_API_KEY = "AIzaSyDp4Zl7TFsLet7y4wlOm22e4NLw1ENsTtg"; 
+// User's API Key
+const GEMINI_API_KEY = "AIzaSyDp4Zl7TFsLet7y4wlOm22e4NLw1ENsTtg".trim(); 
 
 const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   const [messages, setMessages] = useState<Message[]>([
@@ -27,28 +28,64 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     if (!input.trim() || isLoading) return;
 
     const userMsg = input.trim();
+    const newMessages = [...messages, { role: 'user' as const, content: userMsg }];
+    
     setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
+    setMessages(newMessages);
     setIsLoading(true);
 
-    try {
-      const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const chat = model.startChat({
-        history: messages.map(m => ({
-          role: m.role,
-          parts: [{ text: m.content }],
-        })),
-      });
+    // Attempt with different configurations
+    const configs = [
+      { model: "gemini-1.5-flash", version: "v1" },
+      { model: "gemini-1.5-flash", version: "v1beta" },
+      { model: "gemini-pro", version: "v1" },
+      { model: "models/gemini-1.5-flash", version: "v1" }
+    ];
+    
+    let success = false;
+    let lastError = "";
 
-      const result = await chat.sendMessage(userMsg);
-      const response = await result.response;
-      setMessages(prev => [...prev, { role: 'model', content: response.text() }]);
-    } catch (error: any) {
-      setMessages(prev => [...prev, { role: 'model', content: "I encountered a connection issue. Please try again." }]);
-    } finally {
-      setIsLoading(false);
+    for (const config of configs) {
+      if (success) break;
+      
+      try {
+        const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+        // Using apiVersion explicitly to find a working endpoint
+        const model = genAI.getGenerativeModel({ model: config.model }, { apiVersion: config.version });
+        
+        const result = await model.generateContent({
+          contents: [
+            { 
+              role: 'user', 
+              parts: [{ text: `You are the Sheger City AI Assistant. Answer this: ${userMsg}` }] 
+            }
+          ],
+        });
+
+        const response = await result.response;
+        const text = response.text();
+        
+        setMessages(prev => [...prev, { role: 'model', content: text }]);
+        success = true;
+      } catch (error: any) {
+        console.error(`Config failed (${config.model} @ ${config.version}):`, error);
+        lastError = error.message || "Unknown error";
+        
+        // If it's a 403 or Auth error, don't keep trying models
+        if (error.message?.includes("403") || error.message?.includes("API key")) {
+          break; 
+        }
+      }
     }
+
+    if (!success) {
+      setMessages(prev => [...prev, { 
+        role: 'model', 
+        content: `Connection failed after multiple attempts. Last error: ${lastError}. This usually happens if the 'Generative Language API' is not enabled for this specific key's project in Google Cloud Console. Please check your settings or try a fresh key.` 
+      }]);
+    }
+    
+    setIsLoading(false);
   };
 
   return (
@@ -69,10 +106,10 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                 </svg>
               </div>
               <div>
-                <h3 className="text-slate-900 font-bold text-lg leading-none">AI Assistant</h3>
+                <h3 className="text-slate-900 font-black text-lg leading-none font-display">AI Assistant</h3>
                 <div className="flex items-center gap-1.5 mt-1.5">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                  <span className="text-[11px] text-slate-400 font-medium">Always here to help</span>
+                  <span className="text-[11px] text-slate-400 font-medium">System Online</span>
                 </div>
               </div>
             </div>
@@ -90,7 +127,7 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                 animate={{ opacity: 1, y: 0 }}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`max-w-[88%] p-4 rounded-3xl text-[14px] leading-relaxed ${
+                <div className={`max-w-[88%] p-4 rounded-3xl text-[14px] font-sans leading-relaxed ${
                   msg.role === 'user' 
                     ? 'bg-blue-600 text-white rounded-br-none shadow-lg shadow-blue-600/10' 
                     : 'bg-white text-slate-600 border border-slate-100 rounded-bl-none shadow-sm'
@@ -118,7 +155,7 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask me anything about Sheger..."
+                placeholder="Ask me anything..."
                 className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-4 px-6 pr-14 focus:outline-none focus:border-blue-600 focus:bg-white transition-all text-[14px]"
               />
               <button

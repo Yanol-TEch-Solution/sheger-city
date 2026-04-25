@@ -61,7 +61,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 font-sans">
+    <div className="bg-slate-50 font-sans selection:bg-amber-500/30">
       {/* Hero Section */}
       <section 
         ref={heroRef}
@@ -195,7 +195,7 @@ const Home = () => {
               {t('home.hero.badge')}
             </motion.div>
             
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-black mb-6 sm:mb-8 leading-[0.9] tracking-tighter text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 leading-[1.1] tracking-tight text-white font-display">
               <motion.span 
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -267,7 +267,7 @@ const Home = () => {
             <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">
               A Glimpse of the Future
             </h2>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight">
+            <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight font-display">
               Divinity and Earth Meet in Sheger
             </h3>
           </motion.div>
@@ -307,7 +307,7 @@ const Home = () => {
       <section className="py-24 bg-slate-50 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ duration: 1.2 }} className="text-center mb-16 sm:mb-24 relative">
-            <h2 className="inline-block text-3xl sm:text-5xl font-black tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight">
+            <h2 className="inline-block text-3xl sm:text-5xl font-black tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
               {t('home.leadership.title')}
             </h2>
             <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0 hidden sm:block"></div>
@@ -333,7 +333,7 @@ const Home = () => {
               >
                 <div className={`sm:w-5/12 w-full pl-8 sm:pl-0 mb-8 sm:mb-0 ${person.reverse ? 'sm:pl-12' : 'sm:text-right sm:pr-12'}`}>
                   <div className="text-blue-600 font-bold tracking-widest text-[10px] sm:text-xs mb-3 uppercase">{person.title}</div>
-                  <h3 className="text-2xl sm:text-3xl font-black mb-4 text-slate-900">{person.name}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-black mb-4 text-slate-900 font-display">{person.name}</h3>
                   <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{person.text}</p>
                 </div>
                 <div className="absolute left-0 sm:left-1/2 top-0 sm:top-1/2 -translate-x-1/2 sm:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-blue-600 rounded-full z-10"></div>
@@ -352,7 +352,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
               <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-amber-500 mb-4">Discover the City</h2>
-              <h3 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">Explore Sheger</h3>
+               <h3 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight font-display">Explore Sheger</h3>
             </div>
             <Link to="/explore" className="w-full sm:w-auto flex items-center justify-center gap-2 text-slate-600 font-bold hover:text-amber-500 transition-colors px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200">
               View Map
@@ -366,7 +366,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 sm:p-10">
                 <span className="px-3 py-1 bg-amber-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">Heritage</span>
-                <h4 className="text-2xl sm:text-4xl font-black text-white mb-2">The Grand Square</h4>
+                <h4 className="text-2xl sm:text-4xl font-black text-white mb-2 font-display">The Grand Square</h4>
                 <p className="text-white/80 max-w-md text-sm sm:text-base">Experience the vibrant cultural heart of Sheger City, where tradition meets modern public spaces.</p>
               </div>
             </motion.div>
@@ -375,7 +375,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
-                <h4 className="text-xl sm:text-2xl font-black text-white mb-2">Eco-Parks</h4>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-2 font-display">Eco-Parks</h4>
                 <p className="text-white/80 text-sm">Over 500 hectares of green space.</p>
               </div>
             </motion.div>
@@ -384,7 +384,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-[url('/city-1.jpg')] bg-cover bg-center opacity-60 transition-transform duration-[10000ms] group-hover:scale-110"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
-                <h4 className="text-xl sm:text-2xl font-black text-white mb-2">Tech Hub</h4>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-2 font-display">Tech Hub</h4>
                 <p className="text-white/80 text-sm">The innovation center of East Africa.</p>
               </div>
             </motion.div>
@@ -397,7 +397,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight">Latest Updates</h2>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight font-display">Latest Updates</h2>
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl">Stay informed about city developments and announcements.</p>
             </div>
             <Link to="/news" className="w-full sm:w-auto flex items-center justify-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors px-6 py-4 bg-white rounded-2xl border border-slate-200">
@@ -415,7 +415,7 @@ const Home = () => {
                 <div className={`h-48 sm:h-56 bg-gradient-to-br ${news.color === 'blue' ? 'from-blue-500 to-cyan-600' : news.color === 'emerald' ? 'from-emerald-500 to-green-600' : 'from-purple-500 to-pink-600'} relative`}></div>
                 <div className="p-6 sm:p-8">
                   <span className={`inline-block px-3 py-1 bg-${news.color}-50 text-${news.color}-700 text-[10px] font-bold rounded-md mb-4 uppercase tracking-wider`}>{news.cat}</span>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">{news.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors font-display">{news.title}</h3>
                   <p className="text-slate-600 mb-6 text-sm sm:text-base line-clamp-2">{news.text}</p>
                   <Link to="/news" className="text-blue-600 font-bold text-sm">Read Full Story &rarr;</Link>
                 </div>
@@ -430,7 +430,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">Business & Economy</h2>
-            <h3 className="text-3xl sm:text-6xl font-black text-white tracking-tight">The Investment Hub</h3>
+            <h3 className="text-3xl sm:text-6xl font-black text-white tracking-tight font-display">The Investment Hub</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -443,7 +443,7 @@ const Home = () => {
                 <div className={`w-14 h-14 bg-${hub.color}-500/20 text-${hub.color}-400 rounded-2xl flex items-center justify-center mb-8`}>
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={hub.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </div>
-                <h4 className="text-xl sm:text-2xl font-black text-white mb-4">{hub.title}</h4>
+                <h4 className="text-xl sm:text-2xl font-black text-white mb-4 font-display">{hub.title}</h4>
                 <p className="text-white/60 text-sm sm:text-base mb-8">{hub.text}</p>
                 <Link to="/invest" className={`text-${hub.color}-400 font-bold flex items-center gap-2`}>Learn More &rarr;</Link>
               </motion.div>

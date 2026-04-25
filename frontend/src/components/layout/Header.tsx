@@ -58,8 +58,8 @@ const Header = () => {
               <span className="text-white font-bold text-xl sm:text-2xl">SC</span>
             </div>
             <div className="overflow-hidden">
-              <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
-              <p className={`text-[10px] sm:text-sm transition-colors duration-500 truncate ${isHome && !scrolled && !mobileMenuOpen ? 'text-white/70' : 'text-slate-600'}`}>{t('header.subtitle')}</p>
+              <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
+              <p className={`text-[10px] sm:text-sm transition-colors duration-500 truncate font-sans ${isHome && !scrolled && !mobileMenuOpen ? 'text-white/70' : 'text-slate-600'}`}>{t('header.subtitle')}</p>
             </div>
           </Link>
 
