@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../../assets/logo.png';
 
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -54,13 +53,9 @@ const Header = () => {
     <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 sm:gap-4 group -ml-2 lg:-ml-4">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 relative flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-              <img 
-                src={logo} 
-                alt="Sheger City Logo" 
-                className={`w-full h-full object-contain transition-all duration-500 ${isHome && !scrolled && !mobileMenuOpen ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]' : 'drop-shadow-md'}`}
-              />
+          <Link to="/" className="flex items-center gap-3 sm:gap-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg shrink-0">
+              <span className="text-white font-bold text-xl sm:text-2xl">SC</span>
             </div>
             <div className="overflow-hidden">
               <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
@@ -207,9 +202,9 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/sector/land" className="inline-flex items-center gap-1.5 px-4 py-1.5 ml-6 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition shadow-md shadow-blue-600/30">
+            <Link to="/sector/land" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
               {t('header.apply')}
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
 
