@@ -198,9 +198,6 @@ const Services = () => {
               <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-500 text-slate-900 font-semibold rounded-full hover:bg-amber-400 transition-all shadow-lg hover:-translate-y-1">
                 Contact Support
               </Link>
-              <Link to="/news" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-medium rounded-full hover:bg-white/20 transition-all">
-                View Announcements
-              </Link>
             </div>
           </motion.div>
         </div>

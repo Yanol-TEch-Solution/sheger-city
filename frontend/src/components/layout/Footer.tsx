@@ -7,9 +7,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-lg flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
-                <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain p-1.5" />
+            <div className="flex items-center gap-3 mb-4 group cursor-pointer">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
+                <div className="absolute inset-0 bg-white/5 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-105 relative z-10" />
               </div>
               <div>
                 <h3 className="text-white font-semibold">Sheger City</h3>
@@ -37,7 +38,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
               <li><Link to="/leadership" className="hover:text-white transition">Leadership</Link></li>
-              <li><Link to="/news" className="hover:text-white transition">News & Updates</Link></li>
               <li><Link to="/transparency" className="hover:text-white transition">Transparency</Link></li>
               <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
             </ul>

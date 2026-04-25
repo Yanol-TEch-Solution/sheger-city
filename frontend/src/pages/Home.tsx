@@ -392,38 +392,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Latest News */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
-            <div>
-              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4 tracking-tight font-display">Latest Updates</h2>
-              <p className="text-lg sm:text-xl text-slate-600 max-w-2xl">Stay informed about city developments and announcements.</p>
-            </div>
-            <Link to="/news" className="w-full sm:w-auto flex items-center justify-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors px-6 py-4 bg-white rounded-2xl border border-slate-200">
-              View All News <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { title: "Online Property Registration Launch", cat: "New Service", color: "blue", text: "Register your property online without visiting offices. Fast and secure." },
-              { title: "Extended Service Hours Announced", cat: "Update", color: "emerald", text: "Major offices are now open until 6 PM on weekdays for your convenience." },
-              { title: "Public Consultation on Smart City", cat: "Event", color: "purple", text: "Join planners for an interactive discussion on integrating AI and tech." }
-            ].map((news, idx) => (
-              <motion.article key={idx} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ delay: idx * 0.1 }} className="group bg-white rounded-3xl border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-500">
-                <div className={`h-48 sm:h-56 bg-gradient-to-br ${news.color === 'blue' ? 'from-blue-500 to-cyan-600' : news.color === 'emerald' ? 'from-emerald-500 to-green-600' : 'from-purple-500 to-pink-600'} relative`}></div>
-                <div className="p-6 sm:p-8">
-                  <span className={`inline-block px-3 py-1 bg-${news.color}-50 text-${news.color}-700 text-[10px] font-bold rounded-md mb-4 uppercase tracking-wider`}>{news.cat}</span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors font-display">{news.title}</h3>
-                  <p className="text-slate-600 mb-6 text-sm sm:text-base line-clamp-2">{news.text}</p>
-                  <Link to="/news" className="text-blue-600 font-bold text-sm">Read Full Story &rarr;</Link>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* The Investment Hub */}
       <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
