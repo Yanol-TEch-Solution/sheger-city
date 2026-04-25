@@ -38,6 +38,10 @@ const Header = () => {
     "Kuraa Jiddaa", "Sulultaa", "Lagaxafoo"
   ];
 
+  const DISTRICTS = [
+    "Aanaa galaan", "Aanaa Andoodee", "Aanaa siidaa Awaash"
+  ];
+
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
     isHome 
       ? (scrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-xl shadow-xl py-2' : 'bg-transparent py-4') 
@@ -52,11 +56,12 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 sm:gap-4 lg:-ml-4">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-lg flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
-              <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain p-1.5" />
+          <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
+              <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
             </div>
             <div className="overflow-hidden">
               <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
@@ -66,7 +71,6 @@ const Header = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-2">
-            <Link to="/" className={linkClasses(false)}>{t('header.home')}</Link>
             <Link to="/about" className={linkClasses(false)}>{t('header.about')}</Link>
             
             <div className="relative" onMouseEnter={() => setActiveDropdown('subcity')} onMouseLeave={() => setActiveDropdown(null)}>
@@ -82,6 +86,30 @@ const Header = () => {
                       <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
                         {SUB_CITIES.map((name) => (
                           <Link key={name} to={`/subcity/${name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-between px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-600 hover:text-white transition-all group mx-2 rounded-lg">
+                            {name}
+                            <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div className="relative" onMouseEnter={() => setActiveDropdown('district')} onMouseLeave={() => setActiveDropdown(null)}>
+              <button className={`${linkClasses(activeDropdown === 'district')} flex items-center gap-1`}>
+                {t('header.district') || 'District'}
+                <motion.svg animate={{ rotate: activeDropdown === 'district' ? 180 : 0 }} className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
+              </button>
+              <AnimatePresence>
+                {activeDropdown === 'district' && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full pt-2 w-64 z-50">
+                    <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-3 overflow-hidden">
+                      <div className="px-5 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 mb-2">Municipal Districts</div>
+                      <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
+                        {DISTRICTS.map((name) => (
+                          <Link key={name} to={`/district/${name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-between px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-600 hover:text-white transition-all group mx-2 rounded-lg">
                             {name}
                             <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                           </Link>
@@ -183,7 +211,6 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/news" className={linkClasses(false)}>{t('header.news')}</Link>
             <Link to="/contact" className={linkClasses(false)}>{t('header.contact')}</Link>
           </nav>
 
@@ -208,8 +235,8 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/sector/land" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
-              {t('header.apply')}
+            <Link to="/virtual-tour" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+              {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
@@ -225,7 +252,6 @@ const Header = () => {
         {mobileMenuOpen && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'calc(100vh - 80px)', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="lg:hidden border-t border-gray-100 bg-white overflow-y-auto">
             <div className="px-4 py-6 space-y-2">
-              <Link to="/" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.home')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
               <Link to="/about" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.about')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
               
               {/* Mobile Sub-cities */}
@@ -239,6 +265,23 @@ const Header = () => {
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 grid grid-cols-2 gap-2 pb-4">
                       {SUB_CITIES.map(name => (
                         <Link key={name} to={`/subcity/${name.toLowerCase().replace(/\s+/g, '-')}`} className="px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{name}</Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Districts */}
+              <div className="space-y-1">
+                <button onClick={() => setMobileSubMenu(mobileSubMenu === 'district' ? null : 'district')} className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">
+                  {t('header.district') || 'District'}
+                  <svg className={`w-5 h-5 transition-transform ${mobileSubMenu === 'district' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </button>
+                <AnimatePresence>
+                  {mobileSubMenu === 'district' && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 grid grid-cols-1 gap-2 pb-4">
+                      {DISTRICTS.map(name => (
+                        <Link key={name} to={`/district/${name.toLowerCase().replace(/\s+/g, '-')}`} className="px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{name}</Link>
                       ))}
                     </motion.div>
                   )}
@@ -291,7 +334,6 @@ const Header = () => {
                 </AnimatePresence>
               </div>
 
-              <Link to="/news" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.news')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
               <Link to="/contact" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.contact')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
 
               {/* Mobile Language */}
@@ -307,8 +349,8 @@ const Header = () => {
               </div>
 
               <div className="pt-8">
-                <Link to="/sector/land" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
-                  {t('header.apply')}
+                <Link to="/virtual-tour" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
+                  {t('header.virtual_tour')}
                 </Link>
               </div>
             </div>

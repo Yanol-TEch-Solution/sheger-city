@@ -4,7 +4,6 @@ import Home from '../pages/Home';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Leadership from '../pages/Leadership';
-import News from '../pages/News';
 import Explore from '../pages/Explore';
 import Transparency from '../pages/Transparency';
 import SubCity from '../pages/SubCity';

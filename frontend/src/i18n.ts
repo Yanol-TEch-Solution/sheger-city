@@ -10,11 +10,12 @@ const resources = {
         home: "Home",
         about: "About",
         subcity: "Sub City",
+        district: "District",
         services: "E - Services",
         administrative: "Administrative Sector",
         news: "News",
         contact: "Contact",
-        apply: "Apply for Service"
+        virtual_tour: "Virtual Tour"
       },
       subcities: {
         furii: "Furii",
@@ -133,11 +134,12 @@ const resources = {
         home: "ዋና ገፅ",
         about: "ስለ እኛ",
         subcity: "ክፍለ ከተማ",
+        district: "ወረዳ",
         services: "E - አገልግሎቶች",
         administrative: "የአስተዳደር ዘርፍ",
         news: "ዜና",
         contact: "አድራሻ",
-        apply: "አገልግሎት ይጠይቁ"
+        virtual_tour: "ቨርቹዋል ጉብኝት"
       },
       subcities: {
         furii: "ፉሪ",
@@ -257,11 +259,12 @@ const resources = {
         home: "Iddoo Duraa",
         about: "Waa'ee",
         subcity: "Kutaa Magaalaa",
+        district: "Aanaa",
         services: "E - Tajaajiloota",
         administrative: "Damee Bulchiinsaa",
         news: "Oduu",
         contact: "Quunnamtii",
-        apply: "Tajaajilaaf Iyyadhu"
+        virtual_tour: "Daawwannaa Virtuwalii"
       },
       subcities: {
         furii: "Furii",
