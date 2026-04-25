@@ -171,8 +171,13 @@ const Header = () => {
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[1150px] top-[80px] pt-2 z-50">
                     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col">
                       <div className="px-8 py-5 bg-slate-50 border-b border-gray-100 flex items-center justify-between">
-                        <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{t('header.administrative')} Directory</h3>
-                        <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">25 Sectors</span>
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{t('header.administrative')} Directory</h3>
+                          <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">25 Sectors</span>
+                        </div>
+                        <Link to="/administrative" className="text-[10px] font-bold text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-600 px-3 py-1.5 rounded-md transition-colors uppercase tracking-widest">
+                          View Full Directory
+                        </Link>
                       </div>
                       <div className="p-6 overflow-y-auto max-h-[60vh] custom-scrollbar">
                         <div className="grid grid-cols-4 gap-4">
