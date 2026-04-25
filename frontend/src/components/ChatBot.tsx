@@ -106,7 +106,7 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                 </svg>
               </div>
               <div>
-                <h3 className="text-slate-900 font-black text-lg leading-none font-display">AI Assistant</h3>
+                <h3 className="text-slate-900 font-semibold text-lg leading-none font-display">AI Assistant</h3>
                 <div className="flex items-center gap-1.5 mt-1.5">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                   <span className="text-[11px] text-slate-400 font-medium">System Online</span>

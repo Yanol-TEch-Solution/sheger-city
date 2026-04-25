@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import logoUrl from '../../assets/logo.png';
 const Footer = () => {
   return (
     <footer className="bg-slate-900 text-slate-300">
@@ -8,8 +8,8 @@ const Footer = () => {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">SC</span>
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-lg flex items-center justify-center shadow-lg shrink-0 overflow-hidden">
+                <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain p-1.5" />
               </div>
               <div>
                 <h3 className="text-white font-semibold">Sheger City</h3>
