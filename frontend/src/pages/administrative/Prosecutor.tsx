@@ -42,7 +42,7 @@ const Prosecutor = () => {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+      <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-32 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-blue-400 opacity-5"></div>
         <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-indigo-400/10 blur-[120px] rounded-full pointer-events-none"></div>
         

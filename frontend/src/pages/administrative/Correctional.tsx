@@ -42,7 +42,7 @@ const Correctional = () => {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+      <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-32 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-500 to-gray-500 opacity-5"></div>
         <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-slate-400/10 blur-[120px] rounded-full pointer-events-none"></div>
         
@@ -84,7 +84,7 @@ const Correctional = () => {
             className="relative h-[400px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/50"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-slate-500 to-gray-500 opacity-30 mix-blend-multiply z-10"></div>
-            <img src="https://picsum.photos/seed/correctional-hero/1200/800" alt="Correctional" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="https://picsum.photos/id/1047/1200/800" alt="Correctional" className="absolute inset-0 w-full h-full object-cover" />
             
             {/* Floating Stats Card on Hero Image */}
             <div className="absolute bottom-8 left-8 right-8 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/50 flex justify-around">
