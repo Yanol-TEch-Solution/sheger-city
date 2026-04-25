@@ -69,7 +69,7 @@ const Contact = () => {
           transition={{ duration: 12, repeat: Infinity }}
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
             We're Here to Help

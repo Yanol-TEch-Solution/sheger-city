@@ -13,7 +13,7 @@ const LEADERS = [
     title: 'Mayor of Sheger City',
     dept: 'Office of the Mayor',
     image: '/dr.teshome.jpg',
-    bio: 'Leading Sheger City's transformation into a smart, inclusive, and sustainable metropolitan center.',
+    bio: 'Leading Sheger City\'s transformation into a smart, inclusive, and sustainable metropolitan center.',
     social: 'https://twitter.com',
   },
   {
@@ -37,7 +37,7 @@ const LEADERS = [
     title: 'Director – Digital Services',
     dept: 'Technology & Innovation',
     image: '/mr.guyo.png',
-    bio: 'Driving the city's digital transformation agenda and overseeing the government services portal.',
+    bio: 'Driving the city\'s digital transformation agenda and overseeing the government services portal.',
     social: null,
   },
 ];
