@@ -15,7 +15,7 @@ const resources = {
         administrative: "Administrative Sector",
         news: "News",
         contact: "Contact",
-        apply: "Apply for Service"
+        virtual_tour: "Virtual Tour"
       },
       subcities: {
         furii: "Furii",
@@ -139,7 +139,7 @@ const resources = {
         administrative: "የአስተዳደር ዘርፍ",
         news: "ዜና",
         contact: "አድራሻ",
-        apply: "አገልግሎት ይጠይቁ"
+        virtual_tour: "ቨርቹዋል ጉብኝት"
       },
       subcities: {
         furii: "ፉሪ",
@@ -264,7 +264,7 @@ const resources = {
         administrative: "Damee Bulchiinsaa",
         news: "Oduu",
         contact: "Quunnamtii",
-        apply: "Tajaajilaaf Iyyadhu"
+        virtual_tour: "Daawwannaa Virtuwalii"
       },
       subcities: {
         furii: "Furii",

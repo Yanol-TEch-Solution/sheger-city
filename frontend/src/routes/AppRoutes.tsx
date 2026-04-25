@@ -8,7 +8,8 @@ import Explore from '../pages/Explore';
 import Transparency from '../pages/Transparency';
 import SubCity from '../pages/SubCity';
 import Sector from '../pages/Sector';
-import Services from '../pages/Services';
+import VirtualTour from '../pages/VirtualTour';
+import District from '../pages/District';
 const AppRoutes = () => {
   return (
     <Layout>
@@ -21,6 +22,8 @@ const AppRoutes = () => {
         <Route path="/transparency" element={<Transparency />} />
         <Route path="/subcity/:id" element={<SubCity />} />
         <Route path="/sector/:name/*" element={<Sector />} />
+        <Route path="/virtual-tour" element={<VirtualTour />} />
+        <Route path="/district/:id" element={<District />} />
       </Routes>
     </Layout>
   );

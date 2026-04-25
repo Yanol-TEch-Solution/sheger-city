@@ -56,7 +56,7 @@ const Header = () => {
 
   return (
     <header className={headerClasses}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
             <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
@@ -230,8 +230,8 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/sector/land" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
-              {t('header.apply')}
+            <Link to="/virtual-tour" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+              {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
@@ -344,8 +344,8 @@ const Header = () => {
               </div>
 
               <div className="pt-8">
-                <Link to="/sector/land" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
-                  {t('header.apply')}
+                <Link to="/virtual-tour" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
+                  {t('header.virtual_tour')}
                 </Link>
               </div>
             </div>

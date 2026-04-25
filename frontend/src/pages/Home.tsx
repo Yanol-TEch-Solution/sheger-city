@@ -234,7 +234,7 @@ const Home = () => {
               className="flex flex-col sm:flex-row gap-4 sm:gap-6"
             >
               <Link
-                to="/services"
+                to="/virtual-tour"
                 className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-amber-500 text-slate-950 font-bold rounded-full hover:bg-amber-400 transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.4)] hover:shadow-[0_0_50px_rgba(245,158,11,0.6)] sm:hover:-translate-y-2 group text-sm sm:text-base"
               >
                 Start Exploring
