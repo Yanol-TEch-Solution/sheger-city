@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -47,6 +48,7 @@ const colorMap: Record<string, string> = {
 };
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-slate-50">
 
@@ -66,13 +68,13 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
-            City Identity & Heritage
+            {t('about.heritage')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            About <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Sheger City</span>
+            {t('about.title')} <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Sheger City</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
-            Building a modern, transparent, and citizen-centered government for the future of Ethiopia.
+            {t('about.hero_desc')}
           </motion.p>
         </div>
 

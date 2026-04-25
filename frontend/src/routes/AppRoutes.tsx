@@ -75,7 +75,6 @@ const AppRoutes = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/leadership" element={<Leadership />} />
-            <Route path="/news" element={<News />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/transparency" element={<Transparency />} />
             <Route path="/subcity/:id" element={<SubCity />} />

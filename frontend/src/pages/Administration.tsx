@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -43,6 +44,7 @@ const sectorStyles: Record<string, { color: string; glow: string }> = {
 };
 
 const Administration = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-[#0F172A] min-h-screen text-[#F8FAFC] font-sans selection:bg-amber-500/30 overflow-hidden">
       
@@ -59,9 +61,9 @@ const Administration = () => {
           {...fadeUp(0.2)} 
           className="relative z-10 text-5xl sm:text-7xl font-bold leading-tight tracking-[-0.02em] font-display mb-8"
         >
-          City <br />
+          {t('administration_page.title').split(' ')[0]} <br />
           <span className="text-transparent" style={{ background: 'linear-gradient(to right, #FFFFFF, #F59E0B)', WebkitBackgroundClip: 'text' }}>
-            Administration
+            {t('administration_page.title').split(' ')[1]}
           </span>
         </motion.h1>
         
@@ -70,7 +72,7 @@ const Administration = () => {
           className="relative z-10 text-slate-400 text-lg sm:text-xl max-w-2xl font-mono leading-relaxed opacity-80"
           style={{ fontFamily: "'JetBrains Mono', monospace" }}
         >
-          Explore the 25 distinct administrative sectors powering the city of the future.
+          {t('administration_page.hero_desc')}
         </motion.p>
       </section>
 
@@ -89,7 +91,9 @@ const Administration = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                   
-                  <h3 className="mt-4 font-bold tracking-tight text-white font-display">{sector.title}</h3>
+                  <h3 className="mt-4 font-bold tracking-tight text-white font-display">
+                    {t(`administrative_options.${sector.id}`)}
+                  </h3>
                 </motion.div>
               </Link>
             );

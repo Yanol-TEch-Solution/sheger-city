@@ -57,6 +57,97 @@ const resources = {
         culture_tourism: "Culture & Tourism",
         communication: "Social Labor & Communication"
       },
+      administrative: {
+        official_sector: "Official Administration Sector",
+        online_services: "Online Services",
+        public_docs: "Public Documents",
+        support: "Support",
+        digital: "Digital",
+        resolved: "Resolved",
+        about_title: "Empowering Sheger's Future through Excellence",
+        about_desc: "Dedicated to structural integrity, transparent policy enforcement, and delivering premium administrative services to the citizens and businesses of Sheger City.",
+        initiatives: "Key Initiatives",
+        leadership_title: "Department Leadership",
+        leadership_desc: "Leading with transparency and innovation to serve the community.",
+        read_bio: "Read Full Bio"
+      },
+      about: {
+        title: "About",
+        heritage: "City Identity & Heritage",
+        hero_desc: "Building a modern, transparent, and citizen-centered government for the future of Ethiopia.",
+        stats: {
+          subcities: "Sub-Cities",
+          population: "Population",
+          services: "Digital Services",
+          satisfaction: "Citizen Satisfaction"
+        }
+      },
+      leadership: {
+        title: "City Leadership",
+        team: "Team",
+        hero_desc: "The dedicated leaders working every day to build a transparent, modern, and citizen-centered Sheger City.",
+        officials: "City Officials",
+        dept_mayor: "Office of the Mayor",
+        dept_admin: "Administration & Public Services",
+        dept_dev: "Urban Development & Infrastructure",
+        dept_tech: "Technology & Innovation",
+        values: {
+          accountability: "Accountability",
+          transparency: "Transparency",
+          citizen_first: "Citizen First",
+          innovation: "Innovation"
+        }
+      },
+      contact: {
+        title: "Contact Us",
+        hero_desc: "We are here to serve you. Reach out to our offices for any inquiries, feedback, or support.",
+        get_in_touch: "Get in Touch",
+        form: {
+          name: "Full Name",
+          email: "Email Address",
+          subject: "Subject",
+          message: "Message",
+          send: "Send Message"
+        },
+        offices: "Regional Offices",
+        headquarters: "Main Headquarters"
+      },
+      administration_page: {
+        title: "Administrative Directory",
+        hero_desc: "Explore the various sectors and departments that manage Sheger City's public services and infrastructure.",
+        view_details: "View Details",
+        search: "Search Sectors"
+      },
+      sector_page: {
+        back: "Back to All Services",
+        portal: "Sector Portal",
+        apply: "Apply Online",
+        apply_desc: "Submit applications, upload required documents, and track your status securely online.",
+        start_app: "Start Application",
+        book: "Book Appointment",
+        book_desc: "Need to visit in person? Schedule an appointment to avoid queues at the service center.",
+        schedule: "Schedule Visit",
+        contact_desk: "Contact Desk",
+        contact_desc: "Have specific questions? Speak to a department agent directly.",
+        sub_services: "Available Sub-Services"
+      },
+      transparency_page: {
+        title: "Transparency & Accountability",
+        hero_desc: "Access public reports, budgets, and government performance metrics as part of our commitment to open governance.",
+        reports: "Public Reports",
+        budgets: "Budget Allocation",
+        performance: "Performance Metrics"
+      },
+      virtual_tour_page: {
+        title: "Virtual Experience",
+        hero_desc: "Take a 360-degree immersive tour of Sheger City's key landmarks and development projects from anywhere in the world.",
+        start_tour: "Start Virtual Tour"
+      },
+      services_page: {
+        title: "E-Services Portal",
+        hero_desc: "Access all government services online. Fast, secure, and convenient civic infrastructure at your fingertips.",
+        search_placeholder: "What service are you looking for?"
+      },
       home: {
         hero: {
           badge: "✨ Welcome to the future of civic services",
@@ -182,6 +273,98 @@ const resources = {
         culture_tourism: "የባህል እና ቱሪዝም",
         communication: "የማህበራዊ ሰራተኛ እና ኮሙኒኬሽን"
       },
+      administrative: {
+        official_sector: "ይፋዊ የአስተዳደር ዘርፍ",
+        online_services: "የመስመር ላይ አገልግሎቶች",
+        public_docs: "የህዝብ ሰነዶች",
+        support: "ድጋፍ",
+        digital: "ዲጂታል",
+        resolved: "ተፈትቷል",
+        about_title: "የሸገርን መፃኢ ዕድል በትጋት ማጎልበት",
+        about_desc: "ለሸገር ከተማ ነዋሪዎች እና የንግድ ድርጅቶች መዋቅራዊ ታማኝነትን፣ ግልጽ የሆነ የፖሊሲ አፈፃፀምን እና ፕሪሚየም አስተዳደራዊ አገልግሎቶችን ለመስጠት ቁርጠኛ ነው።",
+        initiatives: "ቁልፍ ተነሳሽነቶች",
+        leadership_title: "የመምሪያው አመራር",
+        leadership_desc: "ማህበረሰቡን ለማገልገል በግልፅነት እና በፈጠራ መምራት።",
+        read_bio: "ሙሉውን ባዮ ያንብቡ"
+      },
+      about: {
+        title: "ስለ ሸገር ከተማ",
+        heritage: "የከተማ ማንነት እና ቅርስ",
+        hero_desc: "ለኢትዮጵያ መፃኢ ዕድል ዘመናዊ፣ ግልፅ እና ዜጋ-ተኮር መንግስት መገንባት።",
+        stats: {
+          subcities: "ክፍለ ከተሞች",
+          population: "የህዝብ ብዛት",
+          services: "የዲጂታል አገልግሎቶች",
+          satisfaction: "የዜጎች እርካታ"
+        }
+      },
+      leadership: {
+        title: "የከተማ አመራር",
+        team: "ቡድን",
+        hero_desc: "ግልፅ፣ ዘመናዊ እና ዜጋ-ተኮር ሸገር ከተማን ለመገንባት በየቀኑ የሚሰሩ ቁርጠኛ መሪዎች።",
+        officials: "የከተማ ባለስልጣናት",
+        dept_mayor: "የከንቲባ ጽሕፈት ቤት",
+        dept_admin: "አስተዳደር እና የህዝብ አገልግሎቶች",
+        dept_dev: "የከተማ ልማት እና መሰረተ ልማት",
+        dept_tech: "ቴክኖሎጂ እና ፈጠራ",
+        values: {
+          accountability: "ተጠያቂነት",
+          transparency: "ግልፅነት",
+          citizen_first: "ቅድሚያ ለዜጋ",
+          innovation: "ፈጠራ"
+        }
+      },
+      contact: {
+        title: "ያግኙን",
+        hero_desc: "እርስዎን ለማገልገል እዚህ ነን። ለማንኛውም ጥያቄ፣ አስተያየት ወይም ድጋፍ ቢሮዎቻችንን ያነጋግሩ።",
+        get_in_touch: "ይገናኙን",
+        form: {
+          name: "ሙሉ ስም",
+          email: "የኢሜል አድራሻ",
+          subject: "ርዕሰ ጉዳይ",
+          message: "መልዕክት",
+          send: "መልዕክት ላክ"
+        },
+        offices: "የክልል ቢሮዎች",
+        headquarters: "ዋና ዋና መሥሪያ ቤት"
+      },
+      administration_page: {
+        title: "የአስተዳደር ማውጫ",
+        hero_desc: "የሸገር ከተማ የህዝብ አገልግሎቶችን እና መሰረተ ልማቶችን የሚያስተዳድሩ የተለያዩ ዘርፎችን እና መምሪያዎችን ያስሱ።",
+        view_details: "ዝርዝሩን ይመልከቱ",
+        search: "ዘርፎችን ይፈልጉ"
+      },
+      sector_page: {
+        back: "ወደ ሁሉም አገልግሎቶች ተመለስ",
+        portal: "የዘርፍ ፖርታል",
+        apply: "በመስመር ላይ ያመልክቱ",
+        apply_desc: "ማመልከቻዎችን ያስገቡ፣ አስፈላጊ ሰነዶችን ይስቀሉ እና ሁኔታዎን ደህንነቱ በተጠበቀ ሁኔታ በመስመር ላይ ይከታተሉ።",
+        start_app: "ማመልከቻ ይጀምሩ",
+        book: "ቀጠሮ ይያዙ",
+        book_desc: "በአካል መገኘት ይፈልጋሉ? በአገልግሎት መስጫ ማእከል ውስጥ ወረፋዎችን ለማስወገድ ቀጠሮ ይያዙ።",
+        schedule: "ጉብኝት ያቅዱ",
+        contact_desk: "የእገዛ ጠረጴዛ",
+        contact_desc: "የተወሰኑ ጥያቄዎች አሉዎት? የመምሪያውን ተወካይ በቀጥታ ያነጋግሩ።",
+        sub_services: "የሚገኙ ንዑስ አገልግሎቶች"
+      },
+      transparency_page: {
+        title: "ግልፅነት እና ተጠያቂነት",
+        hero_desc: "ለክፍት አስተዳደር ያለንን ቁርጠኝነት አካል አድርገው የህዝብ ሪፖርቶችን፣ በጀቶችን እና የመንግስት አፈፃፀም መለኪያዎችን ያግኙ።",
+        reports: "የህዝብ ሪፖርቶች",
+        budgets: "የበጀት ድልድል",
+        performance: "የአፈፃፀም መለኪያዎች"
+      },
+      virtual_tour_page: {
+        title: "ቨርቹዋል ልምድ",
+        hero_desc: "ከየትኛውም የዓለም ክፍል ሆነው የሸገር ከተማን ቁልፍ ምልክቶች እና የልማት ፕሮጀክቶችን የ360 ዲግሪ ጉብኝት ያድርጉ።",
+        start_tour: "ቨርቹዋል ጉብኝት ይጀምሩ"
+      },
+      services_page: {
+        title: "የኢ-አገልግሎት ፖርታል",
+        hero_desc: "ሁሉንም የመንግስት አገልግሎቶች በመስመር ላይ ያግኙ። ፈጣን፣ ደህንነቱ የተጠበቀ እና ምቹ የሆነ የሲቪክ መሰረተ ልማት በእጅዎ ጫፍ።",
+        search_placeholder: "ምን ዓይነት አገልግሎት ይፈልጋሉ?"
+      },
+
       home: {
         hero: {
           badge: "✨ የሲቪክ አገልግሎቶች መፃኢ ዕድል እንኳን ደህና መጡ",
@@ -205,7 +388,7 @@ const resources = {
           deputy2_name: "አቶ ጉግሳ ደጀኔ",
           deputy2_desc: "ምክትል ከንቲባ እና የአስተዳደር እና አገልግሎት ዘርፍ ሀላፊ፣ የህዝብ አገልግሎቶችን ጥራት ለማሻሻል ቁርጠኛ ናቸው።",
           deputy3_name: "አቶ ሀይሉ ግርማ",
-          deputy3_desc: "ምክትል ከንቲባ እና የከተማ ግብርና ክላስተር ሀላፊ፣ በዘላቂነት እና በህብረተሰብ ደህንነት ላይ ትኩረት ያደርጋሉ።"
+          deputy3_desc: "ምክትል ከንቲባ እና የከተማ ግብርና ክላስተር ሀላፊ፣ በዘላቂነት እና በህብረተሰብ ደህንነት ላይ ትከረት ያደርጋሉ።"
         },
         quick_services: {
           title: "ፈጣን አገልግሎቶች",
@@ -306,6 +489,73 @@ const resources = {
         culture_tourism: "W/Aadaa fi Turizimii",
         communication: "W/Dhi/Hoj/Hawaasummaa fi Kominikeeshinii"
       },
+      leadership: {
+        title: "Hoggansa Magaalaa",
+        team: "Garee",
+        hero_desc: "Hoggantoota kutaatanii Magaalaa Shaggar ifaa, amayyaa fi lammiilee irratti xiyyeeffate ijaaruuf guyyaa guyyaan hojjetan.",
+        officials: "Abbootii Taayitaa Magaalaa",
+        dept_mayor: "Waajjira Kantiibaa",
+        dept_admin: "Bulchiinsaa fi Tajaajila Uummataa",
+        dept_dev: "Misooma Magaalaa fi Bu'uura Misoomaa",
+        dept_tech: "Teknooloojii fi Kalaqa",
+        values: {
+          accountability: "Itti Gaafatamummaa",
+          transparency: "Iftoomina",
+          citizen_first: "Duraan Duratti Lammiidhaaf",
+          innovation: "Kalaqa"
+        }
+      },
+      contact: {
+        title: "Nu Quunnamaa",
+        hero_desc: "Isin tajaajiluuf as jirra. Inveestimentii, yaada ykn deeggarsa kamiyyuu yoo qabaattan waajjiraalee keenya quunnamaa.",
+        get_in_touch: "Wal Quunnamaa",
+        form: {
+          name: "Maqaa Guutuu",
+          email: "Teessoo Imeelii",
+          subject: "Dhimma",
+          message: "Ergaa",
+          send: "Ergaa Ergi"
+        },
+        offices: "Waajjiraalee Naannoo",
+        headquarters: "Waajjira Muummee"
+      },
+      administration_page: {
+        title: "Kallattii Bulchiinsaa",
+        hero_desc: "Dameelee fi waajjiraalee tajaajila uummataa fi bu'uura misoomaa Magaalaa Shaggar bulchan sakatta'aa.",
+        view_details: "Zilzila Ilaali",
+        search: "Dameelee Barbaadi"
+      },
+      sector_page: {
+        back: "Gara Tajaajila Hundaatti Deebi'i",
+        portal: "Poortaalii Damee",
+        apply: "Onlaayiniin Iyyadhu",
+        apply_desc: "Iyyannoo galchaa, ragaalee barbaachisoo ol-funaanaa, fi haala keessan nageenyatti onlaayiniin hordofaa.",
+        start_app: "Iyyannoo Jalqabi",
+        book: "Beellama Qabadhu",
+        book_desc: "Qaamaan argamuu barbaaduu? Bakka tajaajilaatti tarree hambisuuf beellama qabadhu.",
+        schedule: "Daawwannaa Karoorsi",
+        contact_desk: "Tajaajila Deeggarsaa",
+        contact_desc: "Gaaffii addaa qabduu? Kallattiin bakka bu'aa waajjiraa haasofsiisaa.",
+        sub_services: "Tajaajiloota Xixiqqoo Jiran"
+      },
+      transparency_page: {
+        title: "Iftoominaa fi Itti Gaafatamummaa",
+        hero_desc: "Kutannoo bulchiinsa banaa qabnu irratti hundaa'uun gabaasa uummataa, baajataa fi ragaalee raawwii mootummaa argadhaa.",
+        reports: "Gabaasa Uummataa",
+        budgets: "Ramaddii Baajataa",
+        performance: "Safartuu Raawwii"
+      },
+      virtual_tour_page: {
+        title: "Muuxannoo Virtuwalii",
+        hero_desc: "Bakkeewwan beekamoo fi pirojektoota misoomaa Magaalaa Shaggar bakka kamiyyuu ta'anii daawwannaa 360-digrii godhaa.",
+        start_tour: "Daawwannaa Jalqabi"
+      },
+      services_page: {
+        title: "Poortaalii E-Tajaajilaa",
+        hero_desc: "Tajaajila mootummaa hunda onlaayiniin argadhaa. Saffisaa, amansiisaa fi mijataa.",
+        search_placeholder: "Tajaajila akkamii barbaadu?"
+      },
+
       home: {
         hero: {
           badge: "✨ Gara fuulduraa tajaajila hawaasaatti baga nagaan dhuftan",
@@ -373,6 +623,452 @@ const resources = {
         },
         ai: "Gargaaraa AI"
       }
+    }
+  },
+  hi: {
+    translation: {
+      leadership: {
+        title: "शहर का नेतृत्व",
+        team: "टीम",
+        hero_desc: "शेगर सिटी को एक पारदर्शी, आधुनिक और नागरिक-केंद्रित शहर बनाने के लिए हर दिन काम करने वाले समर्पित नेता।",
+        officials: "शहर के अधिकारी",
+        dept_mayor: "मेयर का कार्यालय",
+        dept_admin: "प्रशासन और सार्वजनिक सेवा",
+        dept_dev: "शहरी विकास और बुनियादी ढांचा",
+        dept_tech: "प्रौद्योगिकी और नवाचार",
+        values: {
+          accountability: "जवाबदेही",
+          transparency: "पारदर्शिता",
+          citizen_first: "नागरिक प्रथम",
+          innovation: "नवाचार"
+        }
+      },
+      contact: {
+        title: "संपर्क करें",
+        hero_desc: "हम आपकी सेवा के लिए यहाँ हैं। किसी भी पूछताछ, प्रतिक्रिया या सहायता के लिए हमारे कार्यालयों से संपर्क करें।",
+        get_in_touch: "संपर्क में रहें",
+        form: {
+          name: "पूरा नाम",
+          email: "ईमेल पता",
+          subject: "विषय",
+          message: "संदेश",
+          send: "संदेश भेजें"
+        },
+        offices: "क्षेत्रीय कार्यालय",
+        headquarters: "मुख्य मुख्यालय"
+      },
+      administration_page: {
+        title: "प्रशासनिक निर्देशिका",
+        hero_desc: "शेगर सिटी की सार्वजनिक सेवाओं और बुनियादी ढांचे का प्रबंधन करने वाले विभिन्न क्षेत्रों और विभागों का पता लगाएं।",
+        view_details: "विवरण देखें",
+        search: "क्षेत्र खोजें"
+      },
+      sector_page: {
+        back: "सभी सेवाओं पर वापस जाएं",
+        portal: "क्षेत्र पोर्टल",
+        apply: "ऑनलाइन आवेदन करें",
+        apply_desc: "आवेदन जमा करें, आवश्यक दस्तावेज अपलोड करें और अपनी स्थिति को ऑनलाइन ट्रैक करें।",
+        start_app: "आवेदन शुरू करें",
+        book: "अपॉइंटमेंट बुक करें",
+        book_desc: "व्यक्तिगत रूप से मिलना चाहते हैं? सेवा केंद्र पर कतारों से बचने के लिए अपॉइंटमेंट लें।",
+        schedule: "यात्रा का समय निर्धारित करें",
+        contact_desk: "सहायता डेस्क",
+        contact_desc: "कोई विशिष्ट प्रश्न है? विभाग के प्रतिनिधि से सीधे बात करें।",
+        sub_services: "उपलब्ध उप-सेवाएं"
+      },
+      header: {
+        title: "शेगर सिटी",
+        subtitle: "डिजिटल सरकारी पोर्टल",
+        home: "होम",
+        about: "हमारे बारे में",
+        subcity: "उप-शहर",
+        district: "जिला",
+        services: "ई-सेवाएं",
+        administrative: "प्रशासनिक क्षेत्र",
+        news: "समाचार",
+        contact: "संपर्क",
+        virtual_tour: "वर्चुअल टूर"
+      },
+      administrative_options: {
+        kantiibaa: "मेयर का कार्यालय",
+        public_service: "सार्वजनिक सेवा और मानव संसाधन विकास",
+        education: "शिक्षा कार्यालय",
+        health: "स्वास्थ्य कार्यालय",
+        investment: "निवेश और उद्योग",
+        revenue: "राजस्व कार्यालय",
+        chuo: "CHUO कार्यालय",
+        trade: "व्यापार कार्यालय",
+        science_tech: "विज्ञान और प्रौद्योगिकी",
+        city_council: "नगर परिषद",
+        police: "पुलिस",
+        court: "न्यायालय"
+      },
+      home: {
+        hero: {
+          badge: "✨ नागरिक सेवाओं के भविष्य में आपका स्वागत है",
+          title: "स्वागत है",
+          city: "शेगर सिटी",
+          subtitle: "कुशल, पारदर्शी और नागरिक-केंद्रित सरकारी सेवाओं के लिए आपका डिजिटल प्रवेश द्वार। अपनी उंगलियों पर निर्बाध शासन का अनुभव करें।",
+          explore: "सेवाएं खोजें",
+          find_office: "कार्यालय खोजें"
+        },
+        leadership: {
+          title: "शहर का नेतृत्व",
+          mayor_name: "डॉ. तेशोम अदुना",
+          mayor_title: "शेगर सिटी के मेयर",
+          welcome_title: "स्वागत है"
+        },
+        quick_services: {
+          title: "त्वरित सेवाएं",
+          apply_now: "अभी आवेदन करें"
+        },
+        stats: {
+          sub_cities: "उप-शहर",
+          online_services: "ऑनलाइन सेवाएं"
+        },
+        ai: "एआई सहायक"
+      }
+    }
+  },
+  ar: {
+    translation: {
+      leadership: {
+        title: "قيادة المدينة",
+        team: "الفريق",
+        hero_desc: "القادة المكرسون الذين يعملون كل يوم لبناء مدينة شيغر شفافة وحديثة ومركزة على المواطن.",
+        officials: "مسؤولو المدينة",
+        dept_mayor: "مكتب العمدة",
+        dept_admin: "الإدارة والخدمات العامة",
+        dept_dev: "التنمية الحضرية والبنية التحتية",
+        dept_tech: "التكنولوجيا والابتكار",
+        values: {
+          accountability: "المساءلة",
+          transparency: "الشفافية",
+          citizen_first: "المواطن أولاً",
+          innovation: "الابتكار"
+        }
+      },
+      contact: {
+        title: "اتصل بنا",
+        hero_desc: "نحن هنا لخدمتكم. تواصلوا مع مكاتبنا لأي استفسارات أو ملاحظات أو دعم.",
+        get_in_touch: "تواصل معنا",
+        form: {
+          name: "الاسم الكامل",
+          email: "البريد الإلكتروني",
+          subject: "الموضوع",
+          message: "الرسالة",
+          send: "إرسال الرسالة"
+        },
+        offices: "المكاتب الإقليمية",
+        headquarters: "المقر الرئيسي"
+      },
+      administration_page: {
+        title: "الدليل الإداري",
+        hero_desc: "استكشف القطاعات والإدارات المختلفة التي تدير الخدمات العامة والبنية التحتية في مدينة شيغر.",
+        view_details: "عرض التفاصيل",
+        search: "البحث في القطاعات"
+      },
+      sector_page: {
+        back: "العودة إلى جميع الخدمات",
+        portal: "بوابة القطاع",
+        apply: "تقديم الطلب إلكترونياً",
+        apply_desc: "قم بتقديم الطلبات وتحميل المستندات المطلوبة وتتبع حالتك بأمان عبر الإنترنت.",
+        start_app: "بدء الطلب",
+        book: "حجز موعد",
+        book_desc: "هل تحتاج لزيارتنا شخصياً؟ احجز موعداً لتجنب الطوابير في مركز الخدمة.",
+        schedule: "جدولة زيارة",
+        contact_desk: "مكتب الاتصال",
+        contact_desc: "هل لديك أسئلة محددة؟ تحدث إلى ممثل القسم مباشرة.",
+        sub_services: "الخدمات الفرعية المتاحة"
+      },
+      header: {
+        title: "مدينة شيغر",
+        subtitle: "بوابة الحكومة الرقمية",
+        home: "الرئيسية",
+        about: "عن المدينة",
+        subcity: "الضاحية",
+        district: "المنطقة",
+        services: "الخدمات الإلكترونية",
+        administrative: "القطاع الإداري",
+        news: "الأخبار",
+        contact: "اتصل بنا",
+        virtual_tour: "جولة افتراضية"
+      },
+      home: {
+        hero: {
+          badge: "✨ مرحباً بكم في مستقبل الخدمات المدنية",
+          title: "مرحباً بكم في",
+          city: "مدينة شيغر",
+          subtitle: "بوابتكم الرقمية لخدمات حكومية فعالة وشفافة ومركزة على المواطن. استمتع بحوكمة سلسة بين يديك.",
+          explore: "استكشاف الخدمات",
+          find_office: "البحث عن مكتب"
+        },
+        ai: "المساعد الذكي"
+      }
+    }
+  },
+  fr: {
+    translation: {
+      leadership: {
+        title: "Direction de la Ville",
+        team: "Équipe",
+        hero_desc: "Les leaders dévoués qui travaillent chaque jour pour construire une ville de Sheger transparente, moderne et centrée sur le citoyen.",
+        officials: "Responsables de la Ville",
+        dept_mayor: "Bureau du Maire",
+        dept_admin: "Administration et Services Publics",
+        dept_dev: "Développement Urbain et Infrastructure",
+        dept_tech: "Technologie et Innovation",
+        values: {
+          accountability: "Responsabilité",
+          transparency: "Transparence",
+          citizen_first: "Le Citoyen d'abord",
+          innovation: "Innovation"
+        }
+      },
+      contact: {
+        title: "Contactez-nous",
+        hero_desc: "Nous sommes là pour vous servir. Contactez nos bureaux pour toute demande, feedback ou support.",
+        get_in_touch: "Entrer en contact",
+        form: {
+          name: "Nom complet",
+          email: "Adresse e-mail",
+          subject: "Sujet",
+          message: "Message",
+          send: "Envoyer le message"
+        },
+        offices: "Bureaux régionaux",
+        headquarters: "Siège social"
+      },
+      administration_page: {
+        title: "Annuaire Administratif",
+        hero_desc: "Explorez les différents secteurs et départements qui gèrent les services publics et les infrastructures de Sheger.",
+        view_details: "Voir les détails",
+        search: "Rechercher des secteurs"
+      },
+      sector_page: {
+        back: "Retour à tous les services",
+        portal: "Portail du secteur",
+        apply: "Postuler en ligne",
+        apply_desc: "Soumettez vos demandes, téléchargez les documents requis et suivez votre statut en ligne.",
+        start_app: "Commencer la demande",
+        book: "Prendre rendez-vous",
+        book_desc: "Besoin de venir en personne ? Prenez rendez-vous pour éviter les files d'attente.",
+        schedule: "Planifier une visite",
+        contact_desk: "Bureau d'accueil",
+        contact_desc: "Questions spécifiques ? Parlez directement à un agent du département.",
+        sub_services: "Sous-services disponibles"
+      },
+      header: {
+        title: "Ville de Sheger",
+        subtitle: "Portail du Gouvernement Numérique",
+        home: "Accueil",
+        about: "À Propos",
+        subcity: "Sous-ville",
+        district: "District",
+        services: "Services-E",
+        administrative: "Secteur Administratif",
+        news: "Nouvelles",
+        contact: "Contact",
+        virtual_tour: "Visite Virtuelle"
+      },
+      home: {
+        hero: {
+          badge: "✨ Bienvenue dans le futur des services civiques",
+          title: "Bienvenue à",
+          city: "Ville de Sheger",
+          subtitle: "Votre portail numérique pour des services gouvernementaux efficaces, transparents et centrés sur le citoyen.",
+          explore: "Explorer les Services",
+          find_office: "Trouver un Bureau"
+        },
+        ai: "Assistant IA"
+      }
+    }
+  },
+  es: {
+    translation: {
+      leadership: {
+        title: "Liderazgo de la Ciudad",
+        team: "Equipo",
+        hero_desc: "Líderes dedicados que trabajan cada día para construir una Ciudad de Sheger transparente, moderna y centrada en el ciudadano.",
+        officials: "Funcionarios de la Ciudad",
+        dept_mayor: "Oficina del Alcalde",
+        dept_admin: "Administración y Servicios Públicos",
+        dept_dev: "Desarrollo Urbano e Infraestructura",
+        dept_tech: "Tecnología e Innovación",
+        values: {
+          accountability: "Responsabilidad",
+          transparency: "Transparencia",
+          citizen_first: "El Ciudadano Primero",
+          innovation: "Innovación"
+        }
+      },
+      contact: {
+        title: "Contáctenos",
+        hero_desc: "Estamos aquí para servirle. Comuníquese con nuestras oficinas para cualquier consulta, sugerencia o apoyo.",
+        get_in_touch: "Ponerse en contacto",
+        form: {
+          name: "Nombre completo",
+          email: "Correo electrónico",
+          subject: "Asunto",
+          message: "Mensaje",
+          send: "Enviar mensaje"
+        },
+        offices: "Oficinas regionales",
+        headquarters: "Sede principal"
+      },
+      administration_page: {
+        title: "Directorio Administrativo",
+        hero_desc: "Explore los diversos sectores y departamentos que gestionan los servicios públicos y la infraestructura de Sheger.",
+        view_details: "Ver detalles",
+        search: "Buscar sectores"
+      },
+      sector_page: {
+        back: "Volver a todos los servicios",
+        portal: "Portal del sector",
+        apply: "Solicitar en línea",
+        apply_desc: "Envíe solicitudes, cargue los documentos requeridos y rastree su estado de forma segura en línea.",
+        start_app: "Iniciar solicitud",
+        book: "Reservar cita",
+        book_desc: "¿Necesita venir en persona? Reserve una cita para evitar colas en el centro de servicio.",
+        schedule: "Programar visita",
+        contact_desk: "Mesa de ayuda",
+        contact_desc: "¿Tiene preguntas específicas? Hable directamente con un agente del departamento.",
+        sub_services: "Subservicios disponibles"
+      },
+      header: {
+        title: "Ciudad de Sheger",
+        subtitle: "Portal de Gobierno Digital",
+        home: "Inicio",
+        about: "Acerca de",
+        subcity: "Subciudad",
+        district: "Distrito",
+        services: "Servicios-E",
+        administrative: "Sector Administrativo",
+        news: "Noticias",
+        contact: "Contacto",
+        virtual_tour: "Visita Virtual"
+      },
+      home: {
+        hero: {
+          badge: "✨ Bienvenidos al futuro de los servicios cívicos",
+          title: "Bienvenidos a",
+          city: "Ciudad de Sheger",
+          subtitle: "Su portal digital para servicios gubernamentales eficientes, transparentes y centrados en el ciudadano.",
+          explore: "Explorar Servicios",
+          find_office: "Buscar Oficina"
+        },
+        ai: "Asistente IA"
+      }
+    }
+  },
+  ti: {
+    translation: {
+      header: {
+        title: "ከተማ ሸገር",
+        subtitle: "ዲጂታል መንግስቲ ፖርታል",
+        home: "መበገሲ",
+        about: "ብዛዕባና",
+        subcity: "ክፍለ ከተማ",
+        district: "ወረዳ",
+        services: "ኢ-አገልግሎት",
+        administrative: "ምምሕዳር ዘርፊ",
+        news: "ዜና",
+        contact: "አድራሻ",
+        virtual_tour: "ቨርቹዋል ዑደት"
+      },
+      administrative_options: {
+        kantiibaa: "ቤት ጽሕፈት ከንቲባ",
+        public_service: "ልምዓት ሰብኣዊ ጸጋን ፐብሊክ ሰርቪስን",
+        education: "ቤት ጽሕፈት ትምህርቲ",
+        health: "ቤት ጽሕፈት ጥዕና",
+        investment: "ኢንቨስትመንትን ኢንዱስትሪን",
+        revenue: "ቤት ጽሕፈት እቶት",
+        chuo: "ቤት ጽሕፈት CHUO",
+        trade: "ቤት ጽሕፈት ንግዲ",
+        science_tech: "ሳይንስን ቴክኖሎጅን",
+        city_council: "ምክር ቤት ከተማ",
+        police: "ፖሊስ",
+        court: "ቤት ፍርዲ",
+        correctional: "ትካል መኣረምታ",
+        prosecutor: "ጠቆቃሊ ጊሓ",
+        security: "ምምሕዳርን ጸጥታን",
+        finance_planning: "ፋይናንስን ፕላንን",
+        agriculture: "ሕርሻን መስኖን",
+        municipality: "ምምሕዳር ከተማን ኣባይትን",
+        women_children: "ደቂ ኣንስትዮን ህጻናትን",
+        water_energy: "ማይን ጸዓትን",
+        land_construction: "መሬትን ኮንስትራክሽንን",
+        social_rehab: "ማሕበራዊ ሓገዝ",
+        road_transport: "መገድን ትራንስፖርትን",
+        culture_tourism: "ባህልን ቱሪዝምን",
+        communication: "ኮሙኒኬሽን"
+      },
+      leadership: {
+        title: "ኣመራርሓ ከተማ",
+        team: "ጋንታ",
+        hero_desc: "ግሉጽ፣ ዘመናዊን ዜጋ-ተኮርን ከተማ ሸገር ንምህናጽ መዓልታዊ ዝሰርሑ ቆራጻት መራሕቲ።",
+        officials: "ሰበ-ስልጣን ከተማ",
+        dept_mayor: "ቤት ጽሕፈት ከንቲባ",
+        dept_admin: "ምምሕዳርን ህዝባዊ ኣገልግሎትን",
+        dept_dev: "ልምዓት ከተማን መሰረተ ልምዓትን",
+        dept_tech: "ቴክኖሎጅን ፈጠራን",
+        values: {
+          accountability: "ተሓታትነት",
+          transparency: "ግሉጽነት",
+          citizen_first: "ቀዳምነት ንዜጋ",
+          innovation: "ፈጠራ"
+        }
+      },
+      contact: {
+        title: "ርኸቡና",
+        hero_desc: "ንስኻትኩም ንምግልጋል ኣብዚ ኣለና። ንዝኾነ ሕቶ፣ ርእይቶ ወይ ሓገዝ ናብ ቢሮታትና ተወከሱ።",
+        get_in_touch: "ተራኸቡና",
+        form: {
+          name: "ምሉእ ስም",
+          email: "ኢሜይል",
+          subject: "ርእሰ ጉዳይ",
+          message: "መልእኽቲ",
+          send: "መልእኽቲ ስደድ"
+        },
+        offices: "ዞባዊ ቢሮታት",
+        headquarters: "ቀንዲ ቤት ጽሕፈት"
+      },
+      administration_page: {
+        title: "ምምሕዳራዊ ማውጫ",
+        hero_desc: "ህዝባዊ ኣገልግሎታትን መሰረተ ልምዓትን ከተማ ሸገር ዘመሓድሩ ዝተፈላለዩ ዘርፍታትን መምርሒታትን ዳህስሱ።",
+        view_details: "ዝርዝር ርአ",
+        search: "ዘርፍታት ድለዩ"
+      },
+      sector_page: {
+        back: "ናብ ኩሉ ኣገልግሎታት ተመለስ",
+        portal: "ፖርታል ዘርፊ",
+        apply: "ኦንላይን ኣመልክቱ",
+        apply_desc: "መልከቻታት ኣእትዉ፣ ዘድልዩ ሰነዳት ጽዓኑ፣ ኩነታትኩም ድማ ብውሕስነት ኦንላይን ተኸታተሉ።",
+        start_app: "መልከቻ ጀምር",
+        book: "ቆጸራ ሓዙ",
+        book_desc: "ብኣካል ክትመጽኡ ትደልዩዶ? ኣብ መውሃቢ ኣገልግሎት ማእከል ሰልፊ ንምወጋድ ቆጸራ ሓዙ።",
+        schedule: "ዑደት መደብ",
+        contact_desk: "ደስክ ሓገዝ",
+        contact_desc: "ፍሉይ ሕቶታት ኣለኩምዶ? ምስ ወኪል እቲ መምርሒ ብቀጥታ ተዛረቡ።",
+        sub_services: "ዘለዉ ንኡሳን ኣገልግሎታት"
+      },
+      transparency_page: {
+        title: "ግሉጽነትን ተሓታትነትን",
+        hero_desc: "ህዝባዊ ጸብጻባት፣ ባጀታትን መለክዒታት ኣፈጻጽማ መንግስትን ከም ኣካል እቲ ንኽፉት ምምሕዳር ዘለና ቆራጽነት ክትረኽቡ ትኽእሉ ኢኹም።",
+        reports: "ህዝባዊ ጸብጻባት",
+        budgets: "ምደባ ባጀት",
+        performance: "መለክዒታት ኣፈጻጽማ"
+      },
+      virtual_tour_page: {
+        title: "ቨርቹዋል ተመክሮ",
+        hero_desc: "ካብ ዝኾነ ቦታ ኮይንኩም ናይ 360 ዲግሪ ዑደት ቁልፊ ምልክታትን ናይ ልምዓት ፕሮጀክትታትን ከተማ ሸገር ግበሩ።",
+        start_tour: "ቨርቹዋል ዑደት ጀምር"
+      },
+      services_page: {
+        title: "ፖርታል ኢ-ኣገልግሎት",
+        hero_desc: "ኩሉ መንግስታዊ ኣገልግሎታት ኦንላይን ረኸቡ። ቅልጡፍ፣ ውሑስን ምቹእን ዝኾነ መሰረተ ልምዓት ኣብ ኣጻብዕትኹም።",
+        search_placeholder: "እንታይ ኣገልግሎት ትደልዩ ኣለኹም?"
+      },
     }
   }
 };

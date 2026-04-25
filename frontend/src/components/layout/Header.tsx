@@ -42,6 +42,17 @@ const Header = () => {
     "Aanaa galaan", "Aanaa Andoodee", "Aanaa siidaa Awaash"
   ];
 
+  const LANGUAGES = [
+    { code: 'en', label: 'EN', flag: 'https://flagcdn.com/w40/us.png' },
+    { code: 'am', label: 'AM', flag: 'https://flagcdn.com/w40/et.png' },
+    { code: 'om', label: 'OR', flag: 'https://flagcdn.com/w40/et.png' },
+    { code: 'ti', label: 'TI', flag: 'https://flagcdn.com/w40/et.png' },
+    { code: 'hi', label: 'HI', flag: 'https://flagcdn.com/w40/in.png' },
+    { code: 'ar', label: 'AR', flag: 'https://flagcdn.com/w40/sa.png' },
+    { code: 'fr', label: 'FR', flag: 'https://flagcdn.com/w40/fr.png' },
+    { code: 'es', label: 'ES', flag: 'https://flagcdn.com/w40/es.png' }
+  ];
+
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
     isHome 
       ? (scrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-xl shadow-xl py-2' : 'bg-transparent py-4') 
@@ -216,17 +227,29 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center gap-4">
             <div className="relative" onMouseEnter={() => setActiveDropdown('language')} onMouseLeave={() => setActiveDropdown(null)}>
-              <button className={`${linkClasses(activeDropdown === 'language')} flex items-center gap-1 uppercase`}>
-                {i18n.language || 'en'}
-                <motion.svg animate={{ rotate: activeDropdown === 'language' ? 180 : 0 }} className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
+              <button className={`flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300 ${activeDropdown === 'language' ? 'ring-2 ring-blue-500/20 border-blue-500/50' : ''}`}>
+                <img 
+                  src={LANGUAGES.find(l => l.code === i18n.language)?.flag || LANGUAGES[0].flag} 
+                  alt={i18n.language} 
+                  className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
+                />
+                <span className="text-[11px] font-black text-slate-700 uppercase tracking-tighter">
+                  {LANGUAGES.find(l => l.code === i18n.language)?.label || 'EN'}
+                </span>
+                <motion.svg animate={{ rotate: activeDropdown === 'language' ? 180 : 0 }} className="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
               </button>
               <AnimatePresence>
                 {activeDropdown === 'language' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute right-0 top-full pt-2 w-32 z-50">
-                    <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-2 overflow-hidden">
-                      {['en', 'am', 'om'].map((lang) => (
-                        <button key={lang} onClick={() => changeLanguage(lang)} className="flex items-center gap-3 w-full text-left px-5 py-2.5 text-sm font-bold text-slate-700 hover:bg-blue-600 hover:text-white transition-all duration-300 uppercase">
-                          {lang === 'am' ? 'አማ' : lang === 'om' ? 'ORO' : 'EN'}
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute right-0 top-full pt-2 w-48 z-50">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2 grid grid-cols-2 gap-1">
+                      {LANGUAGES.map((lang) => (
+                        <button 
+                          key={lang.code} 
+                          onClick={() => changeLanguage(lang.code)} 
+                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition-all duration-300 group ${i18n.language === lang.code ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'hover:bg-slate-50 text-slate-600'}`}
+                        >
+                          <img src={lang.flag} alt={lang.label} className="w-4 h-2.5 object-cover rounded-[1px] shadow-sm group-hover:scale-110 transition-transform" />
+                          <span className={`text-[10px] font-bold tracking-tight ${i18n.language === lang.code ? 'text-white' : 'text-slate-700'}`}>{lang.label}</span>
                         </button>
                       ))}
                     </div>
@@ -336,13 +359,18 @@ const Header = () => {
 
               <Link to="/contact" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.contact')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
 
-              {/* Mobile Language */}
-              <div className="pt-6 border-t border-slate-100 mt-4">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-4 mb-4">Select Language</p>
-                <div className="flex gap-2 px-2">
-                  {['en', 'am', 'om'].map((lang) => (
-                    <button key={lang} onClick={() => changeLanguage(lang)} className={`flex-1 py-3 text-xs font-bold rounded-xl border transition-all uppercase ${i18n.language === lang ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}>
-                      {lang === 'am' ? 'አማርኛ' : lang === 'om' ? 'Oromoo' : 'English'}
+              {/* Mobile Language Selector - Flag + Label Grid */}
+              <div className="pt-6 border-t border-slate-100 mt-4 px-2">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Select Language</p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {LANGUAGES.map((lang) => (
+                    <button 
+                      key={lang.code} 
+                      onClick={() => changeLanguage(lang.code)} 
+                      className={`flex items-center gap-3 py-4 px-4 rounded-2xl border transition-all ${i18n.language === lang.code ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-white border-slate-100 text-slate-600'}`}
+                    >
+                      <img src={lang.flag} alt={lang.label} className="w-5 h-3.5 object-cover rounded-[2px]" />
+                      <span className="text-xs font-bold">{lang.label}</span>
                     </button>
                   ))}
                 </div>

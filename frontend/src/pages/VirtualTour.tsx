@@ -40,6 +40,7 @@ const LOCATIONS = [
 ];
 
 const VirtualTour = () => {
+  const { t } = useTranslation();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   return (
     <div className="bg-slate-50 min-h-screen">
