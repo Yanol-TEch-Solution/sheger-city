@@ -48,7 +48,7 @@ const colorMap: Record<string, string> = {
 
 const About = () => {
   return (
-    <div className="bg-slate-50 font-sans">
+    <div className="bg-slate-50">
 
       {/* ─── Hero Banner ─── */}
       <section className="relative overflow-hidden bg-slate-950 text-white min-h-[55vh] flex items-center">
@@ -64,7 +64,7 @@ const About = () => {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-black text-amber-400 mb-6">
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
             City Identity & Heritage
           </motion.div>
@@ -93,8 +93,8 @@ const About = () => {
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon} /></svg>
                 </div>
-                <div className="text-3xl sm:text-4xl font-black text-slate-900 font-display mb-1">{s.value}</div>
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-400">{s.label}</div>
+                <div className="text-3xl sm:text-4xl font-semibold text-slate-900 font-display mb-1">{s.value}</div>
+                <div className="text-xs uppercase tracking-widest text-slate-400">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -106,7 +106,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-500 mb-4">City Overview</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">City Overview</p>
               <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight tracking-tight font-display mb-6">
                 A City Built for <span className="text-blue-600">People</span>
               </h2>
@@ -127,12 +127,12 @@ const About = () => {
                 <img src="/city-1.jpg" alt="Sheger City" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 bg-amber-500 text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
+                  <span className="px-3 py-1 bg-amber-500 text-slate-900 text-[10px] font-semibold uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
                 </div>
               </div>
               {/* Floating accent card */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 hidden sm:block">
-                <div className="text-2xl font-black text-blue-600 font-display">Est. 2021</div>
+                <div className="text-2xl font-semibold text-blue-600 font-display">Est. 2021</div>
                 <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">Year Founded</div>
               </div>
             </motion.div>
@@ -149,7 +149,7 @@ const About = () => {
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-400 mb-4">Direction & Purpose</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400 mb-4">Direction & Purpose</p>
             <h2 className="text-4xl sm:text-5xl font-bold font-display tracking-tight">Vision & Mission</h2>
           </motion.div>
 
@@ -159,7 +159,7 @@ const About = () => {
               <div className="w-14 h-14 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center mb-8">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
               </div>
-              <h3 className="text-2xl font-black text-white mb-4 font-display">Our Vision</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4 font-display">Our Vision</h3>
               <p className="text-white/70 leading-relaxed text-lg">
                 To be a leading smart city that provides world-class services, promotes sustainable development, and ensures the well-being and prosperity of all citizens across every sub-city.
               </p>
@@ -170,7 +170,7 @@ const About = () => {
               <div className="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-8">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
               </div>
-              <h3 className="text-2xl font-black text-white mb-4 font-display">Our Mission</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4 font-display">Our Mission</h3>
               <p className="text-white/70 leading-relaxed text-lg">
                 To deliver efficient, transparent, and accessible government services through digital innovation while fostering economic growth, social equity, and environmental sustainability.
               </p>
@@ -195,7 +195,7 @@ const About = () => {
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-500 mb-4">Our Journey</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Our Journey</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">History of Sheger</h2>
           </motion.div>
 
@@ -207,8 +207,8 @@ const About = () => {
               <motion.div key={item.year} {...fadeUp(i * 0.1)} className={`relative flex flex-col sm:flex-row items-start sm:items-center mb-14 ${i % 2 !== 0 ? 'sm:flex-row-reverse' : ''}`}>
                 {/* Text */}
                 <div className={`sm:w-5/12 w-full pl-14 sm:pl-0 ${i % 2 !== 0 ? 'sm:pl-10' : 'sm:pr-10 sm:text-right'}`}>
-                  <span className="text-xs font-black uppercase tracking-[0.25em] text-amber-500">{item.year}</span>
-                  <h3 className="text-xl font-black text-slate-900 font-display mt-1 mb-2">{item.title}</h3>
+                  <span className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-500">{item.year}</span>
+                  <h3 className="text-xl font-semibold text-slate-900 font-display mt-1 mb-2">{item.title}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
                 </div>
 
@@ -226,7 +226,7 @@ const About = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-500 mb-4">Key Milestones</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Key Milestones</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">What We've Achieved</h2>
           </motion.div>
 
@@ -234,8 +234,8 @@ const About = () => {
             {ACHIEVEMENTS.map((a, i) => (
               <motion.div key={a.title} {...fadeUp(i * 0.08)} whileHover={{ y: -6 }} className="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
                 <div className="text-4xl mb-5">{a.icon}</div>
-                <div className="text-4xl font-black text-blue-600 font-display mb-2">{a.stat}</div>
-                <h3 className="text-lg font-black text-slate-900 font-display mb-2">{a.title}</h3>
+                <div className="text-4xl font-semibold text-blue-600 font-display mb-2">{a.stat}</div>
+                <h3 className="text-lg font-semibold text-slate-900 font-display mb-2">{a.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{a.desc}</p>
               </motion.div>
             ))}
@@ -247,7 +247,7 @@ const About = () => {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)}>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-500 mb-6">Get Involved</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-6">Get Involved</p>
             <h2 className="text-4xl sm:text-6xl font-bold text-slate-900 font-display tracking-tight mb-6 leading-tight">
               Be Part of Sheger's <span className="text-blue-600">Future</span>
             </h2>
@@ -255,7 +255,7 @@ const About = () => {
               Whether you are a resident, investor, or visitor — Sheger City has a place for you. Explore our services and connect with your city government today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/services" className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-blue-600 text-white font-black rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/25 hover:-translate-y-1 group">
+              <Link to="/services" className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/25 hover:-translate-y-1 group">
                 Explore Services
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7-7 7" /></svg>
               </Link>

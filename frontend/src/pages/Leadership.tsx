@@ -1,48 +1,142 @@
+import { motion } from 'framer-motion';
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+});
+
+const LEADERS = [
+  {
+    name: 'Dr. Teshome Adugna',
+    title: 'Mayor of Sheger City',
+    dept: 'Office of the Mayor',
+    image: '/dr.teshome.jpg',
+    bio: 'Leading Sheger City's transformation into a smart, inclusive, and sustainable metropolitan center.',
+    social: 'https://twitter.com',
+  },
+  {
+    name: 'Mr. Gugsa Wolde',
+    title: 'Deputy Mayor – Administration',
+    dept: 'Administration & Public Services',
+    image: '/mr.gugsa.png',
+    bio: 'Overseeing administrative operations, public service delivery, and inter-office coordination.',
+    social: null,
+  },
+  {
+    name: 'Mr. Hailu Tesfaye',
+    title: 'Deputy Mayor – Development',
+    dept: 'Urban Development & Infrastructure',
+    image: '/mr.hailu.png',
+    bio: 'Managing major infrastructure projects, urban planning, and community development initiatives.',
+    social: null,
+  },
+  {
+    name: 'Mr. Guyo Bante',
+    title: 'Director – Digital Services',
+    dept: 'Technology & Innovation',
+    image: '/mr.guyo.png',
+    bio: 'Driving the city's digital transformation agenda and overseeing the government services portal.',
+    social: null,
+  },
+];
+
 const Leadership = () => {
-  const leaders = [
-    {
-      name: 'Mayor Name',
-      title: 'Mayor of Sheger City',
-      image: '👤',
-      bio: 'Leading Sheger City towards digital transformation and sustainable development.',
-    },
-    {
-      name: 'Deputy Mayor 1',
-      title: 'Deputy Mayor - Administration',
-      image: '👤',
-      bio: 'Overseeing administrative operations and public services.',
-    },
-    {
-      name: 'Deputy Mayor 2',
-      title: 'Deputy Mayor - Development',
-      image: '👤',
-      bio: 'Managing urban development and infrastructure projects.',
-    },
-  ];
-
   return (
-    <div className="py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-4">City Leadership</h1>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Meet the dedicated leaders working to serve the citizens of Sheger City
-        </p>
+    <div className="bg-slate-50">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {leaders.map((leader, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-64 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-8xl">
-                {leader.image}
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1">{leader.name}</h3>
-                <p className="text-blue-600 text-sm mb-4">{leader.title}</p>
-                <p className="text-gray-600 text-sm">{leader.bio}</p>
-              </div>
-            </div>
-          ))}
+      {/* ─── Hero ─── */}
+      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[48vh] flex items-center">
+        <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.25, 0.1] }}
+          transition={{ duration: 14, repeat: Infinity }}
+          className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none hidden lg:block"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
+            <span className="w-10 h-px bg-amber-400/50" />
+            City Leadership
+          </motion.div>
+          <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+            Meet the <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Team</span>
+          </motion.h1>
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
+            The dedicated leaders working every day to build a transparent, modern, and citizen-centered Sheger City.
+          </motion.p>
         </div>
-      </div>
+        <div className="absolute bottom-0 left-0 right-0 translate-y-[1px]">
+          <svg viewBox="0 0 1440 80" className="w-full h-auto" fill="none">
+            <path d="M0 80L60 70C120 60 240 40 360 30C480 20 600 20 720 25C840 30 960 40 1080 45C1200 50 1320 50 1380 50L1440 50V80H0Z" fill="#f8fafc" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ─── Leadership Grid ─── */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp(0)} className="text-center mb-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Administration</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">City Officials</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {LEADERS.map((leader, i) => (
+              <motion.div key={leader.name} {...fadeUp(i * 0.1)} whileHover={{ y: -6 }}
+                className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+              >
+                {/* Photo */}
+                <div className="relative h-64 overflow-hidden bg-slate-200">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23e2e8f0" width="100" height="100"/><text y="55" x="50" text-anchor="middle" font-size="40">👤</text></svg>';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest bg-amber-500 text-slate-900 px-2 py-1 rounded-full">
+                      {leader.dept}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="p-6">
+                  <h3 className="text-base font-semibold text-slate-900 font-display mb-1">{leader.name}</h3>
+                  <p className="text-xs text-blue-600 font-medium mb-3">{leader.title}</p>
+                  <p className="text-sm text-slate-500 leading-relaxed">{leader.bio}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Values Strip ─── */}
+      <section className="py-16 bg-white border-t border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            {[
+              { label: 'Accountability', icon: '⚖️' },
+              { label: 'Transparency', icon: '🔍' },
+              { label: 'Citizen First', icon: '🤝' },
+              { label: 'Innovation', icon: '💡' },
+            ].map((v, i) => (
+              <motion.div key={v.label} {...fadeUp(i * 0.1)} className="flex flex-col items-center gap-3">
+                <span className="text-3xl">{v.icon}</span>
+                <span className="text-sm font-medium text-slate-600">{v.label}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };

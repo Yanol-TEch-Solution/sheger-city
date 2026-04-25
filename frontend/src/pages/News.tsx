@@ -125,7 +125,7 @@ const News = () => {
   });
 
   return (
-    <div className="bg-slate-50 font-sans">
+    <div className="bg-slate-50">
 
       {/* ─── Hero Banner ─── */}
       <section className="relative bg-slate-950 text-white overflow-hidden min-h-[50vh] flex items-center">
@@ -138,7 +138,7 @@ const News = () => {
           className="absolute right-1/4 top-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-black text-amber-400 mb-6">
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
             Stay Informed
           </motion.div>
@@ -159,7 +159,7 @@ const News = () => {
       {/* ─── Featured Article ─── */}
       <section className="py-16 bg-slate-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp(0)} className="text-xs font-black uppercase tracking-[0.3em] text-amber-500 mb-6">Featured Story</motion.div>
+          <motion.div {...fadeUp(0)} className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-6">Featured Story</motion.div>
           <motion.div {...fadeUp(0.1)} className="group grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 hover:shadow-2xl transition-all duration-500 cursor-pointer">
             {/* Image */}
             <div className="relative h-64 lg:h-auto overflow-hidden">
@@ -169,7 +169,7 @@ const News = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <span className={`absolute top-6 left-6 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full ${CATEGORY_STYLES[FEATURED.category]}`}>
+              <span className={`absolute top-6 left-6 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest rounded-full ${CATEGORY_STYLES[FEATURED.category]}`}>
                 {FEATURED.category}
               </span>
             </div>
@@ -180,7 +180,7 @@ const News = () => {
                 <span className="w-1 h-1 bg-slate-300 rounded-full" />
                 <span>{FEATURED.read}</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-display leading-tight mb-4 group-hover:text-blue-600 transition-colors">
+              <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900 font-display leading-tight mb-4 group-hover:text-blue-600 transition-colors">
                 {FEATURED.title}
               </h2>
               <p className="text-slate-500 leading-relaxed mb-8">{FEATURED.excerpt}</p>
@@ -256,7 +256,7 @@ const News = () => {
                         style={{ backgroundImage: `url('${item.image}')` }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                      <span className={`absolute top-4 left-4 px-3 py-1 text-[10px] font-black uppercase tracking-widest rounded-full ${CATEGORY_STYLES[item.category]}`}>
+                      <span className={`absolute top-4 left-4 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest rounded-full ${CATEGORY_STYLES[item.category]}`}>
                         {item.category}
                       </span>
                     </div>
@@ -267,7 +267,7 @@ const News = () => {
                         <span className="w-1 h-1 bg-slate-300 rounded-full" />
                         <span>{item.read}</span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-black text-slate-900 font-display leading-snug mb-3 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-lg sm:text-xl font-semibold text-slate-900 font-display leading-snug mb-3 group-hover:text-blue-600 transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-5">{item.excerpt}</p>
@@ -284,7 +284,7 @@ const News = () => {
             ) : (
               <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24">
                 <div className="text-5xl mb-4">🔍</div>
-                <h3 className="text-2xl font-black text-slate-900 font-display mb-2">No results found</h3>
+                <h3 className="text-2xl font-semibold text-slate-900 font-display mb-2">No results found</h3>
                 <p className="text-slate-400">Try a different keyword or category filter.</p>
               </motion.div>
             )}
@@ -301,7 +301,7 @@ const News = () => {
         />
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <motion.div {...fadeUp(0)}>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-400 mb-4">Stay Connected</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400 mb-4">Stay Connected</p>
             <h2 className="text-4xl sm:text-5xl font-bold font-display tracking-tight mb-6">
               Never Miss an Update
             </h2>
@@ -314,7 +314,7 @@ const News = () => {
                 placeholder="Enter your email address"
                 className="flex-1 bg-white/10 border border-white/20 rounded-full py-4 px-6 text-white placeholder-white/40 focus:outline-none focus:border-amber-400 transition-all text-sm"
               />
-              <button className="px-8 py-4 bg-amber-500 text-slate-900 font-black rounded-full hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20 whitespace-nowrap">
+              <button className="px-8 py-4 bg-amber-500 text-slate-900 font-semibold rounded-full hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20 whitespace-nowrap">
                 Subscribe
               </button>
             </div>
