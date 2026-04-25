@@ -128,7 +128,7 @@ const Header = () => {
               </button>
               <AnimatePresence>
                 {activeDropdown === 'services' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full pt-2 w-[700px] z-50">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[900px] top-[80px] pt-2 z-50">
                     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8">
                       <div className="grid grid-cols-2 gap-8">
                         {["Property & Land", "Health & Welfare", "Transport", "Business"].map((cat) => (
