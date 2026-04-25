@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -53,9 +54,13 @@ const Header = () => {
     <header className={headerClasses}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-3 sm:gap-4">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg shrink-0">
-              <span className="text-white font-bold text-xl sm:text-2xl">SC</span>
+          <Link to="/" className="flex items-center gap-3 sm:gap-4 group -ml-2 lg:-ml-4">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 relative flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+              <img 
+                src={logo} 
+                alt="Sheger City Logo" 
+                className={`w-full h-full object-contain transition-all duration-500 ${isHome && !scrolled && !mobileMenuOpen ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]' : 'drop-shadow-md'}`}
+              />
             </div>
             <div className="overflow-hidden">
               <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
@@ -132,6 +137,51 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
+            <div className="relative" onMouseEnter={() => setActiveDropdown('administrative')} onMouseLeave={() => setActiveDropdown(null)}>
+              <button className={`${linkClasses(activeDropdown === 'administrative')} flex items-center gap-1`}>
+                {t('header.administrative')}
+                <motion.svg animate={{ rotate: activeDropdown === 'administrative' ? 180 : 0 }} className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
+              </button>
+              <AnimatePresence>
+                {activeDropdown === 'administrative' && (
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[1150px] top-[80px] pt-2 z-50">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col">
+                      <div className="px-8 py-5 bg-slate-50 border-b border-gray-100 flex items-center justify-between">
+                        <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{t('header.administrative')} Directory</h3>
+                        <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">25 Sectors</span>
+                      </div>
+                      <div className="p-6 overflow-y-auto max-h-[60vh] custom-scrollbar">
+                        <div className="grid grid-cols-4 gap-4">
+                          {[
+                            'kantiibaa', 'public_service', 'education', 'health', 'investment', 
+                            'revenue', 'chuo', 'trade', 'science_tech', 'city_council', 
+                            'correctional', 'police', 'court', 'prosecutor', 'security', 
+                            'finance_planning', 'agriculture', 'municipality', 'women_children', 'water_energy', 
+                            'land_construction', 'social_rehab', 'road_transport', 'culture_tourism', 'communication'
+                          ].map((key) => (
+                            <Link
+                              key={key}
+                              to={`/administrative/${key}`}
+                              className="group flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 hover:shadow-sm border border-transparent hover:border-blue-100 transition-all"
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-500 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                              </div>
+                              <div className="flex-1 flex flex-col justify-center min-h-[32px]">
+                                <span className="block text-xs font-bold text-slate-700 group-hover:text-blue-700 transition-colors leading-tight">
+                                  {t(`administrative_options.${key}`)}
+                                </span>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <Link to="/news" className={linkClasses(false)}>{t('header.news')}</Link>
             <Link to="/contact" className={linkClasses(false)}>{t('header.contact')}</Link>
           </nav>
@@ -157,9 +207,9 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/sector/land" className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+            <Link to="/sector/land" className="inline-flex items-center gap-1.5 px-4 py-1.5 ml-6 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition shadow-md shadow-blue-600/30">
               {t('header.apply')}
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
 
@@ -205,6 +255,35 @@ const Header = () => {
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 space-y-1 pb-4">
                       {["Land Administration", "Building Permits", "Health Services", "Transport Services", "Business License"].map(s => (
                         <Link key={s} to="/services" className="block px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{s}</Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Administrative */}
+              <div className="space-y-1">
+                <button onClick={() => setMobileSubMenu(mobileSubMenu === 'administrative' ? null : 'administrative')} className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">
+                  {t('header.administrative')}
+                  <svg className={`w-5 h-5 transition-transform ${mobileSubMenu === 'administrative' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </button>
+                <AnimatePresence>
+                  {mobileSubMenu === 'administrative' && (
+                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 grid grid-cols-1 gap-1 pb-4">
+                      {[
+                        'kantiibaa', 'public_service', 'education', 'health', 'investment', 
+                        'revenue', 'chuo', 'trade', 'science_tech', 'city_council', 
+                        'correctional', 'police', 'court', 'prosecutor', 'security', 
+                        'finance_planning', 'agriculture', 'municipality', 'women_children', 'water_energy', 
+                        'land_construction', 'social_rehab', 'road_transport', 'culture_tourism', 'communication'
+                      ].map((key) => (
+                        <Link
+                          key={key}
+                          to={`/administrative/${key}`}
+                          className="px-4 py-3 text-xs font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all"
+                        >
+                          {t(`administrative_options.${key}`)}
+                        </Link>
                       ))}
                     </motion.div>
                   )}
