@@ -1,9 +1,17 @@
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const SubCity = () => {
   const { id } = useParams();
+  const { t } = useTranslation();
 
-  const subCities = Array.from({ length: 11 }, (_, i) => i + 1);
+  const subCityKeys = [
+    'furii', 'galaan', 'galaan_guddaa', 'gafarsa_gujee', 
+    'buraayyuu', 'sabbataa', 'mana_abbichuu', 'malkaa_noonnoo', 
+    'kooyyee_faccee', 'kuraa_jiddaa', 'sulultaa', 'lagaxafoo'
+  ];
+
+  const currentSubCityName = id ? t(`subcities.${subCityKeys[parseInt(id) - 1]}`) : '';
 
   if (!id) {
     return (
@@ -12,21 +20,21 @@ const SubCity = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 font-display">Explore Our Sub Cities</h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Sheger City is divided into 11 administrative sub-cities to provide closer and more efficient services to all residents.
+              Sheger City is divided into {subCityKeys.length} administrative sub-cities to provide closer and more efficient services to all residents.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {subCities.map((num) => (
+            {subCityKeys.map((key, index) => (
               <Link 
-                key={num} 
-                to={`/subcity/${num}`}
+                key={key} 
+                to={`/subcity/${index + 1}`}
                 className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 p-6 flex flex-col items-center text-center hover:-translate-y-1"
               >
                 <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                  {num}
+                  {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">Sub City {num}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">Sub City {index + 1}</h3>
                 <p className="text-sm text-slate-500 mb-4">View local offices and specific administrative details.</p>
                 <span className="text-blue-600 font-semibold text-sm group-hover:underline">Explore &rarr;</span>
               </Link>
@@ -42,9 +50,9 @@ const SubCity = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-8">
           <Link to="/subcity" className="text-blue-600 hover:underline mb-4 inline-block">&larr; Back to all Sub Cities</Link>
-          <h1 className="text-4xl font-black mb-4 font-display">Sub City {id}</h1>
+          <h1 className="text-4xl font-bold mb-4">Sub City {id}</h1>
           <p className="text-gray-600 text-lg">
-            Welcome to Sub City {id} - serving our local community with dedicated services
+            Welcome to {currentSubCityName} - serving our local community with dedicated services
           </p>
         </div>
 
@@ -56,7 +64,7 @@ const SubCity = () => {
             </div>
             <h3 className="text-xl font-black mb-4 font-display">Overview</h3>
             <p className="text-gray-600">
-              Sub City {id} is home to diverse communities and offers comprehensive local administrative services, ensuring swift delivery and resident satisfaction.
+              {currentSubCityName} is home to diverse communities and offers comprehensive local administrative services, ensuring swift delivery and resident satisfaction.
             </p>
           </div>
 
@@ -97,7 +105,7 @@ const SubCity = () => {
               </div>
               <div>
                 <p className="font-semibold text-blue-100 mb-1">Address</p>
-                <p>Sub City {id} Administration Complex,<br/>Sheger City</p>
+                <p>{currentSubCityName} Administration Complex,<br/>Sheger City</p>
               </div>
             </div>
             <div className="flex gap-4">
