@@ -8,9 +8,9 @@ import Explore from '../pages/Explore';
 import Transparency from '../pages/Transparency';
 import SubCity from '../pages/SubCity';
 import Sector from '../pages/Sector';
-import Services from '../pages/Services';
 import Administration from '../pages/Administration';
 import VirtualTour from '../pages/VirtualTour';
+import District from '../pages/District';
 
 import Kantiibaa from '../pages/administrative/Kantiibaa';
 import PublicService from '../pages/administrative/PublicService';
@@ -79,9 +79,9 @@ const AppRoutes = () => {
             <Route path="/explore" element={<Explore />} />
             <Route path="/transparency" element={<Transparency />} />
             <Route path="/subcity/:id" element={<SubCity />} />
+            <Route path="/district/:id" element={<District />} />
             <Route path="/administrative" element={<Administration />} />
             <Route path="/sector/:name/*" element={<Sector />} />
-            <Route path="/services" element={<Services />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
           </Routes>
         </Layout>
