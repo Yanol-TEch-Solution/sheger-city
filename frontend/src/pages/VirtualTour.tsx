@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false },
-  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 const LOCATIONS = [
@@ -41,7 +40,6 @@ const LOCATIONS = [
 ];
 
 const VirtualTour = () => {
-  const { t } = useTranslation();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   useEffect(() => {
@@ -69,7 +67,7 @@ const VirtualTour = () => {
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Main 360 Experience */}
-      <section className="pt-32 pb-12 bg-white">
+      <section className="pt-24 pb-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
            <motion.div 
             {...fadeUp(0.1)}
@@ -89,7 +87,6 @@ const VirtualTour = () => {
                width="100%" 
                height="600px" 
                scrolling="no" 
-               allowvr="yes" 
                allow="vr; xr; accelerometer; gyroscope; autoplay;" 
                allowFullScreen={true} 
                loading="lazy"

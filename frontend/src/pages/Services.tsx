@@ -1,9 +1,8 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
 const Services = () => {
-  const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen bg-[#0F172A] text-white pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto">

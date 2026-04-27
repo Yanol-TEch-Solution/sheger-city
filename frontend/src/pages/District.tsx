@@ -1,12 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: false },
-  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
 interface DistrictData {
@@ -116,7 +116,7 @@ const DISTRICTS: Record<string, DistrictData> = {
 };
 
 const District = () => {
-  const { t } = useTranslation();
+  
   const { id } = useParams();
   const district = id ? DISTRICTS[id] : null;
 
