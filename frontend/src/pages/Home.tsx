@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <div className="bg-slate-50/50 selection:bg-amber-500/30 relative">
       
-      {/* Global Page Loop — Red → White → Black synchronized ribbon */}
+      {/* Global Page Loop — Red → White → Black ribbon on one shared path */}
       <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden mix-blend-overlay">
         <svg
           viewBox="0 0 1440 900"
@@ -72,46 +72,35 @@ const Home = () => {
           className="w-full h-full opacity-90"
           preserveAspectRatio="xMidYMid slice"
         >
-          {/* Shared path data for all segments */}
-          <g>
-            {/* Black — tail */}
-            <motion.path
-              d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
-              stroke="rgba(10,10,20,0.95)"
-              strokeWidth="20"
-              strokeLinecap="round"
-              fill="none"
-              strokeDasharray="800 4200"
-              animate={{ strokeDashoffset: [6600, -3400] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatType: "reverse" }}
-            />
-            {/* White — middle */}
-            <motion.path
-              d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
-              stroke="rgba(255,255,255,0.95)"
-              strokeWidth="20"
-              strokeLinecap="round"
-              fill="none"
-              strokeDasharray="800 4200"
-              animate={{ strokeDashoffset: [5800, -4200] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatType: "reverse" }}
-            />
-            {/* Red — leading */}
-            <motion.path
-              d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
-              stroke="rgba(255,50,50,0.98)"
-              strokeWidth="20"
-              strokeLinecap="round"
-              fill="none"
-              strokeDasharray="800 4200"
-              animate={{ strokeDashoffset: [5000, -5000] }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear", repeatType: "reverse" }}
-            />
-          </g>
+          {/* Black/Dark — tail (drawn first, sits behind) */}
+          <path
+            className="page-ribbon-w"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(10,10,20,0.95)"
+            strokeWidth="18"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* White — middle */}
+          <path
+            className="page-ribbon-b"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,255,255,0.92)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Red — front/leading (drawn last, sits on top) */}
+          <path
+            className="page-ribbon-r"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,50,50,0.98)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
         </svg>
       </div>
-
-
 
 
       {/* Hero Section */}

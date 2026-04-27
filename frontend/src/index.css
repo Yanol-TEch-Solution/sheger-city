@@ -87,9 +87,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* ─── Global Page Loop ─────────────────────────────────────────────── */
-/*  The loop animation is now handled via framer-motion in Home.tsx     */
-/*  to ensure a single, synchronized Red-White-Black sequence.          */
+/* ─────────────────────────────────────────────────────────────────── */
+/*  Global Page Loop — three color segments on ONE shared path        */
+/*                                                                    */
+/*  All three paths share the same `d` attribute.                    */
+/*  Each segment is 600px wide with a 4400px gap (path ≈ 5000px).    */
+/*  animation-delay staggers them by exactly one segment width apart  */
+/*  → they travel together as a single red→blue→white ribbon/comet.  */
+/*                                                                    */
+/*  Speed: 10000 dashoffset units / 12s = 833 units/sec              */
+/*  Segment gap: 600px / 833 = 0.72s between each colour segment     */
 /* ─────────────────────────────────────────────────────────────────── */
 
+@keyframes path-flow {
+  from { stroke-dashoffset:  5000; }
+  to   { stroke-dashoffset: -5000; }
+}
+
+/* Red — front of the comet */
+.page-ribbon-r {
+  stroke-dasharray: 600 4400;
+  animation: path-flow 12s linear infinite;
+  animation-delay: 0s;
+}
+
+/* Blue — middle, exactly one segment behind red */
+.page-ribbon-b {
+  stroke-dasharray: 600 4400;
+  animation: path-flow 12s linear infinite;
+  animation-delay: 0.72s;
+}
+
+/* White — tail, two segments behind red */
+.page-ribbon-w {
+  stroke-dasharray: 600 4400;
+  animation: path-flow 12s linear infinite;
+  animation-delay: 1.44s;
+}
