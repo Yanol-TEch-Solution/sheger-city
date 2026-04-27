@@ -1,9 +1,92 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
 @import "tailwindcss";
+
+:root {
+  /* --- GLOBAL BRAND THEME --- */
+  /* You can easily change the entire app's color scheme by updating these hex values */
+
+  /* Primary Color (Currently mapped to Blue) */
+  --theme-primary-50: #eff6ff;
+  --theme-primary-100: #dbeafe;
+  --theme-primary-200: #bfdbfe;
+  --theme-primary-300: #93c5fd;
+  --theme-primary-400: #60a5fa;
+  --theme-primary-500: #3b82f6;
+  --theme-primary-600: #2563eb;
+  --theme-primary-700: #1d4ed8;
+  --theme-primary-800: #1e40af;
+  --theme-primary-900: #1e3a8a;
+  --theme-primary-950: #172554;
+
+  /* Accent Color (Currently mapped to Amber) */
+  --theme-accent-50: #fffbeb;
+  --theme-accent-100: #fef3c7;
+  --theme-accent-200: #fde68a;
+  --theme-accent-300: #fcd34d;
+  --theme-accent-400: #fbbf24;
+  --theme-accent-500: #f59e0b;
+  --theme-accent-600: #d97706;
+  --theme-accent-700: #b45309;
+  --theme-accent-800: #92400e;
+  --theme-accent-900: #78350f;
+  --theme-accent-950: #451a03;
+
+  /* Base/Surface Color (Currently mapped to Slate) */
+  --theme-base-50: #f8fafc;
+  --theme-base-100: #f1f5f9;
+  --theme-base-200: #e2e8f0;
+  --theme-base-300: #cbd5e1;
+  --theme-base-400: #94a3b8;
+  --theme-base-500: #64748b;
+  --theme-base-600: #475569;
+  --theme-base-700: #334155;
+  --theme-base-800: #1e293b;
+  --theme-base-900: #0f172a;
+  --theme-base-950: #020617;
+}
+
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Outfit", sans-serif;
+
+  /* Map Tailwind's default 'blue' class to our primary global variables */
+  --color-blue-50: var(--theme-primary-50);
+  --color-blue-100: var(--theme-primary-100);
+  --color-blue-200: var(--theme-primary-200);
+  --color-blue-300: var(--theme-primary-300);
+  --color-blue-400: var(--theme-primary-400);
+  --color-blue-500: var(--theme-primary-500);
+  --color-blue-600: var(--theme-primary-600);
+  --color-blue-700: var(--theme-primary-700);
+  --color-blue-800: var(--theme-primary-800);
+  --color-blue-900: var(--theme-primary-900);
+  --color-blue-950: var(--theme-primary-950);
+
+  /* Map Tailwind's default 'amber' class to our accent global variables */
+  --color-amber-50: var(--theme-accent-50);
+  --color-amber-100: var(--theme-accent-100);
+  --color-amber-200: var(--theme-accent-200);
+  --color-amber-300: var(--theme-accent-300);
+  --color-amber-400: var(--theme-accent-400);
+  --color-amber-500: var(--theme-accent-500);
+  --color-amber-600: var(--theme-accent-600);
+  --color-amber-700: var(--theme-accent-700);
+  --color-amber-800: var(--theme-accent-800);
+  --color-amber-900: var(--theme-accent-900);
+  --color-amber-950: var(--theme-accent-950);
+
+  /* Map Tailwind's default 'slate' class to our base global variables */
+  --color-slate-50: var(--theme-base-50);
+  --color-slate-100: var(--theme-base-100);
+  --color-slate-200: var(--theme-base-200);
+  --color-slate-300: var(--theme-base-300);
+  --color-slate-400: var(--theme-base-400);
+  --color-slate-500: var(--theme-base-500);
+  --color-slate-600: var(--theme-base-600);
+  --color-slate-700: var(--theme-base-700);
+  --color-slate-800: var(--theme-base-800);
+  --color-slate-900: var(--theme-base-900);
+  --color-slate-950: var(--theme-base-950);
 }
 
 body {
