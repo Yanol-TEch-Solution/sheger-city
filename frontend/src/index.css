@@ -3,9 +3,6 @@
 
 :root {
   /* --- GLOBAL BRAND THEME --- */
-  /* You can easily change the entire app's color scheme by updating these hex values */
-
-  /* Primary Color (Currently mapped to Blue) */
   --theme-primary-50: #eff6ff;
   --theme-primary-100: #dbeafe;
   --theme-primary-200: #bfdbfe;
@@ -18,7 +15,6 @@
   --theme-primary-900: #1e3a8a;
   --theme-primary-950: #172554;
 
-  /* Accent Color (Currently mapped to Amber) */
   --theme-accent-50: #fffbeb;
   --theme-accent-100: #fef3c7;
   --theme-accent-200: #fde68a;
@@ -31,7 +27,6 @@
   --theme-accent-900: #78350f;
   --theme-accent-950: #451a03;
 
-  /* Base/Surface Color (Currently mapped to Slate) */
   --theme-base-50: #f8fafc;
   --theme-base-100: #f1f5f9;
   --theme-base-200: #e2e8f0;
@@ -49,7 +44,6 @@
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-display: "Outfit", sans-serif;
 
-  /* Map Tailwind's default 'blue' class to our primary global variables */
   --color-blue-50: var(--theme-primary-50);
   --color-blue-100: var(--theme-primary-100);
   --color-blue-200: var(--theme-primary-200);
@@ -62,7 +56,6 @@
   --color-blue-900: var(--theme-primary-900);
   --color-blue-950: var(--theme-primary-950);
 
-  /* Map Tailwind's default 'amber' class to our accent global variables */
   --color-amber-50: var(--theme-accent-50);
   --color-amber-100: var(--theme-accent-100);
   --color-amber-200: var(--theme-accent-200);
@@ -75,7 +68,6 @@
   --color-amber-900: var(--theme-accent-900);
   --color-amber-950: var(--theme-accent-950);
 
-  /* Map Tailwind's default 'slate' class to our base global variables */
   --color-slate-50: var(--theme-base-50);
   --color-slate-100: var(--theme-base-100);
   --color-slate-200: var(--theme-base-200);
@@ -94,3 +86,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* ─── Global Page Loop ─────────────────────────────────────────────── */
+/*  The loop animation is now handled via framer-motion in Home.tsx     */
+/*  to ensure a single, synchronized Red-White-Black sequence.          */
+/* ─────────────────────────────────────────────────────────────────── */
+

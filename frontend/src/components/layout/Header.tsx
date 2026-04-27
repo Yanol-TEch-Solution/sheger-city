@@ -264,9 +264,85 @@ const Header = () => {
             </Link>
           </div>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={`lg:hidden p-2 rounded-lg transition-colors ${isHome && !scrolled && !mobileMenuOpen ? 'text-white hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'}`}>
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex lg:hidden items-center gap-2">
+            <div className="relative">
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'mobileLanguage' ? null : 'mobileLanguage')}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-all duration-300 ${
+                  isHome && !scrolled && !mobileMenuOpen 
+                    ? 'text-white border-white/20 bg-white/10 hover:bg-white/20' 
+                    : 'text-slate-700 border-slate-200 bg-slate-50/50 hover:bg-slate-100'
+                }`}
+              >
+                <img 
+                  src={LANGUAGES.find(l => l.code === i18n.language)?.flag || LANGUAGES[0].flag} 
+                  alt={i18n.language} 
+                  className="w-4 h-3 object-cover rounded-[1px] shadow-sm"
+                />
+                <span className="text-[10px] font-black uppercase tracking-tighter">
+                  {LANGUAGES.find(l => l.code === i18n.language)?.label || 'EN'}
+                </span>
+                <motion.svg 
+                  animate={{ rotate: activeDropdown === 'mobileLanguage' ? 180 : 0 }} 
+                  className={`w-3 h-3 ${isHome && !scrolled && !mobileMenuOpen ? 'text-white/60' : 'text-slate-400'}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </motion.svg>
+              </button>
+              
+              <AnimatePresence>
+                {activeDropdown === 'mobileLanguage' && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    exit={{ opacity: 0, y: 10 }} 
+                    className="absolute right-0 top-full mt-2 w-40 z-50"
+                  >
+                    <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-2xl border border-slate-100 p-1.5 grid grid-cols-1 gap-0.5">
+                      {LANGUAGES.map((lang) => (
+                        <button 
+                          key={lang.code} 
+                          onClick={() => {
+                            changeLanguage(lang.code);
+                            setActiveDropdown(null);
+                          }} 
+                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 ${
+                            i18n.language === lang.code 
+                              ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' 
+                              : 'hover:bg-slate-50 text-slate-600'
+                          }`}
+                        >
+                          <img src={lang.flag} alt={lang.label} className="w-4 h-2.5 object-cover rounded-[1px] shadow-sm" />
+                          <span className="text-[10px] font-bold uppercase tracking-tight">{lang.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <button 
+              onClick={() => {
+                setMobileMenuOpen(!mobileMenuOpen);
+                setActiveDropdown(null);
+              }} 
+              className={`p-2 rounded-lg transition-colors ${
+                isHome && !scrolled && !mobileMenuOpen 
+                  ? 'text-white hover:bg-white/10' 
+                  : 'text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+              </svg>
+            </button>
+          </div>
+
         </div>
       </div>
 
@@ -365,22 +441,6 @@ const Header = () => {
 
               <Link to="/contact" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.contact')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
 
-              {/* Mobile Language Selector - Flag + Label Grid */}
-              <div className="pt-6 border-t border-slate-100 mt-4 px-2">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">Select Language</p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {LANGUAGES.map((lang) => (
-                    <button 
-                      key={lang.code} 
-                      onClick={() => changeLanguage(lang.code)} 
-                      className={`flex items-center gap-3 py-4 px-4 rounded-2xl border transition-all ${i18n.language === lang.code ? 'bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20' : 'bg-white border-slate-100 text-slate-600'}`}
-                    >
-                      <img src={lang.flag} alt={lang.label} className="w-5 h-3.5 object-cover rounded-[2px]" />
-                      <span className="text-xs font-bold">{lang.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
 
               <div className="pt-8">
                 <Link to="/virtual-tour" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
