@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -42,31 +43,74 @@ const LOCATIONS = [
 const VirtualTour = () => {
   const { t } = useTranslation();
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
+  useEffect(() => {
+    const pano_iframe_name = "tour-embeded";
+    const handleDeviceMotion = (e: DeviceMotionEvent) => {
+      const iframe = document.getElementById(pano_iframe_name) as HTMLIFrameElement;
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage({
+          type: "devicemotion",
+          deviceMotionEvent: {
+            acceleration: { x: e.acceleration?.x, y: e.acceleration?.y, z: e.acceleration?.z },
+            accelerationIncludingGravity: { x: e.accelerationIncludingGravity?.x, y: e.accelerationIncludingGravity?.y, z: e.accelerationIncludingGravity?.z },
+            rotationRate: { alpha: e.rotationRate?.alpha, beta: e.rotationRate?.beta, gamma: e.rotationRate?.gamma },
+            interval: e.interval,
+            timeStamp: e.timeStamp
+          }
+        }, "*");
+      }
+    };
+
+    window.addEventListener("devicemotion", handleDeviceMotion);
+    return () => window.removeEventListener("devicemotion", handleDeviceMotion);
+  }, []);
+
   return (
     <div className="bg-slate-50 min-h-screen">
-      {/* Hero */}
-      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[50vh] flex items-center">
-        <div className="absolute inset-0 bg-[url('/hero-1.jpg')] bg-cover bg-center opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full text-center">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center justify-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
-            <span className="w-10 h-px bg-amber-400/50" />
-            Discover the City
-            <span className="w-10 h-px bg-amber-400/50" />
-          </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6">
-            Virtual <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Tour</span>
-          </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-            Take a 360° virtual journey through Sheger City's most iconic landmarks, green spaces, and future development zones.
-          </motion.p>
+      {/* Main 360 Experience */}
+      <section className="pt-32 pb-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <motion.div 
+            {...fadeUp(0.1)}
+            className="rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border border-slate-100 relative group"
+           >
+             <div className="absolute top-8 left-8 z-20">
+                <span className="px-4 py-2 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-xl">
+                  Interactive 360° Experience
+                </span>
+             </div>
+             
+             <iframe 
+               id="tour-embeded" 
+               name="Yannet General Hospital" 
+               src="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b" 
+               frameBorder="0" 
+               width="100%" 
+               height="600px" 
+               scrolling="no" 
+               allowvr="yes" 
+               allow="vr; xr; accelerometer; gyroscope; autoplay;" 
+               allowFullScreen={true} 
+               loading="lazy"
+               className="w-full grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 h-[500px] sm:h-[700px]"
+             ></iframe>
+             
+             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
+                <h2 className="text-white text-2xl sm:text-3xl font-bold font-display">Sheger Digital Twin</h2>
+                <p className="text-white/60 text-sm mt-2">Use your mouse or mobile sensors to explore the city in immersive detail.</p>
+             </div>
+           </motion.div>
         </div>
       </section>
 
       {/* Tour Grid */}
       <section className="py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display">Video Spotlights</h2>
+            <p className="text-slate-500 mt-4">Cinematic fly-throughs of our flagship districts.</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {LOCATIONS.map((loc, i) => (
               <motion.div 

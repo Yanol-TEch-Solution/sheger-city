@@ -392,6 +392,121 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Mobile App Promotion Section */}
+      <section className="py-24 sm:py-32 bg-white relative overflow-hidden z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900 rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-600/10 to-transparent pointer-events-none"></div>
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.2, 0.1]
+              }}
+              transition={{ duration: 10, repeat: Infinity }}
+              className="absolute -top-20 -right-20 w-96 h-96 bg-amber-500 rounded-full blur-[100px] pointer-events-none"
+            />
+
+            {/* Text Content */}
+            <div className="lg:w-1/2 relative z-10 text-center lg:text-left">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                className="inline-flex items-center gap-3 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-xs font-bold uppercase tracking-widest mb-8"
+              >
+                <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                Coming Soon
+              </motion.div>
+              
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl sm:text-6xl font-bold text-white mb-8 font-display leading-tight"
+              >
+                Sheger City <br />
+                <span className="text-blue-500">Super App</span>
+              </motion.h3>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.2 }}
+                className="text-white/60 text-lg mb-12 max-w-lg leading-relaxed"
+              >
+                Everything Sheger, in your pocket. Access all e-government services, track applications, and pay utilities with a single tap.
+              </motion.p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                {[
+                  { title: "Smart Payments", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                  { title: "ID Verification", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+                  { title: "24/7 Support", icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
+                  { title: "Live Tracking", icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" }
+                ].map((feature, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className="flex items-center gap-4 text-white/80"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={feature.icon} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </div>
+                    <span className="font-semibold text-sm">{feature.title}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white/30 text-sm font-bold flex items-center gap-3 grayscale cursor-not-allowed">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.523 15.341c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1zm-5 0c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm6.605 15.529c-.211.151-.462.23-.714.23-.332 0-.646-.134-.875-.371l-1.314-1.357c-.125-.13-.202-.299-.219-.481-.018-.182.025-.363.123-.513.097-.15.244-.261.413-.311.169-.05.35-.04.512.027.163.067.3.187.387.339l.732.756 3.129-3.228c.125-.13.298-.207.48-.225s.364.025.513.124.26.244.31.413.04.35-.027.513c-.067.163-.187.3-.339.387l-3.6 3.714c-.125.13-.298.207-.48.225z" /></svg>
+                  App Store
+                </div>
+                <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white/30 text-sm font-bold flex items-center gap-3 grayscale cursor-not-allowed">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.609 22.186c-.18.18-.281.424-.281.679 0 .526.427.953.953.953.255 0 .499-.101.679-.281l10.863-10.863c.375-.375.375-.983 0-1.358L5.056.452C4.877.272 4.633.171 4.378.171c-.526 0-.953.427-.953.953 0 .255.101.499.281.679z" /></svg>
+                  Google Play
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Mockup */}
+            <div className="lg:w-1/2 flex justify-center relative">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
+                viewport={{ once: false }}
+                transition={{ type: "spring", damping: 15 }}
+                className="relative z-10 w-full max-w-[320px] drop-shadow-[0_50px_100px_rgba(0,0,0,0.5)]"
+              >
+                <img src="/app-mockup.png" alt="Sheger App Mockup" className="w-full h-auto rounded-[3rem]" />
+              </motion.div>
+              
+              {/* Floating Element 1 */}
+              <motion.div 
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute top-0 right-0 sm:-right-8 p-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-20"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[10px] text-white/50 uppercase font-black tracking-widest">New Update</div>
+                    <div className="text-xs text-white font-bold">Land Registry v2.0</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The Investment Hub */}
       <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
