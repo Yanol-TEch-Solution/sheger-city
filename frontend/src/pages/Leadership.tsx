@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -43,6 +44,7 @@ const LEADERS = [
 ];
 
 const Leadership = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-slate-50">
 
@@ -59,13 +61,13 @@ const Leadership = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
-            City Leadership
+            {t('leadership.title')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Meet the <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Team</span>
+            Meet the <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">{t('leadership.team')}</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
-            The dedicated leaders working every day to build a transparent, modern, and citizen-centered Sheger City.
+            {t('leadership.hero_desc')}
           </motion.p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 translate-y-[1px]">
@@ -80,7 +82,7 @@ const Leadership = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Administration</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">City Officials</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">{t('leadership.officials')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -123,12 +125,12 @@ const Leadership = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { label: 'Accountability', icon: '⚖️' },
-              { label: 'Transparency', icon: '🔍' },
-              { label: 'Citizen First', icon: '🤝' },
-              { label: 'Innovation', icon: '💡' },
+              { label: t('leadership.values.accountability'), icon: '⚖️' },
+              { label: t('leadership.values.transparency'), icon: '🔍' },
+              { label: t('leadership.values.citizen_first'), icon: '🤝' },
+              { label: t('leadership.values.innovation'), icon: '💡' },
             ].map((v, i) => (
-              <motion.div key={v.label} {...fadeUp(i * 0.1)} className="flex flex-col items-center gap-3">
+              <motion.div key={i} {...fadeUp(i * 0.1)} className="flex flex-col items-center gap-3">
                 <span className="text-3xl">{v.icon}</span>
                 <span className="text-sm font-medium text-slate-600">{v.label}</span>
               </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useParams, Link } from 'react-router-dom';
 
 const fadeUp = (delay = 0) => ({
@@ -84,6 +85,7 @@ const SECTORS: Record<string, { title: string; icon: string; desc: string; color
 };
 
 const Sector = () => {
+  const { t } = useTranslation();
   const { name } = useParams<{ name: string }>();
   const sector = SECTORS[name || 'land'] || SECTORS.land;
 
@@ -98,11 +100,11 @@ const Sector = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
           <Link to="/administrative" className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm font-medium mb-8">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-            Back to Administrative Directory
+            {t('sector_page.back')}
           </Link>
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
-            Sector Portal
+            {t('sector_page.portal')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             {sector.title}
@@ -122,10 +124,10 @@ const Sector = () => {
               <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">Apply Online</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">Submit applications, upload required documents, and track your status securely online.</p>
+              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">{t('sector_page.apply')}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">{t('sector_page.apply_desc')}</p>
               <button className="mt-auto w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
-                Start Application
+                {t('sector_page.start_app')}
               </button>
             </motion.div>
 
@@ -133,10 +135,10 @@ const Sector = () => {
               <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">Book Appointment</h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-6">Need to visit in person? Schedule an appointment to avoid queues at the service center.</p>
+              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">{t('sector_page.book')}</h3>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">{t('sector_page.book_desc')}</p>
               <button className="mt-auto w-full py-3 bg-slate-100 text-slate-900 font-semibold rounded-xl hover:bg-slate-200 transition-colors">
-                Schedule Visit
+                {t('sector_page.schedule')}
               </button>
             </motion.div>
 
@@ -144,7 +146,7 @@ const Sector = () => {
               <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">Contact Desk</h3>
+              <h3 className="text-xl font-bold text-slate-900 font-display mb-3">{t('sector_page.contact_desk')}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">Have specific questions regarding {sector.title.toLowerCase()}? Speak to a department agent directly.</p>
               <button className="mt-auto w-full py-3 border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:border-slate-300 hover:bg-slate-50 transition-colors">
                 Contact Agent
@@ -159,7 +161,7 @@ const Sector = () => {
       <section className="py-16 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 font-display mb-8">Available Sub-Services</h2>
+            <h2 className="text-2xl font-bold text-slate-900 font-display mb-8">{t('sector_page.sub_services')}</h2>
             <div className="space-y-4">
               {sector.features.map((feat, i) => (
                 <motion.div key={feat.label} {...fadeUp(i * 0.1)} className="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors cursor-pointer group">

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -46,6 +47,7 @@ const COLOR_MAP: Record<string, string> = {
 };
 
 const Transparency = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-slate-50">
 

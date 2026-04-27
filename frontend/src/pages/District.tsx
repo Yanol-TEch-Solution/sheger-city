@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -115,6 +116,7 @@ const DISTRICTS: Record<string, DistrictData> = {
 };
 
 const District = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const district = id ? DISTRICTS[id] : null;
 

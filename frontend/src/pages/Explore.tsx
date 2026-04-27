@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const fadeUp = (delay = 0) => ({
@@ -35,6 +36,7 @@ const TAG_COLORS: Record<string, string> = {
 };
 
 const Explore = () => {
+  const { t } = useTranslation();
   return (
     <div className="bg-slate-50">
 

@@ -7,7 +7,6 @@ interface Message {
   content: string;
 }
 
-// User's API Key
 const GEMINI_API_KEY = "AIzaSyDp4Zl7TFsLet7y4wlOm22e4NLw1ENsTtg".trim(); 
 
 const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
@@ -34,7 +33,6 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     setMessages(newMessages);
     setIsLoading(true);
 
-    // Attempt with different configurations
     const configs = [
       { model: "gemini-1.5-flash", version: "v1" },
       { model: "gemini-1.5-flash", version: "v1beta" },
@@ -50,7 +48,6 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
       
       try {
         const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-        // Using apiVersion explicitly to find a working endpoint
         const model = genAI.getGenerativeModel({ model: config.model }, { apiVersion: config.version });
         
         const result = await model.generateContent({
@@ -68,10 +65,9 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
         setMessages(prev => [...prev, { role: 'model', content: text }]);
         success = true;
       } catch (error: any) {
-        console.error(`Config failed (${config.model} @ ${config.version}):`, error);
+        console.error(`Config failed (\${config.model} @ \${config.version}):`, error);
         lastError = error.message || "Unknown error";
         
-        // If it's a 403 or Auth error, don't keep trying models
         if (error.message?.includes("403") || error.message?.includes("API key")) {
           break; 
         }
@@ -81,7 +77,7 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     if (!success) {
       setMessages(prev => [...prev, { 
         role: 'model', 
-        content: `Connection failed after multiple attempts. Last error: ${lastError}. This usually happens if the 'Generative Language API' is not enabled for this specific key's project in Google Cloud Console. Please check your settings or try a fresh key.` 
+        content: `Connection failed after multiple attempts. Last error: \${lastError}. This usually happens if the 'Generative Language API' is not enabled for this specific key's project in Google Cloud Console. Please check your settings or try a fresh key.` 
       }]);
     }
     
@@ -100,9 +96,9 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
           {/* Header */}
           <div className="p-6 flex items-center justify-between border-b border-slate-50">
             <div className="flex items-center gap-4">
-              <div className="w-11 h-11 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-blue-600/20">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM12 6v12M6 12h12M7.5 7.5l9 9M16.5 7.5l-9 9" />
+              <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-600/20 shrink-0">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
               </div>
               <div>
@@ -125,9 +121,9 @@ const ChatBot = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex \${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`max-w-[88%] p-4 rounded-3xl text-[14px] font-sans leading-relaxed ${
+                <div className={`max-w-[88%] p-4 rounded-3xl text-[14px] font-sans leading-relaxed \${
                   msg.role === 'user' 
                     ? 'bg-blue-600 text-white rounded-br-none shadow-lg shadow-blue-600/10' 
                     : 'bg-white text-slate-600 border border-slate-100 rounded-bl-none shadow-sm'

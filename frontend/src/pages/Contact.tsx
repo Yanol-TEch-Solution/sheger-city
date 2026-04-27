@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -48,6 +49,7 @@ const colorRing: Record<string, string> = {
 };
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
@@ -72,13 +74,13 @@ const Contact = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
             <span className="w-10 h-px bg-amber-400/50" />
-            We're Here to Help
+            {t('contact.hero_desc')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             Get in <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Touch</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
-            Reach out to Sheger City government offices for inquiries, support, or general information.
+            {t('contact.hero_desc')}
           </motion.p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 translate-y-[1px]">
@@ -192,14 +194,14 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">Full Name *</label>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.name')} *</label>
                       <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-                        placeholder="Your full name"
+                        placeholder={t('contact.form.name')}
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">Email Address *</label>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.email')} *</label>
                       <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                         placeholder="your@email.com"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
@@ -215,11 +217,11 @@ const Contact = () => {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">Subject *</label>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.subject')} *</label>
                       <select required value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
                       >
-                        <option value="">Select a subject</option>
+                        <option value="">{t('contact.form.subject')}</option>
                         <option>General Inquiry</option>
                         <option>Service Request</option>
                         <option>Complaint</option>
@@ -230,16 +232,16 @@ const Contact = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Message *</label>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.message')} *</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-                      placeholder="How can we help you today?"
+                      placeholder={t('contact.form.message')}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all resize-none"
                     />
                   </div>
                   <button type="submit"
                     className="w-full py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 group"
                   >
-                    Send Message
+                    {t('contact.form.send')}
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                   </button>
                 </form>
