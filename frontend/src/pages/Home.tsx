@@ -339,7 +339,7 @@ const Home = () => {
       </section>
 
       {/* City Highlights Cards */}
-      <section className="bg-white pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100">
+      <section className="bg-white/60 pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -401,7 +401,7 @@ const Home = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 bg-slate-50 text-slate-900 relative z-20 overflow-hidden">
+      <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -486,7 +486,7 @@ const Home = () => {
       </section>
 
       {/* Explore Sheger Section */}
-      <section className="py-24 bg-white relative z-20 border-b border-slate-100">
+      <section className="py-24 bg-white/60 relative z-20 border-b border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
@@ -583,7 +583,7 @@ const Home = () => {
       </section>
 
       {/* Smart Services Hub - NEW Section */}
-      <section className="py-24 sm:py-32 bg-slate-50 relative overflow-hidden z-20">
+      <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl text-center lg:text-left">
@@ -790,7 +790,7 @@ const Home = () => {
       </section>
 
       {/* Mobile App Promotion Section */}
-      <section className="py-24 sm:py-32 bg-white relative overflow-hidden z-20">
+      <section className="py-24 sm:py-32 bg-white/60 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-slate-900 rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
             {/* Background Decorations */}
@@ -1009,7 +1009,7 @@ const Home = () => {
       </section>
 
       {/* The Investment Hub */}
-      <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
+      <section className="py-24 sm:py-32 relative bg-slate-900/75 overflow-hidden z-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-red-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
