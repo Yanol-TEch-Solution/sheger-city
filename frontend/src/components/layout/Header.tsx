@@ -139,7 +139,7 @@ const Header = () => {
               </button>
               <AnimatePresence>
                 {activeDropdown === 'services' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full pt-2 w-[700px] z-50">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[900px] top-[80px] pt-2 z-50">
                     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8">
                       <div className="grid grid-cols-2 gap-8">
                         {["Property & Land", "Health & Welfare", "Transport", "Business"].map((cat) => (
@@ -320,8 +320,14 @@ const Header = () => {
                 <AnimatePresence>
                   {mobileSubMenu === 'services' && (
                     <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 space-y-1 pb-4">
-                      {["Land Administration", "Building Permits", "Health Services", "Transport Services", "Business License"].map(s => (
-                        <Link key={s} to="/services" className="block px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{s}</Link>
+                      {[
+                        { name: "Land Administration", path: "/sector/land" },
+                        { name: "Building Permits", path: "/sector/land/permits" },
+                        { name: "Health Services", path: "/sector/health" },
+                        { name: "Transport Services", path: "/sector/transport" },
+                        { name: "Business License", path: "/sector/business" }
+                      ].map(s => (
+                        <Link key={s.name} to={s.path} className="block px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{s.name}</Link>
                       ))}
                     </motion.div>
                   )}
