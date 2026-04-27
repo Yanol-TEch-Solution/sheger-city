@@ -65,7 +65,47 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 selection:bg-red-500/30">
+    <div className="bg-slate-50/50 relative">
+      
+      {/* Global Page Loop — Red → White → Black ribbon on one shared path */}
+      <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden mix-blend-overlay">
+        <svg
+          viewBox="0 0 1440 900"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full opacity-90"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          {/* Black/Dark — tail (drawn first, sits behind) */}
+          <path
+            className="page-ribbon-w"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(10,10,20,0.95)"
+            strokeWidth="18"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* White — middle */}
+          <path
+            className="page-ribbon-b"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,255,255,0.92)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Red — front/leading (drawn last, sits on top) */}
+          <path
+            className="page-ribbon-r"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,50,50,0.98)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+      </div>
+
       {/* Hero Section */}
       <section
         ref={heroRef}
@@ -94,24 +134,6 @@ const Home = () => {
           </motion.div>
         ))}
 
-        {/* Floating Ambient Glows */}
-        <div className="hidden lg:block">
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] right-1/4 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-[120px] pointer-events-none z-10"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none z-10"
-          />
-        </div>
 
         {/* Real-time Weather & Location Widget */}
         {weather && (
