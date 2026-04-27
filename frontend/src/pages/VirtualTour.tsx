@@ -127,7 +127,7 @@ const VirtualTour = () => {
                 </div>
 
                 <div className="absolute bottom-0 left-0 p-8 sm:p-10 w-full">
-                  <span className="px-3 py-1 bg-amber-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
+                  <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
                     {loc.category}
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-display">
@@ -136,7 +136,7 @@ const VirtualTour = () => {
                   <p className="text-white/80 text-sm sm:text-base mb-6 max-w-md">
                     {loc.description}
                   </p>
-                  <button className="flex items-center gap-2 text-amber-400 font-bold hover:text-amber-300 transition-colors">
+                  <button className="flex items-center gap-2 text-red-400 font-bold hover:text-red-300 transition-colors">
                     Start Tour <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" /></svg>
                   </button>
                 </div>
@@ -168,7 +168,7 @@ const VirtualTour = () => {
               onClick={e => e.stopPropagation()}
             >
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 border-4 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-10 h-10 border-4 border-red-400 border-t-transparent rounded-full animate-spin"></div>
               </div>
               <iframe 
                 src={activeVideo} 

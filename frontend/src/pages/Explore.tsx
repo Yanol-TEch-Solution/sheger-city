@@ -28,7 +28,7 @@ const INVEST_SECTORS = [
 
 const TAG_COLORS: Record<string, string> = {
   Nature: 'bg-emerald-50 text-emerald-700',
-  Heritage: 'bg-amber-50 text-amber-700',
+  Heritage: 'bg-red-50 text-red-700',
   Landscape: 'bg-sky-50 text-sky-700',
   Culture: 'bg-violet-50 text-violet-700',
   Market: 'bg-rose-50 text-rose-700',
@@ -50,12 +50,12 @@ const Explore = () => {
           className="absolute right-1/4 top-1/4 w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
-            <span className="w-10 h-px bg-amber-400/50" />
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
+            <span className="w-10 h-px bg-red-400/50" />
             Tourism & Investment
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Explore <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Sheger City</span>
+            Explore <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Sheger City</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
             Discover vibrant culture, breathtaking landscapes, and endless opportunities in Ethiopia's fastest-growing city.
@@ -72,7 +72,7 @@ const Explore = () => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Tourism</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Tourism</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">Places to Visit</h2>
           </motion.div>
 
@@ -111,9 +111,9 @@ const Explore = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-400 mb-4">Invest in Sheger</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400 mb-4">Invest in Sheger</p>
               <h2 className="text-4xl sm:text-5xl font-bold font-display tracking-tight mb-6">
-                A City Built for <span className="text-amber-400">Growth</span>
+                A City Built for <span className="text-red-400">Growth</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-6">
                 Sheger City is one of Africa's most dynamic investment destinations — offering strategic location, a young workforce, growing infrastructure, and a business-friendly administration.
@@ -121,7 +121,7 @@ const Explore = () => {
               <p className="text-white/60 leading-relaxed mb-10">
                 Whether you're a small entrepreneur or a large enterprise, Sheger's investment office provides end-to-end support from licensing to land allocation.
               </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-amber-500 text-slate-900 font-semibold rounded-full hover:bg-amber-400 transition-all shadow-lg hover:-translate-y-1">
+              <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-red-500 text-slate-900 font-semibold rounded-full hover:bg-red-400 transition-all shadow-lg hover:-translate-y-1">
                 Talk to Investment Office
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7-7 7" /></svg>
               </Link>
@@ -145,7 +145,7 @@ const Explore = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)}>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Plan Your Visit</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Plan Your Visit</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight mb-6">
               Ready to Experience Sheger?
             </h2>

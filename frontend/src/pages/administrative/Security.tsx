@@ -45,7 +45,7 @@ const Security = () => {
 
       {/* HERO SECTION */}
       <section className="relative pt-28 pb-20 lg:pt-32 lg:pb-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-500 opacity-5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-red-500 opacity-5"></div>
         <div className="absolute -top-40 -right-40 w-[800px] h-[800px] bg-red-400/10 blur-[120px] rounded-full pointer-events-none"></div>
         
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -83,7 +83,7 @@ const Security = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
             className="relative h-[400px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/50"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-red-500 to-orange-500 opacity-30 mix-blend-multiply z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-red-500 to-red-500 opacity-30 mix-blend-multiply z-10"></div>
             <img src="https://picsum.photos/seed/security-hero/1200/800" alt="Security" className="absolute inset-0 w-full h-full object-cover" />
             
             {/* Floating Stats Card on Hero Image */}
@@ -177,7 +177,7 @@ const Security = () => {
             {[1, 2].map((i) => (
               <motion.div key={i} {...fadeUp} className="group cursor-pointer">
                 <div className="relative h-64 rounded-[2rem] overflow-hidden mb-6 bg-slate-200 shadow-md">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-red-500 to-orange-500 opacity-30 mix-blend-multiply group-hover:opacity-10 transition-opacity z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-red-500 to-red-500 opacity-30 mix-blend-multiply group-hover:opacity-10 transition-opacity z-10"></div>
                   <img src={"https://picsum.photos/seed/security-init" + i + "/800/600"} alt="Initiative" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="flex items-center gap-3 mb-3">

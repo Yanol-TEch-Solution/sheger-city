@@ -24,7 +24,7 @@ const CATEGORIES = [
     title: 'Public Tenders',
     desc: 'Open procurement opportunities, contract awards, and bidding guidelines.',
     icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-    color: 'amber'
+    color: 'red'
   },
   {
     title: 'Policy Documents',
@@ -37,7 +37,7 @@ const CATEGORIES = [
 const CAT_COLORS: Record<string, string> = {
   blue: 'text-blue-600 bg-blue-50 border-blue-100 group-hover:border-blue-500',
   emerald: 'text-emerald-600 bg-emerald-50 border-emerald-100 group-hover:border-emerald-500',
-  amber: 'text-amber-600 bg-amber-50 border-amber-100 group-hover:border-amber-500',
+  red: 'text-red-600 bg-red-50 border-red-100 group-hover:border-red-500',
   violet: 'text-violet-600 bg-violet-50 border-violet-100 group-hover:border-violet-500',
 };
 
@@ -51,13 +51,13 @@ const Transparency = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
-            <span className="w-10 h-px bg-amber-400/50" />
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
+            <span className="w-10 h-px bg-red-400/50" />
             Open Government
-            <span className="w-10 h-px bg-amber-400/50" />
+            <span className="w-10 h-px bg-red-400/50" />
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Transparency & <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Accountability</span>
+            Transparency & <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Accountability</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg max-w-xl leading-relaxed">
             Access official documents, city budgets, and development reports. We are committed to building an open and trustworthy administration.

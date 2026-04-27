@@ -27,7 +27,7 @@ const OFFICES = [
     phone: '+251 11 234 5678',
     email: 'citizens@shegercity.gov.et',
     hours: 'Mon–Fri: 8:00 AM – 6:00 PM\nSat: 9:00 AM – 2:00 PM',
-    color: 'amber',
+    color: 'red',
     icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0',
   },
   {
@@ -44,7 +44,7 @@ const OFFICES = [
 
 const colorRing: Record<string, string> = {
   blue: 'border-blue-500 bg-blue-500/10 text-blue-500',
-  amber: 'border-amber-500 bg-amber-500/10 text-amber-500',
+  red: 'border-red-500 bg-red-500/10 text-red-500',
   emerald: 'border-emerald-500 bg-emerald-500/10 text-emerald-500',
 };
 
@@ -72,12 +72,12 @@ const Contact = () => {
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-amber-400 mb-6">
-            <span className="w-10 h-px bg-amber-400/50" />
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
+            <span className="w-10 h-px bg-red-400/50" />
             {t('contact.hero_desc')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Get in <span className="text-amber-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Touch</span>
+            Get in <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Touch</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
             {t('contact.hero_desc')}
@@ -96,7 +96,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Call Us', value: '+251 11 123 4567', sub: 'Mon–Fri, 8AM–5PM', color: 'blue' },
-              { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email Us', value: 'info@shegercity.gov.et', sub: 'Reply within 24 hours', color: 'amber' },
+              { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email Us', value: 'info@shegercity.gov.et', sub: 'Reply within 24 hours', color: 'red' },
               { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: 'Visit Us', value: 'Legetafo-Legedadi', sub: 'Sheger City, Ethiopia', color: 'emerald' },
             ].map((card, i) => (
               <motion.div key={card.label} {...fadeUp(i * 0.1)} className="bg-white rounded-2xl border border-slate-100 p-7 shadow-sm hover:shadow-lg transition-all text-center group">
@@ -119,7 +119,7 @@ const Contact = () => {
 
             {/* Map */}
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-3">Our Location</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Our Location</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
                 Find Our Main Office
               </h2>
@@ -172,7 +172,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.div {...fadeUp(0.2)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-3">Send a Message</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Send a Message</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
                 We'd Love to Hear From You
               </h2>
@@ -256,7 +256,7 @@ const Contact = () => {
       <section className="py-24 bg-slate-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-500 mb-4">Office Network</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Office Network</p>
             <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">Our Office Locations</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
