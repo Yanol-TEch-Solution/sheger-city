@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ChatBot from '../components/ChatBot';
 
 const HERO_IMAGES = [
@@ -26,7 +26,7 @@ const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 500], [0, 200]);
+
   const weatherY = useTransform(scrollY, [0, 500], [0, 100]); // Move hook to top level
 
   useEffect(() => {
@@ -318,10 +318,10 @@ const Home = () => {
             <div className="absolute left-0 sm:left-1/2 top-0 bottom-0 w-px bg-slate-200 sm:-translate-x-1/2"></div>
 
             {[
-              { title: "Mayor of Sheger City", name: "Dr. Teshome Aduna (Ph.D.)", text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community.", img: "/dr.teshome.jpg", reverse: false },
-              { title: "Deputy Mayor", name: "Mr. Guyo Galgalo", text: "We invite all stakeholders—businesses, community leaders, and residents—to engage actively.", img: "/mr.guyo.png", reverse: true },
-              { title: "Deputy Mayor", name: "Mr. Gugsa Dejene", text: "Head of the Administration and Service Sector, committed to enhancing the quality of public services.", img: "/mr.gugsa.png", reverse: false },
-              { title: "Deputy Mayor", name: "Mr. Hailu Girma", text: "Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being.", img: "/mr.hailu.png", reverse: true }
+              { title: t('home.leadership.mayor_title'), name: t('home.leadership.mayor_name'), text: t('home.leadership.mayor_text'), img: "/dr.teshome.jpg", reverse: false },
+              { title: t('home.leadership.deputy1_title'), name: t('home.leadership.deputy1_name'), text: t('home.leadership.deputy1_text'), img: "/mr.guyo.png", reverse: true },
+              { title: t('home.leadership.deputy2_title'), name: t('home.leadership.deputy2_name'), text: t('home.leadership.deputy2_text'), img: "/mr.gugsa.png", reverse: false },
+              { title: t('home.leadership.deputy3_title'), name: t('home.leadership.deputy3_name'), text: t('home.leadership.deputy3_text'), img: "/mr.hailu.png", reverse: true }
             ].map((person, idx) => (
               <motion.div 
                 key={idx}
@@ -392,28 +392,284 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Smart Services Hub - NEW Section */}
+      <section className="py-24 sm:py-32 bg-slate-50 relative overflow-hidden z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
+            <div className="max-w-2xl text-center lg:text-left">
+              <h2 className="text-blue-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">{t('home.services_hub.badge')}</h2>
+              <h3 className="text-4xl sm:text-6xl font-bold text-slate-900 tracking-tight font-display">{t('home.services_hub.title')}</h3>
+            </div>
+            <Link to="/explore" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 group">
+              {t('home.services_hub.view_all')}
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { title: t('home.services_hub.land'), icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7", color: "blue", count: t('home.services_hub.land_count') },
+              { title: t('home.services_hub.business'), icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", color: "emerald", count: t('home.services_hub.business_count') },
+              { title: t('home.services_hub.citizen'), icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z", color: "amber", count: t('home.services_hub.citizen_count') },
+              { title: t('home.services_hub.revenue'), icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", color: "violet", count: t('home.services_hub.revenue_count') }
+            ].map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="group relative bg-white p-8 sm:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all cursor-pointer"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 mb-8 group-hover:scale-110 transition-transform">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={service.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </div>
+                <h4 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
+                <p className="text-slate-500 text-sm font-medium mb-6">{service.count}</p>
+                <div className="flex items-center text-blue-600 font-bold text-sm gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Open Portal
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7-7 7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Centralized Application Portal visual mockup */}
+          <div className="mt-20 sm:mt-32 bg-slate-950 rounded-[3rem] p-8 sm:p-16 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
+            <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
+              <div className="lg:w-1/2">
+                <h4 className="text-3xl sm:text-5xl font-bold text-white mb-6 font-display">{t('home.services_hub.one_platform')}</h4>
+                <p className="text-slate-400 text-lg mb-10 leading-relaxed">{t('home.services_hub.one_platform_desc')}</p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">{t('home.services_hub.create_account')}</button>
+                  <button className="px-8 py-4 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all border border-white/10">{t('home.services_hub.security')}</button>
+                </div>
+              </div>
+              <div className="lg:w-1/2 relative">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                  className="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl"
+                >
+                  <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold">JD</div>
+                      <div>
+                        <div className="text-white font-bold">{t('home.services_hub.user_name')}</div>
+                        <div className="text-slate-500 text-xs tracking-widest uppercase">{t('home.services_hub.user_badge')}</div>
+                      </div>
+                    </div>
+                    <div className="px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-bold uppercase">{t('home.services_hub.user_status')}</div>
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      { title: "Residential Building Permit", status: "Approved", color: "emerald", progress: 100 },
+                      { title: "Digital ID Renewal", status: "Processing", color: "blue", progress: 65 },
+                      { title: "Trade License App", status: "Pending Action", color: "amber", progress: 30 }
+                    ].map((app, idx) => (
+                      <div key={idx} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all">
+                        <div className="flex justify-between items-center mb-3">
+                          <div className="text-white font-bold text-sm sm:text-base">{app.title}</div>
+                          <div className={`text-${app.color}-400 text-xs font-bold`}>{app.status}</div>
+                        </div>
+                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                          <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${app.progress}%` }}
+                            transition={{ duration: 1, delay: 0.5 + idx * 0.2 }}
+                            className={`h-full bg-${app.color}-500`}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile App Promotion Section */}
+      <section className="py-24 sm:py-32 bg-white relative overflow-hidden z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900 rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-600/10 to-transparent pointer-events-none"></div>
+            <motion.div 
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.2, 0.1]
+              }}
+              transition={{ duration: 10, repeat: Infinity }}
+              className="absolute -top-20 -right-20 w-96 h-96 bg-blue-500 rounded-full blur-[100px] pointer-events-none"
+            />
+
+            {/* Text Content */}
+            <div className="w-full lg:w-[70%] relative z-10 text-center lg:text-left">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                className="inline-flex items-center gap-3 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 text-xs font-bold uppercase tracking-widest mb-8"
+              >
+                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                {t('home.mobile_app.badge')}
+              </motion.div>
+              
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl sm:text-6xl font-bold text-white mb-8 font-display leading-tight"
+              >
+                {t('home.mobile_app.title')} <br />
+                <span className="text-blue-500">{t('home.mobile_app.subtitle')}</span>
+              </motion.h3>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ delay: 0.2 }}
+                className="text-white/60 text-lg mb-12 max-w-lg leading-relaxed"
+              >
+                {t('home.mobile_app.desc')}
+              </motion.p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                {[
+                  { title: t('home.mobile_app.feature1'), icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+                  { title: t('home.mobile_app.feature2'), icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+                  { title: t('home.mobile_app.feature3'), icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" },
+                  { title: t('home.mobile_app.feature4'), icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" }
+                ].map((feature, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                    className="flex items-center gap-4 text-white/80"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-400">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={feature.icon} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </div>
+                    <span className="font-semibold text-sm">{feature.title}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                <Link to="/contact" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20">
+                  {t('home.mobile_app.early_access')}
+                </Link>
+                <div className="px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white/30 text-sm font-bold flex items-center gap-3 grayscale cursor-not-allowed">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  {t('home.mobile_app.app_store')}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Mockup */}
+            <div className="w-full lg:w-[30%] flex justify-center lg:justify-end relative mt-16 lg:mt-0 px-4 sm:px-0">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative z-10 w-full max-w-[240px] group"
+              >
+                {/* Dynamic Ambient Glow */}
+                <div className="absolute -inset-10 bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 blur-[80px] rounded-full opacity-50 group-hover:opacity-80 transition-opacity pointer-events-none"></div>
+                
+                {/* Main Image Container */}
+                <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] border border-white/10 bg-slate-900/50 backdrop-blur-sm">
+                  <img 
+                    src="/app-mockup.png" 
+                    alt="Sheger App Mockup" 
+                    className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  {/* Glossy Overlay Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 pointer-events-none"></div>
+                </div>
+
+                {/* Floating Accessory Badge */}
+                <motion.div 
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -bottom-6 -right-6 sm:-right-10 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-3xl shadow-2xl z-20 hidden sm:block"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </div>
+                    <div className="pr-4">
+                      <div className="text-[10px] text-white/50 uppercase font-black tracking-widest leading-none mb-1">Smart Portal</div>
+                      <div className="text-sm text-white font-bold">Ready to Deploy</div>
+                    </div>
+                  </div>
+                </motion.div>
+                {/* Floating Decoration - Top Left of Mockup */}
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-12 -left-6 sm:-left-12 p-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </div>
+                    <div className="pr-2">
+                      <div className="text-[10px] text-white/50 uppercase font-black tracking-widest">{t('home.mobile_app.live_now')}</div>
+                      <div className="text-xs text-white font-bold">{t('home.mobile_app.version')}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The Investment Hub */}
       <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">Business & Economy</h2>
-            <h3 className="text-3xl sm:text-6xl font-bold text-white tracking-tight font-display">The Investment Hub</h3>
+            <h2 className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">{t('home.investment_hub.badge')}</h2>
+            <h3 className="text-3xl sm:text-6xl font-bold text-white tracking-tight font-display">{t('home.investment_hub.title')}</h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              { title: "Special Economic Zones", icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", color: "amber", text: "Access massive tax incentives and zero-tariff export opportunities." },
-              { title: "Global Connectivity", icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3", color: "blue", text: "Direct access to the new international transit hub and rail network." },
-              { title: "Smart Infrastructure", icon: "M9 3v2m6-2v2M9 19v2m6-2v2", color: "emerald", text: "Plug into a 100% renewable energy grid and city-wide 5G networks." }
+              { title: t('home.investment_hub.hub1_title'), icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", color: "amber", text: t('home.investment_hub.hub1_text') },
+              { title: t('home.investment_hub.hub2_title'), icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3", color: "blue", text: t('home.investment_hub.hub2_text') },
+              { title: t('home.investment_hub.hub3_title'), icon: "M9 3v2m6-2v2M9 19v2m6-2v2", color: "emerald", text: t('home.investment_hub.hub3_text') }
             ].map((hub, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false }} transition={{ delay: idx * 0.1 }} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-[32px] hover:bg-white/10 transition-all shadow-2xl">
-                <div className={`w-14 h-14 bg-${hub.color}-500/20 text-${hub.color}-400 rounded-2xl flex items-center justify-center mb-8`}>
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={hub.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 30 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: false }} 
+                transition={{ delay: idx * 0.1 }} 
+                whileHover={{ y: -10 }}
+                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all shadow-2xl overflow-hidden"
+              >
+                {/* Accent Glow */}
+                <div className={`absolute -top-24 -right-24 w-48 h-48 bg-${hub.color}-500/10 rounded-full blur-[60px] group-hover:bg-${hub.color}-500/20 transition-all`}></div>
+                
+                <div className={`w-16 h-16 bg-${hub.color}-500/20 text-${hub.color}-400 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform`}>
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d={hub.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-white mb-4 font-display">{hub.title}</h4>
-                <p className="text-white/60 text-sm sm:text-base mb-8">{hub.text}</p>
-                <Link to="/invest" className={`text-${hub.color}-400 font-bold flex items-center gap-2`}>Learn More &rarr;</Link>
+                <h4 className="text-2xl font-bold text-white mb-6 font-display">{hub.title}</h4>
+                <p className="text-white/60 text-lg mb-10 leading-relaxed">{hub.text}</p>
+                <Link to="/invest" className={`inline-flex items-center gap-3 text-${hub.color}-400 font-bold group/link`}>
+                  {t('home.investment_hub.learn_more')} 
+                  <span className="group-hover/link:translate-x-2 transition-transform">&rarr;</span>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -438,7 +694,7 @@ const Home = () => {
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
-            <span className="absolute right-full mr-3 px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">WhatsApp Support</span>
+            <span className="absolute right-full mr-3 px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">{t('home.social.whatsapp')}</span>
           </motion.a>
 
           {/* Telegram */}
@@ -456,7 +712,7 @@ const Home = () => {
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.53-1.4.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.89.03-.24.37-.49 1.02-.75 4-.1.1.1 0 0z" />
             </svg>
-            <span className="absolute right-full mr-3 px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Telegram Channel</span>
+            <span className="absolute right-full mr-3 px-2 py-1 bg-slate-900 text-white text-[10px] rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">{t('home.social.telegram')}</span>
           </motion.a>
         </div>
 

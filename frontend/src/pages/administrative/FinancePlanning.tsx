@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
 };
 
 const staggerContainer = {
@@ -80,7 +80,7 @@ const FinancePlanning = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
             className="relative h-[400px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/50"
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-teal-500 to-emerald-400 opacity-30 mix-blend-multiply z-10"></div>
