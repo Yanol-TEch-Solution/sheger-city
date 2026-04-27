@@ -160,18 +160,21 @@ const resources = {
         leadership: {
           title: "City Leadership",
           subtitle: "Meet the dedicated leaders working to transform Sheger City into a model smart city.",
-          mayor_name: "Dr. Teshome Aduna (Ph.D.)",
-          mayor_title: "Mayor of Sheger City",
           welcome_title: "Welcome",
           welcome_subtitle: "A Warm Welcome to the Residents and Visitors of Sheger City",
           welcome_text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents.",
           read_more: "Read Full Message",
+          mayor_name: "Dr. Teshome Aduna (Ph.D.)",
+          mayor_text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community.",
+          deputy1_title: "Deputy Mayor",
           deputy1_name: "Mr. Guyo Galgalo",
-          deputy1_desc: "We invite all stakeholders—businesses, community leaders, and residents—to engage actively in these efforts to foster an inclusive environment.",
+          deputy1_text: "We invite all stakeholders—businesses, community leaders, and residents—to engage actively.",
+          deputy2_title: "Deputy Mayor",
           deputy2_name: "Mr. Gugsa Dejene",
-          deputy2_desc: "Deputy Mayor and Head of the Administration and Service Sector, committed to enhancing the quality of public services.",
+          deputy2_text: "Head of the Administration and Service Sector, committed to enhancing the quality of public services.",
+          deputy3_title: "Deputy Mayor",
           deputy3_name: "Mr. Hailu Girma",
-          deputy3_desc: "Deputy Mayor and Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being."
+          deputy3_text: "Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being."
         },
         quick_services: {
           title: "Quick Services",
@@ -212,6 +215,56 @@ const resources = {
           subtitle: "Create an account today to manage all your government interactions from one unified dashboard.",
           start: "Start Application Now",
           learn_more: "Learn More"
+        },
+        services_hub: {
+          badge: "Digital Governance",
+          title: "Smart Services Hub",
+          view_all: "View All Services",
+          land: "Land Management",
+          land_count: "45 Services",
+          business: "Business Portal",
+          business_count: "32 Services",
+          citizen: "Citizen Care",
+          citizen_count: "112 Services",
+          revenue: "Revenue & Tax",
+          revenue_count: "18 Services",
+          one_platform: "One Platform for All Applications",
+          one_platform_desc: "Track your building permits, trade licenses, and residency documents in a single, secure dashboard. Real-time status updates and direct messaging with officials.",
+          create_account: "Create Citizen Account",
+          security: "Learn About Security",
+          user_name: "John Doe",
+          user_badge: "Verified Citizen",
+          user_status: "Online"
+        },
+        mobile_app: {
+          badge: "Coming Soon to App Store & Play Store",
+          title: "Sheger City",
+          subtitle: "Super App",
+          desc: "Everything Sheger, in your pocket. Access all e-government services, track applications, and pay utilities with a single tap.",
+          feature1: "Smart Payments",
+          feature2: "ID Verification",
+          feature3: "24/7 Support",
+          feature4: "Live Tracking",
+          early_access: "Get Early Access",
+          app_store: "App Store",
+          play_store: "Play Store",
+          version: "Smart Portal v1.0",
+          live_now: "Live Now"
+        },
+        investment_hub: {
+          badge: "Business & Economy",
+          title: "The Investment Hub",
+          hub1_title: "Special Economic Zones",
+          hub1_text: "Access massive tax incentives and zero-tariff export opportunities.",
+          hub2_title: "Global Connectivity",
+          hub2_text: "Direct access to the new international transit hub and rail network.",
+          hub3_title: "Smart Infrastructure",
+          hub3_text: "Plug into a 100% renewable energy grid and city-wide 5G networks.",
+          learn_more: "Learn More"
+        },
+        social: {
+          whatsapp: "WhatsApp Support",
+          telegram: "Telegram Channel"
         },
         ai: "AI Assistant"
       }
@@ -377,18 +430,21 @@ const resources = {
         leadership: {
           title: "የከተማው አመራር",
           subtitle: "ሸገር ከተማን ወደ ሞዴል ስማርት ከተማ ለመቀየር የሚሰሩትን የወሰኑ አመራሮች ያግኙ።",
-          mayor_name: "ዶ/ር ተሾመ አዱኛ",
-          mayor_title: "የሸገር ከተማ ከንቲባ",
           welcome_title: "እንኳን ደህና መጡ",
           welcome_subtitle: "ለሸገር ከተማ ነዋሪዎች እና ጎብኚዎች ሞቅ ያለ አቀባበል",
           welcome_text: "የሸገር ከተማ ከንቲባ እንደመሆኔ ለከተማችን ያለንን ራዕይ ሳካፍላችሁ ደስ ይለኛል። ሸገርን ተወዳዳሪ፣ ምቹ እና ለነዋሪዎች ፍላጎት ምላሽ የምትሰጥ ሞዴል ስማርት ከተማ ለማድረግ ቁርጠኞች ነን።",
           read_more: "ሙሉ መልእክቱን ያንብቡ",
+          mayor_name: "ዶ/ር ተሾመ አዱኛ (ፒ.ኤች.ዲ.)",
+          mayor_text: "የሸገር ከተማ ከንቲባ እንደመሆኔ ለከተማችን ያለንን ደፋር ራዕይ ሳካፍላችሁ ደስ ይለኛል።",
+          deputy1_title: "ምክትል ከንቲባ",
           deputy1_name: "አቶ ጉዮ ገልገሎ",
-          deputy1_desc: "ሁሉንም ባለድርሻ አካላት—የንግድ ተቋማትን፣ የህብረተሰብ መሪዎችን እና ነዋሪዎችን—አካታች አካባቢን ለመፍጠር በሚደረገው ጥረት በንቃት እንዲሳተፉ እንጋብዛለን።",
+          deputy1_text: "ሁሉንም ባለድርሻ አካላት—የንግድ ተቋማትን፣ የህብረተሰብ መሪዎችን እና ነዋሪዎችን—በንቃት እንዲሳተፉ እንጋብዛለን።",
+          deputy2_title: "ምክትል ከንቲባ",
           deputy2_name: "አቶ ጉግሳ ደጀኔ",
-          deputy2_desc: "ምክትል ከንቲባ እና የአስተዳደር እና አገልግሎት ዘርፍ ሀላፊ፣ የህዝብ አገልግሎቶችን ጥራት ለማሻሻል ቁርጠኛ ናቸው።",
+          deputy2_text: "የአስተዳደር እና አገልግሎት ዘርፍ ሀላፊ፣ የህዝብ አገልግሎቶችን ጥራት ለማሻሻል ቁርጠኛ የሆኑ።",
+          deputy3_title: "ምክትል ከንቲባ",
           deputy3_name: "አቶ ሀይሉ ግርማ",
-          deputy3_desc: "ምክትል ከንቲባ እና የከተማ ግብርና ክላስተር ሀላፊ፣ በዘላቂነት እና በህብረተሰብ ደህንነት ላይ ትከረት ያደርጋሉ።"
+          deputy3_text: "የከተማ ግብርና ክላስተር ሀላፊ፣ በዘላቂነት እና በህብረተሰብ ደህንነት ላይ ትኩረት የሚያደርጉ።"
         },
         quick_services: {
           title: "ፈጣን አገልግሎቶች",
@@ -429,6 +485,56 @@ const resources = {
           subtitle: "ሁሉንም የመንግስት አገልግሎቶችዎን ከአንድ ዳሽቦርድ ለማስተዳደር ዛሬ መለያ ይፍጠሩ።",
           start: "አሁኑኑ ማመልከት ይጀምሩ",
           learn_more: "ተጨማሪ ይወቁ"
+        },
+        services_hub: {
+          badge: "ዲጂታል አስተዳደር",
+          title: "ስማርት አገልግሎቶች ማዕከል",
+          view_all: "ሁሉንም አገልግሎቶች ይመልከቱ",
+          land: "የመሬት አስተዳደር",
+          land_count: "45 አገልግሎቶች",
+          business: "የንግድ ፖርታል",
+          business_count: "32 አገልግሎቶች",
+          citizen: "የዜጎች እንክብካቤ",
+          citizen_count: "112 አገልግሎቶች",
+          revenue: "ገቢ እና ታክስ",
+          revenue_count: "18 አገልግሎቶች",
+          one_platform: "አንድ መድረክ ለሁሉም ማመልከቻዎች",
+          one_platform_desc: "የግንባታ ፈቃዶችዎን፣ የንግድ ፈቃዶችዎን እና የነዋሪነት ሰነዶችዎን በአንድ ደህንነቱ የተጠበቀ ዳሽቦርድ ውስጥ ይከታተሉ። የእውነተኛ ጊዜ ሁኔታ ዝመናዎች እና ከባለስልጣናት ጋር ቀጥተኛ መልእክት።",
+          create_account: "የዜጋ መለያ ይፍጠሩ",
+          security: "ስለ ደህንነት ይወቁ",
+          user_name: "ዮሐንስ ደጀኔ",
+          user_badge: "የተረጋገጠ ዜጋ",
+          user_status: "መስመር ላይ"
+        },
+        mobile_app: {
+          badge: "በቅርቡ በApp Store እና Play Store",
+          title: "ሸገር ከተማ",
+          subtitle: "ሱፐር አፕ",
+          desc: "ሁሉም የሸገር አገልግሎቶች በኪስዎ ውስጥ። ሁሉንም የኢ-መንግስት አገልግሎቶችን ያግኙ፣ ማመልከቻዎችን ይከታተሉ እና የፍጆታ ክፍያዎችን በአንድ ጠቅታ ይክፈሉ።",
+          feature1: "ብልህ ክፍያዎች",
+          feature2: "የመታወቂያ ማረጋገጫ",
+          feature3: "24/7 ድጋፍ",
+          feature4: "የቀጥታ ክትትል",
+          early_access: "ቀደምት መዳረሻ ያግኙ",
+          app_store: "App Store",
+          play_store: "Play Store",
+          version: "ስማርት ፖርታል v1.0",
+          live_now: "አሁን ቀጥታ"
+        },
+        investment_hub: {
+          badge: "ቢዝነስ እና ኢኮኖሚ",
+          title: "የኢንቨስትመንት ማዕከል",
+          hub1_title: "ልዩ የኢኮኖሚ ቀጠናዎች",
+          hub1_text: "ከፍተኛ የግብር ማበረታቻዎችን እና ከቀረጥ ነፃ የወጪ ንግድ ዕድሎችን ያግኙ።",
+          hub2_title: "ዓለም አቀፍ ትስስር",
+          hub2_text: "ወደ አዲሱ ዓለም አቀፍ የትራንዚት ማዕከል እና የባቡር መስመር ቀጥታ መዳረሻ።",
+          hub3_title: "ስማርት መሰረተ ልማት",
+          hub3_text: "ከ100% ታዳሽ ኃይል እና ከተማ አቀፍ የ5G ኔትወርኮች ጋር ይገናኙ።",
+          learn_more: "ተጨማሪ ይወቁ"
+        },
+        social: {
+          whatsapp: "የዋትስአፕ ድጋፍ",
+          telegram: "የቴሌግራም ቻናል"
         },
         ai: "የ AI ረዳት"
       }
@@ -568,18 +674,21 @@ const resources = {
         leadership: {
           title: "Hoggansa Magaalaa",
           subtitle: "Hoggantoota kutaatanii Magaalaa Shaggar gara magaalaa ismaartii fakkeenya ta'utti jijjiiruuf hojjetan walbarsiisuu.",
-          mayor_name: "Dr. Tashoomaa Aduunyaa",
-          mayor_title: "Kantiibaa Magaalaa Shaggar",
           welcome_title: "Baga Nagaan Dhuftan",
           welcome_subtitle: "Jiraattotaafi Daawwattoota Magaalaa Shaggariif Simannaa Ho'aa",
           welcome_text: "Akka kantiibaa Magaalaa Shaggaritti, mul'ata keenya ifaa ta'e gara fuulduraa hawaasa keenyaaf qooduun na gammachiisa. Shaggar gara magaalaa ismaartii fakkeenyaatti jijjiiruuf kutanneerra—dorgomaa, jireenyaaf mijataa, fi fedhii jiraattota hundaa kan deebisu.",
           read_more: "Ergaa Guutuu Dubbisi",
+          mayor_name: "Dr. Tashoomaa Aduunyaa (Ph.D.)",
+          mayor_text: "Akka kantiibaa Magaalaa Shaggaritti, mul'ata keenya ifaa ta'e gara fuulduraa hawaasa keenyaaf qooduun na gammachiisa.",
+          deputy1_title: "Itti Aanaa Kantiibaa",
           deputy1_name: "Obbo Guyyoo Galgaloo",
-          deputy1_desc: "Qaamolee dhimmi ilaallatu hunda—daldaltoota, hoggantoota hawaasaa, fi jiraattota—naannoo hunda hammataa ta'e uumuuf carraaqqii kana keessatti dammaqinaan akka hirmaatan ni affeerra.",
+          deputy1_text: "Qaamolee dhimmi ilaallatu hunda—daldaltoota, hoggantoota hawaasaa, fi jiraattota—akka dammaqinaan hirmaatan ni affeerra.",
+          deputy2_title: "Itti Aanaa Kantiibaa",
           deputy2_name: "Obbo Gugsaa Dajjanee",
-          deputy2_desc: "Itti Aanaa Kantiibaa fi Itti Gaafatamaa Damee Bulchiinsaa fi Tajaajilaa, qulqullina tajaajila uummataa cimsuuf kan kutannee hojjetu.",
+          deputy2_text: "Itti gaafatamaa Damee Bulchiinsaa fi Tajaajilaa, qulqullina tajaajila uummataa cimsuuf kan kutannee hojjetan.",
+          deputy3_title: "Itti Aanaa Kantiibaa",
           deputy3_name: "Obbo Haayiluu Girmaa",
-          deputy3_desc: "Itti Aanaa Kantiibaa fi Itti Gaafatamaa Kilaastara Qonna Magaalaa, itti fufinsaa fi nageenya hawaasaa irratti xiyyeeffata."
+          deputy3_text: "Itti gaafatamaa Kilaastara Qonna Magaalaa, itti fufinsaa fi nageenya hawaasaa irratti xiyyeeffatu."
         },
         quick_services: {
           title: "Tajaajiloota Saffisaa",
@@ -620,6 +729,56 @@ const resources = {
           subtitle: "Quunnamtii mootummaa keessan hunda daashboordii tokko irraa to'achuuf har'a akkoontii uummadhaa.",
           start: "Amma Iyyachuu Eegali",
           learn_more: "Dabalata Dubbisi"
+        },
+        services_hub: {
+          badge: "Bulchiinsa Dijitaalaa",
+          title: "Haba Smart Services",
+          view_all: "Tajaajila Hunda Ilaali",
+          land: "Bulchiinsa Lafa",
+          land_count: "Tajaajila 45",
+          business: "Poortaalii Daldalaa",
+          business_count: "Tajaajila 32",
+          citizen: "Kunuunsa Lammiilee",
+          citizen_count: "Tajaajila 112",
+          revenue: "Galii fi Taaksii",
+          revenue_count: "Tajaajila 18",
+          one_platform: "Waltajjii Tokko Iyyannoo Hundaaf",
+          one_platform_desc: "Ehayama ijaarsaa, ehayama daldalaa fi ragaalee jireenyaa keessan daashboordii tokko keessatti hordofaa. Odeeffannoo haala yeroo fi ergaa kallattiin hoggantoota waliin.",
+          create_account: "Akkoontii Lammii Uumi",
+          security: "Waa'ee Nageenyaa Baradhu",
+          user_name: "Obbo Caalaa",
+          user_badge: "Lammii Mirkanaa'e",
+          user_status: "Onlaayinii"
+        },
+        mobile_app: {
+          badge: "Dhiyootti App Store fi Play Store irratti",
+          title: "Magaalaa Shaggar",
+          subtitle: "Super App",
+          desc: "Wanti Shaggar hundi kiisii keessan keessa. Tajaajiloota e-mootummaa hunda argadhaa, iyyannoowwan hordofaa, fi kaffaltiiwwan tajaajilaa kilikii tokkoon kaffalaa.",
+          feature1: "Kaffaltii Smart",
+          feature2: "Mirkaneessa ID",
+          feature3: "Deeggarsa 24/7",
+          feature4: "Hordoffii Kallattii",
+          early_access: "Dursee Argadhu",
+          app_store: "App Store",
+          play_store: "Play Store",
+          version: "Poortaalii Smart v1.0",
+          live_now: "Amma Kallattiin"
+        },
+        investment_hub: {
+          badge: "Daldala fi Ikoonomii",
+          title: "Haba Inveestimentii",
+          hub1_title: "Zonoota Ikoonomii Addaa",
+          hub1_text: "Inseenitivii taaksii guddaa fi carraawwan gurgurtaa ala qaxnaa malee argadhaa.",
+          hub2_title: "Walitti Hidhamiinsa Global",
+          hub2_text: "Gara wiirtuu tiraanzitii idil-addunyaa haaraa fi sarara baaburaatti kallattiin seenaa.",
+          hub3_title: "Bu'uura Misooma Smart",
+          hub3_text: "Annisaa 100% haaromfamuu danda'u fi neetworkii 5G magaalaa guutuutti itti hidhamaa.",
+          learn_more: "Dabalata Baradhu"
+        },
+        social: {
+          whatsapp: "Deeggarsa WhatsApp",
+          telegram: "Chaanaalii Telegram"
         },
         ai: "Gargaaraa AI"
       }
