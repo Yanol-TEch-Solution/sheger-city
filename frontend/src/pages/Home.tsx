@@ -61,7 +61,48 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 selection:bg-amber-500/30">
+    <div className="bg-slate-50/50 selection:bg-amber-500/30 relative">
+      
+      {/* Global Page Loop — Red → White → Black ribbon on one shared path */}
+      <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden mix-blend-overlay">
+        <svg
+          viewBox="0 0 1440 900"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full opacity-90"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          {/* Black/Dark — tail (drawn first, sits behind) */}
+          <path
+            className="page-ribbon-w"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(10,10,20,0.95)"
+            strokeWidth="18"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* White — middle */}
+          <path
+            className="page-ribbon-b"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,255,255,0.92)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Red — front/leading (drawn last, sits on top) */}
+          <path
+            className="page-ribbon-r"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,50,50,0.98)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+      </div>
+
+
       {/* Hero Section */}
       <section 
         ref={heroRef}
@@ -89,20 +130,6 @@ const Home = () => {
              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30"></div>
           </motion.div>
         ))}
-
-        {/* Floating Ambient Glows */}
-        <div className="hidden lg:block">
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] right-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none z-10"
-          />
-          <motion.div 
-            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none z-10"
-          />
-        </div>
 
         {/* Real-time Weather & Location Widget */}
         {weather && (
@@ -255,7 +282,7 @@ const Home = () => {
       </section>
 
       {/* City Highlights Cards */}
-      <section className="bg-white pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100">
+      <section className="bg-white/60 pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -304,7 +331,7 @@ const Home = () => {
       </section>
 
       {/* Leadership Section */}
-      <section className="py-24 bg-slate-50 text-slate-900 relative z-20 overflow-hidden">
+      <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} transition={{ duration: 1.2 }} className="text-center mb-16 sm:mb-24 relative">
             <h2 className="inline-block text-3xl sm:text-5xl font-bold tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
@@ -347,7 +374,7 @@ const Home = () => {
       </section>
 
       {/* Explore Sheger Section */}
-      <section className="py-24 bg-white relative z-20 border-b border-slate-100">
+      <section className="py-24 bg-white/60 relative z-20 border-b border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
@@ -393,7 +420,7 @@ const Home = () => {
       </section>
 
       {/* Smart Services Hub - NEW Section */}
-      <section className="py-24 sm:py-32 bg-slate-50 relative overflow-hidden z-20">
+      <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl text-center lg:text-left">
@@ -493,7 +520,7 @@ const Home = () => {
       </section>
 
       {/* Mobile App Promotion Section */}
-      <section className="py-24 sm:py-32 bg-white relative overflow-hidden z-20">
+      <section className="py-24 sm:py-32 bg-white/60 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-slate-900 rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
             {/* Background Decorations */}
@@ -636,7 +663,7 @@ const Home = () => {
       </section>
 
       {/* The Investment Hub */}
-      <section className="py-24 sm:py-32 relative bg-slate-900 overflow-hidden z-20">
+      <section className="py-24 sm:py-32 relative bg-slate-900/75 overflow-hidden z-20 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">{t('home.investment_hub.badge')}</h2>
