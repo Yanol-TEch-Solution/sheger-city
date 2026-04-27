@@ -109,7 +109,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="w-[350px] sm:w-[400px] h-[500px] bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden mb-2"
+            className="w-[calc(100vw-3rem)] sm:w-[400px] max-w-[400px] h-[500px] max-h-[calc(100vh-8rem)] bg-white rounded-3xl shadow-2xl border border-slate-100 flex flex-col overflow-hidden mb-2"
           >
             {/* Header */}
             <div className="p-4 bg-slate-900 text-white flex items-center justify-between">

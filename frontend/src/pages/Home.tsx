@@ -508,7 +508,7 @@ const Home = () => {
             />
 
             {/* Text Content */}
-            <div className="lg:w-[70%] relative z-10 text-center lg:text-left">
+            <div className="w-full lg:w-[70%] relative z-10 text-center lg:text-left">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -575,7 +575,7 @@ const Home = () => {
             </div>
 
             {/* Mobile Mockup */}
-            <div className="lg:w-[30%] flex justify-center lg:justify-end relative mt-16 lg:mt-0 px-4 sm:px-0">
+            <div className="w-full lg:w-[30%] flex justify-center lg:justify-end relative mt-16 lg:mt-0 px-4 sm:px-0">
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9, y: 30 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -613,27 +613,26 @@ const Home = () => {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
-            </div>
-              
-              {/* Floating Decoration */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute top-0 right-0 sm:-right-8 p-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-20"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                {/* Floating Decoration - Top Left of Mockup */}
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -top-12 -left-6 sm:-left-12 p-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </div>
+                    <div className="pr-2">
+                      <div className="text-[10px] text-white/50 uppercase font-black tracking-widest">{t('home.mobile_app.live_now')}</div>
+                      <div className="text-xs text-white font-bold">{t('home.mobile_app.version')}</div>
+                    </div>
                   </div>
-                  <div className="text-left">
-                    <div className="text-[10px] text-white/50 uppercase font-black tracking-widest">{t('home.mobile_app.live_now')}</div>
-                    <div className="text-xs text-white font-bold">{t('home.mobile_app.version')}</div>
-                  </div>
-                </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
+        </div>
       </section>
 
       {/* The Investment Hub */}
