@@ -203,16 +203,16 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleOpen}
-          className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-2xl border border-slate-200 transition-colors relative group overflow-hidden"
+            className="w-14 h-14 bg-slate-900 rounded-full flex items-center justify-center shadow-2xl border-2 border-white transition-colors relative group overflow-hidden"
           >
             {isOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <img src="/chatboticon.png" alt="Bot" className="w-full h-full object-cover" />
+              <img src="/chatboticon.png" alt="Bot" className="w-full h-full object-cover p-1" />
             )}
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-slate-900 animate-pulse" />
           </motion.button>
         )}
       </div>

@@ -94,16 +94,16 @@ const Layout = ({ children }: LayoutProps) => {
           )}
           <button
             onClick={() => setIsChatOpen(!isChatOpen)}
-            className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-full shadow-2xl z-50 flex items-center justify-center active:scale-90 transition-all border border-slate-200 group relative overflow-hidden"
+            className="w-12 h-12 sm:w-14 sm:h-14 bg-slate-900 rounded-full shadow-2xl z-50 flex items-center justify-center active:scale-90 transition-all border-2 border-white group relative overflow-hidden"
           >
-            <div className="absolute inset-0 bg-slate-50 group-hover:bg-white transition-colors"></div>
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
             <img
               src="/chatboticon.png"
               alt="ChatBot"
-              className="w-full h-full relative z-10 object-cover"
+              className="w-full h-full relative z-10 object-cover p-1"
             />
             {/* Pulsing indicator */}
-            <div className="absolute top-3 right-3 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full shadow-sm">
+            <div className="absolute top-3 right-3 w-3 h-3 bg-emerald-500 border-2 border-slate-900 rounded-full shadow-sm">
               <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-75"></div>
             </div>
           </button>

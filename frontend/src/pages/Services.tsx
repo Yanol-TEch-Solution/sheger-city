@@ -26,6 +26,21 @@ const SERVICES = [
     price: "500 ETB",
     icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745V21a2 2 0 002 2h14a2 2 0 002-2v-7.745zM6 7V3a2 2 0 012-2h8a2 2 0 012 2v4h2a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2V9a2 2 0 012-2h2z",
     color: "red",
+    online: {
+      procedures: [
+        "Register on the Sheger E-Services portal",
+        "Complete the digital business permit form",
+        "Upload your TIN certificate and ID",
+        "Make online payment via Telebirr",
+        "Download your digital permit once approved"
+      ],
+      documents: ["Digital ID", "TIN Certificate", "Lease Agreement", "Passport Photo"]
+    },
+    inPerson: {
+      address: "Sheger City Trade & Industry Bureau",
+      building: "Bole Road, Sheger Tower, 3rd Floor",
+      documents: ["Physical ID Copy", "Original TIN Certificate", "Physical Passport Photos", "Bank Payment Slip"]
+    }
   },
   {
     id: 2,
@@ -37,6 +52,21 @@ const SERVICES = [
     price: "50 ETB",
     icon: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14",
     color: "emerald",
+    online: {
+      procedures: [
+        "Login to Civil Registry Portal",
+        "Fill Birth Information Form",
+        "Upload Hospital Birth Notification",
+        "Pay processing fee",
+        "Choose delivery method or digital copy"
+      ],
+      documents: ["Hospital Notification", "Parents' ID", "Marriage Certificate"]
+    },
+    inPerson: {
+      address: "Sub-city Vital Events Office",
+      building: "Respective Sub-city Administration Building, Ground Floor",
+      documents: ["Original Hospital Notification", "Parents' ID (Original & Copy)", "Physical Photos"]
+    }
   },
   {
     id: 3,
@@ -48,6 +78,21 @@ const SERVICES = [
     price: "300 ETB",
     icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
     color: "purple",
+    online: {
+      procedures: [
+        "Verify property plot number",
+        "Submit ownership transfer/request form",
+        "Upload site plan and deed documents",
+        "Schedule an online appointment for verification",
+        "Receive digital certificate"
+      ],
+      documents: ["Property Deed", "Site Plan", "Sale Agreement", "Digital ID"]
+    },
+    inPerson: {
+      address: "Land Management & Development Bureau",
+      building: "Sheger City Hall, East Wing, 2nd Floor",
+      documents: ["Original Property Documents", "Notarized Sale Agreement", "Official Site Plan"]
+    }
   },
   {
     id: 4,
@@ -59,6 +104,21 @@ const SERVICES = [
     price: "Varies",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
     color: "orange",
+    online: {
+      procedures: [
+        "Enter your Account Number",
+        "Check outstanding balance",
+        "Select payment method",
+        "Confirm payment",
+        "Download digital receipt"
+      ],
+      documents: ["Account Number / Customer ID"]
+    },
+    inPerson: {
+      address: "Ethiopian Electric Utility (EEU) Service Center",
+      building: "Nearest District Office",
+      documents: ["Last Bill Statement", "Customer ID"]
+    }
   },
   {
     id: 5,
@@ -70,17 +130,47 @@ const SERVICES = [
     price: "1,200 ETB",
     icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
     color: "red",
+    online: {
+      procedures: [
+        "Upload vehicle technical inspection report",
+        "Fill insurance details",
+        "Pay annual registration fee",
+        "Select plate pickup location",
+        "Download temporary permit"
+      ],
+      documents: ["Technical Inspection Report", "Insurance Certificate", "Title Deed"]
+    },
+    inPerson: {
+      address: "Transport Authority Bureau",
+      building: "Kality Main Office, Block B",
+      documents: ["Physical Vehicle", "Original Title Deed", "Insurance Policy"]
+    }
   },
   {
     id: 6,
     category: "civil",
     catLabel: "CIVIL REGISTRY",
-    title: "National ID Card",
-    desc: "Apply for new national ID card or replacement.",
+    title: "Digital ID Card",
+    desc: "Apply for new Digital ID card or replacement.",
     time: "7-10 Days",
     price: "200 ETB",
     icon: "M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14",
     color: "red",
+    online: {
+      procedures: [
+        "Fill biometric pre-registration form",
+        "Upload residential confirmation from Woreda",
+        "Schedule biometric capture appointment",
+        "Pay ID fee",
+        "Receive SMS notification for collection"
+      ],
+      documents: ["Woreda Residence Paper", "Old ID (for replacement)", "Birth Certificate"]
+    },
+    inPerson: {
+      address: "Sub-city Digital ID Center",
+      building: "Main Administration Building, 1st Floor",
+      documents: ["Physical Presence for Biometrics", "Original Woreda Confirmation"]
+    }
   },
   {
     id: 7,
@@ -92,6 +182,20 @@ const SERVICES = [
     price: "Varies",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
     color: "red",
+    online: {
+      procedures: [
+        "Enter Water Meter Number",
+        "View current month usage",
+        "Process payment through portal",
+        "Verify transaction status"
+      ],
+      documents: ["Meter Number"]
+    },
+    inPerson: {
+      address: "Water & Sewerage Authority District Office",
+      building: "Local Woreda Service Center",
+      documents: ["Recent Water Bill Copy"]
+    }
   },
   {
     id: 8,
@@ -103,8 +207,23 @@ const SERVICES = [
     price: "100 ETB",
     icon: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16",
     color: "emerald",
+    online: {
+      procedures: [
+        "Specify location and waste type",
+        "Choose collection frequency",
+        "Pay subscription fee",
+        "Confirm pickup schedule"
+      ],
+      documents: ["Residence ID", "Location Address"]
+    },
+    inPerson: {
+      address: "Sanitation Bureau Office",
+      building: "Local Woreda Administration",
+      documents: ["Digital ID", "Utility Bill (for address proof)"]
+    }
   },
 ];
+
 
 
 const Services = () => {
@@ -120,12 +239,16 @@ const Services = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedService, setSelectedService] = useState<any>(null);
+  const [modalTab, setModalTab] = useState<"online" | "inperson">("online");
+  const [showForm, setShowForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleApply = (e: React.MouseEvent, service: any) => {
     e.stopPropagation();
     setSelectedService(service);
+    setModalTab("online");
+    setShowForm(false);
     setIsSuccess(false);
   };
 
@@ -281,10 +404,10 @@ const Services = () => {
                     className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-red-100 transition-all p-5 flex flex-col group relative overflow-hidden"
                   >
                     {/* Corner Accent */}
-                    <div className={`absolute -top-12 -right-12 w-24 h-24 bg-${service.color}-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform`}></div>
+                    <div className="absolute -top-12 -right-12 w-24 h-24 bg-red-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform"></div>
 
                     <div className="flex items-start gap-3.5 mb-4 relative z-10">
-                      <div className={`w-10 h-10 rounded-lg bg-${service.color}-500/10 text-${service.color}-600 flex items-center justify-center shrink-0`}>
+                      <div className="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={service.icon} />
                         </svg>
@@ -312,7 +435,7 @@ const Services = () => {
                       
                       <button 
                         onClick={(e) => handleApply(e, service)}
-                        className={`flex items-center gap-1 text-${service.color}-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform cursor-pointer hover:underline`}
+                        className="flex items-center gap-1 text-red-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform cursor-pointer hover:underline"
                       >
                         Apply &rarr;
                       </button>
@@ -360,7 +483,7 @@ const Services = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10"
+              className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl z-10 overflow-hidden flex flex-col max-h-[90vh]"
             >
               {isSuccess ? (
                 <div className="p-12 text-center">
@@ -378,11 +501,11 @@ const Services = () => {
                 </div>
               ) : (
                 <>
-                  <div className={`h-2 bg-${selectedService.color}-600`} />
-                  <div className="p-8">
+                  <div className="h-2 bg-red-600" />
+                  <div className="p-8 overflow-y-auto scrollbar-hide">
                     <div className="flex justify-between items-start mb-6">
                       <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-2xl bg-${selectedService.color}-500/10 text-${selectedService.color}-600 flex items-center justify-center`}>
+                        <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center">
                           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={selectedService.icon} />
                           </svg>
@@ -402,46 +525,192 @@ const Services = () => {
                       </button>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
-                          <input required type="text" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="Enter your name" />
-                        </div>
-                        <div className="space-y-1.5">
-                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">National ID</label>
-                          <input required type="text" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="ID Number" />
-                        </div>
-                      </div>
-                      <div className="space-y-1.5">
-                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reason for Application</label>
-                        <textarea required className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all h-24 resize-none" placeholder="Explain briefly..." />
-                      </div>
-                      
-                      <div className="pt-4 flex gap-3">
-                        <button 
-                          type="button"
-                          onClick={() => setSelectedService(null)}
-                          className="flex-1 px-6 py-3 border border-slate-200 text-slate-600 font-bold rounded-xl text-sm hover:bg-slate-50 transition-all"
+                    {/* Tabs */}
+                    <div className="flex border-b border-slate-100 mb-6">
+                      <button
+                        onClick={() => setModalTab("online")}
+                        className={`flex-1 py-3 text-xs font-bold transition-all relative ${modalTab === "online" ? "text-red-600" : "text-slate-400 hover:text-slate-600"}`}
+                      >
+                        Apply Online
+                        {modalTab === "online" && (
+                          <motion.div layoutId="modalTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-600" />
+                        )}
+                      </button>
+                      <button
+                        onClick={() => setModalTab("inperson")}
+                        className={`flex-1 py-3 text-xs font-bold transition-all relative ${modalTab === "inperson" ? "text-red-600" : "text-slate-400 hover:text-slate-600"}`}
+                      >
+                        In-Person at Office
+                        {modalTab === "inperson" && (
+                          <motion.div layoutId="modalTab" className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-600" />
+                        )}
+                      </button>
+                    </div>
+
+                    <div className="min-h-[300px]">
+                      {modalTab === "online" ? (
+                        showForm ? (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="space-y-6"
+                          >
+                            <div className="flex items-center gap-2 mb-4">
+                              <button 
+                                onClick={() => setShowForm(false)}
+                                className="p-1 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-slate-600 transition-all"
+                              >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                              </button>
+                              <h3 className="text-sm font-bold text-slate-800">Application Form</h3>
+                            </div>
+
+                            <form onSubmit={handleSubmit} className="space-y-5">
+                              <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-1.5">
+                                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
+                                  <input required type="text" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="Enter your name" />
+                                </div>
+                                <div className="space-y-1.5">
+                                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Phone Number</label>
+                                  <input required type="tel" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="+251 ..." />
+                                </div>
+                              </div>
+
+                              <div className="space-y-1.5">
+                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Upload Required Documents</label>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                  {selectedService.online.documents.map((doc: string, i: number) => (
+                                    <div key={i} className="relative group">
+                                      <input type="file" className="hidden" id={`file-${i}`} />
+                                      <label 
+                                        htmlFor={`file-${i}`}
+                                        className="flex flex-col items-center justify-center p-4 border-2 border-dashed border-slate-200 rounded-2xl hover:border-red-400 hover:bg-red-50/30 transition-all cursor-pointer group"
+                                      >
+                                        <svg className="w-5 h-5 text-slate-300 group-hover:text-red-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                        </svg>
+                                        <span className="text-[9px] font-black text-slate-600 uppercase text-center">{doc}</span>
+                                        <span className="text-[8px] text-slate-400 mt-1">PDF, JPG (Max 5MB)</span>
+                                      </label>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+
+                              <div className="pt-4">
+                                <button 
+                                  type="submit"
+                                  disabled={isSubmitting}
+                                  className="w-full px-6 py-4 bg-red-600 text-white font-bold rounded-2xl text-sm hover:opacity-90 transition-all shadow-lg shadow-red-600/20 flex items-center justify-center gap-2"
+                                >
+                                  {isSubmitting ? (
+                                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                  ) : (
+                                    <>Submit Application &rarr;</>
+                                  )}
+                                </button>
+                              </div>
+                            </form>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="space-y-6"
+                          >
+                            <div>
+                              <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                Application Procedures
+                              </h3>
+                              <div className="space-y-3">
+                                {selectedService.online.procedures.map((step: string, i: number) => (
+                                  <div key={i} className="flex gap-3">
+                                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-red-50 text-red-600 flex items-center justify-center text-[10px] font-bold">
+                                      {i + 1}
+                                    </span>
+                                    <p className="text-[11px] text-slate-600 leading-relaxed font-medium">{step}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div>
+                              <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Required Documents
+                              </h3>
+                              <div className="grid grid-cols-2 gap-2">
+                                {selectedService.online.documents.map((doc: string, i: number) => (
+                                  <div key={i} className="flex items-center gap-2 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                                    <svg className="w-3 h-3 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span className="text-[10px] font-bold text-slate-700">{doc}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <button 
+                              onClick={() => setShowForm(true)}
+                              className="w-full px-6 py-4 bg-red-600 text-white font-bold rounded-2xl text-sm hover:opacity-90 transition-all shadow-lg shadow-red-600/20 flex items-center justify-center gap-2"
+                            >
+                              Start Online Application &rarr;
+                            </button>
+                          </motion.div>
+                        )
+                      ) : (
+                        <motion.div
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          className="space-y-6"
                         >
-                          Cancel
-                        </button>
-                        <button 
-                          type="submit"
-                          disabled={isSubmitting}
-                          className={`flex-[2] px-6 py-3 bg-${selectedService.color}-600 text-white font-bold rounded-xl text-sm hover:opacity-90 transition-all shadow-lg shadow-${selectedService.color}-600/20 flex items-center justify-center gap-2`}
-                        >
-                          {isSubmitting ? (
-                            <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                          ) : (
-                            <>Submit Application</>
-                          )}
-                        </button>
-                      </div>
-                    </form>
+                          <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                              <svg className="w-3 h-3 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                              Office Location
+                            </h3>
+                            <p className="text-xs font-bold text-slate-900 mb-1">{selectedService.inPerson.address}</p>
+                            <p className="text-[11px] text-slate-500">{selectedService.inPerson.building}</p>
+                          </div>
+
+                          <div>
+                            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                              What to Bring
+                            </h3>
+                            <div className="space-y-2">
+                              {selectedService.inPerson.documents.map((doc: string, i: number) => (
+                                <div key={i} className="flex items-center gap-3 p-3 bg-white border border-slate-100 rounded-xl shadow-sm">
+                                  <div className="w-2 h-2 rounded-full bg-blue-100 flex-shrink-0" />
+                                  <span className="text-[11px] font-medium text-slate-700">{doc}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="p-4 bg-amber-50 rounded-2xl border border-amber-100 flex gap-3">
+                             <svg className="w-5 h-5 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                             </svg>
+                             <div>
+                                <p className="text-[10px] font-bold text-amber-900 uppercase tracking-wider mb-1">Important Notice</p>
+                                <p className="text-[10px] text-amber-700 leading-relaxed">Please arrive between 8:30 AM and 5:00 PM (Monday - Friday). Biometric captures require physical presence.</p>
+                             </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
                   </div>
                 </>
               )}
