@@ -74,7 +74,7 @@ const VirtualTour = () => {
             className="rounded-[2.5rem] overflow-hidden bg-black shadow-2xl border border-slate-100 relative group"
            >
              <div className="absolute top-8 left-8 z-20">
-                <span className="px-4 py-2 bg-blue-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-xl">
+                <span className="px-4 py-2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-xl">
                   Interactive 360° Experience
                 </span>
              </div>

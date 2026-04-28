@@ -103,7 +103,7 @@ const VALUES = [
   {
     title: "Transparency",
     icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
-    color: "blue",
+    color: "red",
   },
   { title: "Innovation", icon: "M13 10V3L4 14h7v7l9-11h-7z", color: "red" },
   {
@@ -119,7 +119,7 @@ const VALUES = [
 ];
 
 const colorMap: Record<string, string> = {
-  blue: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  red: "bg-red-500/10 text-red-400 border-red-500/20",
   red: "bg-red-500/10 text-red-400 border-red-500/20",
   emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   teal: "bg-teal-500/10 text-teal-400 border-teal-500/20",
@@ -139,7 +139,7 @@ const About = () => {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
+          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
@@ -188,7 +188,7 @@ const About = () => {
                 {...fadeUp(i * 0.1)}
                 className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow text-center group"
               >
-                <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -224,7 +224,7 @@ const About = () => {
                 City Overview
               </p>
               <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight tracking-tight font-display mb-6">
-                A City Built for <span className="text-blue-600">People</span>
+                A City Built for <span className="text-red-600">People</span>
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
                 Sheger City is a rapidly growing metropolitan area established
@@ -241,7 +241,7 @@ const About = () => {
               </p>
               <Link
                 to="/subcity"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:-translate-y-1 group"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-lg shadow-red-600/20 hover:-translate-y-1 group"
               >
                 Explore Sub-Cities
                 <svg
@@ -276,7 +276,7 @@ const About = () => {
               </div>
               {/* Floating accent card */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 hidden sm:block">
-                <div className="text-2xl font-semibold text-blue-600 font-display">
+                <div className="text-2xl font-semibold text-red-600 font-display">
                   Est. 2021
                 </div>
                 <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider mt-1">
@@ -293,7 +293,7 @@ const About = () => {
         <motion.div
           animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[130px] pointer-events-none"
+          className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-red-500/10 rounded-full blur-[130px] pointer-events-none"
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
@@ -341,7 +341,7 @@ const About = () => {
               {...fadeUp(0.2)}
               className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 hover:bg-white/10 transition-all"
             >
-              <div className="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center mb-8">
+              <div className="w-14 h-14 bg-red-500/20 text-red-400 rounded-2xl flex items-center justify-center mb-8">
                 <svg
                   className="w-7 h-7"
                   fill="none"
@@ -467,7 +467,7 @@ const About = () => {
                 className="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
                 <div className="text-4xl mb-5">{a.icon}</div>
-                <div className="text-4xl font-semibold text-blue-600 font-display mb-2">
+                <div className="text-4xl font-semibold text-red-600 font-display mb-2">
                   {a.stat}
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 font-display mb-2">
@@ -490,7 +490,7 @@ const About = () => {
               Get Involved
             </p>
             <h2 className="text-4xl sm:text-6xl font-bold text-slate-900 font-display tracking-tight mb-6 leading-tight">
-              Be Part of Sheger's <span className="text-blue-600">Future</span>
+              Be Part of Sheger's <span className="text-red-600">Future</span>
             </h2>
             <p className="text-slate-600 text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
               Whether you are a resident, investor, or visitor — Sheger City has
@@ -500,7 +500,7 @@ const About = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/services"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/25 hover:-translate-y-1 group"
+                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-all shadow-xl shadow-red-600/25 hover:-translate-y-1 group"
               >
                 Explore Services
                 <svg

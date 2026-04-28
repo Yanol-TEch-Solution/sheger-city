@@ -29,7 +29,7 @@ const INVEST_SECTORS = [
 const TAG_COLORS: Record<string, string> = {
   Nature: 'bg-emerald-50 text-emerald-700',
   Heritage: 'bg-red-50 text-red-700',
-  Landscape: 'bg-sky-50 text-sky-700',
+  Landscape: 'bg-red-50 text-red-700',
   Culture: 'bg-violet-50 text-violet-700',
   Market: 'bg-rose-50 text-rose-700',
 };
@@ -92,7 +92,7 @@ const Explore = () => {
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-slate-900 font-display mb-2 group-hover:text-blue-600 transition-colors">{place.title}</h3>
+                  <h3 className="text-base font-semibold text-slate-900 font-display mb-2 group-hover:text-red-600 transition-colors">{place.title}</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">{place.desc}</p>
                 </div>
               </motion.div>
@@ -153,7 +153,7 @@ const Explore = () => {
               Whether you're a visitor, resident, or investor — Sheger City welcomes you. Connect with us to learn more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:-translate-y-1">
+              <Link to="/contact" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-all shadow-lg shadow-red-600/20 hover:-translate-y-1">
                 Get in Touch
               </Link>
               <Link to="/about" className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-slate-100 text-slate-700 font-medium rounded-full hover:bg-slate-200 transition-all hover:-translate-y-1">

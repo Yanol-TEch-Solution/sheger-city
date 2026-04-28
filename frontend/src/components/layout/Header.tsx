@@ -8,19 +8,8 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
-
-  const isHome = location.pathname === "/";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -60,21 +49,13 @@ const Header = () => {
     { code: "es", label: "Spanish", flag: "https://flagcdn.com/w40/es.png" },
   ];
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-    isHome
-      ? scrolled || mobileMenuOpen
-        ? "bg-white/95 backdrop-blur-xl shadow-xl py-2"
-        : "bg-transparent py-4"
-      : "bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2"
-  }`;
+  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2`;
 
   const linkClasses = (isActive: boolean) =>
     `px-2 py-1 text-[11px] font-semibold transition-all duration-300 rounded-md ${
-      isHome && !scrolled && !mobileMenuOpen
-        ? "text-white hover:underline"
-        : isActive
-          ? "bg-blue-600 text-white shadow-lg"
-          : "text-slate-700 hover:underline"
+      isActive
+        ? "bg-red-600 text-white shadow-lg"
+        : "text-slate-700 hover:underline"
     }`;
 
   return (
@@ -92,12 +73,12 @@ const Header = () => {
             </div>
             <div className="overflow-hidden">
               <h1
-                className={`text-[11px] sm:text-sm font-bold transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? "text-white" : "text-slate-900"}`}
+                className="text-[11px] sm:text-sm font-bold transition-colors duration-500 truncate font-display text-slate-900"
               >
                 {t("header.title")}
               </h1>
               <p
-                className={`text-[6px] sm:text-[9px] transition-colors duration-500 truncate font-sans ${isHome && !scrolled && !mobileMenuOpen ? "text-white/70" : "text-slate-600"}`}
+                className="text-[6px] sm:text-[9px] transition-colors duration-500 truncate font-sans text-slate-600"
               >
                 {t("header.subtitle")}
               </p>
@@ -376,7 +357,7 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <button
-                className={`flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300 ${activeDropdown === "language" ? "ring-2 ring-blue-500/20 border-blue-500/50" : ""}`}
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-md transition-all duration-300 ${activeDropdown === "language" ? "ring-2 ring-red-500/20 border-red-500/50" : ""}`}
               >
                 <img
                   src={
@@ -418,7 +399,7 @@ const Header = () => {
                         <button
                           key={lang.code}
                           onClick={() => changeLanguage(lang.code)}
-                          className={`flex items-center gap-1.5 px-2 py-1.5 w-full rounded-lg transition-all duration-300 group ${i18n.language === lang.code ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" : "hover:bg-slate-50 text-slate-600"}`}
+                          className={`flex items-center gap-1.5 px-2 py-1.5 w-full rounded-lg transition-all duration-300 group ${i18n.language === lang.code ? "bg-red-600 text-white shadow-lg shadow-red-600/20" : "hover:bg-slate-50 text-slate-600"}`}
                         >
                           <img
                             src={lang.flag}
@@ -440,7 +421,7 @@ const Header = () => {
 
             <Link
               to="/virtual-tour"
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[11px] font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-red-600 text-white text-[11px] font-semibold rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30"
             >
               {t("header.virtual_tour")}
               <svg
@@ -461,7 +442,7 @@ const Header = () => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${isHome && !scrolled && !mobileMenuOpen ? "text-white hover:bg-white/10" : "text-slate-700 hover:bg-slate-100"}`}
+            className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100"
           >
             <svg
               className="w-7 h-7"
@@ -771,7 +752,7 @@ const Header = () => {
                             changeLanguage(lang.code);
                             setMobileSubMenu(null);
                           }}
-                          className={`flex items-center gap-3 py-2 px-4 rounded-xl border transition-all ${i18n.language === lang.code ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20" : "bg-slate-50 border-transparent text-slate-600"}`}
+                          className={`flex items-center gap-3 py-2 px-4 rounded-xl border transition-all ${i18n.language === lang.code ? "bg-red-600 border-red-600 text-white shadow-lg shadow-red-600/20" : "bg-slate-50 border-transparent text-slate-600"}`}
                         >
                           <img
                             src={lang.flag}
@@ -789,7 +770,7 @@ const Header = () => {
               <div className="pt-8">
                 <Link
                   to="/virtual-tour"
-                  className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all"
+                  className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all"
                 >
                   {t("header.virtual_tour")}
                 </Link>

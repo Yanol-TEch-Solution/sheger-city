@@ -119,7 +119,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                 </div>
                 <div>
                   <h3 className="font-bold text-sm">Sheger Assistant</h3>
-                  <p className="text-[10px] text-blue-400 font-medium">AI Powered • Online</p>
+                  <p className="text-[10px] text-red-400 font-medium">AI Powered • Online</p>
                 </div>
               </div>
               <button 
@@ -141,7 +141,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${
                     msg.role === 'user' 
-                      ? 'bg-blue-600 text-white rounded-tr-none' 
+                      ? 'bg-red-600 text-white rounded-tr-none' 
                       : 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none'
                   }`}>
                     {msg.content}
@@ -152,9 +152,9 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                 <div className="flex justify-start">
                   <div className="bg-white p-3 rounded-2xl shadow-sm border border-slate-100 rounded-tl-none">
                     <div className="flex gap-1">
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-1.5 h-1.5 bg-red-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                     </div>
                   </div>
                 </div>
@@ -171,12 +171,12 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything..."
-                className="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                className="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isLoading}
-                className="p-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 transition-colors shadow-lg shadow-blue-600/20"
+                className="p-2 bg-red-600 text-white rounded-xl hover:bg-red-700 disabled:opacity-50 transition-colors shadow-lg shadow-red-600/20"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -212,7 +212,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
             ) : (
               <img src="/chatboticon.png" alt="Bot" className="w-full h-full object-cover" />
             )}
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full border-2 border-white animate-pulse" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse" />
           </motion.button>
         )}
       </div>

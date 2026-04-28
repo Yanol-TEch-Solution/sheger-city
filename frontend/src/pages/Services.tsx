@@ -25,7 +25,7 @@ const SERVICES = [
     time: "3-5 Days",
     price: "500 ETB",
     icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745V21a2 2 0 002 2h14a2 2 0 002-2v-7.745zM6 7V3a2 2 0 012-2h8a2 2 0 012 2v4h2a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2V9a2 2 0 012-2h2z",
-    color: "blue",
+    color: "red",
   },
   {
     id: 2,
@@ -69,7 +69,7 @@ const SERVICES = [
     time: "3-5 Days",
     price: "1,200 ETB",
     icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
-    color: "cyan",
+    color: "red",
   },
   {
     id: 6,
@@ -91,7 +91,7 @@ const SERVICES = [
     time: "Instant",
     price: "Varies",
     icon: "M13 10V3L4 14h7v7l9-11h-7z",
-    color: "blue",
+    color: "red",
   },
   {
     id: 8,
@@ -194,38 +194,40 @@ const Services = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
           <aside className="lg:w-48 shrink-0 lg:-ml-4 xl:-ml-6">
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-hide hover:scrollbar-default transition-all">
-              <h3 className="flex items-center gap-2 text-slate-900 font-bold mb-3 text-[10px] uppercase tracking-wider opacity-50 px-2">
+            <div className="sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto scrollbar-hide hover:scrollbar-default transition-all px-2">
+              <h3 className="text-slate-400 font-bold mb-4 text-[10px] uppercase tracking-[0.2em] px-2">
                 Categories
               </h3>
               
-              <div className="space-y-0.5">
+              <div className="space-y-1">
                 {CATEGORIES.map(cat => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`w-full group flex items-center justify-between px-2.5 py-2 rounded-lg transition-all ${activeCategory === cat.id ? "bg-blue-50 text-blue-600" : "text-slate-500 hover:bg-slate-50"}`}
+                    className={`w-full group flex items-center justify-between px-2.5 py-2 rounded-lg transition-all relative cursor-pointer ${activeCategory === cat.id ? "text-red-600 bg-red-50/50" : "text-slate-500 hover:bg-slate-50"}`}
                   >
+                    {activeCategory === cat.id && (
+                      <motion.div layoutId="activeCat" className="absolute left-0 w-1 h-4 bg-red-600 rounded-full" />
+                    )}
                     <div className="flex items-center gap-2">
-                      <svg className={`w-3.5 h-3.5 ${activeCategory === cat.id ? "text-blue-600" : "text-slate-400 group-hover:text-slate-600"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-3.5 h-3.5 ${activeCategory === cat.id ? "text-red-600" : "text-slate-400 group-hover:text-slate-600"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
                       </svg>
                       <span className="text-[10px] font-bold truncate">{cat.label}</span>
                     </div>
-                    <span className={`text-[9px] font-black ${activeCategory === cat.id ? "text-blue-600" : "text-slate-400"}`}>
+                    <span className={`text-[9px] font-black ${activeCategory === cat.id ? "text-red-600" : "text-slate-400"}`}>
                       {getCategoryCount(cat.id)}
                     </span>
                   </button>
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-slate-900 rounded-xl relative overflow-hidden group">
-                <div className="relative z-10">
-                   <h4 className="text-white font-bold text-[10px] mb-1">Help Desk</h4>
-                   <button className="text-blue-400 font-bold text-[9px] hover:underline">
-                     Contact Support &rarr;
-                   </button>
-                </div>
+              <div className="mt-12 px-2 border-t border-slate-200 pt-6">
+                <h4 className="text-slate-900 font-bold text-[10px] mb-1">Help Desk</h4>
+                <p className="text-slate-400 text-[9px] mb-3">24/7 Citizen Support</p>
+                <button className="text-red-600 font-bold text-[10px] hover:underline flex items-center gap-1">
+                  Contact Support &rarr;
+                </button>
               </div>
             </div>
           </aside>
@@ -237,7 +239,7 @@ const Services = () => {
                 <h3 className="text-2xl font-bold text-slate-900 font-display">Featured Services</h3>
                 <p className="text-slate-500 text-sm mt-1">Discover the most popular online portals in Sheger City.</p>
               </div>
-              <Link to="#" className="text-blue-600 font-bold text-sm hover:underline flex items-center gap-2">
+              <Link to="#" className="text-red-600 font-bold text-sm hover:underline flex items-center gap-2">
                 View All Services
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -254,7 +256,7 @@ const Services = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
-                    className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-blue-100 transition-all p-5 flex flex-col group relative overflow-hidden"
+                    className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:border-red-100 transition-all p-5 flex flex-col group relative overflow-hidden"
                   >
                     {/* Corner Accent */}
                     <div className={`absolute -top-12 -right-12 w-24 h-24 bg-${service.color}-500/5 rounded-full blur-2xl group-hover:scale-150 transition-transform`}></div>
@@ -286,7 +288,7 @@ const Services = () => {
                          <span className="text-[10px] font-bold text-slate-700">{service.price}</span>
                       </div>
                       
-                      <button className={`flex items-center gap-1 text-${service.color}-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform`}>
+                      <button className={`flex items-center gap-1 text-${service.color}-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform cursor-pointer`}>
                         Apply &rarr;
                       </button>
                     </div>
@@ -304,7 +306,7 @@ const Services = () => {
                  { label: "Digital Documents", icon: "M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" },
                ].map(feature => (
                  <div key={feature.label} className="flex items-center gap-3 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center shrink-0">
                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
                        </svg>

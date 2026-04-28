@@ -111,7 +111,7 @@ const Leadership = () => {
                 {/* Info */}
                 <div className="p-6">
                   <h3 className="text-base font-semibold text-slate-900 font-display mb-1">{leader.name}</h3>
-                  <p className="text-xs text-blue-600 font-medium mb-3">{leader.title}</p>
+                  <p className="text-xs text-red-600 font-medium mb-3">{leader.title}</p>
                   <p className="text-sm text-slate-500 leading-relaxed">{leader.bio}</p>
                 </div>
               </motion.div>
