@@ -119,6 +119,28 @@ const Services = () => {
   `;
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleApply = (e: React.MouseEvent, service: any) => {
+    e.stopPropagation();
+    setSelectedService(service);
+    setIsSuccess(false);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setSelectedService(null);
+        setIsSuccess(false);
+      }, 2000);
+    }, 1500);
+  };
 
   const filteredServices = SERVICES.filter(service => {
     const matchesCategory = activeCategory === "all" || service.category === activeCategory;
@@ -288,7 +310,10 @@ const Services = () => {
                          <span className="text-[10px] font-bold text-slate-700">{service.price}</span>
                       </div>
                       
-                      <button className={`flex items-center gap-1 text-${service.color}-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform cursor-pointer`}>
+                      <button 
+                        onClick={(e) => handleApply(e, service)}
+                        className={`flex items-center gap-1 text-${service.color}-600 font-bold text-[10px] group-hover:translate-x-1 transition-transform cursor-pointer hover:underline`}
+                      >
                         Apply &rarr;
                       </button>
                     </div>
@@ -318,6 +343,112 @@ const Services = () => {
           </div>
         </div>
       </main>
+
+      {/* Service Application Modal */}
+      <AnimatePresence>
+        {selectedService && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => !isSubmitting && setSelectedService(null)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10"
+            >
+              {isSuccess ? (
+                <div className="p-12 text-center">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6"
+                  >
+                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </motion.div>
+                  <h2 className="text-2xl font-bold text-slate-900 mb-2">Application Received!</h2>
+                  <p className="text-slate-500">Your request for <strong>{selectedService.title}</strong> has been submitted successfully. Reference: #SHG-{Math.floor(Math.random() * 100000)}</p>
+                </div>
+              ) : (
+                <>
+                  <div className={`h-2 bg-${selectedService.color}-600`} />
+                  <div className="p-8">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className={`w-12 h-12 rounded-2xl bg-${selectedService.color}-500/10 text-${selectedService.color}-600 flex items-center justify-center`}>
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={selectedService.icon} />
+                          </svg>
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold text-slate-900">{selectedService.title}</h2>
+                          <p className="text-xs text-slate-500">Service Fee: {selectedService.price}</p>
+                        </div>
+                      </div>
+                      <button 
+                        onClick={() => setSelectedService(null)}
+                        className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+                      >
+                        <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
+                          <input required type="text" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="Enter your name" />
+                        </div>
+                        <div className="space-y-1.5">
+                          <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">National ID</label>
+                          <input required type="text" className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all" placeholder="ID Number" />
+                        </div>
+                      </div>
+                      <div className="space-y-1.5">
+                        <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Reason for Application</label>
+                        <textarea required className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-red-500/20 focus:border-red-500 outline-none transition-all h-24 resize-none" placeholder="Explain briefly..." />
+                      </div>
+                      
+                      <div className="pt-4 flex gap-3">
+                        <button 
+                          type="button"
+                          onClick={() => setSelectedService(null)}
+                          className="flex-1 px-6 py-3 border border-slate-200 text-slate-600 font-bold rounded-xl text-sm hover:bg-slate-50 transition-all"
+                        >
+                          Cancel
+                        </button>
+                        <button 
+                          type="submit"
+                          disabled={isSubmitting}
+                          className={`flex-[2] px-6 py-3 bg-${selectedService.color}-600 text-white font-bold rounded-xl text-sm hover:opacity-90 transition-all shadow-lg shadow-${selectedService.color}-600/20 flex items-center justify-center gap-2`}
+                        >
+                          {isSubmitting ? (
+                            <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                          ) : (
+                            <>Submit Application</>
+                          )}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
