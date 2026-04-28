@@ -10,6 +10,7 @@ import SubCity from '../pages/SubCity';
 import Sector from '../pages/Sector';
 import Administration from '../pages/Administration';
 import VirtualTour from '../pages/VirtualTour';
+import Services from '../pages/Services';
 //import District from '../pages/District';
 
 import Kantiibaa from '../pages/administrative/Kantiibaa';
@@ -83,6 +84,7 @@ const AppRoutes = () => {
             <Route path="/administrative" element={<Administration />} />
             <Route path="/sector/:name/*" element={<Sector />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
+            <Route path="/services" element={<Services />} />
           </Routes>
         </Layout>
       } />

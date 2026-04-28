@@ -50,14 +50,14 @@ const Header = () => {
   // const DISTRICTS = ["Aanaa galaan", "Aanaa Andoodee", "Aanaa siidaa Awaash"];
 
   const LANGUAGES = [
-    { code: "en", label: "EN", flag: "https://flagcdn.com/w40/us.png" },
-    { code: "am", label: "AM", flag: "https://flagcdn.com/w40/et.png" },
-    { code: "om", label: "OR", flag: "https://flagcdn.com/w40/et.png" },
-    { code: "ti", label: "TI", flag: "https://flagcdn.com/w40/et.png" },
-    { code: "hi", label: "HI", flag: "https://flagcdn.com/w40/in.png" },
-    { code: "ar", label: "AR", flag: "https://flagcdn.com/w40/sa.png" },
-    { code: "fr", label: "FR", flag: "https://flagcdn.com/w40/fr.png" },
-    { code: "es", label: "ES", flag: "https://flagcdn.com/w40/es.png" },
+    { code: "en", label: "English", flag: "https://flagcdn.com/w40/us.png" },
+    { code: "am", label: "Amharic", flag: "https://flagcdn.com/w40/et.png" },
+    { code: "om", label: "Afaan Oromoo", flag: "https://flagcdn.com/w40/et.png" },
+    { code: "ti", label: "Tigrinya", flag: "https://flagcdn.com/w40/et.png" },
+    { code: "hi", label: "Hindi", flag: "https://flagcdn.com/w40/in.png" },
+    { code: "ar", label: "Arabic", flag: "https://flagcdn.com/w40/sa.png" },
+    { code: "fr", label: "French", flag: "https://flagcdn.com/w40/fr.png" },
+    { code: "es", label: "Spanish", flag: "https://flagcdn.com/w40/es.png" },
   ];
 
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -69,7 +69,7 @@ const Header = () => {
   }`;
 
   const linkClasses = (isActive: boolean) =>
-    `px-4 py-2 text-sm font-bold transition-all duration-300 rounded-xl ${
+    `px-2 py-1 text-[11px] font-semibold transition-all duration-300 rounded-md ${
       isHome && !scrolled && !mobileMenuOpen
         ? "text-white hover:underline"
         : isActive
@@ -80,9 +80,9 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 relative">
               <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <img
                 src={logoUrl}
@@ -92,12 +92,12 @@ const Header = () => {
             </div>
             <div className="overflow-hidden">
               <h1
-                className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? "text-white" : "text-slate-900"}`}
+                className={`text-[11px] sm:text-sm font-bold transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? "text-white" : "text-slate-900"}`}
               >
                 {t("header.title")}
               </h1>
               <p
-                className={`text-[10px] sm:text-sm transition-colors duration-500 truncate font-sans ${isHome && !scrolled && !mobileMenuOpen ? "text-white/70" : "text-slate-600"}`}
+                className={`text-[6px] sm:text-[9px] transition-colors duration-500 truncate font-sans ${isHome && !scrolled && !mobileMenuOpen ? "text-white/70" : "text-slate-600"}`}
               >
                 {t("header.subtitle")}
               </p>
@@ -143,7 +143,7 @@ const Header = () => {
                     className="absolute left-0 top-full pt-2 w-64 z-50"
                   >
                     <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-3 overflow-hidden">
-                      <div className="px-5 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 mb-2">
+                      <div className="px-5 py-2 text-[9px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 mb-2">
                         Municipal Sub Cities
                       </div>
                       <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
@@ -151,7 +151,7 @@ const Header = () => {
                           <Link
                             key={name}
                             to={`/subcity/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                            className="flex items-center justify-between px-5 py-2.5 text-sm font-semibold text-slate-700 hover:underline transition-colors group mx-2 rounded-lg"
+                            className="flex items-center justify-between px-3 py-1 text-[11px] font-medium text-slate-700 hover:underline transition-colors group mx-2 rounded-lg"
                           >
                             {name}
                             <svg
@@ -242,124 +242,12 @@ const Header = () => {
               </AnimatePresence>
             </div> */}
 
-            <div
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("services")}
-              onMouseLeave={() => setActiveDropdown(null)}
+            <Link
+              to="/services"
+              className={`${linkClasses(location.pathname === "/services")} flex items-center gap-1`}
             >
-              <button
-                className={`${linkClasses(activeDropdown === "services")} flex items-center gap-1`}
-              >
-                {t("header.services")}
-                <motion.svg
-                  animate={{ rotate: activeDropdown === "services" ? 180 : 0 }}
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </motion.svg>
-              </button>
-              <AnimatePresence>
-                {activeDropdown === "services" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[900px] top-[80px] pt-2 z-50"
-                  >
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8">
-                      <div className="grid grid-cols-2 gap-8">
-                        {[
-                          "Property & Land",
-                          "Health & Welfare",
-                          "Transport",
-                          "Business",
-                        ].map((cat) => (
-                          <div key={cat} className="space-y-4">
-                            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 pb-2">
-                              {cat}
-                            </h3>
-                            <div className="flex flex-col gap-1">
-                              {cat === "Property & Land" && (
-                                <>
-                                  <Link
-                                    to="/sector/land"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Land Administration
-                                  </Link>
-                                  <Link
-                                    to="/sector/land/permits"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Building Permits
-                                  </Link>
-                                </>
-                              )}
-                              {cat === "Health & Welfare" && (
-                                <>
-                                  <Link
-                                    to="/sector/health"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Health Services
-                                  </Link>
-                                  <Link
-                                    to="/sector/health/emergency"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Emergency Services
-                                  </Link>
-                                </>
-                              )}
-                              {cat === "Transport" && (
-                                <>
-                                  <Link
-                                    to="/sector/transport"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-slate-900 hover:underline transition-colors"
-                                  >
-                                    Transport Services
-                                  </Link>
-                                  <Link
-                                    to="/sector/transport/license"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Driver's License
-                                  </Link>
-                                </>
-                              )}
-                              {cat === "Business" && (
-                                <>
-                                  <Link
-                                    to="/sector/business"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Business Services
-                                  </Link>
-                                  <Link
-                                    to="/sector/business/license"
-                                    className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:underline transition-colors"
-                                  >
-                                    Business License
-                                  </Link>
-                                </>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              {t("header.services")}
+            </Link>
 
             <div
               className="relative"
@@ -398,16 +286,16 @@ const Header = () => {
                     <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col">
                       <div className="px-8 py-5 bg-slate-50 border-b border-gray-100 flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                          <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                             {t("header.administrative")} Directory
                           </h3>
-                          <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">
+                          <span className="text-[9px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">
                             25 Sectors
                           </span>
                         </div>
                         <Link
                           to="/administrative"
-                          className="text-[10px] font-bold text-slate-700 hover:underline border border-slate-200 px-3 py-1.5 rounded-md transition-colors uppercase tracking-widest"
+                          className="text-[9px] font-bold text-slate-700 hover:underline border border-slate-200 px-3 py-1.5 rounded-md transition-colors uppercase tracking-widest"
                         >
                           View Full Directory
                         </Link>
@@ -462,7 +350,7 @@ const Header = () => {
                                 </svg>
                               </div>
                               <div className="flex-1 flex flex-col justify-center min-h-[32px]">
-                                <span className="block text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">
+                                <span className="block text-[10px] font-semibold text-slate-700 group-hover:text-slate-900 transition-colors leading-tight">
                                   {t(`administrative_options.${key}`)}
                                 </span>
                               </div>
@@ -498,8 +386,8 @@ const Header = () => {
                   alt={i18n.language}
                   className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
                 />
-                <span className="text-[11px] font-black text-slate-700 uppercase tracking-tighter">
-                  {LANGUAGES.find((l) => l.code === i18n.language)?.label ||
+                <span className="text-[9px] font-bold text-slate-700 uppercase tracking-tighter">
+                  {LANGUAGES.find((l) => l.code === i18n.language)?.code.toUpperCase() ||
                     "EN"}
                 </span>
                 <motion.svg
@@ -523,14 +411,14 @@ const Header = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 top-full pt-2 w-48 z-50"
+                    className="absolute right-0 top-full pt-2 w-32 z-50"
                   >
-                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2 grid grid-cols-2 gap-1">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-1 flex flex-col gap-0.5">
                       {LANGUAGES.map((lang) => (
                         <button
                           key={lang.code}
                           onClick={() => changeLanguage(lang.code)}
-                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition-all duration-300 group ${i18n.language === lang.code ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" : "hover:bg-slate-50 text-slate-600"}`}
+                          className={`flex items-center gap-1.5 px-2 py-1.5 w-full rounded-lg transition-all duration-300 group ${i18n.language === lang.code ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" : "hover:bg-slate-50 text-slate-600"}`}
                         >
                           <img
                             src={lang.flag}
@@ -538,7 +426,7 @@ const Header = () => {
                             className="w-4 h-2.5 object-cover rounded-[1px] shadow-sm group-hover:scale-110 transition-transform"
                           />
                           <span
-                            className={`text-[10px] font-bold tracking-tight ${i18n.language === lang.code ? "text-white" : "text-slate-700"}`}
+                            className={`text-[7px] font-semibold tracking-tight ${i18n.language === lang.code ? "text-white" : "text-slate-700"}`}
                           >
                             {lang.label}
                           </span>
@@ -552,7 +440,7 @@ const Header = () => {
 
             <Link
               to="/virtual-tour"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-600 text-white text-[11px] font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30"
             >
               {t("header.virtual_tour")}
               <svg
@@ -608,7 +496,7 @@ const Header = () => {
             <div className="px-4 py-6 space-y-2">
               <Link
                 to="/about"
-                className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+                className="flex items-center justify-between px-4 py-2.5 text-[12px] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
               >
                 {t("header.about")}{" "}
                 <svg
@@ -634,7 +522,7 @@ const Header = () => {
                       mobileSubMenu === "subcity" ? null : "subcity",
                     )
                   }
-                  className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+                  className="w-full flex items-center justify-between px-4 py-2.5 text-[12px] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
                 >
                   {t("header.subcity")}
                   <svg
@@ -681,7 +569,7 @@ const Header = () => {
                       mobileSubMenu === "district" ? null : "district",
                     )
                   }
-                  className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+                  className="w-full flex items-center justify-between px-4 py-2.5 text-[12px] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
                 >
                   {t("header.district") || "District"}
                   <svg
@@ -721,63 +609,25 @@ const Header = () => {
               </div> */}
 
               {/* Mobile Services */}
-              <div className="space-y-1">
-                <button
-                  onClick={() =>
-                    setMobileSubMenu(
-                      mobileSubMenu === "services" ? null : "services",
-                    )
-                  }
-                  className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+              <Link
+                to="/services"
+                className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+              >
+                {t("header.services")}
+                <svg
+                  className="w-5 h-5 opacity-30"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {t("header.services")}
-                  <svg
-                    className={`w-5 h-5 transition-transform ${mobileSubMenu === "services" ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 9l-7 7-7-7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <AnimatePresence>
-                  {mobileSubMenu === "services" && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden pl-4 space-y-1 pb-4"
-                    >
-                      {[
-                        { name: "Land Administration", path: "/sector/land" },
-                        {
-                          name: "Building Permits",
-                          path: "/sector/land/permits",
-                        },
-                        { name: "Health Services", path: "/sector/health" },
-                        {
-                          name: "Transport Services",
-                          path: "/sector/transport",
-                        },
-                        { name: "Business License", path: "/sector/business" },
-                      ].map((s) => (
-                        <Link
-                          key={s.name}
-                          to={s.path}
-                          className="block px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:underline hover:text-slate-900 transition-colors"
-                        >
-                          {s.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                  <path
+                    d="M9 5l7 7-7 7"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
 
               {/* Mobile Administrative */}
               <div className="space-y-1">
@@ -789,7 +639,7 @@ const Header = () => {
                         : "administrative",
                     )
                   }
-                  className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+                  className="w-full flex items-center justify-between px-4 py-2.5 text-[12px] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
                 >
                   {t("header.administrative")}
                   <svg
@@ -874,27 +724,66 @@ const Header = () => {
                 </svg>
               </Link>
 
-              {/* Mobile Language Selector - Flag + Label Grid */}
-              <div className="pt-6 border-t border-slate-100 mt-4 px-2">
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 mb-4">
-                  Select Language
-                </p>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {LANGUAGES.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => changeLanguage(lang.code)}
-                      className={`flex items-center gap-3 py-4 px-4 rounded-2xl border transition-all ${i18n.language === lang.code ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20" : "bg-white border-slate-100 text-slate-600"}`}
+              {/* Mobile Language Selector - Dropdown */}
+              <div className="space-y-1">
+                <button
+                  onClick={() =>
+                    setMobileSubMenu(
+                      mobileSubMenu === "language" ? null : "language",
+                    )
+                  }
+                  className="w-full flex items-center justify-between px-4 py-2.5 text-[12px] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all"
+                >
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={LANGUAGES.find((l) => l.code === i18n.language)?.flag}
+                      alt="Lang"
+                      className="w-5 h-3.5 object-cover rounded-[2px]"
+                    />
+                    <span>{LANGUAGES.find((l) => l.code === i18n.language)?.label}</span>
+                  </div>
+                  <svg
+                    className={`w-5 h-5 transition-transform ${mobileSubMenu === "language" ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19 9l-7 7-7-7"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {mobileSubMenu === "language" && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden pl-4 flex flex-col gap-1 pb-4"
                     >
-                      <img
-                        src={lang.flag}
-                        alt={lang.label}
-                        className="w-5 h-3.5 object-cover rounded-[2px]"
-                      />
-                      <span className="text-xs font-bold">{lang.label}</span>
-                    </button>
-                  ))}
-                </div>
+                      {LANGUAGES.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            changeLanguage(lang.code);
+                            setMobileSubMenu(null);
+                          }}
+                          className={`flex items-center gap-3 py-2 px-4 rounded-xl border transition-all ${i18n.language === lang.code ? "bg-blue-600 border-blue-600 text-white shadow-lg shadow-blue-600/20" : "bg-slate-50 border-transparent text-slate-600"}`}
+                        >
+                          <img
+                            src={lang.flag}
+                            alt={lang.label}
+                            className="w-4 h-2.5 object-cover rounded-[1px]"
+                          />
+                          <span className="text-[11px] font-bold">{lang.label}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <div className="pt-8">
