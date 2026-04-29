@@ -62,7 +62,7 @@ const Header = () => {
   const linkClasses = (isActive: boolean) => `px-4 py-2 text-sm font-bold transition-all duration-300 rounded-xl ${
     isHome && !scrolled && !mobileMenuOpen
       ? 'text-white hover:bg-white/10' 
-      : (isActive ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-700 hover:text-blue-600 hover:bg-slate-100')
+      : (isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50')
   }`;
 
   return (
@@ -186,7 +186,7 @@ const Header = () => {
                           <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest">{t('header.administrative')} Directory</h3>
                           <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-2 py-1 rounded-md">25 Sectors</span>
                         </div>
-                        <Link to="/administrative" className="text-[10px] font-bold text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-600 px-3 py-1.5 rounded-md transition-colors uppercase tracking-widest">
+                        <Link to="/administrative" className="text-[10px] font-bold text-red-600 hover:text-white hover:bg-red-600 border border-red-600 px-3 py-1.5 rounded-md transition-colors uppercase tracking-widest">
                           View Full Directory
                         </Link>
                       </div>

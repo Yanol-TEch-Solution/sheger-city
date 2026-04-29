@@ -3,17 +3,18 @@
 
 :root {
   /* --- GLOBAL BRAND THEME --- */
-  --theme-primary-50: #eff6ff;
-  --theme-primary-100: #dbeafe;
-  --theme-primary-200: #bfdbfe;
-  --theme-primary-300: #93c5fd;
-  --theme-primary-400: #60a5fa;
-  --theme-primary-500: #3b82f6;
-  --theme-primary-600: #2563eb;
-  --theme-primary-700: #1d4ed8;
-  --theme-primary-800: #1e40af;
-  --theme-primary-900: #1e3a8a;
-  --theme-primary-950: #172554;
+  /* Primary Color (Red) */
+  --theme-primary-50: #fef2f2;
+  --theme-primary-100: #fee2e2;
+  --theme-primary-200: #fecaca;
+  --theme-primary-300: #fca5a5;
+  --theme-primary-400: #f87171;
+  --theme-primary-500: #ef4444;
+  --theme-primary-600: #dc2626;
+  --theme-primary-700: #b91c1c;
+  --theme-primary-800: #991b1b;
+  --theme-primary-900: #7f1d1d;
+  --theme-primary-950: #450a0a;
 
   --theme-accent-50: #fffbeb;
   --theme-accent-100: #fef3c7;
@@ -123,4 +124,20 @@ body {
   stroke-dasharray: 600 4400;
   animation: path-flow 12s linear infinite;
   animation-delay: 1.44s;
+}
+
+/* ─────────────────────────────────────────────────────────────────── */
+/*  3D Flip Card Utilities                                             */
+/* ─────────────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
 }

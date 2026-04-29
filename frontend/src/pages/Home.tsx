@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
 import ChatBot from "../components/ChatBot";
+import CityFlashCards from "../components/CityFlashCards";
+
 
 const HERO_IMAGES = [
   "/hero-1.jpg",
@@ -421,6 +423,10 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Flash Cards Section */}
+      <CityFlashCards />
+
 
       {/* Leadership Section */}
       <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
