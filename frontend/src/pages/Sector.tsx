@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next";
+
 
 const SECTORS: Record<string, { title: string; category: string; desc: string; bgImage: string; icon: string }> = {
   land: {
@@ -109,7 +109,7 @@ const SERVICES = [
 
 const Sector = () => {
   const { name } = useParams<{ name: string }>();
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery] = useState("");
   const sector = SECTORS[name || 'land'] || SECTORS.land;
 
   const filteredServices = SERVICES.filter(service => {

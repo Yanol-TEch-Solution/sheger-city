@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslation } from "react-i18next";
+
 
 // This would normally be in a central data file
 const SERVICES = [
@@ -64,7 +64,7 @@ const SERVICES = [
 
 const ServiceDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState("overview");
   
   // Find the service by ID or default to the first one

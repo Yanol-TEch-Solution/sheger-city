@@ -37,7 +37,6 @@ const CATEGORIES = [
 const CAT_COLORS: Record<string, string> = {
   red: 'text-red-600 bg-red-50 border-red-100 group-hover:border-red-500',
   emerald: 'text-emerald-600 bg-emerald-50 border-emerald-100 group-hover:border-emerald-500',
-  red: 'text-red-600 bg-red-50 border-red-100 group-hover:border-red-500',
   violet: 'text-violet-600 bg-violet-50 border-violet-100 group-hover:border-violet-500',
 };
 

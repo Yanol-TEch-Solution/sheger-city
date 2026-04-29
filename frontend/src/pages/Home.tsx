@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
-import ChatBot from "../components/ChatBot";
 import CityFlashCards from "../components/CityFlashCards";
 
 
