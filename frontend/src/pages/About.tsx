@@ -120,7 +120,6 @@ const VALUES = [
 
 const colorMap: Record<string, string> = {
   red: "bg-red-500/10 text-red-400 border-red-500/20",
-  red: "bg-red-500/10 text-red-400 border-red-500/20",
   emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
   teal: "bg-teal-500/10 text-teal-400 border-teal-500/20",
 };

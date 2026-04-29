@@ -38,9 +38,7 @@ const Header = () => {
     "Kuraa Jiddaa", "Sulultaa", "Lagaxafoo"
   ];
 
-  const DISTRICTS = [
-    "Aanaa galaan", "Aanaa Andoodee", "Aanaa siidaa Awaash"
-  ];
+
 
   const LANGUAGES = [
     { code: 'en', label: 'EN', flag: 'https://flagcdn.com/w40/us.png' },
@@ -94,7 +92,7 @@ const Header = () => {
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full pt-2 w-64 z-50">
                     <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-3 overflow-hidden">
                       <div className="px-5 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 mb-2">Municipal Sub Cities</div>
-                      <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
+                      <div>
                         {SUB_CITIES.map((name) => (
                           <Link key={name} to={`/subcity/${name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-between px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-600 hover:text-white transition-all group mx-2 rounded-lg">
                             {name}
@@ -108,29 +106,7 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <div className="relative" onMouseEnter={() => setActiveDropdown('district')} onMouseLeave={() => setActiveDropdown(null)}>
-              <button className={`${linkClasses(activeDropdown === 'district')} flex items-center gap-1`}>
-                {t('header.district') || 'District'}
-                <motion.svg animate={{ rotate: activeDropdown === 'district' ? 180 : 0 }} className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
-              </button>
-              <AnimatePresence>
-                {activeDropdown === 'district' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute left-0 top-full pt-2 w-64 z-50">
-                    <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-3 overflow-hidden">
-                      <div className="px-5 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 mb-2">Municipal Districts</div>
-                      <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
-                        {DISTRICTS.map((name) => (
-                          <Link key={name} to={`/district/${name.toLowerCase().replace(/\s+/g, '-')}`} className="flex items-center justify-between px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-600 hover:text-white transition-all group mx-2 rounded-lg">
-                            {name}
-                            <svg className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+
 
             <div className="relative" onMouseEnter={() => setActiveDropdown('services')} onMouseLeave={() => setActiveDropdown(null)}>
               <button className={`${linkClasses(activeDropdown === 'services')} flex items-center gap-1`}>
@@ -222,6 +198,7 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
+            <Link to="/news" className={linkClasses(false)}>News</Link>
             <Link to="/contact" className={linkClasses(false)}>{t('header.contact')}</Link>
           </nav>
 
@@ -317,22 +294,7 @@ const Header = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Mobile Districts */}
-              <div className="space-y-1">
-                <button onClick={() => setMobileSubMenu(mobileSubMenu === 'district' ? null : 'district')} className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">
-                  {t('header.district') || 'District'}
-                  <svg className={`w-5 h-5 transition-transform ${mobileSubMenu === 'district' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </button>
-                <AnimatePresence>
-                  {mobileSubMenu === 'district' && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 grid grid-cols-1 gap-2 pb-4">
-                      {DISTRICTS.map(name => (
-                        <Link key={name} to={`/district/${name.toLowerCase().replace(/\s+/g, '-')}`} className="px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{name}</Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+
 
               {/* Mobile Services */}
               <div className="space-y-1">
