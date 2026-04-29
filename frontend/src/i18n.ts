@@ -98,20 +98,7 @@ const resources = {
           innovation: "Innovation"
         }
       },
-      contact: {
-        title: "Contact Us",
-        hero_desc: "We are here to serve you. Reach out to our offices for any inquiries, feedback, or support.",
-        get_in_touch: "Get in Touch",
-        form: {
-          name: "Full Name",
-          email: "Email Address",
-          subject: "Subject",
-          message: "Message",
-          send: "Send Message"
-        },
-        offices: "Regional Offices",
-        headquarters: "Main Headquarters"
-      },
+
       administration_page: {
         title: "Administrative Directory",
         hero_desc: "Explore the various sectors and departments that manage Sheger City's public services and infrastructure.",
@@ -143,98 +130,81 @@ const resources = {
         hero_desc: "Take a 360-degree immersive tour of Sheger City's key landmarks and development projects from anywhere in the world.",
         start_tour: "Start Virtual Tour"
       },
-      services_page: {
-        title: "E-Services Portal",
-        hero_desc: "Access all government services online. Fast, secure, and convenient civic infrastructure at your fingertips.",
-        search_placeholder: "What service are you looking for?"
-      },
+
       home: {
         hero: {
-          badge: "✨ Welcome to the future of civic services",
-          title: "Welcome to",
-          city: "Sheger City",
-          subtitle: "Your digital gateway to efficient, transparent, and citizen-centered government services. Experience seamless governance at your fingertips.",
+          badge: "✨ Welcome to the Future of Civic Services",
+          title: "Gateway to the",
+          city: "Future of Sheger",
+          subtitle: "Experience the next generation of urban living. Sheger City combines sustainable innovation with rich cultural heritage to create a world-class metropolitan experience.",
           explore: "Explore Services",
-          find_office: "Find Office"
+          start_exploring: "Start Exploring"
+        },
+        highlights: {
+          badge: "A Glimpse of the Future",
+          title: "Divinity and Earth Meet in Sheger",
+          card1: "The Sheger National Aquatics Center and towering redline.",
+          card2: "As discussed, Sheger's main square is full of vibrant life.",
+          card3: "Though the ancient paths are preserved, modern development soars.",
+          card4: "Though Sheger does have a city center, its beauty spans far beyond."
+        },
+        explore: {
+          badge: "Discover the City",
+          title: "Explore Sheger",
+          view_map: "View Map",
+          heritage_badge: "Heritage",
+          grand_square: "The Grand Square",
+          grand_square_desc: "Experience the vibrant cultural heart of Sheger City, where tradition meets modern public spaces.",
+          eco_parks: "Eco-Parks",
+          eco_parks_desc: "Over 500 hectares of green space.",
+          tech_hub: "Tech Hub",
+          tech_hub_desc: "The innovation center of East Africa."
         },
         leadership: {
-          title: "City Leadership",
-          subtitle: "Meet the dedicated leaders working to transform Sheger City into a model smart city.",
-          welcome_title: "Welcome",
-          welcome_subtitle: "A Warm Welcome to the Residents and Visitors of Sheger City",
-          welcome_text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community. We are committed to transforming Sheger into a model smart city—competitive, livable, and responsive to the needs of all residents.",
-          read_more: "Read Full Message",
-          mayor_name: "Dr. Teshome Aduna (Ph.D.)",
-          mayor_text: "As the mayor of Sheger City, I am excited to share our bold vision for the future of our community.",
+          title: "Our Leadership",
+          mayor_title: "The Mayor",
+          mayor_name: "Dr. Teshome Adugna",
+          mayor_text: "Leading the vision for a sustainable and digitally integrated Sheger City.",
           deputy1_title: "Deputy Mayor",
           deputy1_name: "Mr. Guyo Galgalo",
-          deputy1_text: "We invite all stakeholders—businesses, community leaders, and residents—to engage actively.",
+          deputy1_text: "Focusing on infrastructure development and urban planning excellence.",
           deputy2_title: "Deputy Mayor",
           deputy2_name: "Mr. Gugsa Dejene",
-          deputy2_text: "Head of the Administration and Service Sector, committed to enhancing the quality of public services.",
+          deputy2_text: "Overseeing social welfare, education, and health service quality.",
           deputy3_title: "Deputy Mayor",
-          deputy3_name: "Mr. Hailu Girma",
-          deputy3_text: "Head of the Urban Agriculture Cluster, focusing on sustainability and community well-being."
-        },
-        quick_services: {
-          title: "Quick Services",
-          subtitle: "Access our most popular digital government services with just a few clicks.",
-          permits: "Building Permits",
-          permits_desc: "Apply for construction and building permits seamlessly online.",
-          business: "Business License",
-          business_desc: "Register and license your new or existing business quickly.",
-          driver: "Driver's License",
-          driver_desc: "Apply, renew or replace your driver's license with ease.",
-          health: "Health Services",
-          health_desc: "Access healthcare facilities, records, and medical services.",
-          apply_now: "Apply Now"
-        },
-        stats: {
-          sub_cities: "Sub Cities",
-          online_services: "Online Services",
-          digital_access: "Digital Access",
-          satisfaction: "Citizen Satisfaction"
-        },
-        news: {
-          title: "Latest Updates",
-          subtitle: "Stay informed about city developments and community announcements.",
-          view_all: "View All News",
-          tag_service: "New Service",
-          tag_update: "Update",
-          tag_event: "Event",
-          news1_title: "Online Property Registration Launch",
-          news1_desc: "Register your property online without visiting offices. Fast, secure, and incredibly convenient for all Sheger residents.",
-          news2_title: "Extended Service Hours Announced",
-          news2_desc: "All major administrative offices are now open until 6 PM on weekdays to accommodate working professionals.",
-          news3_title: "Public Consultation on Smart City",
-          news3_desc: "Join city planners for an interactive discussion on integrating AI and smart tech into Sheger City infrastructure.",
-          read_story: "Read Full Story"
-        },
-        cta: {
-          title: "Ready to Get Started?",
-          subtitle: "Create an account today to manage all your government interactions from one unified dashboard.",
-          start: "Start Application Now",
-          learn_more: "Learn More"
+          deputy3_name: "Mr. Hailu Jale",
+          deputy3_text: "Managing economic growth and digital administrative transformation."
         },
         services_hub: {
-          badge: "Digital Governance",
+          badge: "Digital Gateway",
           title: "Smart Services Hub",
           view_all: "View All Services",
-          land: "Land Management",
-          land_count: "45 Services",
+          land: "Land & Property",
+          land_count: "12,000+ Records",
+          land_desc: "Apply for land holding certificates and property transfers.",
           business: "Business Portal",
-          business_count: "32 Services",
-          citizen: "Citizen Care",
-          citizen_count: "112 Services",
-          revenue: "Revenue & Tax",
-          revenue_count: "18 Services",
-          one_platform: "One Platform for All Applications",
-          one_platform_desc: "Track your building permits, trade licenses, and residency documents in a single, secure dashboard. Real-time status updates and direct messaging with officials.",
-          create_account: "Create Citizen Account",
-          security: "Learn About Security",
+          business_count: "4,500+ Licenses",
+          business_desc: "Register businesses and renew trade licenses online.",
+          citizen: "Civil Registry",
+          citizen_count: "2.5M+ Profiles",
+          citizen_desc: "Request birth certificates and official identification.",
+          revenue: "Revenue & Bills",
+          revenue_count: "Secure Payments",
+          revenue_desc: "Pay taxes, utility bills, and municipal service fees.",
+          open_portal: "Open Portal",
+          one_platform: "One Platform. All Services.",
+          one_platform_desc: "Manage your city life from a single dashboard. Track applications, pay bills, and receive official notifications in real-time.",
+          create_account: "Create Account",
+          security: "Security & Privacy",
           user_name: "John Doe",
-          user_badge: "Verified Citizen",
-          user_status: "Online"
+          user_badge: "Premium Resident",
+          user_status: "Verified",
+          app1_title: "Residential Building Permit",
+          app1_status: "Approved",
+          app2_title: "Digital ID Renewal",
+          app2_status: "Processing",
+          app3_title: "Trade License App",
+          app3_status: "Pending Action"
         },
         mobile_app: {
           badge: "Coming Soon to App Store & Play Store",
@@ -267,6 +237,288 @@ const resources = {
           telegram: "Telegram Channel"
         },
         ai: "AI Assistant"
+      },
+      news_page: {
+        title: "Newsroom",
+        hero_badge: "Official Newsroom",
+        hero_title: "Latest Updates from",
+        hero_desc: "Stay informed about city developments, municipal announcements, and major policy updates from the official government portal.",
+        search_placeholder: "Search articles...",
+        all_news: "All News",
+        featured_story: "Featured Story",
+        read_full: "Read Full Article",
+        todays_top: "Today's Top News",
+        explore_more: "Explore More",
+        all_announcements: "All Announcements",
+        read_story: "Read Story",
+        no_results: "No Articles Found",
+        no_results_desc: "Try a different search term or category.",
+        newsletter_badge: "Stay Connected",
+        newsletter_title: "Subscribe to",
+        newsletter_desc: "Receive the weekly digest of municipal announcements and city updates directly in your inbox.",
+        email_placeholder: "Your email address",
+        subscribe_btn: "Join Now",
+        categories: {
+          all: "All News",
+          municipal: "Municipal",
+          economy: "Economy",
+          infrastructure: "Infrastructure",
+          social: "Social Welfare"
+        },
+        articles: {
+          art1: {
+            title: "Sheger City Inaugurates New Digital Service Hub",
+            excerpt: "The Mayor of Sheger City officially opened the state-of-the-art Digital Service Hub in Buraayyuu, aimed at streamlining administrative processes.",
+            date: "May 24, 2024",
+            readTime: "5 min read"
+          },
+          art2: {
+            title: "New Road Project to Connect Sabbataa and Sulultaa",
+            excerpt: "A major infrastructure project has been announced to build a 45km high-speed road connecting the key industrial zones.",
+            date: "May 22, 2024",
+            readTime: "3 min read"
+          },
+          art3: {
+            title: "Annual Economic Summit Highlights Growth Potential",
+            excerpt: "Economists and city officials gathered to discuss the unprecedented growth of Sheger City as a regional economic powerhouse.",
+            date: "May 20, 2024",
+            readTime: "8 min read"
+          },
+          art4: {
+            title: "New Green Spaces and Parks Initiative Launched",
+            excerpt: "The 'Green Sheger' initiative aims to create 50 new public parks and recreational spaces across all sub-cities by 2026.",
+            date: "May 18, 2024",
+            readTime: "4 min read"
+          }
+        }
+      },
+      services_page: {
+        title: "E-Services Portal",
+        hero_badge: "Official E-Service Portal",
+        hero_title: "Sheger City",
+        hero_subtitle: "Smart Services",
+        hero_desc: "Access city administrative services, pay bills, and track applications through our unified digital gateway.",
+        search_placeholder: "What service are you looking for today?",
+        search_btn: "Search Portal",
+        popular_title: "Popular Services",
+        view_all: "View All Services",
+        view_details: "View Details",
+        features: {
+          secure: { label: "Secure & Reliable", desc: "Your data is protected and secure." },
+          easy: { label: "Easy Process", desc: "Simple steps to complete your applications." },
+          track: { label: "Track Application", desc: "Track your application at every step." },
+          support: { label: "Support", desc: "We are here to help you anytime." }
+        },
+        categories: {
+          all: "All Services",
+          business: "Business & Economy",
+          civil: "Civil Registry",
+          land: "Land & Construction",
+          utilities: "Utilities & Billing",
+          transport: "Transport",
+          employment: "Employment"
+        },
+        list: {
+          trade_license: {
+            title: "Trade License",
+            desc: "Apply for a new or renewal trade license for your business.",
+            time: "3-5 Days",
+            price: "500 ETB"
+          },
+          birth_certificate: {
+            title: "Birth Certificate",
+            desc: "Request a new or replacement birth certificate.",
+            time: "1-2 Days",
+            price: "50 ETB"
+          },
+          land_certificate: {
+            title: "Land Holding Certificate",
+            desc: "Apply for land holding certificate.",
+            time: "5-7 Days",
+            price: "300 ETB"
+          },
+          water_bill: {
+            title: "Pay Water Bill",
+            desc: "Pay your monthly water consumption bill online.",
+            time: "Instant",
+            price: "Varies"
+          },
+          vehicle_reg: {
+            title: "Vehicle Registration",
+            desc: "Register a new vehicle or renew vehicle documents.",
+            time: "3-7 Days",
+            price: "1,200 ETB"
+          },
+          employment_permit: {
+            title: "Employment Permit",
+            desc: "Apply for employment permit for foreign nationals.",
+            time: "5-10 Days",
+            price: "500 ETB"
+          },
+          building_permit: {
+            title: "Building Permit",
+            desc: "Apply for construction or building permit.",
+            time: "7-14 Days",
+            price: "1,000 ETB"
+          },
+          business_reg: {
+            title: "Business Registration",
+            desc: "Register your business in Sheger City.",
+            time: "2-3 Days",
+            price: "500 ETB"
+          }
+        }
+      },
+      service_detail: {
+        back: "Service Directory",
+        apply_online: "Complete your application entirely online through our secure administrative gateway.",
+        start_app: "Start Application",
+        processing_time: "Processing Time",
+        service_fee: "Service Fee",
+        version: "Version",
+        last_updated: "Last Updated",
+        summary: "Service Summary",
+        apply_btn: "Apply Online Now",
+        favorites: "Add to Favorites",
+        req_docs: "Required Documents",
+        need_help: "Need Assistance?",
+        support_desc: "Our support team is available during office hours.",
+        call: "Call Support",
+        email: "Email Us",
+        hours: "Working Hours",
+        description: "Description",
+        process: "Process & Steps",
+        important_note: "Important Note",
+        important_desc: "Please ensure all documents are original and valid to avoid delays.",
+        tabs: {
+          overview: "Overview",
+          steps: "Steps",
+          docs: "Documents",
+          related: "Related"
+        },
+        services_data: {
+          trade_license: {
+            title: "Trade License",
+            category: "Business & Economy",
+            description: "This service enables businesses to obtain or renew their trade license issued by Sheger City Administration.",
+            status: "Active",
+            process: [
+              { step: 1, title: "Application Submission", office: "Revenue Office", info: "Submit your application form.", location: "2nd Floor" },
+              { step: 2, title: "Payment", office: "Cashier", info: "Pay fee.", location: "1st Floor" }
+            ],
+            docs: [
+              { name: "National ID", type: "PDF/JPG" },
+              { name: "Business Reg", type: "PDF" }
+            ]
+          }
+        }
+      },
+      contact: {
+        hero_title: "Get in Touch",
+        hero_desc: "We are here to help. Contact us for any inquiries or support regarding our services.",
+        call_us: "Call Us",
+        mon_fri: "Mon–Fri",
+        email_us: "Email Us",
+        message_success_desc: "Reply within 24 hours",
+        visit_us: "Visit Us",
+        location_badge: "Our Location",
+        location_title: "Find Our Main Office",
+        location_desc: "The Sheger City Administration Headquarters is located in the Legetafo-Legedadi area — easily accessible from the Addis Ababa outer ring road.",
+        open_maps: "Open in Google Maps",
+        message_badge: "Send a Message",
+        message_title: "We'd Love to Hear From You",
+        message_success: "Message Sent!",
+        form: {
+          another: "Send Another",
+          name: "Full Name",
+          email: "Email Address",
+          phone: "Phone Number",
+          subject: "Subject",
+          message: "Your Message",
+          send: "Send Message"
+        },
+        office_network: "Office Network",
+        office_network_title: "Our Office Locations",
+        offices: {
+          main: {
+            name: "Main City Administration",
+            address: "Legetafo-Legedadi, Sheger City",
+            hours: "Mon–Fri: 8:00 AM – 5:00 PM\nSat: 9:00 AM – 1:00 PM"
+          },
+          citizens: {
+            name: "Citizens Services Centre",
+            address: "Sululta Town, Sheger City",
+            hours: "Mon–Fri: 8:00 AM – 6:00 PM\nSat: 9:00 AM – 2:00 PM"
+          },
+          digital: {
+            name: "Digital Services Hub",
+            address: "Burayu, Sheger City",
+            hours: "Mon–Fri: 8:00 AM – 8:00 PM\nSat–Sun: 10:00 AM – 4:00 PM"
+          }
+        }
+      },
+      footer: {
+        about_title: "Sheger City",
+        about_desc: "Your digital gateway to efficient, transparent government services.",
+        quick_links: "Quick Links",
+        services: "Services",
+        contact: "Contact",
+        rights: "All rights reserved.",
+        privacy: "Privacy Policy",
+        terms: "Terms of Service",
+        accessibility: "Accessibility"
+      },
+      about_page: {
+        overview_badge: "City Overview",
+        overview_title: "A City Built for People",
+        overview_p1: "Sheger City is a rapidly growing metropolitan area established to serve the communities surrounding Addis Ababa. With a commitment to efficient, transparent, and citizen-centered governance, Sheger is redefining what a modern Ethiopian city can be.",
+        overview_p2: "Spanning 12 sub-cities and home to over 3 million residents, the city offers comprehensive services in land administration, health, transport, education, and business development — all increasingly accessible through digital platforms.",
+        explore_subcities: "Explore Sub-Cities",
+        vision_badge: "Direction & Purpose",
+        vision_title: "Vision & Mission",
+        our_vision: "Our Vision",
+        vision_text: "To be a leading smart city that provides world-class services, promotes sustainable development, and ensures the well-being and prosperity of all citizens across every sub-city.",
+        our_mission: "Our Mission",
+        mission_text: "To deliver efficient, transparent, and accessible government services through digital innovation while fostering economic growth, social equity, and environmental sustainability.",
+        journey_badge: "Our Journey",
+        journey_title: "History of Sheger",
+        milestones_badge: "Key Milestones",
+        milestones_title: "What We've Achieved",
+        get_involved: "Get Involved",
+        future_title: "Be Part of Sheger's Future",
+        future_desc: "Whether you are a resident, investor, or visitor — Sheger City has a place for you. Explore our services and connect with your city government today.",
+        contact_btn: "Contact the City",
+        timeline: {
+          t1_year: "2021",
+          t1_title: "Sheger City Established",
+          t1_desc: "The city was officially established as a new administrative entity, separating from Oromia Special Zone and encompassing towns previously surrounding Addis Ababa.",
+          t2_year: "2022",
+          t2_title: "First City Administration",
+          t2_desc: "The first elected city administration was formed, laying the groundwork for transparent governance, digital services, and citizen-first policies.",
+          t3_year: "2023",
+          t3_title: "Smart City Initiative Launch",
+          t3_desc: "Sheger launched its digital transformation program — digitizing land registration, business licensing, and public health services across all sub-cities.",
+          t4_year: "2024",
+          t4_title: "Digital Portal Goes Live",
+          t4_desc: "The Sheger City Digital Government Portal launched, giving residents 24/7 access to over 30 government services from any device, anywhere.",
+          t5_year: "2025",
+          t5_title: "Expansion & AI Integration",
+          t5_desc: "The city expanded its service zones and integrated AI-powered tools including smart traffic management, predictive maintenance, and this very AI assistant."
+        },
+        achievements: {
+          a1_title: "Digital Transformation",
+          a1_desc: "of all government services successfully digitized and accessible online.",
+          a2_title: "Green City Initiative",
+          a2_desc: "trees planted across the city as part of the urban greening campaign.",
+          a3_title: "Citizen Satisfaction",
+          a3_desc: "satisfaction rating recorded across all public services surveys.",
+          a4_title: "Infrastructure Projects",
+          a4_desc: "active infrastructure projects improving roads, utilities, and public spaces.",
+          a5_title: "Schools Built",
+          a5_desc: "new schools and learning centers constructed or renovated since 2022.",
+          a6_title: "Jobs Created",
+          a6_desc: "direct and indirect jobs created through city-led development programs."
+        }
       }
     }
   },
@@ -288,7 +540,7 @@ const resources = {
       subcities: {
         furii: "ፉሪ",
         galaan: "ገላን",
-        galaan_guddaa: "ገላን ጉድዳ",
+        galaan_guddaa: "ገላን ጉዳ",
         gafarsa_gujee: "ገፈርስ ጉጄ",
         buraayyuu: "ቡራዩ",
         sabbataa: "ሰበታ",
@@ -367,20 +619,7 @@ const resources = {
           innovation: "ፈጠራ"
         }
       },
-      contact: {
-        title: "ያግኙን",
-        hero_desc: "እርስዎን ለማገልገል እዚህ ነን። ለማንኛውም ጥያቄ፣ አስተያየት ወይም ድጋፍ ቢሮዎቻችንን ያነጋግሩ።",
-        get_in_touch: "ይገናኙን",
-        form: {
-          name: "ሙሉ ስም",
-          email: "የኢሜል አድራሻ",
-          subject: "ርዕሰ ጉዳይ",
-          message: "መልዕክት",
-          send: "መልዕክት ላክ"
-        },
-        offices: "የክልል ቢሮዎች",
-        headquarters: "ዋና ዋና መሥሪያ ቤት"
-      },
+
       administration_page: {
         title: "የአስተዳደር ማውጫ",
         hero_desc: "የሸገር ከተማ የህዝብ አገልግሎቶችን እና መሰረተ ልማቶችን የሚያስተዳድሩ የተለያዩ ዘርፎችን እና መምሪያዎችን ያስሱ።",
@@ -412,99 +651,82 @@ const resources = {
         hero_desc: "ከየትኛውም የዓለም ክፍል ሆነው የሸገር ከተማን ቁልፍ ምልክቶች እና የልማት ፕሮጀክቶችን የ360 ዲግሪ ጉብኝት ያድርጉ።",
         start_tour: "ቨርቹዋል ጉብኝት ይጀምሩ"
       },
-      services_page: {
-        title: "የኢ-አገልግሎት ፖርታል",
-        hero_desc: "ሁሉንም የመንግስት አገልግሎቶች በመስመር ላይ ያግኙ። ፈጣን፣ ደህንነቱ የተጠበቀ እና ምቹ የሆነ የሲቪክ መሰረተ ልማት በእጅዎ ጫፍ።",
-        search_placeholder: "ምን ዓይነት አገልግሎት ይፈልጋሉ?"
-      },
+
 
       home: {
         hero: {
           badge: "✨ የሲቪክ አገልግሎቶች መፃኢ ዕድል እንኳን ደህና መጡ",
-          title: "እንኳን ወደ",
-          city: "ሸገር ከተማ",
-          subtitle: "ቀልጣፋ፣ ግልፅ እና ዜጋ-ተኮር የመንግስት አገልግሎቶች ዲጂታል መግቢያ። እንከን የለሽ አስተዳደርን በእጅዎ ይለማመዱ።",
+          title: "የመዳረሻ በር ለ",
+          city: "የሸገር የወደፊት ተስፋ",
+          subtitle: "የሚቀጥለውን ትውልድ የከተማ ኑሮ ይለማመዱ። ሸገር ከተማ ዓለም አቀፍ ደረጃውን የጠበቀ የከተማ ልምድ ለመፍጠር ዘላቂ ፈጠራን ከበለፀገ ባህላዊ ቅርስ ጋር ያጣምራል።",
           explore: "አገልግሎቶችን ያስሱ",
-          find_office: "ቢሮ ያግኙ"
+          start_exploring: "ፍለጋ ይጀምሩ"
+        },
+        highlights: {
+          badge: "የወደፊቱን ፍንጭ",
+          title: "በሸገር ሰማይና ምድር ይገናኛሉ",
+          card1: "የሸገር ብሔራዊ አኳቲክስ ማዕከል እና ታላቁ ቀይ መስመር።",
+          card2: "እንደተገለፀው የሸገር ዋና አደባባይ በደመቀ ሕይወት የተሞላ ነው።",
+          card3: "ምንም እንኳን ጥንታዊ መንገዶች ተጠብቀው ቢቆዩም፣ ዘመናዊ ልማት እየተስፋፋ ነው።",
+          card4: "ምንም እንኳን ሸገር የከተማ መሃል ቢኖረውም ውበቱ ግን ከዚያ በላይ ይርቃል።"
+        },
+        explore: {
+          badge: "ከተማዋን ያግኙ",
+          title: "ሸገርን ያስሱ",
+          view_map: "ካርታውን ይመልከኑ",
+          heritage_badge: "ቅርስ",
+          grand_square: "ታላቁ አደባባይ",
+          grand_square_desc: "ባህል ከዘመናዊ የህዝብ ቦታዎች ጋር የሚገናኝበትን የሸገር ከተማ ደማቅ ባህላዊ እምብርት ይለማመዱ።",
+          eco_parks: "ኢኮ-ፓርኮች",
+          eco_parks_desc: "ከ500 ሄክታር በላይ አረንጓዴ ቦታ።",
+          tech_hub: "የቴክኖሎጂ ማዕከል",
+          tech_hub_desc: "የምስራቅ አፍሪካ የፈጠራ ማዕከል።"
         },
         leadership: {
-          title: "የከተማው አመራር",
-          subtitle: "ሸገር ከተማን ወደ ሞዴል ስማርት ከተማ ለመቀየር የሚሰሩትን የወሰኑ አመራሮች ያግኙ።",
-          welcome_title: "እንኳን ደህና መጡ",
-          welcome_subtitle: "ለሸገር ከተማ ነዋሪዎች እና ጎብኚዎች ሞቅ ያለ አቀባበል",
-          welcome_text: "የሸገር ከተማ ከንቲባ እንደመሆኔ ለከተማችን ያለንን ራዕይ ሳካፍላችሁ ደስ ይለኛል። ሸገርን ተወዳዳሪ፣ ምቹ እና ለነዋሪዎች ፍላጎት ምላሽ የምትሰጥ ሞዴል ስማርት ከተማ ለማድረግ ቁርጠኞች ነን።",
-          read_more: "ሙሉ መልእክቱን ያንብቡ",
-          mayor_name: "ዶ/ር ተሾመ አዱኛ (ፒ.ኤች.ዲ.)",
-          mayor_text: "የሸገር ከተማ ከንቲባ እንደመሆኔ ለከተማችን ያለንን ደፋር ራዕይ ሳካፍላችሁ ደስ ይለኛል።",
+          title: "አመራራችን",
+          mayor_title: "ከንቲባው",
+          mayor_name: "ዶ/ር ተሾመ አዱኛ",
+          mayor_text: "ለዘላቂ እና በዲጂታል ለተቀናጀች ሸገር ከተማ ራዕይን በመምራት ላይ።",
           deputy1_title: "ምክትል ከንቲባ",
-          deputy1_name: "አቶ ጉዮ ገልገሎ",
-          deputy1_text: "ሁሉንም ባለድርሻ አካላት—የንግድ ተቋማትን፣ የህብረተሰብ መሪዎችን እና ነዋሪዎችን—በንቃት እንዲሳተፉ እንጋብዛለን።",
+          deputy1_name: "አቶ ጉዮ ጋልጋሎ",
+          deputy1_text: "በመሠረተ ልማት ዝርጋታ እና በከተማ ፕላን ጥራት ላይ ትኩረት በማድረግ ላይ።",
           deputy2_title: "ምክትል ከንቲባ",
           deputy2_name: "አቶ ጉግሳ ደጀኔ",
-          deputy2_text: "የአስተዳደር እና አገልግሎት ዘርፍ ሀላፊ፣ የህዝብ አገልግሎቶችን ጥራት ለማሻሻል ቁርጠኛ የሆኑ።",
+          deputy2_text: "የማህበራዊ ደህንነትን፣ ትምህርትን እና የጤና አገልግሎት ጥራትን በመቆጣጠር ላይ።",
           deputy3_title: "ምክትል ከንቲባ",
-          deputy3_name: "አቶ ሀይሉ ግርማ",
-          deputy3_text: "የከተማ ግብርና ክላስተር ሀላፊ፣ በዘላቂነት እና በህብረተሰብ ደህንነት ላይ ትኩረት የሚያደርጉ።"
-        },
-        quick_services: {
-          title: "ፈጣን አገልግሎቶች",
-          subtitle: "በጣም ተወዳጅ የሆኑትን የዲጂታል መንግስት አገልግሎቶቻችንን በጥቂት ጠቅታዎች ያግኙ።",
-          permits: "የግንባታ ፈቃዶች",
-          permits_desc: "ለግንባታ እና ለህንፃ ፈቃዶች በመስመር ላይ በቀላሉ ያመልክቱ።",
-          business: "የንግድ ፈቃድ",
-          business_desc: "አዲስ ወይም ነባር ንግድዎን በፍጥነት ያስመዝግቡ እና ፈቃድ ያግኙ።",
-          driver: "የመንጃ ፈቃድ",
-          driver_desc: "የመንጃ ፈቃድዎን በቀላሉ ያመልክቱ፣ ያሳድሱ ወይም ይተኩ።",
-          health: "የጤና አገልግሎቶች",
-          health_desc: "የጤና ተቋማትን፣ መረጃዎችን እና የህክምና አገልግሎቶችን ያግኙ።",
-          apply_now: "አሁን ያመልክቱ"
-        },
-        stats: {
-          sub_cities: "ክፍለ ከተሞች",
-          online_services: "የመስመር ላይ አገልግሎቶች",
-          digital_access: "የዲጂታል ተደራሽነት",
-          satisfaction: "የዜጎች እርካታ"
-        },
-        news: {
-          title: "የቅርብ ጊዜ መረጃዎች",
-          subtitle: "ስለ ከተማዋ ልማት እና ማህበረሰባዊ ማስታወቂያዎች መረጃ ያግኙ።",
-          view_all: "ሁሉንም ዜናዎች ይመልከቱ",
-          tag_service: "አዲስ አገልግሎት",
-          tag_update: "መረጃ",
-          tag_event: "ክስተት",
-          news1_title: "የመስመር ላይ የንብረት ምዝገባ ተጀመረ",
-          news1_desc: "ንብረትዎን ወደ ቢሮ ሳይሄዱ በመስመር ላይ ያስመዝግቡ። ለሁሉም የሸገር ነዋሪዎች ፈጣን፣ ደህንነቱ የተጠበቀ እና ምቹ ነው።",
-          news2_title: "የተራዘመ የአገልግሎት ሰዓት ታወጀ",
-          news2_desc: "ሰራተኞችን ለማስተናገድ ሁሉም ዋና ዋና የአስተዳደር ቢሮዎች አሁን በስራ ቀናት እስከ 12 ሰዓት (6 PM) ክፍት ናቸው።",
-          news3_title: "በስማርት ከተማ ላይ የህዝብ ውይይት",
-          news3_desc: "አርቲፊሻል ኢንተለጀንስን (AI) እና ስማርት ቴክኖሎጂን በሸገር ከተማ መሰረተ ልማት ውስጥ ስለማካተት የከተማ ፕላነሮችን ይቀላቀሉ።",
-          read_story: "ሙሉውን ታሪክ ያንብቡ"
-        },
-        cta: {
-          title: "ለመጀመር ዝግጁ ነዎት?",
-          subtitle: "ሁሉንም የመንግስት አገልግሎቶችዎን ከአንድ ዳሽቦርድ ለማስተዳደር ዛሬ መለያ ይፍጠሩ።",
-          start: "አሁኑኑ ማመልከት ይጀምሩ",
-          learn_more: "ተጨማሪ ይወቁ"
+          deputy3_name: "አቶ ሀይሉ ጃሌ",
+          deputy3_text: "የኢኮኖሚ እድገትን እና የዲጂታል አስተዳደር ሽግግርን በማስተባበር ላይ።"
         },
         services_hub: {
-          badge: "ዲጂታል አስተዳደር",
-          title: "ስማርት አገልግሎቶች ማዕከል",
+          badge: "ዲጂታል መግቢያ",
+          title: "የስማርት አገልግሎቶች ማዕከል",
           view_all: "ሁሉንም አገልግሎቶች ይመልከቱ",
-          land: "የመሬት አስተዳደር",
-          land_count: "45 አገልግሎቶች",
+          land: "መሬት እና ንብረት",
+          land_count: "12,000+ መረጃዎች",
+          land_desc: "የመሬት ይዞታ ማረጋገጫ እና የንብረት ዝውውር ማመልከቻ ያስገቡ።",
           business: "የንግድ ፖርታል",
-          business_count: "32 አገልግሎቶች",
-          citizen: "የዜጎች እንክብካቤ",
-          citizen_count: "112 አገልግሎቶች",
-          revenue: "ገቢ እና ታክስ",
-          revenue_count: "18 አገልግሎቶች",
-          one_platform: "አንድ መድረክ ለሁሉም ማመልከቻዎች",
-          one_platform_desc: "የግንባታ ፈቃዶችዎን፣ የንግድ ፈቃዶችዎን እና የነዋሪነት ሰነዶችዎን በአንድ ደህንነቱ የተጠበቀ ዳሽቦርድ ውስጥ ይከታተሉ። የእውነተኛ ጊዜ ሁኔታ ዝመናዎች እና ከባለስልጣናት ጋር ቀጥተኛ መልእክት።",
-          create_account: "የዜጋ መለያ ይፍጠሩ",
-          security: "ስለ ደህንነት ይወቁ",
-          user_name: "ዮሐንስ ደጀኔ",
-          user_badge: "የተረጋገጠ ዜጋ",
-          user_status: "መስመር ላይ"
+          business_count: "4,500+ ፈቃዶች",
+          business_desc: "ንግድዎን ይመዝግቡ እና የንግድ ፈቃድዎን በመስመር ላይ ያድሱ።",
+          citizen: "የሲቪል ምዝገባ",
+          citizen_count: "2.5M+ ግለሰቦች",
+          citizen_desc: "የልደት የምስክር ወረቀት እና ኦፊሴላዊ መታወቂያ ይጠይቁ።",
+          revenue: "ገቢዎች እና ክፍያዎች",
+          revenue_count: "ደህንነቱ የተጠበቀ ክፍያ",
+          revenue_desc: "ግብሮችን፣ የፍጆታ ሂሳቦችን እና የማዘጋጃ ቤት አገልግሎት ክፍያዎችን ይክፈሉ።",
+          open_portal: "ፖርታሉን ይክፈቱ",
+          one_platform: "አንድ መድረክ። ሁሉም አገልግሎቶች።",
+          one_platform_desc: "የከተማ ህይወትዎን ከአንድ ዳሽቦርድ ያስተዳድሩ። ማመልከቻዎችን ይከታተሉ፣ ክፍያዎችን ይክፈሉ እና ኦፊሴላዊ ማሳወቂያዎችን በቅጽበት ያግኙ።",
+          create_account: "መለያ ይፍጠሩ",
+          security: "ደህንነት እና ግላዊነት",
+          user_name: "ጆን ዶ",
+          user_badge: "ፕሪሚየም ነዋሪ",
+          user_status: "የተረጋገጠ",
+          app1_title: "የመኖሪያ ቤት ግንባታ ፈቃድ",
+          app1_status: "የጸደቀ",
+          app2_title: "የዲጂታል መታወቂያ እድሳት",
+          app2_status: "በሂደት ላይ",
+          app3_title: "የንግድ ፈቃድ ማመልከቻ",
+          app3_status: "እርምጃ የሚፈልግ"
         },
         mobile_app: {
           badge: "በቅርቡ በApp Store እና Play Store",
@@ -537,6 +759,288 @@ const resources = {
           telegram: "የቴሌግራም ቻናል"
         },
         ai: "የ AI ረዳት"
+      },
+      news_page: {
+        title: "የዜና ክፍል",
+        hero_badge: "ይፋዊ የዜና ክፍል",
+        hero_title: "የቅርብ ጊዜ መረጃዎች ከ",
+        hero_desc: "ስለ ከተማ ልማት፣ የማዘጋጃ ቤት ማስታወቂያዎች እና ዋና ዋና የፖሊሲ ማሻሻያዎች ከኦፊሴላዊው የመንግስት ፖርታል መረጃ ያግኙ።",
+        search_placeholder: "ጽሑፎችን ይፈልጉ...",
+        all_news: "ሁሉም ዜናዎች",
+        featured_story: "ተለይቶ የቀረበ ታሪክ",
+        read_full: "ሙሉውን ጽሑፍ ያንብቡ",
+        todays_top: "የዛሬው ምርጥ ዜና",
+        explore_more: "ተጨማሪ ያስሱ",
+        all_announcements: "ሁሉም ማስታወቂያዎች",
+        read_story: "ታሪኩን ያንብቡ",
+        no_results: "ምንም ጽሑፎች አልተገኙም",
+        no_results_desc: "ሌላ የፍለጋ ቃል ወይም ምድብ ይሞክሩ።",
+        newsletter_badge: "እንደተገናኙ ይቆዩ",
+        newsletter_title: "ሰብስክራይብ ያድርጉ ለ",
+        newsletter_desc: "ሳምንታዊ የማዘጋጃ ቤት ማስታወቂያዎችን እና የከተማ ማሻሻያዎችን በቀጥታ በኢሜልዎ ያግኙ።",
+        email_placeholder: "የእርስዎ የኢሜል አድራሻ",
+        subscribe_btn: "አሁኑኑ ይቀላቀሉ",
+        categories: {
+          all: "ሁሉም ዜናዎች",
+          municipal: "ማዘጋጃ ቤታዊ",
+          economy: "ኢኮኖሚ",
+          infrastructure: "መሰረተ ልማት",
+          social: "ማህበራዊ ደህንነት"
+        },
+        articles: {
+          art1: {
+            title: "የሸገር ከተማ አዲስ የዲጂታል አገልግሎት ማዕከል መረቀ",
+            excerpt: "የሸገር ከተማ ከንቲባ የአስተዳደር ሂደቶችን ለማቀላጠፍ ያለመውን ዘመናዊ የዲጂታል አገልግሎት ማዕከል በቡራዩ በይፋ ከፈቱ።",
+            date: "ግንቦት 16 ቀን 2016",
+            readTime: "የ5 ደቂቃ ንባብ"
+          },
+          art2: {
+            title: "ሰበታን እና ሱሉልታን የሚያገናኝ አዲስ የመንገድ ፕሮጀክት",
+            excerpt: "ቁልፍ የኢንዱስትሪ ዞኖችን የሚያገናኝ 45 ኪሎ ሜትር ርዝመት ያለው ባለከፍተኛ ፍጥነት መንገድ ለመገንባት የሚያስችል ትልቅ የመሠረተ ልማት ፕሮጀክት ይፋ ሆኗል።",
+            date: "ግንቦት 14 ቀን 2016",
+            readTime: "የ3 ደቂቃ ንባብ"
+          },
+          art3: {
+            title: "አመታዊ የኢኮኖሚ ጉባኤ የእድገት እምቅ አቅምን አጎላ",
+            excerpt: "የሸገር ከተማን ታይቶ የማይታወቅ የክልል ኢኮኖሚ ማዕከልነት እድገት ለመወያየት የምጣኔ ሀብት ባለሙያዎች እና የከተማው ባለስልጣናት ተሰብስበዋል።",
+            date: "ግንቦት 12 ቀን 2016",
+            readTime: "የ8 ደቂቃ ንባብ"
+          },
+          art4: {
+            title: "አዲስ የአረንጓዴ ቦታዎች እና የፓርኮች ተነሳሽነት ተጀመረ",
+            excerpt: "የ'አረንጓዴ ሸገር' ተነሳሽነት እስከ 2018 ዓ.ም ድረስ በሁሉም ክፍለ ከተሞች 50 አዳዲስ የህዝብ መናፈሻዎችን እና የመዝናኛ ቦታዎችን ለመፍጠር ያለመ ነው።",
+            date: "ግንቦት 10 ቀን 2016",
+            readTime: "የ4 ደቂቃ ንባብ"
+          }
+        }
+      },
+      services_page: {
+        title: "የኢ-አገልግሎት ፖርታል",
+        hero_badge: "ኦፊሴላዊ የኢ-አገልግሎት ፖርታል",
+        hero_title: "ሸገር ከተማ",
+        hero_subtitle: "ስማርት አገልግሎቶች",
+        hero_desc: "የከተማ አስተዳደር አገልግሎቶችን ያግኙ፣ ሂሳቦችን ይክፈሉ እና ማመልከቻዎችን በእኛ በተቀናጀ ዲጂታል መግቢያ ይከታተሉ።",
+        search_placeholder: "ዛሬ ምን ዓይነት አገልግሎት እየፈለጉ ነው?",
+        search_btn: "ፖርታሉን ይፈልጉ",
+        popular_title: "ታዋቂ አገልግሎቶች",
+        view_all: "ሁሉንም አገልግሎቶች ይመልከቱ",
+        view_details: "ዝርዝሮችን ይመልከቱ",
+        features: {
+          secure: { label: "ደህንነቱ የተጠበቀ እና አስተማማኝ", desc: "የእርስዎ ውሂብ የተጠበቀ እና ደህንነቱ የተጠበቀ ነው።" },
+          easy: { label: "ቀላል ሂደት", desc: "ማመልከቻዎችዎን ለማጠናቀቅ ቀላል ደረጃዎች።" },
+          track: { label: "ማመልከቻን ይከታተሉ", desc: "ማመልከቻዎን በእያንዳንዱ ደረጃ ይከታተሉ።" },
+          support: { label: "ድጋፍ", desc: "በማንኛውም ጊዜ እርስዎን ለመርዳት እዚህ መገኘት እንችላለን።" }
+        },
+        categories: {
+          all: "ሁሉም አገልግሎቶች",
+          business: "ንግድ እና ኢኮኖሚ",
+          civil: "የሲቪል ምዝገባ",
+          land: "መሬት እና ግንባታ",
+          utilities: "መገልገያዎች እና ክፍያ",
+          transport: "ትራንስፖርት",
+          employment: "ቅጥር"
+        },
+        list: {
+          trade_license: {
+            title: "የንግድ ፈቃድ",
+            desc: "ለንግድዎ አዲስ ወይም የታደሰ የንግድ ፈቃድ ያመልክቱ።",
+            time: "ከ3-5 ቀናት",
+            price: "500 ETB"
+          },
+          birth_certificate: {
+            title: "የልደት የምስክር ወረቀት",
+            desc: "አዲስ ወይም ምትክ የልደት የምስክር ወረቀት ይጠይቁ።",
+            time: "ከ1-2 ቀናት",
+            price: "50 ETB"
+          },
+          land_certificate: {
+            title: "የመሬት ይዞታ ማረጋገጫ",
+            desc: "ለየመሬት ይዞታ ማረጋገጫ የምስክር ወረቀት ያመልክቱ።",
+            time: "ከ5-7 ቀናት",
+            price: "300 ETB"
+          },
+          water_bill: {
+            title: "የውሃ ክፍያ ይክፈሉ",
+            desc: "የወርሃዊ የውሃ ፍጆታ ሂሳብዎን በመስመር ላይ ይክፈሉ።",
+            time: "ፈጣን",
+            price: "ይለያያል"
+          },
+          vehicle_reg: {
+            title: "የተሽከርካሪ ምዝገባ",
+            desc: "አዲስ ተሽከርካሪ ያስመዝግቡ ወይም የተሽከርካሪ ሰነዶችን ያድሱ።",
+            time: "ከ3-7 ቀናት",
+            price: "1,200 ETB"
+          },
+          employment_permit: {
+            title: "የስራ ፈቃድ",
+            desc: "ለውጭ አገር ዜጎች የስራ ፈቃድ ያመልክቱ።",
+            time: "ከ5-10 ቀናት",
+            price: "500 ETB"
+          },
+          building_permit: {
+            title: "የግንባታ ፈቃድ",
+            desc: "ለግንባታ ወይም ለህንፃ ፈቃድ ያመልክቱ።",
+            time: "ከ7-14 ቀናት",
+            price: "1,000 ETB"
+          },
+          business_reg: {
+            title: "የንግድ ምዝገባ",
+            desc: "ንግድዎን በሸገር ከተማ ያስመዝግቡ።",
+            time: "ከ2-3 ቀናት",
+            price: "500 ETB"
+          }
+        }
+      },
+      service_detail: {
+        back: "የአገልግሎት ማውጫ",
+        apply_online: "ማመልከቻዎን ሙሉ በሙሉ ደህንነቱ በተጠበቀው የአስተዳደር መግቢያችን በመስመር ላይ ያጠናቅቁ።",
+        start_app: "ማመልከቻ ይጀምሩ",
+        processing_time: "የማስኬጃ ጊዜ",
+        service_fee: "የአገልግሎት ክፍያ",
+        version: "ስሪት",
+        last_updated: "ለመጨረሻ ጊዜ የተሻሻለው",
+        summary: "የአገልግሎት ማጠቃለያ",
+        apply_btn: "አሁኑኑ በመስመር ላይ ያመልክቱ",
+        favorites: "ወደ ተወዳጆች ያክሉ",
+        req_docs: "አስፈላጊ ሰነዶች",
+        need_help: "እርዳታ ይፈልጋሉ?",
+        support_desc: "የእኛ የድጋፍ ቡድን በስራ ሰዓት ዝግጁ ነው።",
+        call: "ድጋፍ ይደውሉ",
+        email: "ኢሜል ይላኩልን",
+        hours: "የስራ ሰዓታት",
+        description: "መግለጫ",
+        process: "ሂደት እና ደረጃዎች",
+        important_note: "ጠቃሚ ማሳሰቢያ",
+        important_desc: "እባክዎን መዘግየቶችን ለማስወገድ ሁሉም ሰነዶች ዋና እና ትክክለኛ መሆናቸውን ያረጋግጡ።",
+        tabs: {
+          overview: "አጠቃላይ እይታ",
+          steps: "ደረጃዎች",
+          docs: "ሰነዶች",
+          related: "ተዛማጅ"
+        },
+        services_data: {
+          trade_license: {
+            title: "የንግድ ፈቃድ",
+            category: "ንግድ እና ኢኮኖሚ",
+            description: "ይህ አገልግሎት ንግዶች በሸገር ከተማ አስተዳደር የሚሰጠውን የንግድ ፈቃድ እንዲያገኙ ወይም እንዲያድሱ ያስችላቸዋል።",
+            status: "ንቁ",
+            process: [
+              { step: 1, title: "ማመልከቻ ማስገባት", office: "ገቢዎች ቢሮ", info: "የማመልከቻ ቅጹን ያስገቡ።", location: "2ኛ ፎቅ" },
+              { step: 2, title: "ክፍያ", office: "ገንዘብ ያዥ", info: "አስፈላጊውን ክፍያ ይክፈሉ።", location: "1ኛ ፎቅ" }
+            ],
+            docs: [
+              { name: "የብሄራዊ መታወቂያ ቅጂ", type: "PDF, JPG, PNG" },
+              { name: "የንግድ ምዝገባ", type: "PDF" }
+            ]
+          }
+        }
+      },
+      contact: {
+        hero_title: "አግኙን",
+        hero_desc: "እርስዎን ለመርዳት እዚህ ነን። ስለ አገልግሎቶቻችን ማንኛውንም ጥያቄ ወይም ድጋፍ ለማግኘት ያነጋግሩን።",
+        call_us: "ይደውሉልን",
+        mon_fri: "ሰኞ - አርብ",
+        email_us: "ኢሜል ይላኩልን",
+        message_success_desc: "በ24 ሰዓታት ውስጥ ምላሽ እንሰጣለን",
+        visit_us: "ይጎብኙን",
+        location_badge: "አድራሻችን",
+        location_title: "ዋናውን ጽሕፈት ቤታችንን ያግኙ",
+        location_desc: "የሸገር ከተማ አስተዳደር ዋና ጽሕፈት ቤት በለገጣፎ-ለገዳዲ አካባቢ ይገኛል — ከአዲስ አበባ የውጭ ቀለበት መንገድ በቀላሉ ይገኛል።",
+        open_maps: "በGoogle ካርታዎች ላይ ይክፈቱ",
+        message_badge: "መልእክት ይላኩ",
+        message_title: "ከእርስዎ መስማት እንወዳለን",
+        message_success: "መልእክቱ ተልኳል!",
+        form: {
+          another: "ሌላ ይላኩ",
+          name: "ሙሉ ስም",
+          email: "የኢሜል አድራሻ",
+          phone: "ስልክ ቁጥር",
+          subject: "ጉዳይ",
+          message: "መልእክትዎ",
+          send: "መልእክት ይላኩ"
+        },
+        office_network: "የቢሮ አውታረ መረብ",
+        office_network_title: "የቢሮ አድራሻዎቻችን",
+        offices: {
+          main: {
+            name: "ዋና ከተማ አስተዳደር",
+            address: "ለገጣፎ-ለገዳዲ፣ ሸገር ከተማ",
+            hours: "ሰኞ - አርብ: 8:00 ጥዋት - 5:00 ከሰዓት\nቅዳሜ: 9:00 ጥዋት - 1:00 ከሰዓት"
+          },
+          citizens: {
+            name: "የዜጎች አገልግሎት ማዕከል",
+            address: "ሱሉልታ ከተማ፣ ሸገር ከተማ",
+            hours: "ሰኞ - አርብ: 8:00 ጥዋት - 6:00 ከሰዓት\nቅዳሜ: 9:00 ጥዋት - 2:00 ከሰዓት"
+          },
+          digital: {
+            name: "የዲጂታል አገልግሎቶች ማዕከል",
+            address: "ቡራዩ፣ ሸገር ከተማ",
+            hours: "ሰኞ - አርብ: 8:00 ጥዋት - 8:00 ማታ\nቅዳሜ - እሑድ: 10:00 ጥዋት - 4:00 ከሰዓት"
+          }
+        }
+      },
+      footer: {
+        about_title: "ሸገር ከተማ",
+        about_desc: "ቀልጣፋ፣ ግልፅ እና ዜጋ-ተኮር የመንግስት አገልግሎቶች ዲጂታል መግቢያ።",
+        quick_links: "ፈጣን ሊንኮች",
+        services: "አገልግሎቶች",
+        contact: "አድራሻ",
+        rights: "መብቱ በህግ የተጠበቀ ነው።",
+        privacy: "የግላዊነት ፖሊሲ",
+        terms: "የአጠቃቀም ውል",
+        accessibility: "ተደራሽነት"
+      },
+      about_page: {
+        overview_badge: "የከተማው አጠቃላይ እይታ",
+        overview_title: "ለሰዎች የተገነባች ከተማ",
+        overview_p1: "ሸገር ከተማ አዲስ አበባን የሚከቡ ማህበረሰቦችን ለማገልገል የተቋቋመች በፍጥነት እያደገች ያለች ሜትሮፖሊታን አካባቢ ናት። ቀልጣፋ፣ ግልጽ እና ዜጋ-ተኮር አስተዳደር ለመዘርጋት ባለው ቁርጠኝነት ሸገር ዘመናዊ የኢትዮጵያ ከተማ ምን መሆን እንዳለባት ዳግም እየተረጎመች ነው።",
+        overview_p2: "12 ክፍለ ከተሞችን የምታካትት እና ከ3 ሚሊዮን በላይ ነዋሪዎች መኖሪያ የሆነችው ከተማ በመሬት አስተዳደር፣ በጤና፣ በትራንስፖርት፣ በትምህርት እና በንግድ ልማት ዘርፎች የተሟላ አገልግሎት ትሰጣለች — ሁሉም በዲጂታል አማራጮች እየቀረቡ ይገኛሉ።",
+        explore_subcities: "ክፍለ ከተሞችን ያስሱ",
+        vision_badge: "አቅጣጫ እና ዓላማ",
+        vision_title: "ራዕይ እና ተልዕኮ",
+        our_vision: "ራዕያችን",
+        vision_text: "ዓለም አቀፍ ደረጃቸውን የጠበቁ አገልግሎቶችን የምትሰጥ፣ ዘላቂ ልማትን የምታበረታታ እና በሁሉም ክፍለ ከተሞች ያሉ ዜጎችን ደህንነት እና ብልጽግና የምታረጋግጥ ግንባር ቀደም ስማርት ከተማ መሆን።",
+        our_mission: "ተልዕኳችን",
+        mission_text: "የኢኮኖሚ እድገትን፣ ማህበራዊ ፍትሃዊነትን እና የአካባቢ ጥበቃን በማጎልበት በዲጂታል ፈጠራ አማካኝነት ቀልጣፋ፣ ግልጽ እና ተደራሽ የመንግስት አገልግሎቶችን መስጠት።",
+        journey_badge: "ጉዟችን",
+        journey_title: "የሸገር ታሪክ",
+        milestones_badge: "ቁልፍ ክንውኖች",
+        milestones_title: "ያከናወናቸው ስኬቶች",
+        get_involved: "ይሳተፉ",
+        future_title: "የሸገር መፃኢ ዕድል አካል ይሁኑ",
+        future_desc: "ነዋሪ፣ ባለሀብት ወይም ጎብኚ ይሁኑ — ሸገር ከተማ ለሁሉም ቦታ አላት። አገልግሎቶቻችንን ያስሱ እና ዛሬ ከከተማዎ አስተዳደር ጋር ይገናኙ።",
+        contact_btn: "ከተማውን ያነጋግሩ",
+        timeline: {
+          t1_year: "2013",
+          t1_title: "ሸገር ከተማ ተመሰረተች",
+          t1_desc: "ከተማዋ ከአዲስ አበባ ዙሪያ ያሉ ከተሞችን በማካተት እንደ አዲስ አስተዳደራዊ አካል በይፋ ተመሰረተች።",
+          t2_year: "2014",
+          t2_title: "የመጀመሪያው የከተማ አስተዳደር",
+          t2_desc: "የመጀመሪያው የተመረጠ የከተማ አስተዳደር ተመስርቶ ለግልጽ አስተዳደር፣ ለዲጂታል አገልግሎቶች እና ለዜጋ-ተኮር ፖሊሲዎች መሰረት ጥሏል።",
+          t3_year: "2015",
+          t3_title: "የስማርት ከተማ ተነሳሽነት ጅማሮ",
+          t3_desc: "ሸገር የመሬት ምዝገባን፣ የንግድ ፈቃድን እና የህዝብ ጤና አገልግሎቶችን በሁሉም ክፍለ ከተሞች ዲጂታል የማድረግ ፕሮግራም ጀምሯል።",
+          t4_year: "2016",
+          t4_title: "የዲጂታል ፖርታል ስራ ጀመረ",
+          t4_desc: "የሸገር ከተማ ዲጂታል መንግስት ፖርታል ስራ ጀምሮ ነዋሪዎች ከየትኛውም ቦታ ሆነው ከ30 በላይ አገልግሎቶችን 24/7 እንዲያገኙ አድርጓል።",
+          t5_year: "2017",
+          t5_title: "መስፋፋት እና የ AI ውህደት",
+          t5_desc: "ከተማዋ የአገልግሎት ቀጠናዎቿን በማስፋት ስማርት የትራፊክ አስተዳደርን እና ይህንን የ AI ረዳትን ጨምሮ በ AI የሚሰሩ መሳሪያዎችን አስተዋውቃለች።"
+        },
+        achievements: {
+          a1_title: "ዲጂታል ትራንስፎርሜሽን",
+          a1_desc: "ከሁሉም የመንግስት አገልግሎቶች ውስጥ በስኬት ዲጂታል ተደርገው በመስመር ላይ የሚገኙ።",
+          a2_title: "የአረንጓዴ ከተማ ተነሳሽነት",
+          a2_desc: "በከተማዋ አረንጓዴ ልማት ዘመቻ አማካኝነት የተተከሉ ዛፎች።",
+          a3_title: "የዜጎች እርካታ",
+          a3_desc: "በሁሉም የህዝብ አገልግሎቶች ጥናቶች የተመዘገበ የእርካታ መጠን።",
+          a4_title: "የመሰረተ ልማት ፕሮጀክቶች",
+          a4_desc: "መንገዶችን፣ መገልገያዎችን እና የህዝብ ቦታዎችን የሚያሻሽሉ ንቁ የመሰረተ ልማት ፕሮጀክቶች።",
+          a5_title: "የተገነቡ ትምህርት ቤቶች",
+          a5_desc: "ከ2014 ጀምሮ የተገነቡ ወይም የታደሱ አዳዲስ ትምህርት ቤቶች።",
+          a6_title: "የተፈጠሩ የስራ እድሎች",
+          a6_desc: "በከተማው የልማት ፕሮግራሞች አማካኝነት የተፈጠሩ ቀጥተኛ እና ቀጥተኛ ያልሆኑ የስራ እድሎች።"
+        }
       }
     }
   },
@@ -611,20 +1115,7 @@ const resources = {
           innovation: "Kalaqa"
         }
       },
-      contact: {
-        title: "Nu Quunnamaa",
-        hero_desc: "Isin tajaajiluuf as jirra. Inveestimentii, yaada ykn deeggarsa kamiyyuu yoo qabaattan waajjiraalee keenya quunnamaa.",
-        get_in_touch: "Wal Quunnamaa",
-        form: {
-          name: "Maqaa Guutuu",
-          email: "Teessoo Imeelii",
-          subject: "Dhimma",
-          message: "Ergaa",
-          send: "Ergaa Ergi"
-        },
-        offices: "Waajjiraalee Naannoo",
-        headquarters: "Waajjira Muummee"
-      },
+
       administration_page: {
         title: "Kallattii Bulchiinsaa",
         hero_desc: "Dameelee fi waajjiraalee tajaajila uummataa fi bu'uura misoomaa Magaalaa Shaggar bulchan sakatta'aa.",
@@ -656,99 +1147,82 @@ const resources = {
         hero_desc: "Bakkeewwan beekamoo fi pirojektoota misoomaa Magaalaa Shaggar bakka kamiyyuu ta'anii daawwannaa 360-digrii godhaa.",
         start_tour: "Daawwannaa Jalqabi"
       },
-      services_page: {
-        title: "Poortaalii E-Tajaajilaa",
-        hero_desc: "Tajaajila mootummaa hunda onlaayiniin argadhaa. Saffisaa, amansiisaa fi mijataa.",
-        search_placeholder: "Tajaajila akkamii barbaadu?"
-      },
+
 
       home: {
         hero: {
           badge: "✨ Gara fuulduraa tajaajila hawaasaatti baga nagaan dhuftan",
-          title: "Baga gara",
-          city: "Magaalaa Shaggar",
-          subtitle: "Karaan dijitaalaa tajaajila mootummaa si'ataa, ifaa fi lammiilee irratti xiyyeeffate argachuuf. Bulchiinsa addaan hin cinne quba keessaniin muuxadhaa.",
-          explore: "Tajaajiloota Sakatta'aa",
-          find_office: "Waajjira Barbaadaa"
+          title: "Karaa Gara",
+          city: "Fuuldura Shaggar",
+          subtitle: "Jireenya magaalaa dhaloota itti aanuu dhandhamaa. Magaalaan Shaggar kalaqa itti fufiinsa qabu aadaa badhaadhaa waliin qindeessuun muuxannoo magaalaa sadarkaa addunyaa uuma.",
+          explore: "Tajaajiloota Sakatta'i",
+          start_exploring: "Sakatta'uu Jalqabi"
+        },
+        highlights: {
+          badge: "Fuulduraaf Mul'ata",
+          title: "Shaggar keessatti Samiifi Lafa wal quunnamu",
+          card1: "Gidduugala Akuwaatiksii Biyyooleessaa Shaggar fi sarara diimaa olka'aa.",
+          card2: "Akka mari'atametti, addababayiin guddaan Shaggar jireenya dammaqaa ta'een guutamedha.",
+          card3: "Daandiwwan durii eegamanii kan jiran ta'us, misoomni amayyaa saffisaan babal'achaa jira.",
+          card4: "Shaggar gidduugala magaalaa kan qabu ta'us, miidhaginni isaa sanaa ol fagaata."
+        },
+        explore: {
+          badge: "Magaalaa Argadhu",
+          title: "Shaggar Sakatta'i",
+          view_map: "Kaartaa Ilaali",
+          heritage_badge: "Aadaa",
+          grand_square: "Addababayii Guddaa",
+          grand_square_desc: "Bakka aadaan gidduugala hawaasummaa amayyaa waliin wal quunnamu Shaggar keessatti dhandhamaa.",
+          eco_parks: "Paarkii Ekoo",
+          eco_parks_desc: "Hektaara 500 ol iddoo magariisaa.",
+          tech_hub: "Gidduugala Teeknooloojii",
+          tech_hub_desc: "Gidduugala kalaqa Afriikaa Bahaa."
         },
         leadership: {
-          title: "Hoggansa Magaalaa",
-          subtitle: "Hoggantoota kutaatanii Magaalaa Shaggar gara magaalaa ismaartii fakkeenya ta'utti jijjiiruuf hojjetan walbarsiisuu.",
-          welcome_title: "Baga Nagaan Dhuftan",
-          welcome_subtitle: "Jiraattotaafi Daawwattoota Magaalaa Shaggariif Simannaa Ho'aa",
-          welcome_text: "Akka kantiibaa Magaalaa Shaggaritti, mul'ata keenya ifaa ta'e gara fuulduraa hawaasa keenyaaf qooduun na gammachiisa. Shaggar gara magaalaa ismaartii fakkeenyaatti jijjiiruuf kutanneerra—dorgomaa, jireenyaaf mijataa, fi fedhii jiraattota hundaa kan deebisu.",
-          read_more: "Ergaa Guutuu Dubbisi",
-          mayor_name: "Dr. Tashoomaa Aduunyaa (Ph.D.)",
-          mayor_text: "Akka kantiibaa Magaalaa Shaggaritti, mul'ata keenya ifaa ta'e gara fuulduraa hawaasa keenyaaf qooduun na gammachiisa.",
-          deputy1_title: "Itti Aanaa Kantiibaa",
-          deputy1_name: "Obbo Guyyoo Galgaloo",
-          deputy1_text: "Qaamolee dhimmi ilaallatu hunda—daldaltoota, hoggantoota hawaasaa, fi jiraattota—akka dammaqinaan hirmaatan ni affeerra.",
-          deputy2_title: "Itti Aanaa Kantiibaa",
-          deputy2_name: "Obbo Gugsaa Dajjanee",
-          deputy2_text: "Itti gaafatamaa Damee Bulchiinsaa fi Tajaajilaa, qulqullina tajaajila uummataa cimsuuf kan kutannee hojjetan.",
-          deputy3_title: "Itti Aanaa Kantiibaa",
-          deputy3_name: "Obbo Haayiluu Girmaa",
-          deputy3_text: "Itti gaafatamaa Kilaastara Qonna Magaalaa, itti fufinsaa fi nageenya hawaasaa irratti xiyyeeffatu."
-        },
-        quick_services: {
-          title: "Tajaajiloota Saffisaa",
-          subtitle: "Tajaajiloota mootummaa dijitaalaa baay'ee beekamoo ta'an kilikii muraasaan argadhaa.",
-          permits: "Ehayama Ijaarsaa",
-          permits_desc: "Ehayama ijaarsaafi gamoo onlaayiniin salphaatti iyyadhaa.",
-          business: "Ehayama Daldalaa",
-          business_desc: "Daldala keessan haaraa ykn duraan jiru saffisaan galmeessisiitii ehayama fudhadhaa.",
-          driver: "Ehayama Konkolaachisummaa",
-          driver_desc: "Ehayama konkolaachisummaa keessan salphaatti iyyadhaa, haaromsaa ykn bakka buusaa.",
-          health: "Tajaajiloota Fayyaa",
-          health_desc: "Dhaabbilee fayyaa, ragaaleefi tajaajiloota yaalaa argadhaa.",
-          apply_now: "Amma Iyyadhu"
-        },
-        stats: {
-          sub_cities: "Kutaa Magaalaa",
-          online_services: "Tajaajila Onlaayinii",
-          digital_access: "Argama Dijitaalaa",
-          satisfaction: "Quufinsa Lammiilee"
-        },
-        news: {
-          title: "Oduu Haaraa",
-          subtitle: "Waa'ee misooma magaalaafi beeksisa hawaasaa odeeffannoo argadhaa.",
-          view_all: "Oduu Hunda Ilaali",
-          tag_service: "Tajaajila Haaraa",
-          tag_update: "Odeeffannoo",
-          tag_event: "Qophii",
-          news1_title: "Galmeen Qabeenyaa Onlaayinii Jalqabame",
-          news1_desc: "Qabeenya keessan waajjira osoo hin dhaqin onlaayiniin galmeessisaa. Jiraattota Shaggar hundaaf saffisaa, amansiisaafi baay'ee mijataadha.",
-          news2_title: "Sa'aatiin Tajaajilaa Dheerachuu Isaa Ibsame",
-          news2_desc: "Hojjettoota keessummeessuuf waajjiraaleen bulchiinsaa gurguddoon hundi guyyoota hojii hanga sa'aatii 12:00tti banaa ta'u.",
-          news3_title: "Marii Uummataa Waa'ee Magaalaa Ismaartii",
-          news3_desc: "Hubannoo namtolchee (AI) fi teeknooloojii ismaartii bu'uura misoomaa Magaalaa Shaggar keessatti makuu irratti marii wal-faana ta'eef karoorsitoota magaalaa waliin hirmaadhaa.",
-          read_story: "Guutuu Isaa Dubbisi"
-        },
-        cta: {
-          title: "Eegaluuf Qophiidhaa?",
-          subtitle: "Quunnamtii mootummaa keessan hunda daashboordii tokko irraa to'achuuf har'a akkoontii uummadhaa.",
-          start: "Amma Iyyachuu Eegali",
-          learn_more: "Dabalata Dubbisi"
+          title: "Aramaraa Keenya",
+          mayor_title: "Kantiibaa",
+          mayor_name: "Dr. Teshome Adugna",
+          mayor_text: "Mul'ata magaalaa Shaggar itti fufiinsa qabduufi karaa dijitaalaa walitti makamte hogganaa jiru.",
+          deputy1_title: "Ittaanaa Kantiibaa",
+          deputy1_name: "Obbo Guyo Galgalo",
+          deputy1_text: "Misooma bu'uura misoomaafi pilaanii magaalaa irratti xiyyeeffachuun hojjetaa jiru.",
+          deputy2_title: "Ittaanaa Kantiibaa",
+          deputy2_name: "Obbo Gugsa Dejene",
+          deputy2_text: "Nageenya hawaasummaa, barnootaafi qulqullina tajaajila fayyaa hordofaa jiru.",
+          deputy3_title: "Ittaanaa Kantiibaa",
+          deputy3_name: "Obbo Hailu Jale",
+          deputy3_text: "Guddina ikoonomiifi jijjiirama bulchiinsa dijitaalaa hoogganaa jiru."
         },
         services_hub: {
-          badge: "Bulchiinsa Dijitaalaa",
-          title: "Haba Smart Services",
-          view_all: "Tajaajila Hunda Ilaali",
-          land: "Bulchiinsa Lafa",
-          land_count: "Tajaajila 45",
+          badge: "Kallattii Dijitaalaa",
+          title: "Gidduugala Tajaajila Ismaartii",
+          view_all: "Tajaajiloota Hunda Ilaali",
+          land: "Lafaa fi Qabeenya",
+          land_count: "Galmeewwan 12,000+ ",
+          land_desc: "Waraqaa ragaa qabiyyee lafaafi dabarsa qabeenyaaf iyyannoo galchaa.",
           business: "Poortaalii Daldalaa",
-          business_count: "Tajaajila 32",
-          citizen: "Kunuunsa Lammiilee",
-          citizen_count: "Tajaajila 112",
-          revenue: "Galii fi Taaksii",
-          revenue_count: "Tajaajila 18",
-          one_platform: "Waltajjii Tokko Iyyannoo Hundaaf",
-          one_platform_desc: "Ehayama ijaarsaa, ehayama daldalaa fi ragaalee jireenyaa keessan daashboordii tokko keessatti hordofaa. Odeeffannoo haala yeroo fi ergaa kallattiin hoggantoota waliin.",
-          create_account: "Akkoontii Lammii Uumi",
-          security: "Waa'ee Nageenyaa Baradhu",
-          user_name: "Obbo Caalaa",
-          user_badge: "Lammii Mirkanaa'e",
-          user_status: "Onlaayinii"
+          business_count: "Hayyama 4,500+",
+          business_desc: "Daldala galmeessisuufi hayyama daldalaa onlaayiniin haaromsaa.",
+          citizen: "Galmee Lammiilee",
+          citizen_count: "Piroofayilii 2.5M+",
+          citizen_desc: "Waraqaa ragaa dhalootaafi madda eenyummaa idilee gaafadhaa.",
+          revenue: "Galii fi Kaffaltii",
+          revenue_count: "Kaffaltii Amansiisaa",
+          revenue_desc: "Gabbata, kaffaltii tajaajila uummataafi tajaajila munisipaalaa kaffalaa.",
+          open_portal: "Poortaalii Bani",
+          one_platform: "Maddee Tokko. Tajaajila Hunda.",
+          one_platform_desc: "Jireenya magaalaa keessanii hunda bakka tokkotti hoogganaa. Iyyannoo hordofaa, kaffaltii kaffalaa, akkasumas beeksisa idilee yeroo qabatamaatti argadhaa.",
+          create_account: "Horoftee Ijaari",
+          security: "Nageenyafi Dhuunfaa",
+          user_name: "John Doe",
+          user_badge: "Jiraataa Filatamaa",
+          user_status: "Mirkanaa'e",
+          app1_title: "Hayyama Ijaarsa Mana Jireenyaa",
+          app1_status: "Mirkanaa'e",
+          app2_title: "Haaromsa ID Dijitaalaa",
+          app2_status: "Adeemsa Irra Jira",
+          app3_title: "Iyyannoo Hayyama Daldalaa",
+          app3_status: "Tarkaanfii Barbaada"
         },
         mobile_app: {
           badge: "Dhiyootti App Store fi Play Store irratti",
@@ -781,6 +1255,288 @@ const resources = {
           telegram: "Chaanaalii Telegram"
         },
         ai: "Gargaaraa AI"
+      },
+      news_page: {
+        title: "Daree Oduu",
+        hero_badge: "Daree Oduu Idilee",
+        hero_title: "Odeeffannoowwan Haaraa kan",
+        hero_desc: "Misooma magaalaa, beeksisa munisipaalaafi fooyya'iinsa qajeelfama gurguddoo poortaalii mootummaa idilee irraa hordofaa.",
+        search_placeholder: "Barreeffamoota barbaadi...",
+        all_news: "Oduu Hunda",
+        featured_story: "Seenaa Addatti Filatame",
+        read_full: "Barreeffama Guutuu Dubbisi",
+        todays_top: "Oduu Guyyaa Har'aa Filatame",
+        explore_more: "Dabalata Sakatta'i",
+        all_announcements: "Beeksisa Hunda",
+        read_story: "Seenaa Dubbisi",
+        no_results: "Barreeffamni Argame Hin Jiru",
+        no_results_desc: "Jecha barbachaa ykn ramaddii biraa yaali.",
+        newsletter_badge: "Walitti Hidhamanii Turuu",
+        newsletter_title: "Galmaa'aa kan",
+        newsletter_desc: "Beeksisa munisipaalaafi odeeffannoo magaalaa torbanii kallattiin imeelii keessaniin argadhaa.",
+        email_placeholder: "Teessoo imeelii keessanii",
+        subscribe_btn: "Amma Makamaa",
+        categories: {
+          all: "Oduu Hunda",
+          municipal: "Munisipaalaa",
+          economy: "Ikoonomii",
+          infrastructure: "Bu'uura Misoomaa",
+          social: "Walafee Hawaasummaa"
+        },
+        articles: {
+          art1: {
+            title: "Magaalaan Shaggar Gidduugala Tajaajila Dijitaalaa Haaraa Eebbisiise",
+            excerpt: "Kantiibaan Magaalaa Shaggar adeemsa bulchiinsaa si'eessuuf kan kaayyeffate gidduugala tajaajila dijitaalaa amayyaa Buraayyuu keessatti argamu idileetti bananiiru.",
+            date: "Caamsaa 16, 2016",
+            readTime: "Dubbisa Daq. 5"
+          },
+          art2: {
+            title: "Pirojektiin Daandii Haaraa Sabbataa fi Sulultaa Walitti Hidhu",
+            excerpt: "Zonoota industirii furtuu ta'an walitti hidhuuf pirojektiin bu'uura misoomaa guddaan daandii saffisaa kiiloo meetira 45 ijaaruuf beeksifameera.",
+            date: "Caamsaa 14, 2016",
+            readTime: "Dubbisa Daq. 3"
+          },
+          art3: {
+            title: "Yaa'iin Ikoonomii Waggaa Guddina Magaalichaa Addeesse",
+            excerpt: "Hayyoonni ikoonomiifi qondaaltonni magaalaa guddina Magaalaa Shaggar akka gidduugala ikoonomii naannichaatti agarsiisaa jiru irratti mari'achuuf walitti dhufaniiru.",
+            date: "Caamsaa 12, 2016",
+            readTime: "Dubbisa Daq. 8"
+          },
+          art4: {
+            title: "Injiizaatiiviin Bakkeewwan Magariisaa fi Paarkiilee Haaraa Jalqabame",
+            excerpt: "Injiizaatiiviin 'Shaggar Magariisa' hanga bara 2018tti kutaalee magaalaa hunda keessatti paarkiilee uummataafi iddoo boqonnaa haaraa 50 uumuuf kaayyeffata.",
+            date: "Caamsaa 10, 2016",
+            readTime: "Dubbisa Daq. 4"
+          }
+        }
+      },
+      services_page: {
+        title: "Poortaalii E-Tajaajilaa",
+        hero_badge: "Poortaalii E-Tajaajilaa Idilee",
+        hero_title: "Magaalaa Shaggar",
+        hero_subtitle: "Tajaajiloota Smart",
+        hero_desc: "Tajaajiloota bulchiinsa magaalaa argadhaa, kaffaltiiwwan kaffalaa, fi iyyannoowwan karaa poortaalii keenya isa walitti makame hordofaa.",
+        search_placeholder: "Har'a tajaajila akkamii barbaadaa jirtu?",
+        search_btn: "Poortaalii Barbaadi",
+        popular_title: "Tajaajiloota Beekamoo",
+        view_all: "Tajaajiloota Hunda Ilaali",
+        view_details: "Zilzila Ilaali",
+        features: {
+          secure: { label: "Nageenyasafi Amanamaa", desc: "Ragaan keessan eegumsa qaba akkasumas amansiisaadha." },
+          easy: { label: "Adeemsa Salphaa", desc: "Iyyannoo keessan xumuruuf tarkaanfiiwwan salphaa." },
+          track: { label: "Iyyannoo Hordofaa", desc: "Tarkaanfii hunda irratti iyyannoo keessan hordofaa." },
+          support: { label: "Deeggarsa", desc: "Yeroo kamiyyuu isin gargaaruuf as jirra." }
+        },
+        categories: {
+          all: "Tajaajiloota Hunda",
+          business: "Daldala fi Ikoonomii",
+          civil: "Galmee Siviilii",
+          land: "Lafaa fi Ijaarsa",
+          utilities: "Tajaajila fi Kaffaltii",
+          transport: "Geejjiba",
+          employment: "Qaxara"
+        },
+        list: {
+          trade_license: {
+            title: "Hayyama Daldalaa",
+            desc: "Daldala keessaniif hayyama daldalaa haaraa ykn haaromsaaf iyyadhaa.",
+            time: "Guyyaa 3-5",
+            price: "500 ETB"
+          },
+          birth_certificate: {
+            title: "Waraqaa Ragaa Dhalootaa",
+            desc: "Waraqaa ragaa dhalootaa haaraa ykn bakka bu'aa gaafadhaa.",
+            time: "Guyyaa 1-2",
+            price: "50 ETB"
+          },
+          land_certificate: {
+            title: "Waraqaa Ragaa Qabiyyee Lafaa",
+            desc: "Waraqaa ragaa qabiyyee lafaaf iyyadhaa.",
+            time: "Guyyaa 5-7",
+            price: "300 ETB"
+          },
+          water_bill: {
+            title: "Kaffaltii Bishaan Kaffali",
+            desc: "Kaffaltii fayyadama bishaan ji'aa keessanii onlaayiniin kaffalaa.",
+            time: "Battalatti",
+            price: "Garaagaradha"
+          },
+          vehicle_reg: {
+            title: "Galmee Konkolaataa",
+            desc: "Konkolaataa haaraa galmeessisi ykn ragaalee konkolaataa haaromsi.",
+            time: "Guyyaa 3-7",
+            price: "1,200 ETB"
+          },
+          employment_permit: {
+            title: "Hayyama Qaxaraa",
+            desc: "Lammiilee biyya alaaf hayyama qaxaraaf iyyadhaa.",
+            time: "Guyyaa 5-10",
+            price: "500 ETB"
+          },
+          building_permit: {
+            title: "Hayyama Ijaarsaa",
+            desc: "Ijaarsa gamoo ykn hayyama ijaarsaaf iyyadhaa.",
+            time: "Guyyaa 7-14",
+            price: "1,000 ETB"
+          },
+          building_reg: {
+            title: "Galmee Daldalaa",
+            desc: "Daldala keessan Magaalaa Shaggar keessatti galmeessisaa.",
+            time: "Guyyaa 2-3",
+            price: "500 ETB"
+          }
+        }
+      },
+      service_detail: {
+        back: "Kallattii Tajaajilaa",
+        apply_online: "Iyyannoo keessan guutummaatti onlaayiniin poortaalii bulchiinsaa keenya isa amansiisaa ta'een xumuraa.",
+        start_app: "Iyyannoo Jalqabi",
+        processing_time: "Yeroo Hojii",
+        service_fee: "Kaffaltii Tajaajilaa",
+        version: "Baasii",
+        last_updated: "Yeroo Dhumaaf Kan Haaromfame",
+        summary: "Cuunfa Tajaajilaa",
+        apply_btn: "Amma Onlaayiniin Iyyadhaa",
+        favorites: "Gara Filannootti Dabali",
+        req_docs: "Ragaalee Barbaachisoo",
+        need_help: "Gargaarsa Barbaadduu?",
+        support_desc: "Garee deeggarsa keenyaa sa'aatii hojiitti argachuu dandeessu.",
+        call: "Deeggarsa Bilbilaa",
+        email: "Iimeelii Nuuf Ergaa",
+        hours: "Sa'aatii Hojiikkaa",
+        description: "Ibsa",
+        process: "Adeemsa fi Tarkaanfiiwwan",
+        important_note: "Hubachiisa Barbaachisaa",
+        important_desc: "Maaloo ragaaleen hundi kan jalqabaafi kan hojjetan ta'uu isaanii mirkaneessaa.",
+        tabs: {
+          overview: "Ilaalcha Waliigalaa",
+          steps: "Tarkaanfiiwwan",
+          docs: "Ragaalee",
+          related: "Walitti Hidhaman"
+        },
+        services_data: {
+          trade_license: {
+            title: "Hayyama Daldalaa",
+            category: "Daldala fi Ikoonomii",
+            description: "Tajaajilli kun daldaltoonni hayyama daldalaa Bulchiinsa Magaalaa Shaggariin kennamu akka argatan ykn haaromsan dandeessisa.",
+            status: "Hojjira",
+            process: [
+              { step: 1, title: "Iyyannoo Galchuu", office: "Waajjira Galiiwwanii", info: "Unka iyyannoo galchaa.", location: "Fooqii 2ffaa" },
+              { step: 2, title: "Kaffaltii", office: "Kaffaltii", info: "Kaffaltii kaffalaa.", location: "Fooqii 1ffaa" }
+            ],
+            docs: [
+              { name: "Waraqaa Eenyummaa", type: "PDF, JPG, PNG" },
+              { name: "Galmee Daldalaa", type: "PDF" }
+            ]
+          }
+        }
+      },
+      contact: {
+        hero_title: "Nu Quunnamaa",
+        hero_desc: "Isin gargaaruuf as jirra. Gaaffii ykn deeggarsa tajaajila keenya ilaalchisee qabdan kamiyyuuf nu quunnamaa.",
+        call_us: "Nuuf Bilbilaa",
+        mon_fri: "Wix - Jimaa",
+        email_us: "Iimeelii Nuuf Ergaa",
+        message_success_desc: "Sa'aatii 24 keessatti deebii ni kennina",
+        visit_us: "Nu Daawwadhaa",
+        location_badge: "Teessoo Keenya",
+        location_title: "Waajjira Muummee Keenya Argadhaa",
+        location_desc: "Waajjirri Muummee Bulchiinsa Magaalaa Shaggar naannoo Laga Xaafoo-Laga Daadii keessatti argama — daandii ringii alaa Finfinnee irraa salphaatti qaqqabamuu danda'a.",
+        open_maps: "Kaartaa Google irratti Banaa",
+        message_badge: "Ergaa Ergaa",
+        message_title: "Isin Irraa Dhaga'uuf Ni Hawwina",
+        message_success: "Ergaan Ergameera!",
+        form: {
+          another: "Kan Biraa Ergaa",
+          name: "Maqaa Guutuu",
+          email: "Teessoo Iimeelii",
+          phone: "Lakkoofsa Bilbilaa",
+          subject: "Dhimma",
+          message: "Ergaa Keessan",
+          send: "Ergaa Ergaa"
+        },
+        office_network: "Cimdaa Waajjiraa",
+        office_network_title: "Teessoo Waajjiraalee Keenyaa",
+        offices: {
+          main: {
+            name: "Bulchiinsa Magaalaa Muummee",
+            address: "Laga Xaafoo-Laga Daadii, Magaalaa Shaggar",
+            hours: "Wix - Jimaa: 8:00 WBD - 5:00 WB\nSanbata: 9:00 WBD - 1:00 WB"
+          },
+          citizens: {
+            name: "Giddugala Tajaajila Lammiilee",
+            address: "Magaalaa Sulultaa, Magaalaa Shaggar",
+            hours: "Wix - Jimaa: 8:00 WBD - 6:00 WB\nSanbata: 9:00 WBD - 2:00 WB"
+          },
+          digital: {
+            name: "Giddugala Tajaajila Dijitaalaa",
+            address: "Buraayyuu, Magaalaa Shaggar",
+            hours: "Wix - Jimaa: 8:00 WBD - 8:00 WB\nSan-Dil: 10:00 WBD - 4:00 WB"
+          }
+        }
+      },
+      footer: {
+        about_title: "Magaalaa Shaggar",
+        about_desc: "Karaan dijitaalaa tajaajila mootummaa si'ataa, ifaa fi lammiilee irratti xiyyeeffate argachuuf.",
+        quick_links: "Liinkii Saffisaa",
+        services: "Tajaajiloota",
+        contact: "Quunnamtii",
+        rights: "Mirgi hundi seeraan kan eegame.",
+        privacy: "Imaammata Dhuunfaa",
+        terms: "Haala Ittifayyadamaa",
+        accessibility: "Gahumsa"
+      },
+      about_page: {
+        overview_badge: "Hubannoo Walii Gala Magaalaa",
+        overview_title: "Magaalaa Namootaaf Ijaarame",
+        overview_p1: "Magaalaan Shaggar naannoo metiroopoolitaan saffisaan guddachaa jiruufi hawaasa naannoo Finfinnee jiran tajaajiluuf hundaa'edha. Bulchiinsa si'ataa, ifaafi lammiilee irratti xiyyeeffate diriirsuuf kutannoo qabuun, Shaggar magaalaan Itoophiyaa amayyaa maaltu ta'uu akka qabu lammata ibsaa jirti.",
+        overview_p2: "Kutaa magaalaalee 12 kan hammattuufi jiraattota miliyoona 3 ol kan qabdu magaalaan kun, bulchiinsa lafaa, fayyaa, geejjiba, barnootaafi misooma daldalaa keessatti tajaajila guutuu kennaa jirti — hundi isaaniis karaa dijitaalaa dhiyaachaa jiru.",
+        explore_subcities: "Kutaa Magaalaalee Sakatta'i",
+        vision_badge: "Kallattii fi Kaayyoo",
+        vision_title: "Mul'ata fi Ergaa",
+        our_vision: "Mul'ata Keenya",
+        vision_text: "Magaalaa ismaartii hoggantuu tajaajila sadarkaa addunyaa kennitu, misooma itti fufiinsa qabu jajjabeessituufi nageenya akkasumas badhaadhina lammiilee kutaa magaalaa hunda keessa jiran mirkaneessitu ta'uu.",
+        our_mission: "Ergaa Keenya",
+        mission_text: "Guddina ikoonomii, haqa hawaasummaafi eegumsa naannoo cimsuun kalaqa dijitaalaatiin tajaajila mootummaa si'ataa, ifaafi dhuqqatamaa ta'e kennuu.",
+        journey_badge: "Imala Keenya",
+        journey_title: "Seenaa Shaggar",
+        milestones_badge: "Milkaayyoota Gurguddoo",
+        milestones_title: "Waan Nuti Milkeessine",
+        get_involved: "Hirmaadhaa",
+        future_title: "Fuuldura Shaggar keessatti Hirmaataa Ta'aa",
+        future_desc: "Jiraataa, abbaa qabeenyaa ykn daawwataa yoo taatanis — Magaalaan Shaggar hundaaf iddoo qabdi. Tajaajiloota keenya sakatta'aatii har'uma bulchiinsa magaalaa keessan waliin wal quunnamaa.",
+        contact_btn: "Magaalaa Quunnamaa",
+        timeline: {
+          t1_year: "2013",
+          t1_title: "Magaalaan Shaggar Hundaa'e",
+          t1_desc: "Magaalichi akka qaama bulchiinsaa haaraatti, magaalota naannoo Finfinnee jiran hammachuun akka idileetti hundaa'e.",
+          t2_year: "2014",
+          t2_title: "Bulchiinsa Magaalaa Jalqabaa",
+          t2_desc: "Bulchiinsi magaalaa filatame inni jalqabaa hundaa'uun, bulchiinsa ifa ta'e, tajaajila dijitaalaafi imaammata lammiidhaaf dursa kennuuf bu'uura kaa'e.",
+          t3_year: "2015",
+          t3_title: "Eegalama Tajaajila Magaalaa Ismaartii",
+          t3_desc: "Shaggar sagantaa jijjiirama dijitaalaa isaa — galmeessa lafaa, hayyama daldalaafi tajaajila fayyaa uummataa kutaa magaalaa hunda keessatti dijitaalessu eegale.",
+          t4_year: "2016",
+          t4_title: "Poortaaliin Dijitaalaa Hojii Jalqabe",
+          t4_desc: "Poortaaliin Mootummaa Dijitaalaa Magaalaa Shaggar hojii jalqabuun, jiraattonni bakka kamiyyuu ta'anii tajaajila mootummaa 30 ol sa'aatii 24/7 akka argatan godhe.",
+          t5_year: "2017",
+          t5_title: "Babal'achuu fi Walitti Makama AI",
+          t5_desc: "Magaalichi naannoo tajaajila isaa babal'isuun meeshaalee AI-n hojjetan kanneen akka to'annoo tiraafikaa ismaartiifi gargaaraa AI kana dabalatee hojii irra oolche."
+        },
+        achievements: {
+          a1_title: "Jijjiirama Dijitaalaa",
+          a1_desc: "tajaajiloota mootummaa hunda keessaa milkaayinaan dijitaala ta'anii onlaayiniin argaman.",
+          a2_title: "Tarkaanfii Magaalaa Magariisaa",
+          a2_desc: "duula magariisummaa magaalaa keessatti kan dhaabaman.",
+          a3_title: "Quufinsa Lammiilee",
+          a3_desc: "qorannoo tajaajila uummataa hunda irratti quufinsi galmaa'e.",
+          a4_title: "Pirojektoota Bu'uura Misoomaa",
+          a4_desc: "pirojektoota bu'uura misoomaa hojii irra jiran kanneen daandii, tajaajilootaafi bakkeewwan uummataa fooyyessan.",
+          a5_title: "Manneen Barnootaa Ijaaraman",
+          a5_desc: "manneen barnootaa haaraafi gidduugalawwan barumsaa bara 2014 irraa eegalee ijaaraman ykn haaromfaman.",
+          a6_title: "Carraa Hojii Uumame",
+          a6_desc: "carraa hojii kallattiifi al-kallattii sagantaalee misooma magaalaatiin uumame."
+        }
       }
     }
   },

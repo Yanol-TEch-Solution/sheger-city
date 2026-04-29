@@ -325,7 +325,7 @@ const Home = () => {
                 to="/virtual-tour"
                 className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-red-500 text-slate-950 font-bold rounded-full hover:bg-red-400 transition-all duration-300 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:shadow-[0_0_50px_rgba(239,68,68,0.6)] sm:hover:-translate-y-2 group text-sm sm:text-base"
               >
-                Start Exploring
+                {t("home.hero.start_exploring")}
                 <svg
                   className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform"
                   fill="none"
@@ -371,10 +371,10 @@ const Home = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
-              A Glimpse of the Future
+              {t("home.highlights.badge")}
             </h2>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 max-w-3xl mx-auto leading-tight font-display">
-              Divinity and Earth Meet in Sheger
+              {t("home.highlights.title")}
             </h3>
           </motion.div>
 
@@ -406,14 +406,10 @@ const Home = () => {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <p className="text-white text-sm font-medium leading-relaxed drop-shadow-md">
-                    {idx === 0 &&
-                      "The Sheger National Aquatics Center and towering redline."}
-                    {idx === 1 &&
-                      "As discussed, Sheger's main square is full of vibrant life."}
-                    {idx === 2 &&
-                      "Though the ancient paths are preserved, modern development soars."}
-                    {idx === 3 &&
-                      "Though Sheger does have a city center, its beauty spans far beyond."}
+                    {idx === 0 && t("home.highlights.card1")}
+                    {idx === 1 && t("home.highlights.card2")}
+                    {idx === 2 && t("home.highlights.card3")}
+                    {idx === 3 && t("home.highlights.card4")}
                   </p>
                 </div>
               </motion.div>
@@ -517,17 +513,17 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
               <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
-                Discover the City
+                {t("home.explore.badge")}
               </h2>
               <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight font-display">
-                Explore Sheger
+                {t("home.explore.title")}
               </h3>
             </div>
             <Link
               to="/explore"
               className="w-full sm:w-auto flex items-center justify-center gap-2 text-slate-600 font-bold hover:text-red-500 transition-colors px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200"
             >
-              View Map
+              {t("home.explore.view_map")}
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -555,14 +551,13 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 sm:p-10">
                 <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
-                  Heritage
+                  {t("home.explore.heritage_badge")}
                 </span>
                 <h4 className="text-2xl sm:text-4xl font-bold text-white mb-2 font-display">
-                  The Grand Square
+                  {t("home.explore.grand_square")}
                 </h4>
                 <p className="text-white/80 max-w-md text-sm sm:text-base">
-                  Experience the vibrant cultural heart of Sheger City, where
-                  tradition meets modern public spaces.
+                  {t("home.explore.grand_square_desc")}
                 </p>
               </div>
             </motion.div>
@@ -578,10 +573,10 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
                 <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 font-display">
-                  Eco-Parks
+                  {t("home.explore.eco_parks")}
                 </h4>
                 <p className="text-white/80 text-sm">
-                  Over 500 hectares of green space.
+                  {t("home.explore.eco_parks_desc")}
                 </p>
               </div>
             </motion.div>
@@ -597,10 +592,10 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-8">
                 <h4 className="text-xl sm:text-2xl font-bold text-white mb-2 font-display">
-                  Tech Hub
+                  {t("home.explore.tech_hub")}
                 </h4>
                 <p className="text-white/80 text-sm">
-                  The innovation center of East Africa.
+                  {t("home.explore.tech_hub_desc")}
                 </p>
               </div>
             </motion.div>
@@ -608,7 +603,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Smart Services Hub - NEW Section */}
+      {/* Smart Services Hub - Section */}
       <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
@@ -621,7 +616,7 @@ const Home = () => {
               </h3>
             </div>
             <Link
-              to="/explore"
+              to="/services"
               className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 group"
             >
               {t("home.services_hub.view_all")}
@@ -648,28 +643,28 @@ const Home = () => {
                 title: t("home.services_hub.land"),
                 icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
                 count: t("home.services_hub.land_count"),
-                desc: "Apply for land holding certificates and property transfers."
+                desc: t("home.services_hub.land_desc")
               },
               {
                 id: "trade-license",
                 title: t("home.services_hub.business"),
                 icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
                 count: t("home.services_hub.business_count"),
-                desc: "Register businesses and renew trade licenses online."
+                desc: t("home.services_hub.business_desc")
               },
               {
                 id: "birth-certificate",
                 title: t("home.services_hub.citizen"),
                 icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
                 count: t("home.services_hub.citizen_count"),
-                desc: "Request birth certificates and official identification."
+                desc: t("home.services_hub.citizen_desc")
               },
               {
                 id: "water-bill",
                 title: t("home.services_hub.revenue"),
                 icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
                 count: t("home.services_hub.revenue_count"),
-                desc: "Pay taxes, utility bills, and municipal service fees."
+                desc: t("home.services_hub.revenue_desc")
               },
             ].map((service, i) => (
               <motion.div
@@ -692,7 +687,7 @@ const Home = () => {
                   to={`/services/${service.id}`}
                   className="mt-auto w-full py-3 text-center text-[11px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
                 >
-                  Open Portal &rarr;
+                  {t("home.services_hub.open_portal")} &rarr;
                 </Link>
               </motion.div>
             ))}
@@ -745,20 +740,20 @@ const Home = () => {
                   <div className="space-y-4">
                     {[
                       {
-                        title: "Residential Building Permit",
-                        status: "Approved",
+                        title: t("home.services_hub.app1_title"),
+                        status: t("home.services_hub.app1_status"),
                         color: "emerald",
                         progress: 100,
                       },
                       {
-                        title: "Digital ID Renewal",
-                        status: "Processing",
+                        title: t("home.services_hub.app2_title"),
+                        status: t("home.services_hub.app2_status"),
                         color: "red",
                         progress: 65,
                       },
                       {
-                        title: "Trade License App",
-                        status: "Pending Action",
+                        title: t("home.services_hub.app3_title"),
+                        status: t("home.services_hub.app3_status"),
                         color: "red",
                         progress: 30,
                       },
@@ -798,303 +793,52 @@ const Home = () => {
       {/* Mobile App Promotion Section */}
       <section className="py-24 sm:py-32 bg-white/60 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 rounded-[3rem] p-8 sm:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
-            {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-600/10 to-transparent pointer-events-none"></div>
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1],
-              }}
-              transition={{ duration: 10, repeat: Infinity }}
-              className="absolute -top-20 -right-20 w-96 h-96 bg-red-500 rounded-full blur-[100px] pointer-events-none"
-            />
-
-            {/* Text Content */}
-            <div className="w-full lg:w-[70%] relative z-10 text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                className="inline-flex items-center gap-3 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-full text-red-400 text-xs font-bold uppercase tracking-widest mb-8"
-              >
-                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                {t("home.mobile_app.badge")}
-              </motion.div>
-
-              <motion.h3
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: 0.1 }}
-                className="text-4xl sm:text-6xl font-bold text-white mb-8 font-display leading-tight"
-              >
-                {t("home.mobile_app.title")} <br />
-                <span className="text-red-500">
-                  {t("home.mobile_app.subtitle")}
-                </span>
-              </motion.h3>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: 0.2 }}
-                className="text-white/60 text-lg mb-12 max-w-lg leading-relaxed"
-              >
-                {t("home.mobile_app.desc")}
-              </motion.p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-                {[
-                  {
-                    title: t("home.mobile_app.feature1"),
-                    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-                  },
-                  {
-                    title: t("home.mobile_app.feature2"),
-                    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-                  },
-                  {
-                    title: t("home.mobile_app.feature3"),
-                    icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z",
-                  },
-                  {
-                    title: t("home.mobile_app.feature4"),
-                    icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z",
-                  },
-                ].map((feature, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
-                    className="flex items-center gap-4 text-white/80"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-red-400">
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d={feature.icon}
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="font-semibold text-sm">
-                      {feature.title}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                <Link
-                  to="/contact"
-                  className="px-8 py-4 bg-red-600 text-white font-bold rounded-2xl hover:bg-red-500 transition-all shadow-lg shadow-red-600/20"
-                >
-                  {t("home.mobile_app.early_access")}
-                </Link>
-                <div className="px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white/30 text-sm font-bold flex items-center gap-3 grayscale cursor-not-allowed">
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                  </svg>
-                  {t("home.mobile_app.app_store")}
-                </div>
-              </div>
-            </div>
-
-            {/* Mobile Mockup */}
-            <div className="w-full lg:w-[30%] flex justify-center lg:justify-end relative mt-16 lg:mt-0 px-4 sm:px-0">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="relative z-10 w-full max-w-[240px] group"
-              >
-                {/* Dynamic Ambient Glow */}
-                <div className="absolute -inset-10 bg-gradient-to-tr from-red-600/20 to-red-700/20 blur-[80px] rounded-full opacity-50 group-hover:opacity-80 transition-opacity pointer-events-none"></div>
-
-                {/* Main Image Container */}
-                <div className="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.6)] border border-white/10 bg-slate-900/50 backdrop-blur-sm">
-                  <img
-                    src="/app-mockup.png"
-                    alt="Sheger App Mockup"
-                    className="w-full h-auto transform transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Glossy Overlay Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 pointer-events-none"></div>
-                </div>
-
-                {/* Floating Accessory Badge */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -bottom-6 -right-6 sm:-right-10 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-3xl shadow-2xl z-20 hidden sm:block"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-red-500/20 flex items-center justify-center text-red-400">
-                      <svg
-                        className="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div className="pr-4">
-                      <div className="text-[10px] text-white/50 uppercase font-black tracking-widest leading-none mb-1">
-                        Smart Portal
-                      </div>
-                      <div className="text-sm text-white font-bold">
-                        Ready to Deploy
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-                {/* Floating Decoration - Top Left of Mockup */}
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -top-12 -left-6 sm:-left-12 p-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl z-20"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white">
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <div className="pr-2">
-                      <div className="text-[10px] text-white/50 uppercase font-black tracking-widest">
-                        {t("home.mobile_app.live_now")}
-                      </div>
-                      <div className="text-xs text-white font-bold">
-                        {t("home.mobile_app.version")}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 sm:py-32 relative bg-slate-800 overflow-hidden z-20 border-t border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16 sm:mb-20">
-            <h2 className="text-red-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">
-              {t("home.investment_hub.badge")}
-            </h2>
-            <h3 className="text-3xl sm:text-6xl font-bold text-white tracking-tight font-display">
-              {t("home.investment_hub.title")}
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                title: t("home.investment_hub.hub1_title"),
-                icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
-                color: "red",
-                text: t("home.investment_hub.hub1_text"),
-              },
-              {
-                title: t("home.investment_hub.hub2_title"),
-                icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3",
-                color: "red",
-                text: t("home.investment_hub.hub2_text"),
-              },
-              {
-                title: t("home.investment_hub.hub3_title"),
-                icon: "M9 3v2m6-2v2M9 19v2m6-2v2",
-                color: "red",
-                text: t("home.investment_hub.hub3_text"),
-              },
-            ].map((hub, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group relative bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-[2.5rem] hover:bg-white/10 transition-all shadow-2xl overflow-hidden"
-              >
-                {/* Accent Glow */}
-                <div
-                  className={`absolute -top-24 -right-24 w-48 h-48 bg-${hub.color}-500/10 rounded-full blur-[60px] group-hover:bg-${hub.color}-500/20 transition-all`}
-                ></div>
-
-                <div
-                  className={`w-16 h-16 bg-${hub.color}-500/20 text-${hub.color}-400 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform`}
-                >
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d={hub.icon}
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <h4 className="text-2xl font-bold text-white mb-6 font-display">
-                  {hub.title}
-                </h4>
-                <p className="text-white/60 text-lg mb-10 leading-relaxed">
-                  {hub.text}
+           {/* Promotion Content */}
+           <div className="flex flex-col lg:flex-row items-center gap-16">
+              <div className="lg:w-1/2">
+                <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
+                  {t("home.mobile_app.badge")}
+                </h2>
+                <h3 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-8 font-display">
+                  {t("home.mobile_app.title")} <span className="text-red-600">{t("home.mobile_app.subtitle")}</span>
+                </h3>
+                <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+                  {t("home.mobile_app.desc")}
                 </p>
-                <Link
-                  to="/invest"
-                  className={`inline-flex items-center gap-3 text-${hub.color}-400 font-bold group/link`}
-                >
-                  {t("home.investment_hub.learn_more")}
-                  <span className="group-hover/link:translate-x-2 transition-transform">
-                    &rarr;
-                  </span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                <div className="grid grid-cols-2 gap-6 mb-12">
+                   {[t("home.mobile_app.feature1"), t("home.mobile_app.feature2"), t("home.mobile_app.feature3"), t("home.mobile_app.feature4")].map((f, i) => (
+                     <div key={i} className="flex items-center gap-3">
+                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span className="text-slate-700 font-semibold">{f}</span>
+                     </div>
+                   ))}
+                </div>
+                <div className="flex gap-4">
+                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 12.5c0-1.8-1.5-3.3-3.3-3.3s-3.3 1.5-3.3 3.3 1.5 3.3 3.3 3.3 3.3-1.5 3.3-3.3zm-3.3-2.1c1.2 0 2.1.9 2.1 2.1s-.9 2.1-2.1 2.1-2.1-.9-2.1-2.1.9-2.1 2.1-2.1z M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                      {t("home.mobile_app.app_store")}
+                   </button>
+                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 20.5v-17l14 8.5L3 20.5z"/></svg>
+                      {t("home.mobile_app.play_store")}
+                   </button>
+                </div>
+              </div>
+              <div className="lg:w-1/2 relative">
+                 <div className="relative w-full max-w-[320px] mx-auto aspect-[9/19] bg-slate-900 rounded-[3rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
+                    <img src="/city-3.jpg" alt="App Mockup" className="w-full h-full object-cover opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-8 left-8 right-8 text-white">
+                       <div className="text-2xl font-bold mb-2">Sheger Pay</div>
+                       <div className="text-sm text-white/60 mb-6">Secured digital payments for all city services.</div>
+                       <div className="w-full h-12 bg-red-600 rounded-xl flex items-center justify-center font-bold">Scan QR Code</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
         </div>
       </section>
     </div>
