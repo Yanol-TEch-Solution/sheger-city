@@ -8,6 +8,7 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
