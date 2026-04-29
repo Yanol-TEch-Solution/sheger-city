@@ -12,7 +12,7 @@ const CATEGORIES = [
     title: 'Financial Reports',
     desc: 'Quarterly and annual budget allocations, expenditure reports, and audit findings.',
     icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-    color: 'blue'
+    color: 'red'
   },
   {
     title: 'City Projects',
@@ -35,7 +35,7 @@ const CATEGORIES = [
 ];
 
 const CAT_COLORS: Record<string, string> = {
-  blue: 'text-blue-600 bg-blue-50 border-blue-100 group-hover:border-blue-500',
+  red: 'text-red-600 bg-red-50 border-red-100 group-hover:border-red-500',
   emerald: 'text-emerald-600 bg-emerald-50 border-emerald-100 group-hover:border-emerald-500',
   red: 'text-red-600 bg-red-50 border-red-100 group-hover:border-red-500',
   violet: 'text-violet-600 bg-violet-50 border-violet-100 group-hover:border-violet-500',
@@ -83,9 +83,9 @@ const Transparency = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-display group-hover:text-blue-600 transition-colors">{cat.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 font-display group-hover:text-red-600 transition-colors">{cat.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{cat.desc}</p>
-                <span className="text-blue-600 font-bold text-sm flex items-center gap-2">
+                <span className="text-red-600 font-bold text-sm flex items-center gap-2">
                   Browse Files
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7-7 7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>
@@ -100,7 +100,7 @@ const Transparency = () => {
                   <input 
                     type="text" 
                     placeholder="Search by keyword, year, or document ID..." 
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-12 py-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-12 py-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
                   />
                   <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

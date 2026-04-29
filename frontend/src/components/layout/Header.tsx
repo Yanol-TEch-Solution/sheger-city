@@ -8,7 +8,6 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
@@ -68,9 +67,9 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 relative">
               <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
             </div>

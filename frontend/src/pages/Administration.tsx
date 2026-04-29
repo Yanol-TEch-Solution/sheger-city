@@ -40,7 +40,7 @@ const SECTORS = [
 const sectorStyles: Record<string, { color: string; glow: string }> = {
   "Mayor's Office": { color: "text-red-500", glow: "shadow-red-500/20" },
   "Health Office": { color: "text-emerald-500", glow: "shadow-emerald-500/20" },
-  "Police": { color: "text-blue-500", glow: "shadow-blue-500/20" },
+  "Police": { color: "text-red-500", glow: "shadow-red-500/20" },
 };
 
 const Administration = () => {

@@ -14,7 +14,7 @@ const SECTORS: Record<string, { title: string; icon: string; desc: string; color
     title: 'Land & Property Administration',
     icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
     desc: 'Manage your land title registration, building permits, and property transfers fully online without visiting an office.',
-    color: 'blue',
+    color: 'red',
     bgImage: '/city-1.jpg',
     features: [
       { label: 'Title Deed Registration', detail: 'Apply for or transfer land title deeds securely.' },
@@ -74,7 +74,7 @@ const SECTORS: Record<string, { title: string; icon: string; desc: string; color
     title: 'Trade & Commerce',
     icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     desc: 'Start a new business, renew trade licenses, and access the investor support desk.',
-    color: 'sky',
+    color: 'red',
     bgImage: '/hero-4.jpg',
     features: [
       { label: 'Trade License', detail: 'New business registration and annual renewals.' },
@@ -121,12 +121,12 @@ const Sector = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <motion.div {...fadeUp(0)} className="bg-white rounded-3xl p-8 shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col items-center text-center">
-              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               </div>
               <h3 className="text-xl font-bold text-slate-900 font-display mb-3">{t('sector_page.apply')}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-6">{t('sector_page.apply_desc')}</p>
-              <button className="mt-auto w-full py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
+              <button className="mt-auto w-full py-3 bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20">
                 {t('sector_page.start_app')}
               </button>
             </motion.div>
@@ -164,16 +164,16 @@ const Sector = () => {
             <h2 className="text-2xl font-bold text-slate-900 font-display mb-8">{t('sector_page.sub_services')}</h2>
             <div className="space-y-4">
               {sector.features.map((feat, i) => (
-                <motion.div key={feat.label} {...fadeUp(i * 0.1)} className="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 transition-colors cursor-pointer group">
-                  <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">
+                <motion.div key={feat.label} {...fadeUp(i * 0.1)} className="flex items-start gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-red-200 transition-colors cursor-pointer group">
+                  <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-red-500 group-hover:text-red-600 transition-colors">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">{feat.label}</h4>
+                    <h4 className="font-semibold text-slate-900 mb-1 group-hover:text-red-700 transition-colors">{feat.label}</h4>
                     <p className="text-sm text-slate-500">{feat.detail}</p>
                   </div>
                   <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </div>
                 </motion.div>
               ))}

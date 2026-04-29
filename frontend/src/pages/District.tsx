@@ -160,7 +160,7 @@
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
 //             {[
-//               { label: 'Population', value: district.population, color: 'blue' },
+//               { label: 'Population', value: district.population, color: 'red' },
 //               { label: 'Area', value: district.area, color: 'emerald' },
 //               { label: 'Woredas', value: String(district.woredas), color: 'violet' },
 //               { label: 'Kebeles', value: String(district.kebeles), color: 'red' },
@@ -184,7 +184,7 @@
 //           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
 //             {district.highlights.map((h, i) => (
 //               <motion.div key={h.title} {...fadeUp(i * 0.08)} className="bg-white rounded-2xl border border-slate-100 p-8 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-//                 <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
+//                 <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
 //                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={h.icon} /></svg>
 //                 </div>
 //                 <p className="text-3xl font-bold text-slate-900 font-display mb-1">{h.value}</p>
@@ -205,8 +205,8 @@
 //               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display mb-8">Available Services</h2>
 //               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 //                 {district.services.map((s, i) => (
-//                   <motion.div key={s} {...fadeUp(i * 0.05)} className="flex items-center gap-3 bg-slate-50 rounded-xl px-5 py-4 border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-all group">
-//                     <div className="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+//                   <motion.div key={s} {...fadeUp(i * 0.05)} className="flex items-center gap-3 bg-slate-50 rounded-xl px-5 py-4 border border-slate-100 hover:border-red-200 hover:bg-red-50 transition-all group">
+//                     <div className="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors">
 //                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
 //                     </div>
 //                     <span className="text-sm font-semibold text-slate-700">{s}</span>
@@ -224,10 +224,10 @@
 //                   <motion.div key={p.title} {...fadeUp(i * 0.08)} className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
 //                     <div className="flex items-center justify-between mb-3">
 //                       <h4 className="font-bold text-slate-900">{p.title}</h4>
-//                       <span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full ${p.status === 'Completed' ? 'bg-emerald-50 text-emerald-700' : p.status === 'In Progress' ? 'bg-blue-50 text-blue-700' : 'bg-red-50 text-red-700'}`}>{p.status}</span>
+//                       <span className={`px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full ${p.status === 'Completed' ? 'bg-emerald-50 text-emerald-700' : p.status === 'In Progress' ? 'bg-red-50 text-red-700' : 'bg-red-50 text-red-700'}`}>{p.status}</span>
 //                     </div>
 //                     <div className="w-full bg-slate-200 rounded-full h-2.5">
-//                       <motion.div initial={{ width: 0 }} whileInView={{ width: `${p.progress}%` }} viewport={{ once: false }} transition={{ duration: 1.2, delay: i * 0.1 }} className={`h-2.5 rounded-full ${p.status === 'Completed' ? 'bg-emerald-500' : p.status === 'In Progress' ? 'bg-blue-500' : 'bg-red-400'}`} />
+//                       <motion.div initial={{ width: 0 }} whileInView={{ width: `${p.progress}%` }} viewport={{ once: false }} transition={{ duration: 1.2, delay: i * 0.1 }} className={`h-2.5 rounded-full ${p.status === 'Completed' ? 'bg-emerald-500' : p.status === 'In Progress' ? 'bg-red-500' : 'bg-red-400'}`} />
 //                     </div>
 //                     <p className="text-xs text-slate-400 mt-2 font-medium">{p.progress}% complete</p>
 //                   </motion.div>
@@ -242,7 +242,7 @@
 //       <section className="py-20">
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.div {...fadeUp(0)} className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2rem] p-8 sm:p-12 text-white shadow-2xl overflow-hidden relative">
-//             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+//             <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
 //             <div className="relative z-10">
 //               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400 mb-3">Get in Touch</p>
 //               <h2 className="text-2xl sm:text-4xl font-bold font-display mb-8">Contact {district.name}</h2>

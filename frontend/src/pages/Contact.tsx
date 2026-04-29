@@ -17,7 +17,7 @@ const OFFICES = [
     phone: '+251 11 123 4567',
     email: 'main@shegercity.gov.et',
     hours: 'Mon–Fri: 8:00 AM – 5:00 PM\nSat: 9:00 AM – 1:00 PM',
-    color: 'blue',
+    color: 'red',
     icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
   },
   {
@@ -43,7 +43,7 @@ const OFFICES = [
 ];
 
 const colorRing: Record<string, string> = {
-  blue: 'border-blue-500 bg-blue-500/10 text-blue-500',
+  red: 'border-red-500 bg-red-500/10 text-red-500',
   red: 'border-red-500 bg-red-500/10 text-red-500',
   emerald: 'border-emerald-500 bg-emerald-500/10 text-emerald-500',
 };
@@ -69,7 +69,7 @@ const Contact = () => {
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-blue-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
+          className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
@@ -95,7 +95,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Call Us', value: '+251 11 123 4567', sub: 'Mon–Fri, 8AM–5PM', color: 'blue' },
+              { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Call Us', value: '+251 11 123 4567', sub: 'Mon–Fri, 8AM–5PM', color: 'red' },
               { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email Us', value: 'info@shegercity.gov.et', sub: 'Reply within 24 hours', color: 'red' },
               { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: 'Visit Us', value: 'Legetafo-Legedadi', sub: 'Sheger City, Ethiopia', color: 'emerald' },
             ].map((card, i) => (
@@ -141,7 +141,7 @@ const Contact = () => {
                     href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-3 shrink-0 text-[10px] font-semibold uppercase tracking-widest bg-blue-600 text-white px-3 py-1.5 rounded-full hover:bg-blue-500 transition-colors"
+                    className="ml-3 shrink-0 text-[10px] font-semibold uppercase tracking-widest bg-red-600 text-white px-3 py-1.5 rounded-full hover:bg-red-500 transition-colors"
                   >
                     Open Maps
                   </a>
@@ -163,7 +163,7 @@ const Contact = () => {
                 href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-blue-600 transition-colors"
+                className="mt-3 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-red-600 transition-colors"
               >
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 Open in Google Maps
@@ -197,14 +197,14 @@ const Contact = () => {
                       <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.name')} *</label>
                       <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                         placeholder={t('contact.form.name')}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.email')} *</label>
                       <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                         placeholder="your@email.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                   </div>
@@ -213,13 +213,13 @@ const Contact = () => {
                       <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
                       <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
                         placeholder="+251 911 XXX XXX"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.subject')} *</label>
                       <select required value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       >
                         <option value="">{t('contact.form.subject')}</option>
                         <option>General Inquiry</option>
@@ -235,11 +235,11 @@ const Contact = () => {
                     <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.message')} *</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       placeholder={t('contact.form.message')}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 focus:bg-white transition-all resize-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none"
                     />
                   </div>
                   <button type="submit"
-                    className="w-full py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-xl shadow-blue-600/20 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 group"
+                    className="w-full py-4 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 group"
                   >
                     {t('contact.form.send')}
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
@@ -271,10 +271,10 @@ const Contact = () => {
                     href={office.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-2 group/loc hover:text-blue-600 transition-colors"
+                    className="flex items-start gap-2 group/loc hover:text-red-600 transition-colors"
                     title="Open in Google Maps"
                   >
-                    <svg className="w-4 h-4 mt-0.5 shrink-0 text-slate-400 group-hover/loc:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <svg className="w-4 h-4 mt-0.5 shrink-0 text-slate-400 group-hover/loc:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     <span className="group-hover/loc:underline">{office.address}</span>
                   </a>
                   <div className="flex items-center gap-2">
