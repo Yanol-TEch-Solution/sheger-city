@@ -51,16 +51,10 @@ const Header = () => {
     { code: 'es', label: 'ES', flag: 'https://flagcdn.com/w40/es.png' }
   ];
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-    isHome 
-      ? (scrolled || mobileMenuOpen ? 'bg-white/95 backdrop-blur-xl shadow-xl py-2' : 'bg-transparent py-4') 
-      : 'bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2'
-  }`;
+  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2`;
 
-  const linkClasses = (isActive: boolean) => `px-4 py-2 text-sm font-bold transition-all duration-300 rounded-xl ${
-    isHome && !scrolled && !mobileMenuOpen
-      ? 'text-white hover:bg-white/10' 
-      : (isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50')
+  const linkClasses = (isActive: boolean) => `px-3 py-1.5 text-[11px] font-bold transition-all duration-300 rounded-lg ${
+    isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50'
   }`;
 
   return (
@@ -73,8 +67,8 @@ const Header = () => {
               <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
             </div>
             <div className="overflow-hidden">
-              <h1 className={`text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display ${isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-900'}`}>{t('header.title')}</h1>
-              <p className={`text-[10px] sm:text-sm transition-colors duration-500 truncate font-sans ${isHome && !scrolled && !mobileMenuOpen ? 'text-white/70' : 'text-slate-600'}`}>{t('header.subtitle')}</p>
+              <h1 className="text-sm sm:text-base font-black transition-colors duration-500 truncate font-display text-slate-900">{t('header.title')}</h1>
+              <p className="text-[8px] sm:text-[10px] transition-colors duration-500 truncate font-sans text-slate-600">{t('header.subtitle')}</p>
             </div>
           </Link>
 
@@ -209,24 +203,18 @@ const Header = () => {
               onMouseLeave={() => setActiveDropdown(null)}
               onClick={() => setActiveDropdown(activeDropdown === 'language' ? null : 'language')}
             >
-              <button className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-2 rounded-xl border transition-all duration-300 ${
-                isHome && !scrolled && !mobileMenuOpen
-                  ? 'border-white/20 bg-white/10 hover:bg-white/20' 
-                  : 'border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-md'
-              } ${activeDropdown === 'language' ? 'ring-2 ring-blue-500/20 border-blue-500/50' : ''}`}>
+              <button className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-2 rounded-xl border transition-all duration-300 border-slate-200 bg-slate-50/50 hover:bg-white hover:shadow-md ${activeDropdown === 'language' ? 'ring-2 ring-blue-500/20 border-blue-500/50' : ''}`}>
                 <img 
                   src={LANGUAGES.find(l => l.code === i18n.language)?.flag || LANGUAGES[0].flag} 
                   alt={i18n.language} 
                   className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
                 />
-                <span className={`text-[11px] font-black uppercase tracking-tighter ${
-                  isHome && !scrolled && !mobileMenuOpen ? 'text-white' : 'text-slate-700'
-                }`}>
+                <span className="text-[9px] font-black uppercase tracking-tighter text-slate-700">
                   {LANGUAGES.find(l => l.code === i18n.language)?.label || 'EN'}
                 </span>
                 <motion.svg 
                   animate={{ rotate: activeDropdown === 'language' ? 180 : 0 }} 
-                  className={`w-3 h-3 ${isHome && !scrolled && !mobileMenuOpen ? 'text-white/60' : 'text-slate-400'}`} 
+                  className="w-3 h-3 text-slate-400" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -259,13 +247,13 @@ const Header = () => {
             </div>
 
 
-            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-[10px] font-bold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 uppercase tracking-widest">
               {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className={`lg:hidden p-2 rounded-lg transition-colors ${isHome && !scrolled && !mobileMenuOpen ? 'text-white hover:bg-white/10' : 'text-slate-700 hover:bg-slate-100'}`}>
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100">
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
           </button>
         </div>

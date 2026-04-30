@@ -108,7 +108,7 @@ const Home = () => {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative text-white overflow-hidden min-h-[98vh] flex items-center bg-slate-950"
+        className="relative text-white overflow-hidden min-h-[98vh] flex items-center bg-slate-950 pt-20"
       >
         {/* Background Image Slideshow with Ken Burns Effect */}
         {HERO_IMAGES.map((img, idx) => (
