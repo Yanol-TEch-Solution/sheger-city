@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import WaveDivider from '../components/WaveDivider';
 
 const EXPLORE_DATA: Record<string, any> = {
   'grand-square': {
@@ -56,7 +55,7 @@ const EXPLORE_DATA: Record<string, any> = {
 
 export default function ExploreDetail() {
   const { id } = useParams<{ id: string }>();
-  const { t } = useTranslation();
+  useTranslation();
   const data = id ? EXPLORE_DATA[id] : null;
 
   if (!data) {

@@ -9,10 +9,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
-const colorRing: Record<string, string> = {
-  red: 'border-red-500 bg-red-500/10 text-red-500',
-  emerald: 'border-emerald-500 bg-emerald-500/10 text-emerald-500',
-};
+
 
 const Contact = () => {
   const { t } = useTranslation();

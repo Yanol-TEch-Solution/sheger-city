@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import WaveDivider from "../components/WaveDivider";
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },

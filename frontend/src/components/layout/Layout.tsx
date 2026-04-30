@@ -1,5 +1,4 @@
 import { type ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { useState } from 'react';
@@ -12,8 +11,6 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
   const { t } = useTranslation();
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [showGreeting, setShowGreeting] = useState(true);

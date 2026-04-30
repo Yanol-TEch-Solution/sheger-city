@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import WaveDivider from '../WaveDivider';
 
 export default function ServicesHubSection() {
   const { t } = useTranslation();
