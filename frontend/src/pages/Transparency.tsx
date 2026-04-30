@@ -55,10 +55,10 @@ const Transparency = () => {
             Open Government
             <span className="w-10 h-px bg-red-400/50" />
           </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             Transparency & <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Accountability</span>
           </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg max-w-xl leading-relaxed">
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-base max-w-xl leading-relaxed">
             Access official documents, city budgets, and development reports. We are committed to building an open and trustworthy administration.
           </motion.p>
         </div>
@@ -68,7 +68,7 @@ const Transparency = () => {
       <section className="py-24 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 font-display">Document Portal</h2>
+            <h2 className="text-2xl font-bold text-slate-900 font-display">Document Portal</h2>
             <p className="text-slate-500 mt-4">Select a category to browse and download official city publications.</p>
           </motion.div>
 
@@ -82,9 +82,9 @@ const Transparency = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3 font-display group-hover:text-red-600 transition-colors">{cat.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{cat.desc}</p>
-                <span className="text-red-600 font-bold text-sm flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 mb-3 font-display group-hover:text-red-600 transition-colors">{cat.title}</h3>
+                <p className="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">{cat.desc}</p>
+                <span className="text-red-600 font-bold text-xs flex items-center gap-2">
                   Browse Files
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7-7 7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </span>

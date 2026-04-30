@@ -75,10 +75,10 @@ const Contact = () => {
             <span className="w-10 h-px bg-red-400/50" />
             {t('contact.hero_desc')}
           </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             {t('contact.hero_title')}
           </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
             {t('contact.hero_desc')}
           </motion.p>
         </div>
@@ -102,9 +102,9 @@ const Contact = () => {
                 <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mx-auto mb-5 transition-all group-hover:scale-110 ${colorRing[card.color]}`}>
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={card.icon} /></svg>
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">{card.label}</div>
-                <div className="text-slate-900 font-bold text-base mb-1">{card.value}</div>
-                <div className="text-xs text-slate-400">{card.sub}</div>
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1">{card.label}</div>
+                <div className="text-slate-900 font-bold text-sm mb-1">{card.value}</div>
+                <div className="text-[10px] text-slate-400">{card.sub}</div>
               </motion.div>
             ))}
           </div>
@@ -118,8 +118,8 @@ const Contact = () => {
 
             {/* Map */}
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.location_badge')}</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.location_badge')}</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-6">
                 {t('contact.location_title')}
               </h2>
               <p className="text-slate-500 mb-6 leading-relaxed">
@@ -134,7 +134,7 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    <span className="text-white text-sm font-bold truncate">{t('contact.offices.main.name')}</span>
+                    <span className="text-white text-xs font-bold truncate">{t('contact.offices.main.name')}</span>
                   </div>
                   <a
                     href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
@@ -162,7 +162,7 @@ const Contact = () => {
                 href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-red-600 transition-colors"
+                className="mt-3 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-red-600 transition-colors"
               >
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 {t('contact.open_maps')}
@@ -171,8 +171,8 @@ const Contact = () => {
 
             {/* Contact Form */}
             <motion.div {...fadeUp(0.2)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.message_badge')}</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.message_badge')}</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-6">
                 {t('contact.message_title')}
               </h2>
 
@@ -182,8 +182,8 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-emerald-50 border border-emerald-200 rounded-3xl p-12 text-center"
                 >
-                  <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-semibold text-emerald-800 font-display mb-2">{t('contact.message_success')}</h3>
+                  <div className="text-4xl mb-4">✅</div>
+                  <h3 className="text-xl font-semibold text-emerald-800 font-display mb-2">{t('contact.message_success')}</h3>
                   <p className="text-emerald-600">{t('contact.message_success_desc')}</p>
                   <button onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }); }} className="mt-6 px-6 py-3 bg-emerald-600 text-white font-bold rounded-full hover:bg-emerald-700 transition-all">
                     {t('contact.form.another')}
@@ -193,32 +193,32 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.name')} *</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.name')} *</label>
                       <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
                         placeholder={t('contact.form.name')}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.email')} *</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.email')} *</label>
                       <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                         placeholder="your@email.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.phone')}</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.phone')}</label>
                       <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
                         placeholder="+251 911 XXX XXX"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.subject')} *</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.subject')} *</label>
                       <select required value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
                       >
                         <option value="">{t('contact.form.subject')}</option>
                         <option>General Inquiry</option>
@@ -231,10 +231,10 @@ const Contact = () => {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.message')} *</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.message')} *</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                       placeholder={t('contact.form.message')}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none"
                     />
                   </div>
                   <button type="submit"
@@ -255,8 +255,8 @@ const Contact = () => {
       <section className="py-24 bg-slate-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('contact.office_network')}</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">{t('contact.office_network_title')}</h2>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('contact.office_network')}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('contact.office_network_title')}</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {OFFICES.map((office, i) => (
@@ -264,8 +264,8 @@ const Contact = () => {
                 <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-6 ${colorRing[office.color]}`}>
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={office.icon} /></svg>
                 </div>
-                <h3 className="text-lg font-semibold text-slate-900 font-display mb-4">{office.name}</h3>
-                <div className="space-y-3 text-sm text-slate-500">
+                <h3 className="text-base font-semibold text-slate-900 font-display mb-4">{office.name}</h3>
+                <div className="space-y-3 text-xs text-slate-500">
                   <a
                     href={office.mapUrl}
                     target="_blank"

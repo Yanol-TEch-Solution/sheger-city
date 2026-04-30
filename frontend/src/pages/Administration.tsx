@@ -59,7 +59,7 @@ const Administration = () => {
       <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.h1 
           {...fadeUp(0.2)} 
-          className="relative z-10 text-5xl sm:text-7xl font-bold leading-tight tracking-[-0.02em] font-display mb-8"
+          className="relative z-10 text-4xl sm:text-6xl font-bold leading-tight tracking-[-0.02em] font-display mb-8"
         >
           {t('administration_page.title').split(' ')[0]} <br />
           <span className="text-transparent" style={{ background: 'linear-gradient(to right, #FFFFFF, #F59E0B)', WebkitBackgroundClip: 'text' }}>
@@ -69,7 +69,7 @@ const Administration = () => {
         
         <motion.p 
           {...fadeUp(0.3)} 
-          className="relative z-10 text-slate-400 text-lg sm:text-xl max-w-2xl font-mono leading-relaxed opacity-80"
+          className="relative z-10 text-slate-400 text-base sm:text-lg max-w-2xl font-mono leading-relaxed opacity-80"
           style={{ fontFamily: "'JetBrains Mono', monospace" }}
         >
           {t('administration_page.hero_desc')}

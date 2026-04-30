@@ -63,10 +63,10 @@ const Leadership = () => {
             <span className="w-10 h-px bg-red-400/50" />
             {t('leadership.title')}
           </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             Meet the <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">{t('leadership.team')}</span>
           </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
             {t('leadership.hero_desc')}
           </motion.p>
         </div>
@@ -81,8 +81,8 @@ const Leadership = () => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Administration</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">{t('leadership.officials')}</h2>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Administration</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('leadership.officials')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -110,9 +110,9 @@ const Leadership = () => {
 
                 {/* Info */}
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-slate-900 font-display mb-1">{leader.name}</h3>
-                  <p className="text-xs text-red-600 font-medium mb-3">{leader.title}</p>
-                  <p className="text-sm text-slate-500 leading-relaxed">{leader.bio}</p>
+                  <h3 className="text-sm font-semibold text-slate-900 font-display mb-1">{leader.name}</h3>
+                  <p className="text-[10px] text-red-600 font-medium mb-3">{leader.title}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">{leader.bio}</p>
                 </div>
               </motion.div>
             ))}
@@ -131,8 +131,8 @@ const Leadership = () => {
               { label: t('leadership.values.innovation'), icon: '💡' },
             ].map((v, i) => (
               <motion.div key={i} {...fadeUp(i * 0.1)} className="flex flex-col items-center gap-3">
-                <span className="text-3xl">{v.icon}</span>
-                <span className="text-sm font-medium text-slate-600">{v.label}</span>
+                <span className="text-2xl">{v.icon}</span>
+                <span className="text-xs font-medium text-slate-600">{v.label}</span>
               </motion.div>
             ))}
           </div>

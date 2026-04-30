@@ -117,7 +117,7 @@ const ServiceDetail = () => {
             </div>
 
             <div className="flex items-center gap-4">
-              <button className="px-10 py-5 bg-red-600 text-white rounded-2xl font-bold text-sm hover:bg-red-700 transition-all shadow-2xl shadow-red-600/30 active:scale-95">
+              <button className="px-10 py-5 bg-red-600 text-white rounded-2xl font-bold text-xs hover:bg-red-700 transition-all shadow-2xl shadow-red-600/30 active:scale-95">
                 {t('service_detail.start_app')}
               </button>
             </div>
@@ -134,32 +134,32 @@ const ServiceDetail = () => {
             {/* Quick Stats */}
             <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="space-y-1">
-                <p className="text-sm font-bold text-slate-400 flex items-center gap-1.5">
+                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
                    <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                    {t('service_detail.processing_time')}
                 </p>
-                <p className="text-lg font-bold text-slate-800">{service.processingTime}</p>
+                <p className="text-base font-bold text-slate-800">{service.processingTime}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-sm font-bold text-slate-400 flex items-center gap-1.5">
+                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
                    <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                    {t('service_detail.service_fee')}
                 </p>
-                <p className="text-lg font-bold text-slate-800">{service.serviceFee}</p>
+                <p className="text-base font-bold text-slate-800">{service.serviceFee}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+                <p className="text-[10px] font-bold text-slate-400 flex items-center gap-1.5">
                    <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                    {t('service_detail.version')}
                 </p>
-                <p className="text-lg font-bold text-slate-800">{service.version}</p>
+                <p className="text-base font-bold text-slate-800">{service.version}</p>
               </div>
               <div className="space-y-1">
-                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
+                <p className="text-[10px] font-bold text-slate-400 flex items-center gap-1.5">
                    <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                    {t('service_detail.last_updated')}
                 </p>
-                <p className="text-lg font-bold text-slate-800">{service.lastUpdated}</p>
+                <p className="text-base font-bold text-slate-800">{service.lastUpdated}</p>
               </div>
             </div>
 
@@ -175,7 +175,7 @@ const ServiceDetail = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-6 py-4 text-xs font-bold uppercase tracking-widest transition-all relative ${activeTab === tab.id ? "text-blue-600 bg-white" : "text-slate-400 hover:text-slate-600"}`}
+                    className={`px-6 py-4 text-[10px] font-bold uppercase tracking-widest transition-all relative ${activeTab === tab.id ? "text-blue-600 bg-white" : "text-slate-400 hover:text-slate-600"}`}
                   >
                     {tab.label}
                     {activeTab === tab.id && (
@@ -190,12 +190,12 @@ const ServiceDetail = () => {
                   {activeTab === "overview" && (
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="space-y-8">
                       <div>
-                        <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">{t('service_detail.description')}</h3>
-                        <p className="text-slate-600 text-base leading-relaxed">{t(`${tKey}.description`, { defaultValue: service.description })}</p>
+                        <h3 className="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-4">{t('service_detail.description')}</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">{t(`${tKey}.description`, { defaultValue: service.description })}</p>
                       </div>
                       
                       <div>
-                        <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-8">{t('service_detail.process')}</h3>
+                        <h3 className="text-[10px] font-bold text-slate-900 uppercase tracking-widest mb-8">{t('service_detail.process')}</h3>
                         <div className="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
                           {service.process.map((p, idx) => (
                             <div key={idx} className="flex gap-6 relative">
@@ -204,10 +204,10 @@ const ServiceDetail = () => {
                               </div>
                               <div className="space-y-3 flex-1 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
                                 <div className="flex items-center gap-3">
-                                  <h4 className="text-sm font-bold text-slate-900">{t(`${tKey}.process.${idx}.title`, { defaultValue: p.title })}</h4>
+                                  <h4 className="text-xs font-bold text-slate-900">{t(`${tKey}.process.${idx}.title`, { defaultValue: p.title })}</h4>
                                   <span className="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-md uppercase tracking-tight">{t(`${tKey}.process.${idx}.office`, { defaultValue: p.office })}</span>
                                 </div>
-                                <p className="text-slate-600 text-sm leading-relaxed">{t(`${tKey}.process.${idx}.info`, { defaultValue: p.info })}</p>
+                                <p className="text-slate-600 text-xs leading-relaxed">{t(`${tKey}.process.${idx}.info`, { defaultValue: p.info })}</p>
                                 <div className="flex flex-wrap gap-4 pt-2">
                                   <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400">
                                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -229,8 +229,8 @@ const ServiceDetail = () => {
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
                         <div>
-                          <p className="text-xs font-black text-amber-900 uppercase tracking-widest mb-1">{t('service_detail.important_note')}</p>
-                          <p className="text-sm text-amber-700">{t('service_detail.important_desc')}</p>
+                          <p className="text-[10px] font-black text-amber-900 uppercase tracking-widest mb-1">{t('service_detail.important_note')}</p>
+                          <p className="text-xs text-amber-700">{t('service_detail.important_desc')}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -252,11 +252,11 @@ const ServiceDetail = () => {
                   { label: t('service_detail.last_updated'), value: service.lastUpdated, icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" }
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 font-bold uppercase tracking-wider flex items-center gap-2">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider flex items-center gap-2">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
                       {item.label}
                     </span>
-                    <span className="text-sm font-bold text-slate-700">{item.value}</span>
+                    <span className="text-xs font-bold text-slate-700">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -281,12 +281,12 @@ const ServiceDetail = () => {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <p className="text-sm font-bold text-slate-700 leading-tight">{t(`${tKey}.docs.${idx}.name`, { defaultValue: doc.name })}</p>
+                        <p className="text-xs font-bold text-slate-700 leading-tight">{t(`${tKey}.docs.${idx}.name`, { defaultValue: doc.name })}</p>
                         <span className={`text-[9px] font-black px-2 py-0.5 rounded uppercase ${doc.required ? "bg-red-50 text-red-600" : "bg-slate-50 text-slate-400"}`}>
                           {doc.required ? "Req" : "Opt"}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400 mt-0.5">{t(`${tKey}.docs.${idx}.type`, { defaultValue: doc.type })}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{t(`${tKey}.docs.${idx}.type`, { defaultValue: doc.type })}</p>
                     </div>
                   </div>
                 ))}
@@ -299,8 +299,8 @@ const ServiceDetail = () => {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-black text-slate-900 leading-tight uppercase tracking-widest">{t('service_detail.need_help')}</h3>
-                  <p className="text-xs text-slate-500">{t('service_detail.support_desc')}</p>
+                  <h3 className="text-xs font-black text-slate-900 leading-tight uppercase tracking-widest">{t('service_detail.need_help')}</h3>
+                  <p className="text-[10px] text-slate-500">{t('service_detail.support_desc')}</p>
                 </div>
               </div>
               <div className="space-y-3">
@@ -309,7 +309,7 @@ const ServiceDetail = () => {
                   { label: t('service_detail.email'), value: service.support.email, icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
                   { label: t('service_detail.hours'), value: service.support.hours, icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" }
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-slate-600">
+                  <div key={idx} className="flex items-center gap-3 text-xs text-slate-600">
                     <svg className="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
                     {item.value}
                   </div>

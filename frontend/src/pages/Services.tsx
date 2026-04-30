@@ -153,11 +153,11 @@ const Services = () => {
               <input 
                 type="text" 
                 placeholder={t('services_page.search_placeholder')}
-                className="w-full px-6 py-5 bg-transparent text-white focus:text-slate-900 focus:outline-none font-medium text-lg placeholder:text-slate-400"
+                className="w-full px-6 py-5 bg-transparent text-white focus:text-slate-900 focus:outline-none font-medium text-base placeholder:text-slate-400"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button className="bg-red-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 active:scale-95">
+              <button className="bg-red-600 text-white px-8 py-3.5 rounded-xl font-bold text-xs hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 active:scale-95">
                 {t('services_page.search_btn')}
               </button>
             </div>
@@ -177,7 +177,7 @@ const Services = () => {
               <svg className={`w-4 h-4 ${activeCategory === cat.id ? "text-blue-600" : "text-slate-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
               </svg>
-              <span className="text-sm font-bold tracking-tight">{cat.label}</span>
+              <span className="text-xs font-bold tracking-tight">{cat.label}</span>
             </button>
           ))}
         </div>
@@ -186,8 +186,8 @@ const Services = () => {
       {/* Services Grid */}
       <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 font-display">{t('services_page.popular_title')}</h2>
-          <Link to="#" className="text-blue-600 font-bold text-xs hover:underline flex items-center gap-2">
+          <h2 className="text-xl font-bold text-slate-900 font-display">{t('services_page.popular_title')}</h2>
+          <Link to="#" className="text-blue-600 font-bold text-[10px] hover:underline flex items-center gap-2">
             {t('services_page.view_all')} &rarr;
           </Link>
         </div>
@@ -209,10 +209,10 @@ const Services = () => {
                   </svg>
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">{service.title}</h3>
-                <p className="text-slate-600 text-base leading-relaxed mb-6 line-clamp-2">{service.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">{service.desc}</p>
                 
-                <div className="flex items-center gap-4 text-sm font-bold text-slate-500 mb-6">
+                <div className="flex items-center gap-4 text-xs font-bold text-slate-500 mb-6">
                   <span className="flex items-center gap-1.5">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     {service.time}
@@ -225,7 +225,7 @@ const Services = () => {
                 
                 <Link 
                   to={`/services/${service.id}`}
-                  className="mt-auto w-full py-3 text-center text-sm font-bold text-slate-700 border border-slate-200 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all shadow-sm"
+                  className="mt-auto w-full py-3 text-center text-xs font-bold text-slate-700 border border-slate-200 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all shadow-sm"
                 >
                   {t('services_page.view_details')} &rarr;
                 </Link>

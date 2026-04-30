@@ -30,9 +30,9 @@ const FlashCard = ({ image, title, description, backTitle, backContent }: FlashC
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent" />
           <div className="absolute bottom-0 left-0 p-8 w-full">
-            <h4 className="text-2xl font-bold text-white mb-2 font-display">{title}</h4>
-            <p className="text-white/80 text-sm leading-relaxed">{description}</p>
-            <div className="mt-4 flex items-center text-red-400 text-xs font-bold tracking-widest uppercase">
+            <h4 className="text-xl font-bold text-white mb-2 font-display">{title}</h4>
+            <p className="text-white/80 text-xs leading-relaxed">{description}</p>
+            <div className="mt-4 flex items-center text-red-400 text-[10px] font-bold tracking-widest uppercase">
               Click to Flip
               <svg className="w-4 h-4 ml-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -47,12 +47,12 @@ const FlashCard = ({ image, title, description, backTitle, backContent }: FlashC
           style={{ transform: "rotateY(180deg)" }}
         >
           <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-transparent pointer-events-none" />
-          <h4 className="text-3xl font-bold text-red-400 mb-6 font-display">{backTitle}</h4>
-          <p className="text-slate-300 text-lg leading-relaxed mb-8">
+          <h4 className="text-2xl font-bold text-red-400 mb-6 font-display">{backTitle}</h4>
+          <p className="text-slate-300 text-base leading-relaxed mb-8">
             {backContent}
           </p>
           <div className="flex justify-center">
-            <div className="px-6 py-2 border border-red-500/30 rounded-full text-red-400 text-xs font-bold uppercase tracking-widest">
+            <div className="px-6 py-2 border border-red-500/30 rounded-full text-red-400 text-[10px] font-bold uppercase tracking-widest">
               Tap to return
             </div>
           </div>
@@ -101,7 +101,7 @@ const CityFlashCards = () => {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-red-500 font-bold tracking-[0.2em] uppercase text-sm mb-4"
+            className="text-red-500 font-bold tracking-[0.2em] uppercase text-xs mb-4"
           >
             Interactive Insights
           </motion.h2>
@@ -109,7 +109,7 @@ const CityFlashCards = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold text-slate-900 font-display"
+            className="text-3xl sm:text-4xl font-bold text-slate-900 font-display"
           >
             Sheger City Flash Cards
           </motion.h3>
@@ -117,7 +117,7 @@ const CityFlashCards = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-4 text-slate-500 max-w-2xl mx-auto text-lg"
+            className="mt-4 text-slate-500 max-w-2xl mx-auto text-base"
           >
             Flip through the cards to discover deep insights about our city's progress, culture, and future.
           </motion.p>

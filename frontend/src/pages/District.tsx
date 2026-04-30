@@ -128,8 +128,8 @@
 //           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
 //           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
 //           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full text-center">
-//             <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold font-display mb-4">District Not Found</motion.h1>
-//             <motion.p {...fadeUp(0.3)} className="text-white/70 text-lg mb-8">The district you're looking for doesn't exist.</motion.p>
+//             <motion.h1 {...fadeUp(0.2)} className="text-3xl sm:text-5xl font-bold font-display mb-4">District Not Found</motion.h1>
+//             <motion.p {...fadeUp(0.3)} className="text-white/70 text-base mb-8">The district you're looking for doesn't exist.</motion.p>
 //             <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-slate-900 font-bold rounded-full hover:bg-red-400 transition-all">&larr; Back to Home</Link>
 //           </div>
 //         </section>
@@ -149,9 +149,9 @@
 //             <span className="w-10 h-px bg-red-400/50" />
 //             Municipal District
 //           </motion.div>
-//           <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-3">{district.name}</motion.h1>
-//           <motion.p {...fadeUp(0.3)} className="text-red-400 text-lg sm:text-xl font-medium mb-4">{district.tagline}</motion.p>
-//           <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-2xl leading-relaxed">{district.description}</motion.p>
+//           <motion.h1 {...fadeUp(0.2)} className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-3">{district.name}</motion.h1>
+//           <motion.p {...fadeUp(0.3)} className="text-red-400 text-base sm:text-lg font-medium mb-4">{district.tagline}</motion.p>
+//           <motion.p {...fadeUp(0.4)} className="text-white/70 text-sm sm:text-base max-w-2xl leading-relaxed">{district.description}</motion.p>
 //         </div>
 //       </section>
 
@@ -166,8 +166,8 @@
 //               { label: 'Kebeles', value: String(district.kebeles), color: 'red' },
 //             ].map((stat, i) => (
 //               <motion.div key={stat.label} {...fadeUp(i * 0.08)} className="bg-white rounded-2xl border border-slate-100 shadow-lg p-6 text-center">
-//                 <p className={`text-2xl sm:text-3xl font-bold text-${stat.color}-600 font-display`}>{stat.value}</p>
-//                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mt-1">{stat.label}</p>
+//                 <p className={`text-xl sm:text-2xl font-bold text-${stat.color}-600 font-display`}>{stat.value}</p>
+//                 <p className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mt-1">{stat.label}</p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -178,8 +178,8 @@
 //       <section className="py-20">
 //         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 //           <motion.div {...fadeUp(0)} className="text-center mb-14">
-//             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">At a Glance</p>
-//             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display">District Highlights</h2>
+//             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">At a Glance</p>
+//             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display">District Highlights</h2>
 //           </motion.div>
 //           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
 //             {district.highlights.map((h, i) => (
@@ -187,8 +187,8 @@
 //                 <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-5">
 //                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={h.icon} /></svg>
 //                 </div>
-//                 <p className="text-3xl font-bold text-slate-900 font-display mb-1">{h.value}</p>
-//                 <p className="text-sm text-slate-500 font-medium">{h.title}</p>
+//                 <p className="text-2xl font-bold text-slate-900 font-display mb-1">{h.value}</p>
+//                 <p className="text-xs text-slate-500 font-medium">{h.title}</p>
 //               </motion.div>
 //             ))}
 //           </div>
@@ -201,15 +201,15 @@
 //           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 //             {/* Services */}
 //             <motion.div {...fadeUp(0)}>
-//               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">What We Offer</p>
-//               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display mb-8">Available Services</h2>
+//               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">What We Offer</p>
+//               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mb-8">Available Services</h2>
 //               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 //                 {district.services.map((s, i) => (
 //                   <motion.div key={s} {...fadeUp(i * 0.05)} className="flex items-center gap-3 bg-slate-50 rounded-xl px-5 py-4 border border-slate-100 hover:border-red-200 hover:bg-red-50 transition-all group">
 //                     <div className="w-8 h-8 bg-red-100 text-red-600 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-red-600 group-hover:text-white transition-colors">
 //                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
 //                     </div>
-//                     <span className="text-sm font-semibold text-slate-700">{s}</span>
+//                     <span className="text-xs font-semibold text-slate-700">{s}</span>
 //                   </motion.div>
 //                 ))}
 //               </div>
@@ -217,8 +217,8 @@
 
 //             {/* Projects */}
 //             <motion.div {...fadeUp(0.1)}>
-//               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Development</p>
-//               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display mb-8">Active Projects</h2>
+//               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Development</p>
+//               <h2 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mb-8">Active Projects</h2>
 //               <div className="space-y-5">
 //                 {district.projects.map((p, i) => (
 //                   <motion.div key={p.title} {...fadeUp(i * 0.08)} className="bg-slate-50 rounded-2xl border border-slate-100 p-6">
@@ -229,7 +229,7 @@
 //                     <div className="w-full bg-slate-200 rounded-full h-2.5">
 //                       <motion.div initial={{ width: 0 }} whileInView={{ width: `${p.progress}%` }} viewport={{ once: false }} transition={{ duration: 1.2, delay: i * 0.1 }} className={`h-2.5 rounded-full ${p.status === 'Completed' ? 'bg-emerald-500' : p.status === 'In Progress' ? 'bg-red-500' : 'bg-red-400'}`} />
 //                     </div>
-//                     <p className="text-xs text-slate-400 mt-2 font-medium">{p.progress}% complete</p>
+//                     <p className="text-[10px] text-slate-400 mt-2 font-medium">{p.progress}% complete</p>
 //                   </motion.div>
 //                 ))}
 //               </div>
@@ -244,16 +244,16 @@
 //           <motion.div {...fadeUp(0)} className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-[2rem] p-8 sm:p-12 text-white shadow-2xl overflow-hidden relative">
 //             <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-[100px] pointer-events-none" />
 //             <div className="relative z-10">
-//               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400 mb-3">Get in Touch</p>
-//               <h2 className="text-2xl sm:text-4xl font-bold font-display mb-8">Contact {district.name}</h2>
+//               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-400 mb-3">Get in Touch</p>
+//               <h2 className="text-xl sm:text-3xl font-bold font-display mb-8">Contact {district.name}</h2>
 //               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
 //                 {district.offices.map((office) => (
 //                   <div key={office.name} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-colors">
 //                     <div className="w-10 h-10 bg-red-500/20 text-red-400 rounded-xl flex items-center justify-center mb-4">
 //                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
 //                     </div>
-//                     <h4 className="font-bold text-white mb-2 text-sm">{office.name}</h4>
-//                     <p className="text-white/60 text-sm">{office.phone}</p>
+//                     <h4 className="font-bold text-white mb-2 text-xs">{office.name}</h4>
+//                     <p className="text-white/60 text-xs">{office.phone}</p>
 //                   </div>
 //                 ))}
 //               </div>

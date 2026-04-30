@@ -163,7 +163,7 @@ const Sector = () => {
 
             <div className="hidden lg:block">
               <div className="city-glass p-10 rounded-[3rem] text-white">
-                <div className="text-5xl font-bold font-display mb-2">{filteredServices.length}</div>
+                <div className="text-4xl font-bold font-display mb-2">{filteredServices.length}</div>
                 <div className="city-label text-red-400">Available Services</div>
               </div>
             </div>
@@ -174,15 +174,15 @@ const Sector = () => {
       {/* Breadcrumbs Indicator */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
         <div className="bg-white rounded-2xl shadow-xl px-10 py-6 flex items-center justify-between border border-slate-100">
-          <nav className="flex items-center gap-2 text-slate-400 text-sm font-bold">
+          <nav className="flex items-center gap-2 text-slate-400 text-xs font-bold">
             <Link to="/services" className="hover:text-red-600 transition-colors">E-Services</Link>
             <span>&rsaquo;</span>
             <span className="text-slate-900 font-bold">{sector.title}</span>
           </nav>
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold text-slate-300">Filtered View</span>
+            <span className="text-[10px] font-bold text-slate-300">Filtered View</span>
             <div className="h-4 w-px bg-slate-100"></div>
-            <span className="text-sm font-bold text-red-600">{filteredServices.length} Results</span>
+            <span className="text-xs font-bold text-red-600">{filteredServices.length} Results</span>
           </div>
         </div>
       </div>
@@ -207,10 +207,10 @@ const Sector = () => {
                     </svg>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">{service.title}</h3>
-                  <p className="text-slate-600 text-base leading-relaxed mb-6 line-clamp-2">{service.desc}</p>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-2">{service.desc}</p>
                   
-                  <div className="flex items-center gap-4 text-sm font-bold text-slate-500 mb-6">
+                  <div className="flex items-center gap-4 text-xs font-bold text-slate-500 mb-6">
                     <span className="flex items-center gap-1.5">
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                       {service.time}
@@ -223,7 +223,7 @@ const Sector = () => {
                   
                   <Link 
                     to={`/services/${service.id}`}
-                    className="mt-auto w-full py-3 text-center text-sm font-bold text-slate-700 border border-slate-200 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all shadow-sm"
+                    className="mt-auto w-full py-3 text-center text-xs font-bold text-slate-700 border border-slate-200 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all shadow-sm"
                   >
                     View Details &rarr;
                   </Link>
@@ -234,8 +234,8 @@ const Sector = () => {
                 <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-300">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">No services found</h3>
-                <p className="text-slate-500 text-sm">We couldn't find any services matching your search in this sector.</p>
+                <h3 className="text-base font-bold text-slate-900">No services found</h3>
+                <p className="text-slate-500 text-xs">We couldn't find any services matching your search in this sector.</p>
               </div>
             )}
           </AnimatePresence>
@@ -256,8 +256,8 @@ const Sector = () => {
                 </svg>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-1">{f.label}</h4>
-                <p className="text-sm text-slate-600 leading-relaxed">{f.desc}</p>
+                <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-900 mb-1">{f.label}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">{f.desc}</p>
               </div>
             </div>
           ))}
