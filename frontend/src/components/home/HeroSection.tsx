@@ -290,7 +290,7 @@ export default function HeroSection() {
                     d="M14 5l7 7-7 7"
                   />
                 </svg>
-              </Link>
+              </a>
 
 
             </motion.div>

@@ -293,14 +293,14 @@ const Header = () => {
 
 
               <div className="pt-8">
-                <Link 
-                  to="/virtual-tour" 
+                <a 
+                  href="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all"
                 >
                   {t('header.virtual_tour')}
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
