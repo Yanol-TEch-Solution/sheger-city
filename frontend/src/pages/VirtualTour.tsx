@@ -101,85 +101,11 @@ const VirtualTour = () => {
         </div>
       </section>
 
-      {/* Tour Grid */}
-      <section className="py-20 sm:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display">Video Spotlights</h2>
-            <p className="text-slate-500 mt-4">Cinematic fly-throughs of our flagship districts.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-            {LOCATIONS.map((loc, i) => (
-              <motion.div 
-                key={loc.name} 
-                {...fadeUp(i * 0.1)} 
-                onClick={() => setActiveVideo(loc.videoUrl)}
-                className="group relative rounded-[2rem] overflow-hidden bg-white shadow-xl aspect-video cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-[10000ms] group-hover:scale-110" style={{ backgroundImage: `url('${loc.image}')` }} />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
-                
-                {/* 360 Indicator */}
-                <div className="absolute top-6 right-6 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                </div>
+    </div>
+  );
+};
 
-                <div className="absolute bottom-0 left-0 p-8 sm:p-10 w-full">
-                  <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
-                    {loc.category}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 font-display">
-                    {loc.name}
-                  </h3>
-                  <p className="text-white/80 text-xs sm:text-sm mb-6 max-w-md">
-                    {loc.description}
-                  </p>
-                  <button className="flex items-center gap-2 text-red-400 font-bold hover:text-red-300 transition-colors">
-                    Start Tour <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" /></svg>
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Video Modal */}
-      <AnimatePresence>
-        {activeVideo && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-4 sm:p-8 backdrop-blur-sm"
-            onClick={() => setActiveVideo(null)}
-          >
-            <button className="absolute top-6 right-6 sm:top-10 sm:right-10 text-white/50 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-3 transition-colors z-10" onClick={() => setActiveVideo(null)}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            </button>
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-6xl aspect-video bg-black rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 relative"
-              onClick={e => e.stopPropagation()}
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-10 h-10 border-4 border-red-400 border-t-transparent rounded-full animate-spin"></div>
-              </div>
-              <iframe 
-                src={activeVideo} 
-                className="w-full h-full relative z-10"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+export default VirtualTour;
     </div>
   );
 };

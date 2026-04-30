@@ -213,10 +213,15 @@ const Header = () => {
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
             </button>
 
-            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-[9px] font-black rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase tracking-widest">
+            <a 
+              href="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-[9px] font-black rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase tracking-widest"
+            >
               {t('header.virtual_tour')}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -288,7 +293,12 @@ const Header = () => {
 
 
               <div className="pt-8">
-                <Link to="/virtual-tour" className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all">
+                <Link 
+                  to="/virtual-tour" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all"
+                >
                   {t('header.virtual_tour')}
                 </Link>
               </div>

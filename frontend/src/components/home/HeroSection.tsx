@@ -164,26 +164,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* City Live Preview Thumbnail Button */}
-            <div className="mt-4 flex justify-start">
-              <button 
-                onClick={() => setShowVideoPopup(true)}
-                className="group relative flex items-center gap-3 px-2 pr-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full transition-all duration-300 hover:-translate-y-1 shadow-[0_0_30px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]"
-              >
-                <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20 group-hover:border-red-400 transition-colors">
-                  <video src="/sheger-city.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover scale-150 group-hover:scale-100 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
-                    <div className="w-5 h-5 rounded-full bg-red-500/80 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(239,68,68,0.4)]">
-                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col items-start text-left">
-                  <span className="text-[10px] font-bold text-white uppercase tracking-widest leading-none mb-1">Live City</span>
-                  <span className="text-[8px] text-white/50 uppercase tracking-wider leading-none">Preview</span>
-                </div>
-              </button>
-            </div>
+
           </motion.div>
         )}
 
@@ -289,8 +270,10 @@ export default function HeroSection() {
               transition={{ delay: 1.2 }}
               className="flex flex-col sm:flex-row gap-4 sm:gap-6"
             >
-              <Link
-                to="/virtual-tour"
+              <a
+                href="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-red-500 text-slate-950 font-bold rounded-full hover:bg-red-400 transition-all duration-300 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:shadow-[0_0_50px_rgba(239,68,68,0.6)] sm:hover:-translate-y-2 group text-xs sm:text-sm"
               >
                 {t("home.hero.start_exploring")}
