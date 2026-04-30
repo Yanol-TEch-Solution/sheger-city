@@ -20,7 +20,7 @@ const Footer = () => {
                 <h3 className="text-white font-semibold">{t('footer.about_title')}</h3>
               </div>
             </div>
-            <p className="text-sm text-slate-400 mb-4">
+            <p className="text-xs text-slate-400 mb-4">
               {t('footer.about_desc')}
             </p>
             <div className="flex gap-3">
@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold mb-4">{t('footer.quick_links')}</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-xs">
               <li><Link to="/about" className="hover:text-white transition">{t('header.about')}</Link></li>
               <li><Link to="/leadership" className="hover:text-white transition">{t('leadership.title')}</Link></li>
               <li><Link to="/transparency" className="hover:text-white transition">{t('transparency_page.title')}</Link></li>
@@ -50,7 +50,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-white font-semibold mb-4">{t('footer.services')}</h3>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-xs">
               <li><Link to="/sector/land" className="hover:text-white transition">{t('home.services_hub.land')}</Link></li>
               <li><Link to="/sector/health" className="hover:text-white transition">{t('home.quick_services.health')}</Link></li>
               <li><Link to="/sector/transport" className="hover:text-white transition">{t('administrative_options.road_transport')}</Link></li>
@@ -62,7 +62,7 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="text-white font-semibold mb-4">{t('footer.contact')}</h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-xs">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p className="text-slate-400">&copy; 2026 {t('footer.about_title')} {t('footer.rights')}</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="text-slate-400 hover:text-white transition">{t('footer.privacy')}</Link>

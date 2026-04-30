@@ -54,10 +54,10 @@ const Explore = () => {
             <span className="w-10 h-px bg-red-400/50" />
             Tourism & Investment
           </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             Explore <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Sheger City</span>
           </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
             Discover vibrant culture, breathtaking landscapes, and endless opportunities in Ethiopia's fastest-growing city.
           </motion.p>
         </div>
@@ -72,8 +72,8 @@ const Explore = () => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Tourism</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">Places to Visit</h2>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Tourism</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">Places to Visit</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -92,8 +92,8 @@ const Explore = () => {
                   </span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-slate-900 font-display mb-2 group-hover:text-red-600 transition-colors">{place.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{place.desc}</p>
+                  <h3 className="text-sm font-semibold text-slate-900 font-display mb-2 group-hover:text-red-600 transition-colors">{place.title}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{place.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -111,8 +111,8 @@ const Explore = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400 mb-4">Invest in Sheger</p>
-              <h2 className="text-4xl sm:text-5xl font-bold font-display tracking-tight mb-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-400 mb-4">Invest in Sheger</p>
+              <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tight mb-6">
                 A City Built for <span className="text-red-400">Growth</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-6">
@@ -132,8 +132,8 @@ const Explore = () => {
                 <motion.div key={s.label} {...fadeUp(i * 0.08)}
                   className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all"
                 >
-                  <span className="text-2xl mb-3 block">{s.icon}</span>
-                  <span className="text-sm text-white/80 font-medium">{s.label}</span>
+                  <span className="text-xl mb-3 block">{s.icon}</span>
+                  <span className="text-xs text-white/80 font-medium">{s.label}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -145,11 +145,11 @@ const Explore = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)}>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Plan Your Visit</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight mb-6">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Plan Your Visit</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
               Ready to Experience Sheger?
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="text-slate-500 text-base leading-relaxed mb-10 max-w-2xl mx-auto">
               Whether you're a visitor, resident, or investor — Sheger City welcomes you. Connect with us to learn more.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

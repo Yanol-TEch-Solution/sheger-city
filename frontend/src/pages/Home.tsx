@@ -182,10 +182,10 @@ const Home = () => {
                 )}
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-light text-white leading-none tracking-wide">
+                <span className="text-2xl font-light text-white leading-none tracking-wide">
                   {weather.temp}°C
                 </span>
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-white/80 uppercase mt-2">
+                <span className="text-[8px] font-semibold tracking-[0.2em] text-white/80 uppercase mt-2">
                   {weather.desc}
                 </span>
               </div>
@@ -202,10 +202,10 @@ const Home = () => {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-light text-white tracking-[0.15em] uppercase">
+                <span className="text-xs font-light text-white tracking-[0.15em] uppercase">
                   Sheger City, ETH
                 </span>
-                <span className="text-[10px] font-semibold tracking-[0.2em] text-white/80 uppercase mt-2">
+                <span className="text-[8px] font-semibold tracking-[0.2em] text-white/80 uppercase mt-2">
                   {new Date().toLocaleDateString("en-US", {
                     weekday: "long",
                     month: "short",
@@ -245,7 +245,7 @@ const Home = () => {
             <button
               key={idx}
               onClick={() => setCurrentSlide(idx)}
-              className={`text-lg font-bold transition-all duration-300 flex items-center gap-4 ${idx === currentSlide ? "text-red-400 scale-110" : "text-white/40 hover:text-white/80"}`}
+              className={`text-sm font-bold transition-all duration-300 flex items-center gap-4 ${idx === currentSlide ? "text-red-400 scale-110" : "text-white/40 hover:text-white/80"}`}
             >
               {idx === currentSlide && (
                 <motion.span
@@ -289,13 +289,13 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
               transition={{ delay: 0.8 }}
-              className="uppercase tracking-[0.2em] sm:tracking-[0.4em] text-[10px] sm:text-xs font-bold mb-6 sm:mb-8 text-red-400 drop-shadow-md flex items-center gap-2 sm:gap-4"
+              className="uppercase tracking-[0.2em] sm:tracking-[0.4em] text-[8px] sm:text-[10px] font-bold mb-6 sm:mb-8 text-red-400 drop-shadow-md flex items-center gap-2 sm:gap-4"
             >
               <span className="w-8 sm:w-12 h-px bg-red-400/50"></span>
               {t("home.hero.badge")}
             </motion.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-[1.15] tracking-tight text-white font-display">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 leading-[1.15] tracking-tight text-white font-display">
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +329,7 @@ const Home = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: false }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-sm sm:text-base md:text-lg text-white/80 mb-8 sm:mb-10 max-w-xl leading-relaxed font-medium"
+              className="text-xs sm:text-sm md:text-base text-white/80 mb-8 sm:mb-10 max-w-xl leading-relaxed font-medium"
             >
               {t("home.hero.subtitle")}
             </motion.p>
@@ -343,7 +343,7 @@ const Home = () => {
             >
               <Link
                 to="/virtual-tour"
-                className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-red-500 text-slate-950 font-bold rounded-full hover:bg-red-400 transition-all duration-300 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:shadow-[0_0_50px_rgba(239,68,68,0.6)] sm:hover:-translate-y-2 group text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 bg-red-500 text-slate-950 font-bold rounded-full hover:bg-red-400 transition-all duration-300 shadow-[0_0_30px_rgba(239,68,68,0.4)] hover:shadow-[0_0_50px_rgba(239,68,68,0.6)] sm:hover:-translate-y-2 group text-xs sm:text-sm"
               >
                 {t("home.hero.start_exploring")}
                 <svg
@@ -447,7 +447,7 @@ const Home = () => {
             transition={{ duration: 1.2 }}
             className="text-center mb-16 sm:mb-24 relative"
           >
-            <h2 className="inline-block text-2xl sm:text-4xl font-bold tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
+            <h2 className="inline-block text-xl sm:text-3xl font-bold tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
               {t("home.leadership.title")}
             </h2>
             <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0 hidden sm:block"></div>
@@ -498,13 +498,13 @@ const Home = () => {
                 <div
                   className={`sm:w-5/12 w-full pl-8 sm:pl-0 mb-8 sm:mb-0 ${person.reverse ? "sm:pl-12" : "sm:text-right sm:pr-12"}`}
                 >
-                  <div className="text-red-600 font-bold tracking-widest text-[10px] sm:text-xs mb-3 uppercase">
+                  <div className="text-red-600 font-bold tracking-widest text-[8px] sm:text-[10px] mb-3 uppercase">
                     {person.title}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900 font-display">
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 text-slate-900 font-display">
                     {person.name}
                   </h3>
-                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                  <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
                     {person.text}
                   </p>
                 </div>
@@ -527,16 +527,16 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-end justify-between mb-12 sm:mb-16 gap-6">
             <div>
-              <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
+              <h2 className="text-[8px] sm:text-[10px] font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
                 {t("home.explore.badge")}
               </h2>
-              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight font-display">
                 {t("home.explore.title")}
               </h3>
             </div>
             <Link
               to="/explore"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 text-slate-600 font-bold hover:text-red-500 transition-colors px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 text-slate-600 font-bold hover:text-red-500 transition-colors px-6 py-4 bg-slate-50 rounded-2xl border border-slate-200 text-sm"
             >
               {t("home.explore.view_map")}
               <svg
@@ -568,10 +568,10 @@ const Home = () => {
                 <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
                   {t("home.explore.heritage_badge")}
                 </span>
-                <h4 className="text-xl sm:text-3xl font-bold text-white mb-2 font-display">
+                <h4 className="text-lg sm:text-2xl font-bold text-white mb-2 font-display">
                   {t("home.explore.grand_square")}
                 </h4>
-                <p className="text-white/80 max-w-md text-sm sm:text-base">
+                <p className="text-white/80 max-w-md text-xs sm:text-sm">
                   {t("home.explore.grand_square_desc")}
                 </p>
               </div>
@@ -626,13 +626,13 @@ const Home = () => {
               <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
                 {t("home.services_hub.badge")}
               </h2>
-              <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
                 {t("home.services_hub.title")}
               </h3>
             </div>
             <Link
               to="/services"
-              className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 group"
+              className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 group text-sm"
             >
               {t("home.services_hub.view_all")}
               <svg
@@ -695,12 +695,12 @@ const Home = () => {
                     <path d={service.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
-                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-4">{service.count}</p>
-                <p className="text-slate-500 text-xs leading-relaxed mb-8">{service.desc}</p>
+                <h4 className="text-lg font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
+                <p className="text-slate-400 text-[8px] font-black uppercase tracking-widest mb-4">{service.count}</p>
+                <p className="text-slate-500 text-[10px] leading-relaxed mb-8">{service.desc}</p>
                 <Link 
                   to={`/services/${service.id}`}
-                  className="mt-auto w-full py-3 text-center text-[11px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
+                  className="mt-auto w-full py-3 text-center text-[9px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
                 >
                   {t("home.services_hub.open_portal")} &rarr;
                 </Link>
@@ -713,17 +713,17 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent"></div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
-                <h4 className="text-2xl sm:text-4xl font-bold text-white mb-6 font-display">
+                <h4 className="text-xl sm:text-3xl font-bold text-white mb-6 font-display">
                   {t("home.services_hub.one_platform")}
                 </h4>
-                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
+                <p className="text-slate-400 text-base mb-10 leading-relaxed">
                   {t("home.services_hub.one_platform_desc")}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="px-8 py-4 bg-red-600 text-white font-bold rounded-2xl hover:bg-red-500 transition-all shadow-lg shadow-red-600/20">
+                  <button className="px-8 py-4 bg-red-600 text-white font-bold rounded-2xl hover:bg-red-500 transition-all shadow-lg shadow-red-600/20 text-sm">
                     {t("home.services_hub.create_account")}
                   </button>
-                  <button className="px-8 py-4 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all border border-white/10">
+                  <button className="px-8 py-4 bg-white/10 text-white font-bold rounded-2xl hover:bg-white/20 transition-all border border-white/10 text-sm">
                     {t("home.services_hub.security")}
                   </button>
                 </div>
@@ -743,12 +743,12 @@ const Home = () => {
                         <div className="text-white font-bold">
                           {t("home.services_hub.user_name")}
                         </div>
-                        <div className="text-slate-500 text-xs tracking-widest uppercase">
+                        <div className="text-slate-500 text-[10px] tracking-widest uppercase">
                           {t("home.services_hub.user_badge")}
                         </div>
                       </div>
                     </div>
-                    <div className="px-4 py-2 bg-red-500/20 text-red-400 rounded-full text-xs font-bold uppercase">
+                    <div className="px-4 py-2 bg-red-500/20 text-red-400 rounded-full text-[10px] font-bold uppercase">
                       {t("home.services_hub.user_status")}
                     </div>
                   </div>
@@ -778,11 +778,11 @@ const Home = () => {
                         className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all"
                       >
                         <div className="flex justify-between items-center mb-3">
-                          <div className="text-white font-bold text-sm sm:text-base">
+                          <div className="text-white font-bold text-xs sm:text-sm">
                             {app.title}
                           </div>
                           <div
-                            className={`text-${app.color}-400 text-xs font-bold`}
+                            className={`text-${app.color}-400 text-[10px] font-bold`}
                           >
                             {app.status}
                           </div>
@@ -811,13 +811,13 @@ const Home = () => {
            {/* Promotion Content */}
            <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
               <div className="lg:w-1/2">
-                <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
+                <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-xs mb-4">
                   {t("home.mobile_app.badge")}
                 </h2>
-                <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6 font-display">
+                <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 mb-6 font-display">
                   {t("home.mobile_app.title")} <span className="text-red-600">{t("home.mobile_app.subtitle")}</span>
                 </h3>
-                <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+                <p className="text-slate-600 text-base mb-10 leading-relaxed">
                   {t("home.mobile_app.desc")}
                 </p>
                 <div className="grid grid-cols-2 gap-6 mb-12">
@@ -826,16 +826,16 @@ const Home = () => {
                         <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center text-red-600">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <span className="text-slate-700 font-semibold">{f}</span>
+                        <span className="text-slate-700 font-semibold text-sm">{f}</span>
                      </div>
                    ))}
                 </div>
                 <div className="flex gap-4">
-                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3">
+                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 text-sm">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 12.5c0-1.8-1.5-3.3-3.3-3.3s-3.3 1.5-3.3 3.3 1.5 3.3 3.3 3.3 3.3-1.5 3.3-3.3zm-3.3-2.1c1.2 0 2.1.9 2.1 2.1s-.9 2.1-2.1 2.1-2.1-.9-2.1-2.1.9-2.1 2.1-2.1z M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
                       {t("home.mobile_app.app_store")}
                    </button>
-                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3">
+                   <button className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 text-sm">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 20.5v-17l14 8.5L3 20.5z"/></svg>
                       {t("home.mobile_app.play_store")}
                    </button>
@@ -847,9 +847,9 @@ const Home = () => {
                     <img src="/city-3.jpg" alt="App Mockup" className="w-full h-full object-cover opacity-80" />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
                     <div className="absolute bottom-8 left-8 right-8 text-white">
-                       <div className="text-2xl font-bold mb-2">Sheger Pay</div>
-                       <div className="text-sm text-white/60 mb-6">Secured digital payments for all city services.</div>
-                       <div className="w-full h-12 bg-red-600 rounded-xl flex items-center justify-center font-bold">Scan QR Code</div>
+                       <div className="text-xl font-bold mb-2">Sheger Pay</div>
+                       <div className="text-xs text-white/60 mb-6">Secured digital payments for all city services.</div>
+                       <div className="w-full h-12 bg-red-600 rounded-xl flex items-center justify-center font-bold text-sm">Scan QR Code</div>
                     </div>
                  </div>
               </div>

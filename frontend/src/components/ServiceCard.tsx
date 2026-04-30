@@ -29,8 +29,8 @@ const ServiceCard = ({ id, title, desc, icon, time, price, category }: ServiceCa
       {category && (
         <span className="text-[8px] font-black text-blue-500 uppercase tracking-widest mb-1">{category}</span>
       )}
-      <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
-      <p className="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2">{desc}</p>
+      <h3 className="text-sm font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{title}</h3>
+      <p className="text-slate-500 text-[10px] leading-relaxed mb-6 line-clamp-2">{desc}</p>
       
       {(time || price) && (
         <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 mb-6">

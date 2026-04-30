@@ -98,13 +98,13 @@ const News = () => {
           </motion.div>
           <motion.h1
             {...fadeUp(0.2)}
-            className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
+            className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
           >
             {t('news_page.hero_title')} <span className="text-red-400 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">{t('header.title')}</span>
           </motion.h1>
           <motion.p
             {...fadeUp(0.4)}
-            className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed"
+            className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
           >
             {t('news_page.hero_desc')}
           </motion.p>
@@ -141,7 +141,7 @@ const News = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-6 py-3 rounded-xl text-xs font-bold tracking-widest transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-600 hover:bg-slate-50"}`}
+                  className={`px-6 py-3 rounded-xl text-[10px] font-bold tracking-widest transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-lg" : "text-slate-400 hover:text-slate-600 hover:bg-slate-50"}`}
                 >
                   {cat.label}
                 </button>
@@ -157,22 +157,22 @@ const News = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div {...fadeUp(0)}>
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-red-500 mb-4 flex items-center gap-3">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-red-500 mb-4 flex items-center gap-3">
                   <span className="w-8 h-px bg-red-500" />
                   {t('news_page.featured_story')}
                 </p>
-                <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight tracking-tight font-display mb-6">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight font-display mb-6">
                   {featuredArticle.title}
                 </h2>
-                <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                <p className="text-slate-600 text-base leading-relaxed mb-8">
                   {featuredArticle.excerpt}
                 </p>
                 <div className="flex items-center gap-6 mb-10 pb-10 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-sm font-bold text-slate-400">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     {featuredArticle.date}
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-bold text-slate-400">
+                  <div className="flex items-center gap-2 text-xs font-bold text-slate-400">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     {featuredArticle.readTime}
                   </div>
@@ -192,7 +192,7 @@ const News = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                 </div>
-                <div className="absolute -top-6 -right-6 bg-red-600 text-white p-6 rounded-[2rem] shadow-2xl border-4 border-white font-black uppercase tracking-widest text-xs rotate-3">
+                <div className="absolute -top-6 -right-6 bg-red-600 text-white p-6 rounded-[2rem] shadow-2xl border-4 border-white font-black uppercase tracking-widest text-[10px] rotate-3">
                   {t('news_page.todays_top')}
                 </div>
               </motion.div>
@@ -205,10 +205,10 @@ const News = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">
               {t('news_page.explore_more')}
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">
               {t('news_page.all_announcements')}
             </h2>
           </motion.div>
@@ -237,14 +237,14 @@ const News = () => {
                       <span>•</span>
                       <span>{article.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 font-display leading-tight">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 font-display leading-tight">
                       {article.title}
                     </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-3">
                       {article.excerpt}
                     </p>
                     <div className="pt-6 mt-auto border-t border-slate-50">
-                      <button className="text-red-600 font-black text-xs uppercase tracking-[0.2em] flex items-center gap-2 group/btn">
+                      <button className="text-red-600 font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 group/btn">
                         {t('news_page.read_story')}
                         <svg className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7-7 7" /></svg>
                       </button>
@@ -257,7 +257,7 @@ const News = () => {
 
           {filteredArticles.length === 0 && (
             <div className="text-center py-24 bg-white rounded-[3rem] border border-dashed border-slate-200">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{t('news_page.no_results')}</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">{t('news_page.no_results')}</h3>
               <p className="text-slate-500">{t('news_page.no_results_desc')}</p>
             </div>
           )}
@@ -269,13 +269,13 @@ const News = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)} className="bg-slate-950 rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/10 blur-[100px] pointer-events-none" />
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-400 mb-6 relative z-10">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-400 mb-6 relative z-10">
               {t('news_page.newsletter_badge')}
             </p>
-            <h2 className="text-4xl sm:text-6xl font-bold text-white font-display tracking-tight mb-6 leading-tight relative z-10">
+            <h2 className="text-3xl sm:text-5xl font-bold text-white font-display tracking-tight mb-6 leading-tight relative z-10">
               {t('news_page.newsletter_title')} <span className="text-red-400">{t('news_page.title')}</span>
             </h2>
-            <p className="text-white/60 text-lg leading-relaxed mb-10 max-w-xl mx-auto relative z-10">
+            <p className="text-white/60 text-base leading-relaxed mb-10 max-w-xl mx-auto relative z-10">
               {t('news_page.newsletter_desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
@@ -284,7 +284,7 @@ const News = () => {
                 placeholder={t('news_page.email_placeholder')}
                 className="px-8 py-5 bg-white/10 border border-white/20 rounded-full text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500/50 min-w-[300px]"
               />
-              <button className="px-10 py-5 bg-red-600 text-white font-black uppercase tracking-widest text-xs rounded-full hover:bg-red-700 transition-all shadow-xl shadow-red-600/30">
+              <button className="px-10 py-5 bg-red-600 text-white font-black uppercase tracking-widest text-[10px] rounded-full hover:bg-red-700 transition-all shadow-xl shadow-red-600/30">
                 {t('news_page.subscribe_btn')}
               </button>
             </div>

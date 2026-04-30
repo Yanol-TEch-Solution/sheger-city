@@ -18,8 +18,8 @@ const SubCity = () => {
       <div className="bg-slate-50 min-h-screen py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 font-display">Explore Our Sub Cities</h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 font-display">Explore Our Sub Cities</h1>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               Sheger City is divided into {subCityKeys.length} administrative sub-cities to provide closer and more efficient services to all residents.
             </p>
           </div>
@@ -31,12 +31,12 @@ const SubCity = () => {
                 to={`/subcity/${index + 1}`}
                 className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 p-6 flex flex-col items-center text-center hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
+                <div className="w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">Sub City {index + 1}</h3>
-                <p className="text-sm text-slate-500 mb-4">View local offices and specific administrative details.</p>
-                <span className="text-red-600 font-semibold text-sm group-hover:underline">Explore &rarr;</span>
+                <h3 className="text-lg font-bold text-slate-900 mb-2 font-display">Sub City {index + 1}</h3>
+                <p className="text-xs text-slate-500 mb-4">View local offices and specific administrative details.</p>
+                <span className="text-red-600 font-semibold text-xs group-hover:underline">Explore &rarr;</span>
               </Link>
             ))}
           </div>
@@ -50,8 +50,8 @@ const SubCity = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-8">
           <Link to="/subcity" className="text-red-600 hover:underline mb-4 inline-block">&larr; Back to all Sub Cities</Link>
-          <h1 className="text-4xl font-bold mb-4">Sub City {id}</h1>
-          <p className="text-gray-600 text-lg">
+          <h1 className="text-3xl font-bold mb-4">Sub City {id}</h1>
+          <p className="text-gray-600 text-base">
             Welcome to {currentSubCityName} - serving our local community with dedicated services
           </p>
         </div>
@@ -62,7 +62,7 @@ const SubCity = () => {
             <div className="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-6">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
-            <h3 className="text-xl font-bold mb-4 font-display">Overview</h3>
+            <h3 className="text-lg font-bold mb-4 font-display">Overview</h3>
             <p className="text-gray-600">
               {currentSubCityName} is home to diverse communities and offers comprehensive local administrative services, ensuring swift delivery and resident satisfaction.
             </p>
@@ -73,7 +73,7 @@ const SubCity = () => {
             <div className="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-6">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
             </div>
-            <h3 className="text-xl font-bold mb-4 font-display">Local Offices</h3>
+            <h3 className="text-lg font-bold mb-4 font-display">Local Offices</h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-center gap-2">📍 Main Administration Office</li>
               <li className="flex items-center gap-2">📍 Document Authentication Center</li>
@@ -86,7 +86,7 @@ const SubCity = () => {
             <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
             </div>
-            <h3 className="text-xl font-bold mb-4 font-display">Available Services</h3>
+            <h3 className="text-lg font-bold mb-4 font-display">Available Services</h3>
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-center gap-2">✓ Resident ID Services</li>
               <li className="flex items-center gap-2">✓ Property Registration</li>
@@ -97,7 +97,7 @@ const SubCity = () => {
 
         {/* Contact */}
         <div className="mt-8 bg-gradient-to-r from-red-600 to-red-800 rounded-2xl p-8 text-white shadow-xl">
-          <h3 className="text-2xl font-bold mb-6 font-display">Contact Information</h3>
+          <h3 className="text-xl font-bold mb-6 font-display">Contact Information</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex gap-4">
               <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center shrink-0">
