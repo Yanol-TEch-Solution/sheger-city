@@ -134,7 +134,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col pt-16 font-sans">
       {/* ─── Hero / Header Section ─── */}
-      <section className="bg-black text-white py-10 relative overflow-hidden">
+      <section className="bg-black text-white py-20 relative overflow-hidden">
         {/* Building Line Art Background Overlay */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,17 +185,25 @@ const Services = () => {
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-all ${activeCategory === cat.id ? "bg-red-600 text-white shadow-md shadow-red-600/20" : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"}`}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 transition-all relative group ${activeCategory === cat.id ? "text-slate-900" : "text-slate-500 hover:text-slate-900"}`}
                   >
                     <div className="flex items-center gap-2.5">
-                      <svg className={`w-3.5 h-3.5 ${activeCategory === cat.id ? "text-white" : "text-slate-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-3.5 h-3.5 ${activeCategory === cat.id ? "text-slate-900" : "text-slate-400 group-hover:text-slate-600"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={cat.icon} />
                       </svg>
                       <span className="text-[11px] font-bold tracking-tight truncate max-w-[120px]">{cat.label}</span>
                     </div>
-                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${activeCategory === cat.id ? "bg-white/20 text-white" : "bg-slate-100 text-slate-400"}`}>
+                    
+                    <span className={`text-[9px] font-black px-1.5 py-0.5 rounded-md ${activeCategory === cat.id ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-400"}`}>
                       {getCategoryCount(cat.id)}
                     </span>
+
+                    {activeCategory === cat.id && (
+                      <motion.div 
+                        layoutId="activeUnderline"
+                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-slate-900 rounded-full"
+                      />
+                    )}
                   </button>
                 ))}
               </nav>
