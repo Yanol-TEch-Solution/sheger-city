@@ -245,12 +245,12 @@ const Header = () => {
                 )}
               </AnimatePresence>
             </div>
-
-
+{/*
             <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-[10px] font-bold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 uppercase tracking-widest">
               {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
+*/}
           </div>
 
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100">
