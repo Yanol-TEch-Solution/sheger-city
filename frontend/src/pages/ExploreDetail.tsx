@@ -73,7 +73,7 @@ export default function ExploreDetail() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center overflow-hidden bg-slate-950">
+      <section className="relative h-[60vh] flex items-center overflow-hidden bg-slate-950">
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -84,7 +84,7 @@ export default function ExploreDetail() {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
         </motion.div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,10 +93,10 @@ export default function ExploreDetail() {
             <span className="px-4 py-1.5 bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full mb-6 inline-block">
               {data.badge}
             </span>
-            <h1 className="text-4xl sm:text-7xl font-bold text-white mb-6 font-display tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 font-display tracking-tight leading-tight">
               {data.title}
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
+            <p className="text-lg text-white/70 max-w-2xl leading-relaxed font-medium">
               {data.description}
             </p>
           </motion.div>
@@ -114,19 +114,19 @@ export default function ExploreDetail() {
       </section>
 
       {/* Content Section */}
-      <section className="py-24 bg-white relative z-10">
+      <section className="py-16 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-2">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl font-bold text-slate-900 mb-8 font-display">Deep Dive</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6 font-display">Deep Dive</h2>
                 <div className="prose prose-lg text-slate-600 max-w-none space-y-6">
                   {data.content.split('\n\n').map((para: string, i: number) => (
-                    <p key={i}>{para.trim()}</p>
+                    <p key={i} className="leading-relaxed">{para.trim()}</p>
                   ))}
                 </div>
               </motion.div>
@@ -163,11 +163,11 @@ export default function ExploreDetail() {
 
       {/* Public Perspectives Gallery (Rotated scattered images) */}
       {id === 'grand-square' && (
-        <section className="py-24 bg-white overflow-hidden relative">
+        <section className="py-16 bg-white overflow-hidden relative border-t border-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <span className="text-red-600 font-bold tracking-widest uppercase text-[10px] mb-4 block">Community Vibes</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display">Public Perspectives</h2>
+              <h2 className="text-3xl font-bold text-slate-900 font-display">Public Perspectives</h2>
             </div>
             
             <div className="relative h-[600px] mt-12">
