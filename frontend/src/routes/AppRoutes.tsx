@@ -11,6 +11,8 @@ import Sector from '../pages/Sector';
 import Administration from '../pages/Administration';
 import VirtualTour from '../pages/VirtualTour';
 import Services from '../pages/Services';
+import ServiceDetail from '../pages/ServiceDetail';
+import News from '../pages/News';
 //import District from '../pages/District';
 
 import Kantiibaa from '../pages/administrative/Kantiibaa';
@@ -75,6 +77,7 @@ const AppRoutes = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/explore" element={<Explore />} />
@@ -85,6 +88,7 @@ const AppRoutes = () => {
             <Route path="/sector/:name/*" element={<Sector />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:id" element={<ServiceDetail />} />
           </Routes>
         </Layout>
       } />

@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, useScroll, useTransform } from "framer-motion";
+import CityFlashCards from "../components/CityFlashCards";
+
 
 const HERO_IMAGES = [
   "/hero-1.jpg",
@@ -63,7 +65,47 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-slate-50 selection:bg-red-500/30">
+    <div className="bg-slate-50/50 relative">
+      
+      {/* Global Page Loop — Red → White → Black ribbon on one shared path */}
+      <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden mix-blend-overlay">
+        <svg
+          viewBox="0 0 1440 900"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full opacity-90"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          {/* Black/Dark — tail (drawn first, sits behind) */}
+          <path
+            className="page-ribbon-w"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(10,10,20,0.95)"
+            strokeWidth="18"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* White — middle */}
+          <path
+            className="page-ribbon-b"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,255,255,0.92)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+          {/* Red — front/leading (drawn last, sits on top) */}
+          <path
+            className="page-ribbon-r"
+            d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
+            stroke="rgba(255,50,50,0.98)"
+            strokeWidth="16"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+      </div>
+
       {/* Hero Section */}
       <section
         ref={heroRef}
@@ -92,24 +134,6 @@ const Home = () => {
           </motion.div>
         ))}
 
-        {/* Floating Ambient Glows */}
-        <div className="hidden lg:block">
-          <motion.div
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[10%] right-1/4 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-[120px] pointer-events-none z-10"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 2,
-            }}
-            className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] bg-red-500/10 rounded-full blur-[100px] pointer-events-none z-10"
-          />
-        </div>
 
         {/* Real-time Weather & Location Widget */}
         {weather && (
@@ -398,6 +422,10 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Interactive Flash Cards Section */}
+      <CityFlashCards />
+
+
       {/* Leadership Section */}
       <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -616,28 +644,32 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {[
               {
+                id: "land-certificate",
                 title: t("home.services_hub.land"),
                 icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7",
-                color: "red",
                 count: t("home.services_hub.land_count"),
+                desc: "Apply for land holding certificates and property transfers."
               },
               {
+                id: "trade-license",
                 title: t("home.services_hub.business"),
                 icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-                color: "emerald",
                 count: t("home.services_hub.business_count"),
+                desc: "Register businesses and renew trade licenses online."
               },
               {
+                id: "birth-certificate",
                 title: t("home.services_hub.citizen"),
                 icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
-                color: "red",
                 count: t("home.services_hub.citizen_count"),
+                desc: "Request birth certificates and official identification."
               },
               {
+                id: "water-bill",
                 title: t("home.services_hub.revenue"),
                 icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-                color: "violet",
                 count: t("home.services_hub.revenue_count"),
+                desc: "Pay taxes, utility bills, and municipal service fees."
               },
             ].map((service, i) => (
               <motion.div
@@ -646,46 +678,22 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="group relative bg-white p-8 sm:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all cursor-pointer"
+                className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 transition-all flex flex-col h-full"
               >
-                <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center text-red-600 mb-8 group-hover:scale-110 transition-transform">
-                  <svg
-                    className="w-7 h-7"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d={service.icon}
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center text-red-600 mb-8 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d={service.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 font-display">
-                  {service.title}
-                </h4>
-                <p className="text-slate-500 text-sm font-medium mb-6">
-                  {service.count}
-                </p>
-                <div className="flex items-center text-red-600 font-bold text-sm gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Open Portal
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M14 5l7 7-7 7"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
+                <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-4">{service.count}</p>
+                <p className="text-slate-500 text-xs leading-relaxed mb-8">{service.desc}</p>
+                <Link 
+                  to={`/services/${service.id}`}
+                  className="mt-auto w-full py-3 text-center text-[11px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
+                >
+                  Open Portal &rarr;
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -1006,7 +1014,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-24 sm:py-32 relative bg-slate-900/75 overflow-hidden z-20 border-t border-slate-800">
+      <section className="py-24 sm:py-32 relative bg-slate-800 overflow-hidden z-20 border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-red-400 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-4">

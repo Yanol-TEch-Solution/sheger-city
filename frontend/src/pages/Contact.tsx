@@ -44,7 +44,6 @@ const OFFICES = [
 
 const colorRing: Record<string, string> = {
   red: 'border-red-500 bg-red-500/10 text-red-500',
-  red: 'border-red-500 bg-red-500/10 text-red-500',
   emerald: 'border-emerald-500 bg-emerald-500/10 text-emerald-500',
 };
 

@@ -137,23 +137,26 @@ const Revenue = () => {
           
           <motion.div variants={staggerContainer} initial="initial" whileInView="whileInView" className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Digital Public Portal', desc: 'Submit and track forms, applications, and requests without waiting in line.' },
-              { title: 'Official Resources & Policy', desc: 'Browse official documents, public guidelines, budgets, and compliance records.' },
-              { title: 'Citizen Support Desk', desc: 'Get direct assistance from our department representatives and book appointments.' }
+              { id: "tax-payment", title: 'Tax Payment Portal', desc: 'Securely pay your business, property, and personal taxes online.' },
+              { id: "tin-registration", title: 'TIN Registration', desc: 'Apply for a new Tax Identification Number or update your existing records.' },
+              { id: "tax-clearance", title: 'Tax Clearance', desc: 'Request official tax clearance certificates for business and legal transactions.' }
             ].map((item, idx) => (
               <motion.div 
                 key={idx}
                 variants={fadeUp}
-                className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 hover:border-emerald-200 transition-all duration-300 group"
+                className="p-8 rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 group flex flex-col h-full"
               >
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 shadow-sm border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-100 transition-all text-emerald-600">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 shadow-sm border border-emerald-100 flex items-center justify-center mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-all text-emerald-600">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
-                <h3 className="text-xl font-semibold font-display text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600 font-sans leading-relaxed mb-6">{item.desc}</p>
-                <button className="text-sm font-medium flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-sans tracking-wide">
-                  Access Portal <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </button>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 font-display">{item.title}</h3>
+                <p className="text-slate-500 text-xs leading-relaxed mb-8">{item.desc}</p>
+                <Link 
+                  to={`/services/${item.id}`}
+                  className="mt-auto w-full py-3 text-center text-[11px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-emerald-600 transition-all"
+                >
+                  Open Portal &rarr;
+                </Link>
               </motion.div>
             ))}
           </motion.div>

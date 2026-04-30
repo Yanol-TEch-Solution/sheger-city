@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import logoUrl from '../../assets/logo.png';
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-950 text-slate-300 relative z-20 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-4 group cursor-pointer">
               <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0 relative">
                 <div className="absolute inset-0 bg-white/5 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-105 relative z-10" />
+                <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
               </div>
               <div>
                 <h3 className="text-white font-semibold">Sheger City</h3>
