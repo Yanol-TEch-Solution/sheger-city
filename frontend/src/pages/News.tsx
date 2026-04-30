@@ -93,7 +93,7 @@ const News = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6"
+            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-400 mb-6"
           >
             <span className="w-10 h-px bg-red-400/50" />
             {t('news_page.hero_badge')}
@@ -144,7 +144,7 @@ const News = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 py-2.5 rounded-xl text-[10px] font-bold tracking-widest transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-md" : "text-slate-400 hover:text-slate-600 hover:bg-slate-50"}`}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-medium tracking-tight transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-md" : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"}`}
                 >
                   {cat.label}
                 </button>
@@ -237,10 +237,10 @@ const News = () => {
                     {/* Content */}
                     <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="px-2 py-1 bg-red-600 text-white text-[8px] font-black uppercase tracking-widest rounded-md">
+                        <span className="px-2 py-1 bg-red-600 text-white text-[10px] font-medium rounded-md">
                           {t(`news_page.categories.${article.category}`)}
                         </span>
-                        <span className="text-[9px] font-bold text-white/60 uppercase tracking-widest">
+                        <span className="text-xs font-medium text-white/70">
                           {article.date}
                         </span>
                       </div>
@@ -254,10 +254,10 @@ const News = () => {
                       </p>
 
                       {/* Read More Indicator */}
-                      <div className="flex items-center gap-2 text-white font-black text-[9px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                      <div className="flex items-center gap-2 text-white font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 tracking-tight">
                         Read Story
-                        <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
-                          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7-7 7" /></svg>
+                        <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" /></svg>
                         </div>
                       </div>
                     </div>

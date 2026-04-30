@@ -166,7 +166,7 @@ export default function ExploreDetail() {
         <section className="py-16 bg-white overflow-hidden relative border-t border-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-12">
-              <span className="text-red-600 font-bold tracking-widest uppercase text-[10px] mb-4 block">Community Vibes</span>
+              <span className="text-red-600 font-medium tracking-tight text-xs mb-4 block">Community Vibes</span>
               <h2 className="text-3xl font-bold text-slate-900 font-display">Public Perspectives</h2>
             </div>
             
@@ -194,7 +194,7 @@ export default function ExploreDetail() {
                     <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors" />
                   </div>
                   <div className="mt-3 flex items-center justify-between">
-                    <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">@sheger_citizen</span>
+                    <span className="text-[10px] font-medium text-slate-400">@sheger_citizen</span>
                     <svg className="w-3 h-3 text-red-500 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                   </div>
                 </motion.div>
@@ -203,8 +203,8 @@ export default function ExploreDetail() {
           </div>
           
           {/* Ambient background text */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-slate-50 select-none -z-0 opacity-40">
-            HERITAGE
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-bold text-slate-50 select-none -z-0 opacity-40">
+            Heritage
           </div>
         </section>
       )}
