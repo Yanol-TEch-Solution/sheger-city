@@ -32,18 +32,41 @@ export default function MobileAppSection() {
               {/* Features List */}
               <div className="pt-4 space-y-3">
                 {[
-                  { icon: '⚡', text: 'Instant service access' },
-                  { icon: '🔒', text: 'Secure digital documents' },
-                  { icon: '📱', text: 'Track applications in real-time' },
-                  { icon: '💬', text: '24/7 support available' }
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-sm">
-                      {feature.icon}
+                  { 
+                    icon: (props: any) => (
+                      <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    ), 
+                    text: 'Instant service access' 
+                  },
+                  { 
+                    icon: (props: any) => (
+                      <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    ), 
+                    text: 'Secure digital documents' 
+                  },
+                  { 
+                    icon: (props: any) => (
+                      <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 00-2 2z"/></svg>
+                    ), 
+                    text: 'Track applications in real-time' 
+                  },
+                  { 
+                    icon: (props: any) => (
+                      <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                    ), 
+                    text: '24/7 support available' 
+                  }
+                ].map((feature, i) => {
+                  const Icon = feature.icon;
+                  return (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="text-slate-700 font-medium">{feature.text}</span>
                     </div>
-                    <span className="text-slate-700 font-medium">{feature.text}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -153,30 +176,6 @@ export default function MobileAppSection() {
                   <button className="w-full py-2 bg-red-600 text-white font-bold rounded-lg text-[9px] mt-2">
                     View All Services
                   </button>
-                </div>
-              </div>
-
-              {/* Floating Card - Top Right */}
-              <div className="absolute right-0 top-20 w-[200px] h-[140px] bg-white rounded-2xl shadow-xl z-10 overflow-hidden border border-slate-200">
-                <div className="h-full p-4">
-                  <div className="text-[8px] text-slate-500 mb-2 uppercase font-bold">Quick Stats</div>
-                  <div className="space-y-2">
-                    {[
-                      { label: 'Active Services', value: '12', color: 'bg-blue-500' },
-                      { label: 'Completed', value: '48', color: 'bg-green-500' },
-                      { label: 'Pending', value: '3', color: 'bg-orange-500' }
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <div className={`w-1.5 h-1.5 rounded-full ${item.color}`}></div>
-                        <div className="flex-1 text-[8px] text-slate-600">{item.label}</div>
-                        <div className="text-[9px] font-bold text-slate-900">{item.value}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-slate-100">
-                    <div className="text-[7px] text-slate-400">Total Saved Time</div>
-                    <div className="text-sm font-bold text-red-600">24 hrs</div>
-                  </div>
                 </div>
               </div>
             </div>
