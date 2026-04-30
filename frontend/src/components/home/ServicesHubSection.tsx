@@ -10,24 +10,24 @@ export default function ServicesHubSection() {
   const { t } = useTranslation();
   return (
     <>
-      <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 bg-slate-50/65 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
-            <div className="max-w-2xl text-center lg:text-left">
-              <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-4 sm:gap-6 lg:gap-8">
+            <div className="max-w-2xl text-center lg:text-left w-full lg:w-auto">
+              <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-2 sm:mb-4">
                 {t("home.services_hub.badge")}
               </h2>
-              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight font-display">
                 {t("home.services_hub.title")}
               </h3>
             </div>
             <Link
               to="/services"
-              className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all flex items-center gap-3 group text-sm"
+              className="w-full lg:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold rounded-xl sm:rounded-2xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 sm:gap-3 group text-xs sm:text-sm whitespace-nowrap"
             >
               {t("home.services_hub.view_all")}
               <svg
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ export default function ServicesHubSection() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 id: "land-certificate",
@@ -90,18 +90,25 @@ export default function ServicesHubSection() {
                   damping: 25,
                   delay: i * 0.1 
                 }}
-                className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all flex flex-col h-full perspective-[800px]"
+                className="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all flex flex-col h-full perspective-[800px]"
               >
+<<<<<<< HEAD
                 <div className="relative h-44 -mx-8 -mt-8 mb-8 overflow-hidden rounded-t-[2rem]">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+=======
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-red-50 flex items-center justify-center text-red-600 mb-6 sm:mb-8 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d={service.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+>>>>>>> c3e732c82ed1d0ba68baaff56a88454ed6ae5ab5
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
-                <p className="text-slate-400 text-[8px] font-black uppercase tracking-widest mb-4">{service.count}</p>
-                <p className="text-slate-500 text-[10px] leading-relaxed mb-8">{service.desc}</p>
+                <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
+                <p className="text-slate-400 text-[8px] font-black uppercase tracking-widest mb-3 sm:mb-4">{service.count}</p>
+                <p className="text-slate-500 text-[10px] sm:text-xs leading-relaxed mb-6 sm:mb-8 flex-grow">{service.desc}</p>
                 <Link 
                   to={`/services/${service.id}`}
-                  className="mt-auto w-full py-3 text-center text-[9px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
+                  className="mt-auto w-full py-2.5 sm:py-3 text-center text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-slate-700 border border-slate-100 rounded-lg sm:rounded-xl hover:bg-slate-50 hover:text-red-600 transition-all"
                 >
                   {t("home.services_hub.open_portal")} &rarr;
                 </Link>
