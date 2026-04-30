@@ -9,6 +9,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [showVideoPreview, setShowVideoPreview] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
@@ -252,6 +253,64 @@ const Header = () => {
                           <span className={`text-[10px] font-bold tracking-tight ${i18n.language === lang.code ? 'text-white' : 'text-slate-700'}`}>{lang.label}</span>
                         </button>
                       ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* ── City Live Preview ── */}
+            <div
+              className="hidden lg:block relative flex-shrink-0"
+              onMouseEnter={() => { setShowVideoPreview(true); setActiveDropdown(null); }}
+              onMouseLeave={() => setShowVideoPreview(false)}
+            >
+              {/* Fixed-size thumbnail */}
+              <div className={`relative w-24 h-[54px] overflow-hidden rounded-xl border-2 shadow-xl transition-all duration-300 cursor-pointer ${
+                showVideoPreview ? 'border-red-500/70 shadow-red-500/30' : 'border-white/20'
+              }`}>
+                <video
+                  src="/sheger-city.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+                <div className={`absolute inset-0 transition-colors duration-300 pointer-events-none ${
+                  showVideoPreview ? 'bg-slate-900/5' : 'bg-slate-900/40'
+                }`} />
+                {/* Live badge */}
+                <div className="absolute top-1.5 left-1.5 flex items-center gap-1 bg-black/60 backdrop-blur-sm px-1.5 py-0.5 rounded-md">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
+                  </span>
+                  <span className="text-[8px] font-black text-white uppercase tracking-widest">Live</span>
+                </div>
+              </div>
+
+              {/* Expanded dropdown panel */}
+              <AnimatePresence>
+                {showVideoPreview && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.94, y: -6 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.94, y: -6 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    className="absolute right-0 top-[calc(100%+10px)] w-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-red-500/40 z-50"
+                  >
+                    <video
+                      src="/sheger-city.mp4"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full aspect-video object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 px-3 py-2.5 bg-gradient-to-t from-black/90 to-transparent">
+                      <p className="text-[10px] font-black text-white tracking-widest uppercase">🏙 Sheger City</p>
+                      <p className="text-[8px] text-white/60 mt-0.5">Live City Preview</p>
                     </div>
                   </motion.div>
                 )}
