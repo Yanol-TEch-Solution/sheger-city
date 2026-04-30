@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import BackButton from '../components/BackButton';
 
 const EXPLORE_DATA: Record<string, any> = {
   'grand-square': {
@@ -84,6 +85,11 @@ export default function ExploreDetail() {
           <img src={data.image} alt={data.title} className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
         </motion.div>
+
+        {/* Back Button */}
+        <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20">
+          <BackButton to="/explore" label="Back to Explore" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-xl px-6 py-3" />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
           <motion.div
