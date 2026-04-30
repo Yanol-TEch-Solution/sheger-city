@@ -74,9 +74,10 @@ const resources = {
       about: {
         title: "About",
         heritage: "City Identity & Heritage",
-        hero_desc: "Building a modern, transparent, and citizen-centered government for the future of Ethiopia.",
+        hero_desc: "Established on October 22, 2022, by the Oromia Regional State, Sheger City is a newly formed metropolitan hub surrounding Addis Ababa.",
         stats: {
           subcities: "Sub-Cities",
+          woredas: "Woredas",
           population: "Population",
           services: "Digital Services",
           satisfaction: "Citizen Satisfaction"
@@ -469,6 +470,16 @@ const resources = {
         accessibility: "Accessibility"
       },
       about_page: {
+        mayor_message: {
+          badge: "Mayor's Greeting",
+          greeting: "Greetings to Residents and Visitors of Sheger City,",
+          p1: "On behalf of the Mayor's Office, I extend a heartfelt welcome to Sheger City, a dynamic metropolitan hub defined by its diverse cultures, rich history, and shared aspirations for a modern future. We are tirelessly building a city where innovative technology seamlessly integrates with our time-honored traditions, ensuring that every modernization effort respects our cultural heritage while providing a world-class digital gateway to efficient city governance, urban development projects, and essential public services.",
+          p2: "The success of our city is intrinsically tied to the active engagement and collaboration of our residents. We encourage you to participate in the civic life of Sheger City, sharing your ideas and feedback as we work together to build a resilient environment where businesses thrive, families flourish, and every citizen feels safe and empowered. Together, we are ensuring that Sheger City emerges as a global model of urban excellence and a place we are all profoundly proud to call home.",
+          closing: "Thank you for your partnership in shaping the future of Sheger City.",
+          signature: "Sincerely,",
+          name: "Dr. Teshome Adugna",
+          role: "Mayor of Sheger City"
+        },
         overview_badge: "City Overview",
         overview_title: "A City Built for People",
         overview_p1: "Sheger City is a rapidly growing metropolitan area established to serve the communities surrounding Addis Ababa. With a commitment to efficient, transparent, and citizen-centered governance, Sheger is redefining what a modern Ethiopian city can be.",
@@ -477,9 +488,9 @@ const resources = {
         vision_badge: "Direction & Purpose",
         vision_title: "Vision & Mission",
         our_vision: "Our Vision",
-        vision_text: "To be a leading smart city that provides world-class services, promotes sustainable development, and ensures the well-being and prosperity of all citizens across every sub-city.",
+        vision_text: "To emerge as a premier, sustainable smart city that sets global standards for urban excellence, providing world-class infrastructure and innovative digital services that guarantee the prosperity, safety, and inclusive well-being of every citizen across our diverse metropolitan sub-cities.",
         our_mission: "Our Mission",
-        mission_text: "To deliver efficient, transparent, and accessible government services through digital innovation while fostering economic growth, social equity, and environmental sustainability.",
+        mission_text: "To deliver transformative, efficient, and transparent governance through cutting-edge digital integration and citizen-centered administration. We are committed to catalyzing rapid economic growth, ensuring social equity, and pioneering environmental sustainability to build a resilient future for all Sheger City residents.",
         journey_badge: "Our Journey",
         journey_title: "History of Sheger",
         milestones_badge: "Key Milestones",
@@ -595,10 +606,11 @@ const resources = {
       about: {
         title: "ስለ ሸገር ከተማ",
         heritage: "የከተማ ማንነት እና ቅርስ",
-        hero_desc: "ለኢትዮጵያ መፃኢ ዕድል ዘመናዊ፣ ግልፅ እና ዜጋ-ተኮር መንግስት መገንባት።",
+        hero_desc: "በጥቅምት 12 ቀን 2015 ዓ.ም በኦሮሚያ ክልላዊ መንግስት የተመሰረተችው ሸገር ከተማ አዲስ አበባን የከበበች አዲስ የተመሰረተች የሜትሮፖሊታን ማዕከል ነች።",
         stats: {
           subcities: "ክፍለ ከተሞች",
-          population: "የህዝብ ብዛት",
+          woredas: "ወረዳዎች",
+          population: "የነዋሪዎች ብዛት",
           services: "የዲጂታል አገልግሎቶች",
           satisfaction: "የዜጎች እርካታ"
         }
@@ -991,6 +1003,16 @@ const resources = {
         accessibility: "ተደራሽነት"
       },
       about_page: {
+        mayor_message: {
+          badge: "የከንቲባው መልዕክት",
+          greeting: "ለሸገር ከተማ ነዋሪዎች እና ጎብኚዎች በሙሉ፣",
+          p1: "በከንቲባው ጽሕፈት ቤት ስም በልዩ ልዩ ባህሎች፣ ባለጸጋ ታሪክ እና ለወደፊት ዘመናዊ የጋራ ምኞቶች ወደተገለጸችው ሸገር ከተማ እንኳን ደህና መጣችሁ ለማለት እወዳለሁ። ፈጠራ ያላቸው ቴክኖሎጂዎች ከጥንታዊ ባህሎቻችን ጋር ያለምንም እንከን የሚቀናጁባትን ከተማ ደከመኝ ሰለቸኝ ሳይል እየገነባን ነው፤ ይህም እያንዳንዱ ዘመናዊ ጥረት ባህላዊ ቅርሶቻችንን የሚያከብር መሆኑን በማረጋገጥ ለከተማ አስተዳደር፣ ለልማት ፕሮጀክቶች እና ለዋና ዋና የህዝብ አገልግሎቶች ዓለም አቀፍ ደረጃውን የጠበቀ ዲጂታል መግቢያ ሆኖ እንዲያገለግል እናረጋግጣለን።",
+          p2: "የከተማችን ስኬት ከነዋሪዎቿ ንቁ ተሳትፎ እና ትብብር ጋር የተቆራኘ ነው። የንግድ ድርጅቶች የሚበለጽጉበት፣ ቤተሰቦች የሚበለጽጉበት እና እያንዳንዱ ዜጋ ደህንነት እና ስልጣን የሚሰማው የመቋቋም አቅም ያለው አካባቢ ለመገንባት በጋራ ስንሰራ ሃሳቦቻችሁን እና አስተያየታችሁን በማካፈል በሸገር ከተማ የሲቪክ ህይወት ውስጥ እንድትሳተፉ እናበረታታለን። ሸገር ከተማ የከተማ ልማት የላቀ የዓለም አቀፍ አርአያ ሆና እንድትወጣ እና ሁላችንም በኩራት የምንጠራው ቦታ እንድትሆን በጋራ እያረጋገጥን ነው።",
+          closing: "የሸገር ከተማን መፃኢ እድል በመቅረጽ ረገድ ላደረጉት አጋርነት አመሰግናለሁ።",
+          signature: "ከሰላምታ ጋር፣",
+          name: "ዶ/ር ተሾመ አዱኛ",
+          role: "የሸገር ከተማ ከንቲባ"
+        },
         overview_badge: "የከተማው አጠቃላይ እይታ",
         overview_title: "ለሰዎች የተገነባች ከተማ",
         overview_p1: "ሸገር ከተማ አዲስ አበባን የሚከቡ ማህበረሰቦችን ለማገልገል የተቋቋመች በፍጥነት እያደገች ያለች ሜትሮፖሊታን አካባቢ ናት። ቀልጣፋ፣ ግልጽ እና ዜጋ-ተኮር አስተዳደር ለመዘርጋት ባለው ቁርጠኝነት ሸገር ዘመናዊ የኢትዮጵያ ከተማ ምን መሆን እንዳለባት ዳግም እየተረጎመች ነው።",
@@ -998,10 +1020,9 @@ const resources = {
         explore_subcities: "ክፍለ ከተሞችን ያስሱ",
         vision_badge: "አቅጣጫ እና ዓላማ",
         vision_title: "ራዕይ እና ተልዕኮ",
-        our_vision: "ራዕያችን",
-        vision_text: "ዓለም አቀፍ ደረጃቸውን የጠበቁ አገልግሎቶችን የምትሰጥ፣ ዘላቂ ልማትን የምታበረታታ እና በሁሉም ክፍለ ከተሞች ያሉ ዜጎችን ደህንነት እና ብልጽግና የምታረጋግጥ ግንባር ቀደም ስማርት ከተማ መሆን።",
+        vision_text: "በሁሉም የሜትሮፖሊታን ክፍለ ከተሞች ያሉ ዜጎችን ብልጽግና፣ ደህንነት እና ሁሉን አቀፍ ደህንነት የሚያረጋግጡ ዓለም አቀፍ ደረጃቸውን የጠበቁ መሠረተ ልማቶችን እና የፈጠራ ዲጂታል አገልግሎቶችን በመስጠት ለከተማ ልማት የላቀ ደረጃን የሚያስቀምጥ ቀዳሚ እና ዘላቂ ስማርት ከተማ ሆኖ መውጣት።",
         our_mission: "ተልዕኳችን",
-        mission_text: "የኢኮኖሚ እድገትን፣ ማህበራዊ ፍትሃዊነትን እና የአካባቢ ጥበቃን በማጎልበት በዲጂታል ፈጠራ አማካኝነት ቀልጣፋ፣ ግልጽ እና ተደራሽ የመንግስት አገልግሎቶችን መስጠት።",
+        mission_text: "ዘመናዊ የዲጂታል ውህደት እና ዜጋ ተኮር አስተዳደርን በመጠቀም ተለዋዋጭ፣ ቀልጣፋ እና ግልጽ አስተዳደርን መስጠት። ለሁሉም የሸገር ከተማ ነዋሪዎች የሚቋቋም የወደፊት ሕይወትን ለመገንባት ፈጣን የኢኮኖሚ እድገትን ለማፋጠን፣ ማህበራዊ እኩልነትን ለማረጋገጥ እና የአካባቢ ጥበቃን ለመምራት ቆርጠናል።",
         journey_badge: "ጉዟችን",
         journey_title: "የሸገር ታሪክ",
         milestones_badge: "ቁልፍ ክንውኖች",
@@ -1487,6 +1508,16 @@ const resources = {
         accessibility: "Gahumsa"
       },
       about_page: {
+        mayor_message: {
+          badge: "Dhaamsa Kantiibaa",
+          greeting: "Jiraattotaa fi Daawwattoota Magaalaa Shaggar hundaaf,",
+          p1: "Maqaa Waajjira Kantiibaatiin, Magaalaa Shaggar, gidduugala metiroopoolitaan aadaa adda addaa, seenaa badhaadhaa fi hawwii waliinii fuuldura ammayyaatiin ibsamuun beekamtu kanaa baga nagaan dhuftan jedha. Magaalaa teeknooloojiin haaraa aadaa keenya isa kabajamaa waliin itti wal argu ijaaraa jirra, carraaqqiin ammayyeessuu hundi qabeenya aadaa keenya kabajuu isaa mirkaneessuun bulchiinsa magaalaa quubsaa, pirojektoota misooma magaalaa fi tajaajila uummataa barbaachisoo ta'aniif balbala dijitaalaa sadarkaa addunyaa ni dhiyeessina.",
+          p2: "Milkaa'inni magaalaa keenyaa hirmaannaa fi walta'iinsa jiraattota keenyaa waliin walitti hidhata cimaa qaba. Naannoo daldalli itti babal'atu, maatiin itti buluufi lammiin hundi nageenyaafi aangoo itti dhaga'amu ijaaruu irratti yeroo waliin hojjennu, yaadaa fi yaada duubdee keessan qooduun jireenya hawaasummaa Magaalaa Shaggar keessatti akka hirmaattan isin jajjabeessina. Waliin ta'uun, Shaggar magaalaa fakkeenya guddina magaalaa addunyaa akka taatuu fi iddoo hundi keenya itti boonnu akka taatu mirkaneessaa jirra.",
+          closing: "Fuuldura Magaalaa Shaggar bocuu keessatti tumsa keessaniif galatoomaa.",
+          signature: "Amanummaan,",
+          name: "Dr. Tashoomaa Aduunyaa",
+          role: "Kantiibaa Magaalaa Shaggar"
+        },
         overview_badge: "Hubannoo Walii Gala Magaalaa",
         overview_title: "Magaalaa Namootaaf Ijaarame",
         overview_p1: "Magaalaan Shaggar naannoo metiroopoolitaan saffisaan guddachaa jiruufi hawaasa naannoo Finfinnee jiran tajaajiluuf hundaa'edha. Bulchiinsa si'ataa, ifaafi lammiilee irratti xiyyeeffate diriirsuuf kutannoo qabuun, Shaggar magaalaan Itoophiyaa amayyaa maaltu ta'uu akka qabu lammata ibsaa jirti.",
@@ -1536,6 +1567,24 @@ const resources = {
           a5_desc: "manneen barnootaa haaraafi gidduugalawwan barumsaa bara 2014 irraa eegalee ijaaraman ykn haaromfaman.",
           a6_title: "Carraa Hojii Uumame",
           a6_desc: "carraa hojii kallattiifi al-kallattii sagantaalee misooma magaalaatiin uumame."
+        }
+      },
+      about: {
+        title: "Waa'ee",
+        heritage: "Eenyummaa fi Qe'ee Magaalaa",
+        hero_desc: "Onkololeessa 22, 2022 Mootummaa Naannoo Oromiyaatiin kan hundaa'e, Magaalaan Shaggar gidduugala metiroopoolitaan naannoo Finfinnee hammateefi haaraa hundaa'edha.",
+        vision_badge: "Qajeelfama fi Kaayyoo",
+        vision_title: "Mul'ata fi Ergaa",
+        our_vision: "Mul'ata Keenya",
+        vision_text: "Magaalaa ismaartii hunda dura deebituu fi itti fufiinsa qabdu, sadarkaa idil-addunyaa fakkii magaalaa gaarii ta'uu danda'u ijaaruun, bu'uuraalee misoomaa sadarkaa addunyaa fi tajaajiloota dijitaalaa haaraa milkaa'ina, nageenya fi fayyadama lammiilee hunda mirkaneessan dhiyeessuu.",
+        our_mission: "Ergaa Keenya",
+        mission_text: "Bulchiinsa jijjiirama fidu, quubsaa fi iftoomina qabu quunnamtii dijitaalaa hammayyaa fi bulchiinsa lammiilee irratti xiyyeeffateen dhiyeessuu. Guddina diinagdee saffisaa mijeessuu, haqni hawaasummaa akka mirkanaa'u gochuu fi naannoo eeguun gara fuulduraa jiraattota hundaaf gaarii ta'e ijaaruuf kutannoo qabna.",
+        stats: {
+          subcities: "Kutaa Magaalaalee",
+          woredas: "Aanaalee",
+          population: "Baayy'ina Jiraattotaa",
+          services: "Tajaajiloota Dijitaalaa",
+          satisfaction: "Quufinsa Lammiilee"
         }
       }
     }

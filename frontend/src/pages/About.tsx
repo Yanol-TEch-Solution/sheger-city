@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
@@ -9,6 +10,27 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
+const Counter = ({ value }: { value: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [displayValue, setDisplayValue] = useState("0");
+  const numericValue = parseFloat(value.replace(/[^0-9.]/g, "")) || 0;
+  const suffix = value.replace(/[0-9.]/g, "");
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, numericValue, {
+        duration: 1.5,
+        ease: "easeOut",
+        onUpdate: (v) => setDisplayValue(Math.round(v).toString()),
+      });
+      return controls.stop;
+    }
+  }, [isInView, numericValue]);
+
+  return <span ref={ref}>{displayValue}{suffix}</span>;
+};
+
 const About = () => {
   const { t } = useTranslation();
 
@@ -17,6 +39,11 @@ const About = () => {
       value: "12+",
       label: t("about.stats.subcities"),
       icon: "M3 21h18M3 10h18M3 7l9-4 9 4M4 10h2v11H4v-11zm6 0h2v11h-2v-11zm6 0h2v11h-2v-11z",
+    },
+    {
+      value: "36",
+      label: t("about.stats.woredas"),
+      icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m-1 4h1m5-12h1m-1 4h1m-1 4h1",
     },
     {
       value: "3M+",
@@ -44,12 +71,12 @@ const About = () => {
   ];
 
   const ACHIEVEMENTS = [
-    { icon: "🏆", title: t("about_page.achievements.a1_title"), stat: "80%", desc: t("about_page.achievements.a1_desc") },
-    { icon: "🌳", title: t("about_page.achievements.a2_title"), stat: "500K+", desc: t("about_page.achievements.a2_desc") },
-    { icon: "⭐", title: t("about_page.achievements.a3_title"), stat: "85%", desc: t("about_page.achievements.a3_desc") },
-    { icon: "🏗️", title: t("about_page.achievements.a4_title"), stat: "120+", desc: t("about_page.achievements.a4_desc") },
-    { icon: "📚", title: t("about_page.achievements.a5_title"), stat: "40+", desc: t("about_page.achievements.a5_desc") },
-    { icon: "💼", title: t("about_page.achievements.a6_title"), stat: "25K+", desc: t("about_page.achievements.a6_desc") },
+    { title: t("about_page.achievements.a1_title"), stat: "80%", desc: t("about_page.achievements.a1_desc") },
+    { title: t("about_page.achievements.a2_title"), stat: "500K+", desc: t("about_page.achievements.a2_desc") },
+    { title: t("about_page.achievements.a3_title"), stat: "85%", desc: t("about_page.achievements.a3_desc") },
+    { title: t("about_page.achievements.a4_title"), stat: "120+", desc: t("about_page.achievements.a4_desc") },
+    { title: t("about_page.achievements.a5_title"), stat: "40+", desc: t("about_page.achievements.a5_desc") },
+    { title: t("about_page.achievements.a6_title"), stat: "25K+", desc: t("about_page.achievements.a6_desc") },
   ];
 
   const VALUES = [
@@ -68,7 +95,7 @@ const About = () => {
   return (
     <div className="bg-slate-50">
       {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[55vh] flex items-center">
+      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[65vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/city-2.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
@@ -79,7 +106,7 @@ const About = () => {
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-28 w-full">
           <motion.div
             {...fadeUp(0.1)}
             className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6"
@@ -114,21 +141,76 @@ const About = () => {
         </div>
       </section>
 
-      {/* ─── Stats Bar ─── */}
-      <section className="bg-slate-50 py-16 border-b border-slate-100">
+      {/* ─── Mayor's Message ─── */}
+      <section className="pt-16 pb-24 bg-slate-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {STATS.map((s, i) => (
-              <motion.div
-                key={s.label}
-                {...fadeUp(i * 0.1)}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm hover:shadow-lg transition-shadow text-center group"
-              >
-                <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={s.icon}/></svg>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            {/* Image Column */}
+            <motion.div {...fadeUp(0.2)} className="lg:col-span-5 relative lg:pt-14">
+              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                <img src="/dr.teshome.jpg" alt="Dr. Teshome Adugna" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8 text-white">
+                  <div className="text-xl font-bold font-display">{t('about_page.mayor_message.name')}</div>
+                  <div className="text-sm opacity-80">{t('about_page.mayor_message.role')}</div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-semibold text-slate-900 font-display mb-1">{s.value}</div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-400">{s.label}</div>
+              </div>
+              {/* Decorative Elements */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-red-600/10 rounded-full blur-2xl -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-red-600/5 rounded-full blur-3xl -z-10" />
+            </motion.div>
+
+            {/* Text Column */}
+            <motion.div {...fadeUp(0)} className="lg:col-span-7">
+              <div className="inline-flex items-center gap-3 uppercase tracking-[0.25em] text-[10px] font-bold text-red-600 mb-6">
+                <span className="w-8 h-px bg-red-600/40" />
+                {t('about_page.mayor_message.badge')}
+              </div>
+              
+              <div className="space-y-6 text-slate-600 leading-relaxed font-jost">
+                <p className="text-lg font-semibold text-slate-800 italic border-l-4 border-red-600 pl-6 mb-8">
+                  "{t('about_page.mayor_message.greeting')}"
+                </p>
+                <p className="text-base">{t('about_page.mayor_message.p1')}</p>
+                <p className="text-base">{t('about_page.mayor_message.p2')}</p>
+                
+                <div className="pt-6 mt-8 border-t border-slate-200">
+                  <p className="text-slate-500 mb-6">{t('about_page.mayor_message.closing')}</p>
+                  <div className="flex items-center gap-6">
+                    <div className="flex flex-col">
+                      <span className="text-slate-400 text-[10px] uppercase tracking-widest mb-1">{t('about_page.mayor_message.signature')}</span>
+                      <span className="text-2xl font-bold text-slate-900 font-display">{t('about_page.mayor_message.name')}</span>
+                      <span className="text-sm text-red-600 font-medium">{t('about_page.mayor_message.role')}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Minimalist Stats ─── */}
+      <section className="bg-slate-50 pt-8 pb-24 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+            {STATS.map((s, i) => (
+              <motion.div 
+                key={s.label} 
+                {...fadeUp(i * 0.1)}
+                className="group cursor-default"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative mb-6">
+                    <span className="text-xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight block transition-all duration-500 group-hover:scale-110 group-hover:text-red-600">
+                      <Counter value={s.value} />
+                    </span>
+                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-1.5 bg-red-600 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center" />
+                  </div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em] text-slate-400 group-hover:text-slate-900 transition-colors duration-500">
+                    {s.label}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -140,7 +222,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeUp(0)}>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('about_page.overview_badge')}</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-4">{t('about_page.overview_badge')}</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight font-display mb-6">
                 {t('about_page.overview_title')}
               </h2>
@@ -170,39 +252,47 @@ const About = () => {
       </section>
 
       {/* ─── Vision & Mission ─── */}
-      <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.15, 0.3, 0.15] }} transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }} className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-red-500/10 rounded-full blur-[130px] pointer-events-none" />
+      <section className="py-24 bg-white relative overflow-hidden border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-400 mb-4">{t('about_page.vision_badge')}</p>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display tracking-tight">{t('about_page.vision_title')}</h2>
+          <motion.div {...fadeUp(0)} className="text-center mb-20">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-4">{t('about_page.vision_badge')}</p>
+            <h2 className="text-3xl sm:text-5xl font-bold font-display tracking-tight text-slate-900">{t('about_page.vision_title')}</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div {...fadeUp(0.1)} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 hover:bg-white/10 transition-all">
-              <div className="w-14 h-14 bg-red-500/20 text-red-400 rounded-2xl flex items-center justify-center mb-8">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
+            <motion.div {...fadeUp(0.1)} className="relative">
+              <div className="inline-flex items-center gap-4 mb-4">
+                <span className="w-10 h-1 bg-red-600 rounded-full" />
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">{t('about_page.our_vision')}</h3>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4 font-display">{t('about_page.our_vision')}</h3>
-              <p className="text-white/70 leading-relaxed text-base">{t('about_page.vision_text')}</p>
+              <p className="text-slate-600 leading-relaxed text-base font-jost">
+                {t('about_page.vision_text')}
+              </p>
             </motion.div>
 
-            <motion.div {...fadeUp(0.2)} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-10 hover:bg-white/10 transition-all">
-              <div className="w-14 h-14 bg-red-500/20 text-red-400 rounded-2xl flex items-center justify-center mb-8">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <motion.div {...fadeUp(0.2)} className="relative">
+              <div className="inline-flex items-center gap-4 mb-4">
+                <span className="w-10 h-1 bg-red-600 rounded-full" />
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display">{t('about_page.our_mission')}</h3>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4 font-display">{t('about_page.our_mission')}</h3>
-              <p className="text-white/70 leading-relaxed text-base">{t('about_page.mission_text')}</p>
+              <p className="text-slate-600 leading-relaxed text-base font-jost">
+                {t('about_page.mission_text')}
+              </p>
             </motion.div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="mt-24 pt-16 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-12">
             {VALUES.map((v, i) => (
-              <motion.div key={v.title} {...fadeUp(0.1 * i)} className={`border rounded-2xl p-6 flex flex-col items-center text-center gap-3 ${colorMap[v.color]}`}>
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={v.icon}/></svg>
+              <motion.div key={v.title} {...fadeUp(0.1 * i)} className="group flex flex-col items-center text-center gap-6">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:-translate-y-2 ${colorMap[v.color]}`}>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={v.icon} />
+                  </svg>
                 </div>
-                <span className="font-bold text-xs tracking-wide">{v.title}</span>
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-slate-400 uppercase group-hover:text-slate-900 transition-colors">{v.title}</span>
+                  <div className="w-6 h-0.5 bg-red-600/10 rounded-full group-hover:bg-red-600 group-hover:w-10 transition-all duration-500" />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -222,11 +312,11 @@ const About = () => {
             {TIMELINE.map((item, i) => (
               <motion.div key={item.year} {...fadeUp(i * 0.1)} className={`relative flex flex-col sm:flex-row items-start sm:items-center mb-14 ${i % 2 !== 0 ? "sm:flex-row-reverse" : ""}`}>
                 <div className={`sm:w-5/12 w-full pl-14 sm:pl-0 ${i % 2 !== 0 ? "sm:pl-10" : "sm:pr-10 sm:text-right"}`}>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-red-500">{item.year}</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-red-600">{item.year}</span>
                   <h3 className="text-lg font-semibold text-slate-900 font-display mt-1 mb-2">{item.title}</h3>
                   <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
                 </div>
-                <div className="absolute left-6 sm:left-1/2 top-1 sm:top-1/2 sm:-translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-[3px] border-red-500 rounded-full z-10" />
+                <div className="absolute left-6 sm:left-1/2 top-1 sm:top-1/2 sm:-translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-[3px] border-red-600 rounded-full z-10" />
                 <div className="sm:w-5/12 hidden sm:block" />
               </motion.div>
             ))}
@@ -234,21 +324,34 @@ const About = () => {
         </div>
       </section>
 
-      {/* ─── Achievements ─── */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('about_page.milestones_badge')}</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('about_page.milestones_title')}</h2>
+      {/* ─── Sleek Typographic Achievements ─── */}
+      <section className="py-32 bg-white relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div {...fadeUp(0)} className="text-center mb-24">
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-red-600 mb-4">{t('about_page.milestones_badge')}</p>
+            <h2 className="text-2xl sm:text-4xl font-bold font-display tracking-tight text-slate-900">{t('about_page.milestones_title')}</h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
             {ACHIEVEMENTS.map((a, i) => (
-              <motion.div key={a.title} {...fadeUp(i * 0.08)} whileHover={{ y: -6 }} className="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                <div className="text-3xl mb-5">{a.icon}</div>
-                <div className="text-3xl font-semibold text-red-600 font-display mb-2">{a.stat}</div>
-                <h3 className="text-base font-semibold text-slate-900 font-display mb-2">{a.title}</h3>
-                <p className="text-slate-500 text-xs leading-relaxed">{a.desc}</p>
+              <motion.div 
+                key={a.title} 
+                {...fadeUp(i * 0.1)}
+                className="group relative"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tighter group-hover:text-red-600 transition-colors duration-500">
+                    <Counter value={a.stat} />
+                  </div>
+                  <div className="h-px bg-slate-200 flex-1 group-hover:bg-red-600 transition-all duration-700 origin-left scale-x-50 group-hover:scale-x-100" />
+                </div>
+                
+                <h3 className="text-sm font-bold text-slate-900 mb-3 font-display uppercase tracking-[0.2em] group-hover:text-red-600 transition-colors">
+                  {a.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-jost group-hover:text-slate-600 transition-colors duration-500">
+                  {a.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -259,7 +362,7 @@ const About = () => {
       <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)}>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-6">{t('about_page.get_involved')}</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-6">{t('about_page.get_involved')}</p>
             <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight mb-6 leading-tight">{t('about_page.future_title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">{t('about_page.future_desc')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
