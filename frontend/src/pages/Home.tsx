@@ -67,7 +67,7 @@ const Home = () => {
   return (
     <div className="bg-slate-50/50 relative">
       
-      {/* Global Page Loop — Red → White → Black ribbon on one shared path */}
+      {/* Global Page Loop — Red → White → Black ribbon on one shared path 
       <div className="fixed inset-0 z-[1] pointer-events-none overflow-hidden mix-blend-overlay">
         <svg
           viewBox="0 0 1440 900"
@@ -76,7 +76,6 @@ const Home = () => {
           className="w-full h-full opacity-90"
           preserveAspectRatio="xMidYMid slice"
         >
-          {/* Black/Dark — tail (drawn first, sits behind) */}
           <path
             className="page-ribbon-w"
             d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
@@ -85,7 +84,6 @@ const Home = () => {
             strokeLinecap="round"
             fill="none"
           />
-          {/* White — middle */}
           <path
             className="page-ribbon-b"
             d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
@@ -94,7 +92,6 @@ const Home = () => {
             strokeLinecap="round"
             fill="none"
           />
-          {/* Red — front/leading (drawn last, sits on top) */}
           <path
             className="page-ribbon-r"
             d="M-100,500 C200,500 300,700 500,500 C700,300 800,200 600,200 C400,200 400,400 600,600 C800,800 1100,400 1540,200"
@@ -105,6 +102,7 @@ const Home = () => {
           />
         </svg>
       </div>
+      */}
 
       {/* Hero Section */}
       <section
@@ -260,7 +258,7 @@ const Home = () => {
           </svg>
         </div>
 
-        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 w-full mt-4 sm:mt-0">
+        <div className="relative z-20 max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6 py-20 sm:py-24 md:py-32 w-full mt-4 sm:mt-0">
           <motion.div className="max-w-2xl bg-white/5 sm:backdrop-blur-md border border-white/10 p-6 sm:p-12 rounded-[24px] sm:rounded-[40px] shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
@@ -359,8 +357,8 @@ const Home = () => {
           </svg>
         </div>
       </section>
-
-      {/* City Highlights Cards */}
+{/*
+      City Highlights Cards
       <section className="bg-white/60 pt-24 sm:pt-32 pb-16 sm:pb-24 relative z-20 border-b border-slate-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -404,19 +402,12 @@ const Home = () => {
                     {idx + 1}
                   </span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-white text-sm font-medium leading-relaxed drop-shadow-md">
-                    {idx === 0 && t("home.highlights.card1")}
-                    {idx === 1 && t("home.highlights.card2")}
-                    {idx === 2 && t("home.highlights.card3")}
-                    {idx === 3 && t("home.highlights.card4")}
-                  </p>
-                </div>
+               
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+       </section> */}
 
       {/* Interactive Flash Cards Section */}
       <CityFlashCards />
@@ -792,9 +783,9 @@ const Home = () => {
 
       {/* Mobile App Promotion Section */}
       <section className="py-24 sm:py-32 bg-white/60 relative overflow-hidden z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
            {/* Promotion Content */}
-           <div className="flex flex-col lg:flex-row items-center gap-16">
+           <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
               <div className="lg:w-1/2">
                 <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
                   {t("home.mobile_app.badge")}
