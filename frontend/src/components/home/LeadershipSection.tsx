@@ -1,11 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import WaveDivider from '../WaveDivider';
 
 export default function LeadershipSection() {
   const { t } = useTranslation();
   return (
-
-      <section className="py-24 sm:py-32 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
+    <>
+      <WaveDivider variant="thinStripe" />
+      <WaveDivider variant="lightToDark" />
+      <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -134,7 +137,7 @@ export default function LeadershipSection() {
           </div>
         </div>
       </section>
-
-      
+      <WaveDivider variant="darkToWhite" />
+    </>
   );
 }

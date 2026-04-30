@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import WaveDivider from '../WaveDivider';
 
 export default function ServicesHubSection() {
   const { t } = useTranslation();
   return (
-    <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
+    <>
+      <WaveDivider variant="darkToLight" />
+      <section className="py-24 sm:py-32 bg-slate-50/65 relative overflow-hidden z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col lg:flex-row items-end justify-between mb-16 gap-8">
             <div className="max-w-2xl text-center lg:text-left">
@@ -190,7 +193,7 @@ export default function ServicesHubSection() {
           </div>
         </div>
       </section>
-
-      
+      <WaveDivider variant="lightToDark" />
+    </>
   );
 }
