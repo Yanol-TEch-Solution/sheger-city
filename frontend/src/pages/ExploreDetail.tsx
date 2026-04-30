@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 const EXPLORE_DATA: Record<string, any> = {
   'grand-square': {
@@ -57,6 +58,7 @@ export default function ExploreDetail() {
   const { id } = useParams<{ id: string }>();
   useTranslation();
   const data = id ? EXPLORE_DATA[id] : null;
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   if (!data) {
     return (
@@ -187,6 +189,7 @@ export default function ExploreDetail() {
                   transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.1 }}
                   style={{ top: photo.top, left: photo.left }}
                   className={`absolute ${photo.size} aspect-[4/3] bg-white p-3 shadow-2xl rounded-sm border border-slate-100 cursor-pointer group`}
+                  onClick={() => setSelectedImage(photo.img)}
                 >
                   <div className="w-full h-full overflow-hidden relative">
                     <img src={photo.img} alt="Public" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -207,6 +210,46 @@ export default function ExploreDetail() {
           </div>
         </section>
       )}
+
+      {/* Image Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors"
+              onClick={() => setSelectedImage(null)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="relative max-w-6xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Zoomed view"
+                className="w-full h-full object-contain rounded-lg shadow-2xl"
+              />
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full">
+                <p className="text-white text-sm font-medium">Click outside to close</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Discover Other Landmarks Gallery (Specifically requested for Grand Square) */}
       <section className="py-24 bg-slate-50">
