@@ -220,8 +220,13 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'calc(100vh - 80px)', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="lg:hidden border-t border-gray-100 bg-white overflow-y-auto">
-            <div className="px-4 py-6 space-y-2">
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }} 
+            animate={{ height: 'auto', opacity: 1 }} 
+            exit={{ height: 0, opacity: 0 }} 
+            className="lg:hidden border-t border-slate-100 bg-white/95 backdrop-blur-xl overflow-hidden shadow-2xl rounded-b-[2.5rem] relative z-40"
+          >
+            <div className="px-6 py-8 space-y-2 pb-12">
               <Link to="/about" className="flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">{t('header.about')} <svg className="w-5 h-5 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>
               
               {/* Mobile Sub-cities */}
