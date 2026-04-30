@@ -1,8 +1,42 @@
 import { useTranslation } from 'react-i18next';
-import { FaBolt, FaLock, FaMobileAlt, FaComments } from 'react-icons/fa';
 
 export default function MobileAppSection() {
   const { t } = useTranslation();
+
+  const features = [
+    { 
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ), 
+      text: 'Instant service access' 
+    },
+    { 
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      ), 
+      text: 'Secure digital documents' 
+    },
+    { 
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ), 
+      text: 'Track applications in real-time' 
+    },
+    { 
+      icon: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+      ), 
+      text: '24/7 support available' 
+    }
+  ];
 
   return (
     <>
@@ -32,17 +66,11 @@ export default function MobileAppSection() {
 
               {/* Features List */}
               <div className="pt-4 space-y-3 max-w-md mx-auto lg:mx-0">
-                {[
-                  { icon: FaBolt, text: 'Instant service access' },
-                  { icon: FaLock, text: 'Secure digital documents' },
-                  { icon: FaMobileAlt, text: 'Track applications in real-time' },
-                  { icon: FaComments, text: '24/7 support available' }
-                ].map((feature, i) => {
-                  const Icon = feature.icon;
+                {features.map((feature, i) => {
                   return (
                     <div key={i} className="flex items-center gap-3 justify-center lg:justify-start">
                       <div className="w-8 h-8 rounded-lg bg-red-50 flex items-center justify-center text-red-600 shrink-0">
-                        <Icon className="w-4 h-4" />
+                        {feature.icon}
                       </div>
                       <span className="text-slate-700 font-medium text-sm sm:text-base">{feature.text}</span>
                     </div>

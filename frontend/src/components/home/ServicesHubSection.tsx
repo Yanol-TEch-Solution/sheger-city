@@ -92,16 +92,9 @@ export default function ServicesHubSection() {
                 }}
                 className="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all flex flex-col h-full perspective-[800px]"
               >
-<<<<<<< HEAD
                 <div className="relative h-44 -mx-8 -mt-8 mb-8 overflow-hidden rounded-t-[2rem]">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-=======
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-red-50 flex items-center justify-center text-red-600 mb-6 sm:mb-8 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                  <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d={service.icon} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
->>>>>>> c3e732c82ed1d0ba68baaff56a88454ed6ae5ab5
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-2 font-display">{service.title}</h4>
                 <p className="text-slate-400 text-[8px] font-black uppercase tracking-widest mb-3 sm:mb-4">{service.count}</p>
