@@ -94,8 +94,8 @@ const VirtualTour = () => {
              ></iframe>
              
              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                <h2 className="text-white text-2xl sm:text-3xl font-bold font-display">Sheger Digital Twin</h2>
-                <p className="text-white/60 text-sm mt-2">Use your mouse or mobile sensors to explore the city in immersive detail.</p>
+                <h2 className="text-white text-xl sm:text-2xl font-bold font-display">Sheger Digital Twin</h2>
+                <p className="text-white/60 text-xs mt-2">Use your mouse or mobile sensors to explore the city in immersive detail.</p>
              </div>
            </motion.div>
         </div>
@@ -105,7 +105,7 @@ const VirtualTour = () => {
       <section className="py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display">Video Spotlights</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display">Video Spotlights</h2>
             <p className="text-slate-500 mt-4">Cinematic fly-throughs of our flagship districts.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
@@ -130,10 +130,10 @@ const VirtualTour = () => {
                   <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
                     {loc.category}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 font-display">
                     {loc.name}
                   </h3>
-                  <p className="text-white/80 text-sm sm:text-base mb-6 max-w-md">
+                  <p className="text-white/80 text-xs sm:text-sm mb-6 max-w-md">
                     {loc.description}
                   </p>
                   <button className="flex items-center gap-2 text-red-400 font-bold hover:text-red-300 transition-colors">

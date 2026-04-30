@@ -30,10 +30,10 @@ const Agriculture = () => {
             </Link>
             <div className="flex flex-col">
               <span className="text-[10px] font-medium text-slate-400 tracking-wider font-sans">Sheger City</span>
-              <span className="font-semibold text-lg tracking-tight text-slate-900 font-display">{t('administrative_options.agriculture')}</span>
+              <span className="font-semibold text-base tracking-tight text-slate-900 font-display">{t('administrative_options.agriculture')}</span>
             </div>
           </div>
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 font-sans">
+          <nav className="hidden lg:flex items-center gap-8 text-xs font-medium text-slate-600 font-sans">
             <a href="#about" className="hover:text-green-600 transition-colors">About Us</a>
             <a href="#services" className="hover:text-green-600 transition-colors">Services</a>
             <a href="#initiatives" className="hover:text-green-600 transition-colors">Initiatives</a>
@@ -50,19 +50,19 @@ const Agriculture = () => {
         
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-left z-10">
-            <motion.div {...fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-sm border border-green-100 text-xs font-medium tracking-wide mb-6 text-green-600 font-sans">
+            <motion.div {...fadeUp} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-sm border border-green-100 text-[10px] font-medium tracking-wide mb-6 text-green-600 font-sans">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
               {t('administrative.official_sector')}
             </motion.div>
             
             <motion.h1 
               {...fadeUp} 
-              className="text-5xl lg:text-7xl font-bold leading-[1.1] font-display mb-6 tracking-tight text-slate-900"
+              className="text-4xl lg:text-6xl font-bold leading-[1.1] font-display mb-6 tracking-tight text-slate-900"
             >{t('administrative_options.agriculture')}</motion.h1>
             
             <motion.p 
               {...fadeUp} 
-              className="text-lg text-slate-600 mb-8 max-w-xl leading-relaxed font-sans"
+              className="text-base text-slate-600 mb-8 max-w-xl leading-relaxed font-sans"
             >
               {t('administrative.about_desc')} 
             </motion.p>
@@ -89,18 +89,18 @@ const Agriculture = () => {
             {/* Floating Stats Card on Hero Image */}
             <div className="absolute bottom-8 left-8 right-8 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/50 flex justify-around">
               <div className="text-center">
-                <div className="text-2xl font-semibold font-display text-green-600">24/7</div>
-                <div className="text-xs font-medium text-slate-500 tracking-wide font-sans">{t('administrative.support')}</div>
+                <div className="text-xl font-semibold font-display text-green-600">24/7</div>
+                <div className="text-[10px] font-medium text-slate-500 tracking-wide font-sans">{t('administrative.support')}</div>
               </div>
               <div className="w-px bg-slate-200"></div>
               <div className="text-center">
-                <div className="text-2xl font-semibold font-display text-green-600">100%</div>
-                <div className="text-xs font-medium text-slate-500 tracking-wide font-sans">{t('administrative.digital')}</div>
+                <div className="text-xl font-semibold font-display text-green-600">100%</div>
+                <div className="text-[10px] font-medium text-slate-500 tracking-wide font-sans">{t('administrative.digital')}</div>
               </div>
               <div className="w-px bg-slate-200"></div>
               <div className="text-center">
-                <div className="text-2xl font-semibold font-display text-green-600">12k+</div>
-                <div className="text-xs font-medium text-slate-500 tracking-wide font-sans">{t('administrative.resolved')}</div>
+                <div className="text-xl font-semibold font-display text-green-600">12k+</div>
+                <div className="text-[10px] font-medium text-slate-500 tracking-wide font-sans">{t('administrative.resolved')}</div>
               </div>
             </div>
           </motion.div>
@@ -111,7 +111,7 @@ const Agriculture = () => {
       <section className="py-16 bg-white border-y border-slate-200 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="md:w-1/3">
-            <h3 className="text-2xl font-semibold font-display text-slate-900 mb-4">Our Mandate</h3>
+            <h3 className="text-xl font-semibold font-display text-slate-900 mb-4">Our Mandate</h3>
             <p className="text-slate-600 font-sans leading-relaxed">
               We operate under the Sheger City Charter to regulate, support, and innovate within our sector, ensuring every citizen receives equitable and rapid assistance.
             </p>
@@ -119,8 +119,8 @@ const Agriculture = () => {
           <div className="md:w-2/3 grid grid-cols-2 lg:grid-cols-4 gap-6">
             {['Active Projects', 'Citizen Inquiries', 'Permits Issued', 'Staff Members'].map((stat, i) => (
               <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:border-green-200 transition-colors">
-                <div className="text-3xl font-semibold font-display text-green-600 mb-2">{Math.floor(Math.random() * 500) + 50}+</div>
-                <div className="text-xs font-medium text-slate-500 tracking-wide font-sans">{stat}</div>
+                <div className="text-2xl font-semibold font-display text-green-600 mb-2">{Math.floor(Math.random() * 500) + 50}+</div>
+                <div className="text-[10px] font-medium text-slate-500 tracking-wide font-sans">{stat}</div>
               </div>
             ))}
           </div>
@@ -131,8 +131,8 @@ const Agriculture = () => {
       <section id="services" className="py-24 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-semibold font-display text-slate-900 mb-4">Department Services</h2>
-            <p className="text-slate-600 font-sans text-lg">Access all online portals, submit official forms securely, and track your applications directly through our modern digital infrastructure.</p>
+            <h2 className="text-3xl font-semibold font-display text-slate-900 mb-4">Department Services</h2>
+            <p className="text-slate-600 font-sans text-base">Access all online portals, submit official forms securely, and track your applications directly through our modern digital infrastructure.</p>
           </div>
           
           <motion.div variants={staggerContainer} initial="initial" whileInView="whileInView" className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -149,9 +149,9 @@ const Agriculture = () => {
                 <div className="w-14 h-14 rounded-2xl bg-green-50 shadow-sm border border-green-100 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-green-100 transition-all text-green-600">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
-                <h3 className="text-xl font-semibold font-display text-slate-900 mb-3">{item.title}</h3>
+                <h3 className="text-lg font-semibold font-display text-slate-900 mb-3">{item.title}</h3>
                 <p className="text-slate-600 font-sans leading-relaxed mb-6">{item.desc}</p>
-                <button className="text-sm font-medium flex items-center gap-2 text-green-600 hover:text-green-700 font-sans tracking-wide">
+                <button className="text-xs font-medium flex items-center gap-2 text-green-600 hover:text-green-700 font-sans tracking-wide">
                   Access Portal <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
               </motion.div>
@@ -165,8 +165,8 @@ const Agriculture = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-semibold font-display text-slate-900 mb-4">{t('administrative.initiatives')}</h2>
-              <p className="text-slate-600 font-sans text-lg">Discover the ongoing projects and transformative programs led by the Urban Agriculture to modernize our city.</p>
+              <h2 className="text-3xl font-semibold font-display text-slate-900 mb-4">{t('administrative.initiatives')}</h2>
+              <p className="text-slate-600 font-sans text-base">Discover the ongoing projects and transformative programs led by the Urban Agriculture to modernize our city.</p>
             </div>
             <button className="px-6 py-3 border border-slate-300 rounded-full font-medium text-slate-700 hover:bg-slate-50 hover:text-green-600 hover:border-green-200 transition-colors font-sans whitespace-nowrap">
               View All Projects
@@ -181,10 +181,10 @@ const Agriculture = () => {
                   <img src={"https://picsum.photos/seed/agriculture-init" + i + "/800/600"} alt="Initiative" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium font-sans tracking-wide">Ongoing</span>
-                  <span className="text-sm text-slate-500 font-sans">Updated 2 days ago</span>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-[10px] font-medium font-sans tracking-wide">Ongoing</span>
+                  <span className="text-xs text-slate-500 font-sans">Updated 2 days ago</span>
                 </div>
-                <h3 className="text-2xl font-semibold font-display text-slate-900 mb-3 group-hover:text-green-600 transition-colors">Digital Transformation Roadmap 2026</h3>
+                <h3 className="text-xl font-semibold font-display text-slate-900 mb-3 group-hover:text-green-600 transition-colors">Digital Transformation Roadmap 2026</h3>
                 <p className="text-slate-600 font-sans">A comprehensive initiative to digitize 100% of internal processes, reducing citizen wait times and increasing transparency across all administrative levels.</p>
               </motion.div>
             ))}
@@ -197,8 +197,8 @@ const Agriculture = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-semibold font-display mb-6">{t('administrative.leadership_title')}</h2>
-              <p className="text-green-100/80 text-lg leading-relaxed mb-8 font-sans">
+              <h2 className="text-3xl font-semibold font-display mb-6">{t('administrative.leadership_title')}</h2>
+              <p className="text-green-100/80 text-base leading-relaxed mb-8 font-sans">
                 Under the guidance of our experienced directors and administrative heads, the Urban Agriculture is committed to ethical governance, rapid innovation, and public accountability.
               </p>
               
@@ -207,13 +207,13 @@ const Agriculture = () => {
                   <img src="https://picsum.photos/seed/agriculture-mayor/400/400" alt="Director" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold font-display mb-1">Ato / W/ro Director Name</h4>
-                  <p className="text-sm font-sans text-green-200 mb-3">Head of Urban Agriculture</p>
+                  <h4 className="text-lg font-semibold font-display mb-1">Ato / W/ro Director Name</h4>
+                  <p className="text-xs font-sans text-green-200 mb-3">Head of Urban Agriculture</p>
                   <div className="flex items-center gap-3">
                     <button className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center hover:bg-white hover:text-green-900 transition-all text-white shadow-md">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                     </button>
-                    <button className="text-sm font-medium font-sans hover:text-white text-green-100 transition-colors">{t('administrative.read_bio')}</button>
+                    <button className="text-xs font-medium font-sans hover:text-white text-green-100 transition-colors">{t('administrative.read_bio')}</button>
                   </div>
                 </div>
               </div>
@@ -228,9 +228,9 @@ const Agriculture = () => {
                   <div className="w-12 h-12 rounded-xl bg-green-800 flex items-center justify-center mb-6 text-green-300">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                   </div>
-                  <h4 className="text-xl font-semibold font-display mb-3">{card.title}</h4>
-                  <p className="text-green-100/60 font-sans text-sm mb-6">{card.desc}</p>
-                  <button className="text-sm font-medium font-sans text-green-300 hover:text-white flex items-center gap-1">
+                  <h4 className="text-lg font-semibold font-display mb-3">{card.title}</h4>
+                  <p className="text-green-100/60 font-sans text-xs mb-6">{card.desc}</p>
+                  <button className="text-xs font-medium font-sans text-green-300 hover:text-white flex items-center gap-1">
                     Explore <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                   </button>
                 </div>
@@ -244,7 +244,7 @@ const Agriculture = () => {
       <footer id="contact" className="bg-green-950 py-16 px-6 border-t border-green-900 text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <h4 className="font-semibold font-display text-2xl mb-4">{t('administrative_options.agriculture')}</h4>
+            <h4 className="font-semibold font-display text-xl mb-4">{t('administrative_options.agriculture')}</h4>
             <p className="text-green-200/60 font-sans max-w-md mb-6">Official administrative department of Sheger City. Committed to excellence, transparency, and serving the public interest.</p>
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-600 transition-colors cursor-pointer border border-white/10 hover:border-transparent">
@@ -282,7 +282,7 @@ const Agriculture = () => {
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto border-t border-green-800/50 mt-12 pt-8 text-center text-green-200/40 font-sans text-sm">
+        <div className="max-w-7xl mx-auto border-t border-green-800/50 mt-12 pt-8 text-center text-green-200/40 font-sans text-xs">
           &copy; {new Date().getFullYear()} Urban Agriculture, Sheger City Administration. All rights reserved.
         </div>
       </footer>

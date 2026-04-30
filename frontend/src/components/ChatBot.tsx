@@ -118,7 +118,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                   <img src="/chatboticon.png" alt="Bot" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">Sheger Assistant</h3>
+                  <h3 className="font-bold text-xs">Sheger Assistant</h3>
                   <p className="text-[10px] text-red-400 font-medium">AI Powered • Online</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
             >
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[85%] p-3 rounded-2xl text-sm ${
+                  <div className={`max-w-[85%] p-3 rounded-2xl text-xs ${
                     msg.role === 'user' 
                       ? 'bg-red-600 text-white rounded-tr-none' 
                       : 'bg-white text-slate-700 shadow-sm border border-slate-100 rounded-tl-none'
@@ -171,7 +171,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything..."
-                className="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
+                className="flex-grow bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all"
               />
               <button
                 type="submit"
