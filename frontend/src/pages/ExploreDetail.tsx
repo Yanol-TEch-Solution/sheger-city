@@ -161,6 +161,54 @@ export default function ExploreDetail() {
         </div>
       </section>
 
+      {/* Public Perspectives Gallery (Rotated scattered images) */}
+      {id === 'grand-square' && (
+        <section className="py-24 bg-white overflow-hidden relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <span className="text-red-600 font-bold tracking-widest uppercase text-[10px] mb-4 block">Community Vibes</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display">Public Perspectives</h2>
+            </div>
+            
+            <div className="relative h-[600px] mt-12">
+              {[
+                { img: '/city-1.jpg', rot: -6, top: '5%', left: '10%', size: 'w-64' },
+                { img: '/city-3.jpg', rot: 8, top: '15%', left: '40%', size: 'w-72' },
+                { img: '/city-4.jpg', rot: -4, top: '10%', left: '70%', size: 'w-60' },
+                { img: '/city-2.jpg', rot: 5, top: '45%', left: '5%', size: 'w-80' },
+                { img: '/city-1.jpg', rot: -7, top: '55%', left: '35%', size: 'w-64' },
+                { img: '/city-3.jpg', rot: 4, top: '50%', left: '65%', size: 'w-72' },
+              ].map((photo, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                  whileInView={{ opacity: 1, scale: 1, rotate: photo.rot }}
+                  whileHover={{ scale: 1.1, rotate: 0, zIndex: 50 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15, delay: i * 0.1 }}
+                  style={{ top: photo.top, left: photo.left }}
+                  className={`absolute ${photo.size} aspect-[4/3] bg-white p-3 shadow-2xl rounded-sm border border-slate-100 cursor-pointer group`}
+                >
+                  <div className="w-full h-full overflow-hidden relative">
+                    <img src={photo.img} alt="Public" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors" />
+                  </div>
+                  <div className="mt-3 flex items-center justify-between">
+                    <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">@sheger_citizen</span>
+                    <svg className="w-3 h-3 text-red-500 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Ambient background text */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-black text-slate-50 select-none -z-0 opacity-40">
+            HERITAGE
+          </div>
+        </section>
+      )}
+
       {/* Discover Other Landmarks Gallery (Specifically requested for Grand Square) */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
