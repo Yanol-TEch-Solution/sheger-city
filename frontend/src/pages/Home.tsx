@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import CityFlashCards from "../components/CityFlashCards";
 
 
@@ -22,6 +22,7 @@ const SLIDESHOW_IMAGES = [
 const Home = () => {
   const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showVideoPopup, setShowVideoPopup] = useState(false);
   const [weather, setWeather] = useState<{ temp: number; desc: string } | null>(
     null,
   );
@@ -214,6 +215,27 @@ const Home = () => {
                 </span>
               </div>
             </div>
+
+            {/* City Live Preview Thumbnail Button */}
+            <div className="mt-4 flex justify-start">
+              <button 
+                onClick={() => setShowVideoPopup(true)}
+                className="group relative flex items-center gap-3 px-2 pr-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 rounded-full transition-all duration-300 hover:-translate-y-1 shadow-[0_0_30px_rgba(0,0,0,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]"
+              >
+                <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/20 group-hover:border-red-400 transition-colors">
+                  <video src="/sheger-city.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover scale-150 group-hover:scale-100 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                    <div className="w-5 h-5 rounded-full bg-red-500/80 flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(239,68,68,0.4)]">
+                      <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col items-start text-left">
+                  <span className="text-[10px] font-bold text-white uppercase tracking-widest leading-none mb-1">Live City</span>
+                  <span className="text-[8px] text-white/50 uppercase tracking-wider leading-none">Preview</span>
+                </div>
+              </button>
+            </div>
           </motion.div>
         )}
 
@@ -273,7 +295,7 @@ const Home = () => {
               {t("home.hero.badge")}
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 leading-[1.1] tracking-tight text-white font-display">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 leading-[1.15] tracking-tight text-white font-display">
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -307,7 +329,7 @@ const Home = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: false }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-12 max-w-lg leading-relaxed font-medium"
+              className="text-sm sm:text-base md:text-lg text-white/80 mb-8 sm:mb-10 max-w-xl leading-relaxed font-medium"
             >
               {t("home.hero.subtitle")}
             </motion.p>
@@ -338,6 +360,8 @@ const Home = () => {
                   />
                 </svg>
               </Link>
+
+
             </motion.div>
           </motion.div>
         </div>
@@ -423,7 +447,7 @@ const Home = () => {
             transition={{ duration: 1.2 }}
             className="text-center mb-16 sm:mb-24 relative"
           >
-            <h2 className="inline-block text-3xl sm:text-5xl font-bold tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
+            <h2 className="inline-block text-2xl sm:text-4xl font-bold tracking-widest uppercase mb-6 bg-slate-50 px-4 sm:px-8 relative z-10 text-slate-900 leading-tight font-display">
               {t("home.leadership.title")}
             </h2>
             <div className="absolute top-1/2 left-0 right-0 h-px bg-slate-200 -translate-y-1/2 z-0 hidden sm:block"></div>
@@ -477,7 +501,7 @@ const Home = () => {
                   <div className="text-red-600 font-bold tracking-widest text-[10px] sm:text-xs mb-3 uppercase">
                     {person.title}
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-900 font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-slate-900 font-display">
                     {person.name}
                   </h3>
                   <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
@@ -506,7 +530,7 @@ const Home = () => {
               <h2 className="text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase text-red-500 mb-4">
                 {t("home.explore.badge")}
               </h2>
-              <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
                 {t("home.explore.title")}
               </h3>
             </div>
@@ -544,7 +568,7 @@ const Home = () => {
                 <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 inline-block">
                   {t("home.explore.heritage_badge")}
                 </span>
-                <h4 className="text-2xl sm:text-4xl font-bold text-white mb-2 font-display">
+                <h4 className="text-xl sm:text-3xl font-bold text-white mb-2 font-display">
                   {t("home.explore.grand_square")}
                 </h4>
                 <p className="text-white/80 max-w-md text-sm sm:text-base">
@@ -602,7 +626,7 @@ const Home = () => {
               <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
                 {t("home.services_hub.badge")}
               </h2>
-              <h3 className="text-4xl sm:text-6xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight font-display">
                 {t("home.services_hub.title")}
               </h3>
             </div>
@@ -689,7 +713,7 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent"></div>
             <div className="relative z-10 flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
-                <h4 className="text-3xl sm:text-5xl font-bold text-white mb-6 font-display">
+                <h4 className="text-2xl sm:text-4xl font-bold text-white mb-6 font-display">
                   {t("home.services_hub.one_platform")}
                 </h4>
                 <p className="text-slate-400 text-lg mb-10 leading-relaxed">
@@ -790,7 +814,7 @@ const Home = () => {
                 <h2 className="text-red-600 font-bold tracking-[0.2em] uppercase text-sm mb-4">
                   {t("home.mobile_app.badge")}
                 </h2>
-                <h3 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-8 font-display">
+                <h3 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6 font-display">
                   {t("home.mobile_app.title")} <span className="text-red-600">{t("home.mobile_app.subtitle")}</span>
                 </h3>
                 <p className="text-slate-600 text-lg mb-10 leading-relaxed">
@@ -832,6 +856,40 @@ const Home = () => {
            </div>
         </div>
       </section>
+
+      {/* Video Popup Modal */}
+      <AnimatePresence>
+        {showVideoPopup && (
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 sm:p-8"
+            onClick={() => setShowVideoPopup(false)}
+          >
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }} 
+              animate={{ scale: 1, opacity: 1 }} 
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10"
+              onClick={e => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setShowVideoPopup(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+              <video 
+                src="/sheger-city.mp4" 
+                controls 
+                autoPlay 
+                className="w-full h-full object-cover" 
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
