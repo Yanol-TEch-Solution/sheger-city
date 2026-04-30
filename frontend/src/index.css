@@ -175,4 +175,13 @@ body {
   .city-glass {
     @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
   }
+
+  /* Custom Scrollbar Hiding */
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
 }
