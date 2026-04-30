@@ -70,7 +70,7 @@ const Contact = () => {
           transition={{ duration: 12, repeat: Infinity }}
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 w-full">
           <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
             <span className="w-10 h-px bg-red-400/50" />
             {t('contact.hero_desc')}
@@ -89,212 +89,163 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ─── Quick Contact Cards ─── */}
-      <section className="py-16 bg-slate-50 border-b border-slate-100">
+      {/* ─── Integrated Contact & Map ─── */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: t('contact.call_us'), value: '+251 11 123 4567', sub: `${t('contact.mon_fri')}, 8AM–5PM`, color: 'red' },
-              { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: t('contact.email_us'), value: 'info@shegercity.gov.et', sub: t('contact.message_success_desc'), color: 'red' },
-              { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: t('contact.visit_us'), value: 'Legetafo-Legedadi', sub: 'Sheger City, Ethiopia', color: 'emerald' },
-            ].map((card, i) => (
-              <motion.div key={card.label} {...fadeUp(i * 0.1)} className="bg-white rounded-2xl border border-slate-100 p-7 shadow-sm hover:shadow-lg transition-all text-center group">
-                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mx-auto mb-5 transition-all group-hover:scale-110 ${colorRing[card.color]}`}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={card.icon} /></svg>
-                </div>
-                <div className="text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-1">{card.label}</div>
-                <div className="text-slate-900 font-bold text-sm mb-1">{card.value}</div>
-                <div className="text-[10px] text-slate-400">{card.sub}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Map + Form ─── */}
-      <section className="py-24 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-
-            {/* Map */}
-            <motion.div {...fadeUp(0)}>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.location_badge')}</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-6">
-                {t('contact.location_title')}
-              </h2>
-              <p className="text-slate-500 mb-6 leading-relaxed">
-                {t('contact.location_desc')}
-              </p>
-
-              {/* Google Maps embed — exact pin from shared link */}
-              <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-xl">
-                {/* Label bar above the map */}
-                <div className="flex items-center justify-between bg-slate-900 px-4 py-3">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    <span className="text-white text-xs font-bold truncate">{t('contact.offices.main.name')}</span>
-                  </div>
-                  <a
-                    href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ml-3 shrink-0 text-[10px] font-semibold uppercase tracking-widest bg-red-600 text-white px-3 py-1.5 rounded-full hover:bg-red-500 transition-colors"
-                  >
-                    {t('contact.open_maps')}
-                  </a>
-                </div>
-                <iframe
-                  title="Sheger City Administration Mayor's Office"
-                  src="https://maps.google.com/maps?q=8.9717114,38.7636713&z=17&output=embed"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0, display: 'block' }}
-                  loading="lazy"
-                  allowFullScreen
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-
-              {/* Open in Google Maps link */}
-              <a
-                href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1 text-[10px] text-slate-400 hover:text-red-600 transition-colors"
-              >
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                {t('contact.open_maps')}
-              </a>
-            </motion.div>
-
-            {/* Contact Form */}
-            <motion.div {...fadeUp(0.2)}>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.message_badge')}</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-6">
-                {t('contact.message_title')}
-              </h2>
-
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-emerald-50 border border-emerald-200 rounded-3xl p-12 text-center"
-                >
-                  <div className="text-4xl mb-4">✅</div>
-                  <h3 className="text-xl font-semibold text-emerald-800 font-display mb-2">{t('contact.message_success')}</h3>
-                  <p className="text-emerald-600">{t('contact.message_success_desc')}</p>
-                  <button onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }); }} className="mt-6 px-6 py-3 bg-emerald-600 text-white font-bold rounded-full hover:bg-emerald-700 transition-all">
-                    {t('contact.form.another')}
-                  </button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            {/* Left: Contact Info & Offices (5 cols) */}
+            <div className="lg:col-span-5 space-y-16">
+              <div>
+                <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-[10px] font-bold text-red-600 mb-6">
+                  <span className="w-8 h-px bg-red-600" />
+                  {t('contact.hero_desc')}
                 </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.name')} *</label>
-                      <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
-                        placeholder={t('contact.form.name')}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
-                      />
+                <h2 className="text-3xl sm:text-5xl font-black text-slate-900 font-display tracking-tight mb-8 leading-tight">
+                  {t('contact.location_title')}
+                </h2>
+                
+                <div className="space-y-10">
+                  {/* Global Channels */}
+                  <div className="space-y-6">
+                    <div className="flex gap-6 group">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{t('contact.call_us')}</h4>
+                        <p className="text-slate-900 font-bold text-lg">+251 11 123 4567</p>
+                        <p className="text-[10px] text-slate-500 mt-1">{t('contact.mon_fri')}, 8AM–5PM</p>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.email')} *</label>
-                      <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
-                        placeholder="your@email.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
-                      />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.phone')}</label>
-                      <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
-                        placeholder="+251 911 XXX XXX"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.subject')} *</label>
-                      <select required value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
-                      >
-                        <option value="">{t('contact.form.subject')}</option>
-                        <option>General Inquiry</option>
-                        <option>Service Request</option>
-                        <option>Complaint</option>
-                        <option>Feedback</option>
-                        <option>Investment & Business</option>
-                        <option>Media & Press</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-2">{t('contact.form.message')} *</label>
-                    <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-                      placeholder={t('contact.form.message')}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all resize-none"
-                    />
-                  </div>
-                  <button type="submit"
-                    className="w-full py-4 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-all shadow-xl shadow-red-600/20 hover:-translate-y-0.5 active:scale-95 flex items-center justify-center gap-2 group"
-                  >
-                    {t('contact.form.send')}
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-                  </button>
-                </form>
-              )}
-            </motion.div>
 
-          </div>
-        </div>
-      </section>
+                    <div className="flex gap-6 group">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                      </div>
+                      <div>
+                        <h4 className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{t('contact.email_us')}</h4>
+                        <p className="text-slate-900 font-bold text-lg">info@shegercity.gov.et</p>
+                        <p className="text-[10px] text-slate-500 mt-1">24/7 Digital Support</p>
+                      </div>
+                    </div>
+                  </div>
 
-      {/* ─── Office Locations ─── */}
-      <section className="py-24 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp(0)} className="text-center mb-14">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('contact.office_network')}</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('contact.office_network_title')}</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {OFFICES.map((office, i) => (
-              <motion.div key={office.name} {...fadeUp(i * 0.1)} whileHover={{ y: -6 }} className="bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mb-6 ${colorRing[office.color]}`}>
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={office.icon} /></svg>
+                  <div className="h-px w-full bg-slate-100" />
+
+                  {/* Office Network */}
+                  <div className="space-y-8">
+                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-900">{t('contact.office_network')}</h3>
+                    <div className="space-y-8">
+                      {OFFICES.map((office, idx) => (
+                        <motion.div key={idx} {...fadeUp(idx * 0.1)} className="group cursor-default">
+                          <div className="flex items-start gap-6">
+                            <div className="mt-1 w-2 h-2 rounded-full bg-red-600 shrink-0 group-hover:scale-150 transition-transform" />
+                            <div className="flex-1">
+                              <h5 className="font-bold text-slate-900 mb-2 font-display">{office.name}</h5>
+                              <div className="grid grid-cols-1 gap-2">
+                                <a href={office.mapUrl} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-xs text-slate-500 hover:text-red-600 transition-colors">
+                                  <svg className="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                  <span className="leading-relaxed underline decoration-slate-200 underline-offset-4 decoration-1">{office.address}</span>
+                                </a>
+                                <div className="flex items-center gap-2 text-xs text-slate-500 pl-6">
+                                  <span>{office.hours}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-base font-semibold text-slate-900 font-display mb-4">{office.name}</h3>
-                <div className="space-y-3 text-xs text-slate-500">
-                  <a
-                    href={office.mapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-2 group/loc hover:text-red-600 transition-colors"
-                    title={t('contact.open_maps')}
-                  >
-                    <svg className="w-4 h-4 mt-0.5 shrink-0 text-slate-400 group-hover/loc:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    <span className="group-hover/loc:underline">{office.address}</span>
-                  </a>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                    <span>{office.phone}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                    <span>{office.email}</span>
-                  </div>
-                  <div className="flex items-start gap-2 pt-2 border-t border-slate-100">
-                    <svg className="w-4 h-4 mt-0.5 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span className="whitespace-pre-line">{office.hours}</span>
+              </div>
+            </div>
+
+            {/* Right: Map & Form (7 cols) */}
+            <div className="lg:col-span-7 space-y-12">
+              {/* Map Embed */}
+              <motion.div {...fadeUp(0.2)} className="relative group">
+                <div className="absolute -inset-4 bg-slate-50 rounded-[3rem] -z-10 transition-colors group-hover:bg-red-50" />
+                <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-video relative">
+                  <iframe
+                    title="Sheger City Administration Mayor's Office"
+                    src="https://maps.google.com/maps?q=8.9717114,38.7636713&z=17&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  />
+                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between pointer-events-none">
+                    <div className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg border border-white/20 pointer-events-auto">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-900 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                        Administration Hub
+                      </span>
+                    </div>
+                    <a href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6" target="_blank" rel="noopener noreferrer" className="bg-slate-900 text-white px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-red-600 transition-all pointer-events-auto">
+                      Route
+                    </a>
                   </div>
                 </div>
               </motion.div>
-            ))}
+
+              {/* Message Form */}
+              <motion.div {...fadeUp(0.4)} className="bg-slate-50 rounded-[3rem] p-8 sm:p-12 border border-slate-100">
+                <div className="max-w-xl">
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-red-600 mb-3">{t('contact.message_badge')}</p>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight mb-8">
+                    {t('contact.message_title')}
+                  </h3>
+
+                  {submitted ? (
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-10">
+                      <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7"/></svg>
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900 mb-2">{t('contact.message_success')}</h4>
+                      <p className="text-slate-500 text-sm mb-8">{t('contact.message_success_desc')}</p>
+                      <button onClick={() => setSubmitted(false)} className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-red-600 transition-all">
+                        New Message
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-1">{t('contact.form.name')}</label>
+                          <input required type="text" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="w-full px-6 py-4 bg-white border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all text-sm font-medium" />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-1">{t('contact.form.email')}</label>
+                          <input required type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} className="w-full px-6 py-4 bg-white border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all text-sm font-medium" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-1">{t('contact.form.subject')}</label>
+                        <select required value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} className="w-full px-6 py-4 bg-white border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all text-sm font-medium appearance-none">
+                          <option value="">Select Category</option>
+                          <option>General Inquiry</option>
+                          <option>Municipal Service</option>
+                          <option>Investment Support</option>
+                          <option>Media Inquiry</option>
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-1">{t('contact.form.message')}</label>
+                        <textarea required rows={4} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full px-6 py-4 bg-white border border-slate-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all text-sm font-medium resize-none" />
+                      </div>
+                      <button type="submit" className="w-full py-5 bg-red-600 text-white font-black uppercase tracking-widest text-[11px] rounded-2xl shadow-xl shadow-red-600/20 hover:bg-red-700 transition-all hover:-translate-y-1">
+                        {t('contact.form.send')}
+                      </button>
+                    </form>
+                  )}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
-
 
     </div>
   );
