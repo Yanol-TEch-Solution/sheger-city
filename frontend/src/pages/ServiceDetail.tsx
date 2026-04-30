@@ -3,35 +3,30 @@ import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-// This would normally be in a central data file
 const SERVICES = [
   {
-    id: "trade-license",
+    id: "business-permit",
     category: "Business & Economy",
-    title: "Trade License",
+    title: "Business Permit Application",
     status: "Active",
     processingTime: "3 - 5 Days",
     serviceFee: "500 ETB",
-    version: "1.0",
-    lastUpdated: "May 20, 2024",
     description: "This service enables businesses to obtain or renew their trade license issued by Sheger City Administration. A trade license is mandatory for all business operations within the city.",
     process: [
-      { step: 1, title: "Application Submission", office: "Revenue Office", info: "Submit your application form along with all required documents at the Revenue Office.", location: "Sheger City Revenue Office, 2nd Floor", phone: "011-123-4567" },
-      { step: 2, title: "Payment", office: "Cashier Office", info: "Pay the required fee at the designated cashier.", location: "Sheger City Cashier, 1st Floor", phone: "011-765-4321" },
-      { step: 3, title: "Inspection (If Required)", office: "Inspection Office", info: "An inspection may be conducted for certain business types.", location: "Sheger City Inspection Office", phone: "011-222-3333" },
-      { step: 4, title: "Approval & License Issuance", office: "Revenue Office", info: "Your application will be reviewed and the trade license will be issued.", location: "Sheger City Revenue Office, 2nd Floor", phone: "011-123-4567" }
+      { step: 1, title: "Application Submission", office: "Revenue Office", info: "Submit your application form along with all required documents." },
+      { step: 2, title: "Payment", office: "Cashier Office", info: "Pay the required fee at the designated cashier." },
+      { step: 3, title: "Approval & Issuance", office: "Revenue Office", info: "Your application will be reviewed and the license will be issued." }
     ],
     documents: [
-      { name: "National ID Copy", type: "PDF, JPG, PNG (Max 2MB)", required: true },
-      { name: "Business Registration Certificate", type: "PDF (Max 2MB)", required: true },
-      { name: "Tax Identification Number (TIN)", type: "PDF (Max 2MB)", required: true },
-      { name: "Application Form", type: "PDF (Max 2MB)", required: true },
-      { name: "Lease Agreement (If Rented)", type: "PDF (Max 2MB)", required: false }
+      { name: "National ID Copy", required: true },
+      { name: "Business Registration Certificate", required: true },
+      { name: "Tax Identification Number (TIN)", required: true },
+      { name: "Application Form", required: true }
     ],
+    officeLocation: "Revenue Office, Main Admin Building, 2nd Floor",
     support: {
       phone: "011-111-2222",
-      email: "support@shegercity.gov.et",
-      hours: "Mon - Fri: 8:00 AM - 5:00 PM"
+      email: "support@shegercity.gov.et"
     }
   },
   {
@@ -41,23 +36,21 @@ const SERVICES = [
     status: "Active",
     processingTime: "1 - 2 Days",
     serviceFee: "50 ETB",
-    version: "1.2",
-    lastUpdated: "April 15, 2024",
     description: "Request a new birth certificate or a certified true copy. This is required for various administrative processes and personal identification.",
     process: [
-      { step: 1, title: "Biometric Verification", office: "Vital Events Desk", info: "Verify parents' identity using biometric records.", location: "Main Administration Building", phone: "011-333-4444" },
-      { step: 2, title: "Form Completion", office: "Civil Status Office", info: "Fill in the required birth details accurately.", location: "Civil Status Dept, Ground Floor", phone: "011-333-4445" },
-      { step: 3, title: "Issuance", office: "Issuing Desk", info: "Collect your printed and sealed certificate.", location: "Main Hall, Counter 4", phone: "011-333-4446" }
+      { step: 1, title: "Identity Verification", office: "Vital Events Desk", info: "Verify parents' identity using biometric records." },
+      { step: 2, title: "Form Completion", office: "Civil Status Office", info: "Fill in the required birth details accurately." },
+      { step: 3, title: "Issuance", office: "Issuing Desk", info: "Collect your printed and sealed certificate." }
     ],
     documents: [
-      { name: "Hospital Notification", type: "Original Copy", required: true },
-      { name: "Parents' Identification", type: "Valid ID Cards", required: true },
-      { name: "Marriage Certificate", type: "Copy (Optional)", required: false }
+      { name: "Hospital Notification", required: true },
+      { name: "Parents' Identification", required: true },
+      { name: "Marriage Certificate", required: false }
     ],
+    officeLocation: "Vital Events Desk, Ground Floor, Counter 4",
     support: {
       phone: "011-333-0000",
-      email: "vital.events@shegercity.gov.et",
-      hours: "Mon - Fri: 8:00 AM - 4:00 PM"
+      email: "vital.events@shegercity.gov.et"
     }
   }
 ];
@@ -65,260 +58,179 @@ const SERVICES = [
 const ServiceDetail = () => {
   const { id } = useParams();
   const { t } = useTranslation();
-
-  const [activeTab, setActiveTab] = useState("overview");
+  const [applyMethod, setApplyMethod] = useState<"online" | "person" | null>(null);
   
-  // Find the service by ID or default to the first one
   const service = SERVICES.find(s => s.id === id) || SERVICES[0];
-  const tKey = `service_detail.services_data.${service.id.replace('-', '_')}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans pb-24">
-      <section className="relative pt-20 pb-20 px-6 overflow-hidden">
-        {/* Background Image Layer */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url('/city-1.jpg')` }}
-        >
-          {/* Overlay Layer */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#001529]/95 via-[#001529]/90 to-[#001529]/95"></div>
-        </div>
+    <div className="min-h-screen bg-white font-sans pt-20">
+      {/* ─── Breadcrumb ─── */}
+      <div className="max-w-5xl mx-auto px-6 py-4">
+        <Link to="/services" className="text-xs font-bold text-slate-400 hover:text-emerald-600 transition-colors flex items-center gap-2 uppercase tracking-widest">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+          Back to Services
+        </Link>
+      </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <Link 
-            to="/services" 
-            className="inline-flex items-center gap-2 text-red-400 hover:text-white transition-colors mb-6 city-label group"
+      {/* ─── Header ─── */}
+      <header className="max-w-5xl mx-auto px-6 py-8 border-b border-slate-50">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="px-3 py-1 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                {service.status}
+              </span>
+              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                {service.category}
+              </span>
+            </div>
+            <h1 className="text-3xl md:text-5xl font-black text-black leading-tight">
+              {service.title}
+            </h1>
+          </div>
+          <div className="flex flex-wrap gap-3">
+             <button 
+                onClick={() => setApplyMethod("online")}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg shadow-emerald-600/20 active:scale-95"
+             >
+                Apply Online
+             </button>
+             <button 
+                onClick={() => setApplyMethod("person")}
+                className="bg-black hover:bg-slate-900 text-white px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg active:scale-95"
+             >
+                In Person
+             </button>
+          </div>
+        </div>
+      </header>
+
+      {/* ─── Application Method Info ─── */}
+      <AnimatePresence mode="wait">
+        {applyMethod && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="max-w-5xl mx-auto px-6 pt-8 overflow-hidden"
           >
-            <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
-            </svg>
-            {t('service_detail.back')}
-          </Link>
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-4xl text-left">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="px-4 py-1.5 bg-red-600 text-white city-label rounded-lg shadow-2xl shadow-red-600/40">
-                  {t(`${tKey}.status`, { defaultValue: service.status })}
-                </div>
-                <div className="h-px w-12 bg-red-500/30"></div>
-                <span className="text-red-400 city-label">{t(`${tKey}.category`, { defaultValue: service.category })}</span>
+            <div className={`p-8 rounded-3xl border-2 flex flex-col md:flex-row items-center justify-between gap-8 ${applyMethod === "online" ? "border-emerald-100 bg-emerald-50/30" : "border-slate-100 bg-slate-50"}`}>
+              <div className="space-y-2">
+                <h3 className={`text-sm font-black uppercase tracking-widest ${applyMethod === "online" ? "text-emerald-600" : "text-black"}`}>
+                  {applyMethod === "online" ? "Starting Online Application" : "In-Person Application Requirements"}
+                </h3>
+                <p className="text-slate-600 text-sm max-w-xl">
+                  {applyMethod === "online" 
+                    ? "Prepare your digital documents for upload. You can complete the entire process from your device."
+                    : `Please visit our office at: ${service.officeLocation}. Bring all required original documents.`}
+                </p>
               </div>
-              <h1 className="city-h1 text-white mb-8">
-                {t(`${tKey}.title`, { defaultValue: service.title })}
-              </h1>
-              <p className="city-body-lg text-slate-300 max-w-3xl">
-                {t('service_detail.apply_online', { service: service.title.toLowerCase() })}
-              </p>
+              <div className="flex gap-4 shrink-0">
+                <button className={`px-8 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${applyMethod === "online" ? "bg-emerald-600 text-white" : "bg-black text-white"}`}>
+                  {applyMethod === "online" ? "Continue to Form" : "Download Form"}
+                </button>
+                <button onClick={() => setApplyMethod(null)} className="px-6 py-3 bg-white text-slate-400 font-bold text-[10px] uppercase tracking-widest rounded-xl border border-slate-200">
+                  Cancel
+                </button>
+              </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-            <div className="flex items-center gap-4">
-              <button className="px-10 py-5 bg-red-600 text-white rounded-2xl font-bold text-sm hover:bg-red-700 transition-all shadow-2xl shadow-red-600/30 active:scale-95">
-                {t('service_detail.start_app')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {/* ─── Main Content ─── */}
+      <main className="max-w-5xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           
-          {/* Left Column: Details */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Quick Stats */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="space-y-1">
-                <p className="text-sm font-bold text-slate-400 flex items-center gap-1.5">
-                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                   {t('service_detail.processing_time')}
-                </p>
-                <p className="text-lg font-bold text-slate-800">{service.processingTime}</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-sm font-bold text-slate-400 flex items-center gap-1.5">
-                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                   {t('service_detail.service_fee')}
-                </p>
-                <p className="text-lg font-bold text-slate-800">{service.serviceFee}</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
-                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                   {t('service_detail.version')}
-                </p>
-                <p className="text-lg font-bold text-slate-800">{service.version}</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
-                   <svg className="w-3 h-3 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                   {t('service_detail.last_updated')}
-                </p>
-                <p className="text-lg font-bold text-slate-800">{service.lastUpdated}</p>
-              </div>
-            </div>
+          {/* Left: Info & Steps */}
+          <div className="lg:col-span-2 space-y-12">
+            <section>
+              <h2 className="text-xs font-black text-black uppercase tracking-[0.2em] mb-4">Description</h2>
+              <p className="text-slate-600 text-lg leading-relaxed font-medium">
+                {service.description}
+              </p>
+            </section>
 
-            {/* Tabs Content */}
-            <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
-              <div className="flex border-b border-slate-100 bg-slate-50/50">
-                {[
-                  { id: "overview", label: t('service_detail.tabs.overview') },
-                  { id: "steps", label: t('service_detail.tabs.steps') },
-                  { id: "docs", label: t('service_detail.tabs.docs') },
-                  { id: "related", label: t('service_detail.tabs.related') }
-                ].map(tab => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-6 py-4 text-xs font-bold uppercase tracking-widest transition-all relative ${activeTab === tab.id ? "text-blue-600 bg-white" : "text-slate-400 hover:text-slate-600"}`}
-                  >
-                    {tab.label}
-                    {activeTab === tab.id && (
-                      <motion.div layoutId="activeTabUnderline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600" />
-                    )}
-                  </button>
-                ))}
-              </div>
-              
-              <div className="p-8">
-                <AnimatePresence mode="wait">
-                  {activeTab === "overview" && (
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="space-y-8">
-                      <div>
-                        <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">{t('service_detail.description')}</h3>
-                        <p className="text-slate-600 text-base leading-relaxed">{t(`${tKey}.description`, { defaultValue: service.description })}</p>
+            <section>
+              <h2 className="text-xs font-black text-black uppercase tracking-[0.2em] mb-8">Process Overview</h2>
+              <div className="space-y-6">
+                {service.process.map((p, idx) => (
+                  <div key={idx} className="flex gap-6 group">
+                    <div className="flex flex-col items-center">
+                      <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center text-xs font-black shrink-0 z-10 group-hover:bg-emerald-600 transition-colors">
+                        {p.step}
                       </div>
-                      
-                      <div>
-                        <h3 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-8">{t('service_detail.process')}</h3>
-                        <div className="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
-                          {service.process.map((p, idx) => (
-                            <div key={idx} className="flex gap-6 relative">
-                              <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 relative z-10 shadow-sm ${idx === 0 ? "bg-[#001529] text-white" : "bg-white border border-slate-200 text-slate-400"}`}>
-                                {p.step}
-                              </div>
-                              <div className="space-y-3 flex-1 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
-                                <div className="flex items-center gap-3">
-                                  <h4 className="text-sm font-bold text-slate-900">{t(`${tKey}.process.${idx}.title`, { defaultValue: p.title })}</h4>
-                                  <span className="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-md uppercase tracking-tight">{t(`${tKey}.process.${idx}.office`, { defaultValue: p.office })}</span>
-                                </div>
-                                <p className="text-slate-600 text-sm leading-relaxed">{t(`${tKey}.process.${idx}.info`, { defaultValue: p.info })}</p>
-                                <div className="flex flex-wrap gap-4 pt-2">
-                                  <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400">
-                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                    {t(`${tKey}.process.${idx}.location`, { defaultValue: p.location })}
-                                  </div>
-                                  <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400">
-                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                    {p.phone}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="p-4 bg-amber-50 rounded-xl border border-amber-100 flex gap-4">
-                        <div className="w-8 h-8 bg-amber-500 text-white rounded-full flex items-center justify-center shrink-0">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        </div>
-                        <div>
-                          <p className="text-xs font-black text-amber-900 uppercase tracking-widest mb-1">{t('service_detail.important_note')}</p>
-                          <p className="text-sm text-amber-700">{t('service_detail.important_desc')}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Sidebar */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 space-y-6">
-              <h3 className="text-[11px] font-black text-slate-900 uppercase tracking-[0.2em] border-b border-slate-50 pb-4">{t('service_detail.summary')}</h3>
-              <div className="space-y-4">
-                {[
-                  { label: t('service_detail.processing_time'), value: service.processingTime, icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
-                  { label: t('service_detail.service_fee'), value: service.serviceFee, icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
-                  { label: t('service_detail.version'), value: service.version, icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" },
-                  { label: t('service_detail.last_updated'), value: service.lastUpdated, icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between">
-                    <span className="text-xs text-slate-400 font-bold uppercase tracking-wider flex items-center gap-2">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
-                      {item.label}
-                    </span>
-                    <span className="text-sm font-bold text-slate-700">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button className="w-full py-4 bg-[#001529] text-white font-black uppercase tracking-widest text-[11px] rounded-xl shadow-lg shadow-blue-900/20 active:scale-95 transition-all">
-                {t('service_detail.apply_btn')}
-              </button>
-              
-              <button className="w-full py-3 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-slate-50 transition-all">
-                <svg className="w-3.5 h-3.5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118l-3.976-2.888a1 1 0 00-1.175 0l-3.976 2.888c-.784.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
-                {t('service_detail.favorites')}
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 space-y-6">
-              <h3 className="text-[11px] font-black text-slate-900 uppercase tracking-[0.2em] border-b border-slate-50 pb-4">{t('service_detail.req_docs')}</h3>
-              <div className="space-y-4">
-                {service.documents.map((doc, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                      {idx !== service.process.length - 1 && (
+                        <div className="w-px h-full bg-slate-100 my-1"></div>
+                      )}
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-bold text-slate-700 leading-tight">{t(`${tKey}.docs.${idx}.name`, { defaultValue: doc.name })}</p>
-                        <span className={`text-[9px] font-black px-2 py-0.5 rounded uppercase ${doc.required ? "bg-red-50 text-red-600" : "bg-slate-50 text-slate-400"}`}>
-                          {doc.required ? "Req" : "Opt"}
+                    <div className="pb-8">
+                      <div className="flex items-center gap-3 mb-1">
+                        <h4 className="text-base font-black text-black">{p.title}</h4>
+                        <span className="text-[9px] font-black text-emerald-600 uppercase tracking-widest bg-emerald-50 px-2 py-0.5 rounded-md">
+                          {p.office}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-400 mt-0.5">{t(`${tKey}.docs.${idx}.type`, { defaultValue: doc.type })}</p>
+                      <p className="text-sm text-slate-500 leading-relaxed">
+                        {p.info}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
+          </div>
 
-            <div className="bg-white rounded-2xl p-6 shadow-xl shadow-slate-200/50 border border-slate-100 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          {/* Right: Requirements & Stats */}
+          <div className="space-y-8">
+            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 space-y-6">
+              <div className="grid grid-cols-1 gap-6">
+                <div>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Processing Time</p>
+                  <p className="text-xl font-black text-black">{service.processingTime}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-black text-slate-900 leading-tight uppercase tracking-widest">{t('service_detail.need_help')}</h3>
-                  <p className="text-xs text-slate-500">{t('service_detail.support_desc')}</p>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Service Fee</p>
+                  <p className="text-xl font-black text-emerald-600">{service.serviceFee}</p>
                 </div>
               </div>
-              <div className="space-y-3">
-                {[
-                  { label: t('service_detail.call'), value: service.support.phone, icon: "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" },
-                  { label: t('service_detail.email'), value: service.support.email, icon: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
-                  { label: t('service_detail.hours'), value: service.support.hours, icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 text-sm text-slate-600">
-                    <svg className="w-4 h-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} /></svg>
-                    {item.value}
-                  </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm space-y-6">
+              <h3 className="text-xs font-black text-black uppercase tracking-[0.2em] border-b border-slate-50 pb-4">Required Documents</h3>
+              <ul className="space-y-4">
+                {service.documents.map((doc, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className={`mt-1 w-4 h-4 rounded-full border-2 flex items-center justify-center ${doc.required ? "border-emerald-600 bg-emerald-600" : "border-slate-200"}`}>
+                      {doc.required && (
+                        <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M5 13l4 4L19 7" /></svg>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-slate-700 leading-tight">{doc.name}</p>
+                      <p className="text-[10px] text-slate-400 mt-0.5">{doc.required ? "Mandatory" : "Optional"}</p>
+                    </div>
+                  </li>
                 ))}
+              </ul>
+            </div>
+
+            <div className="p-8 bg-black text-white rounded-3xl space-y-4">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em]">Support</h3>
+              <div className="space-y-2 pt-2">
+                <a href={`tel:${service.support.phone}`} className="flex items-center gap-3 text-sm font-bold hover:text-emerald-600 transition-colors">
+                  <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  {service.support.phone}
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

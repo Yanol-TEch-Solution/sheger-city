@@ -102,45 +102,9 @@ const Header = () => {
 
 
 
-            <div className="relative" onMouseEnter={() => setActiveDropdown('services')} onMouseLeave={() => setActiveDropdown(null)}>
-              <button className={`${linkClasses(activeDropdown === 'services')} flex items-center gap-1`}>
-                {t('header.services')}
-                <motion.svg animate={{ rotate: activeDropdown === 'services' ? 180 : 0 }} className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></motion.svg>
-              </button>
-              <AnimatePresence>
-                {activeDropdown === 'services' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="fixed left-0 right-0 mx-auto w-[95vw] xl:w-[900px] top-[80px] pt-2 z-50">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-8">
-                      <div className="grid grid-cols-2 gap-8">
-                        {["Property & Land", "Health & Welfare", "Transport", "Business"].map((cat) => (
-                          <div key={cat} className="space-y-4">
-                            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest border-b border-slate-50 pb-2">{cat}</h3>
-                            <div className="flex flex-col gap-1">
-                              {cat === "Property & Land" && <>
-                                <Link to="/sector/land" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Land Administration</Link>
-                                <Link to="/sector/land/permits" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Building Permits</Link>
-                              </>}
-                              {cat === "Health & Welfare" && <>
-                                <Link to="/sector/health" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Health Services</Link>
-                                <Link to="/sector/health/emergency" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Emergency Services</Link>
-                              </>}
-                              {cat === "Transport" && <>
-                                <Link to="/sector/transport" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Transport Services</Link>
-                                <Link to="/sector/transport/license" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Driver's License</Link>
-                              </>}
-                              {cat === "Business" && <>
-                                <Link to="/sector/business" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Business Services</Link>
-                                <Link to="/sector/business/license" className="block px-4 py-2.5 text-sm font-semibold text-slate-600 hover:text-white hover:bg-blue-600 rounded-xl hover:translate-x-1 transition-all">Business License</Link>
-                              </>}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <Link to="/services" className={linkClasses(location.pathname === '/services')}>
+              {t('header.services')}
+            </Link>
 
             <div className="relative" onMouseEnter={() => setActiveDropdown('administrative')} onMouseLeave={() => setActiveDropdown(null)}>
               <button className={`${linkClasses(activeDropdown === 'administrative')} flex items-center gap-1`}>
@@ -196,7 +160,7 @@ const Header = () => {
             <Link to="/contact" className={linkClasses(false)}>{t('header.contact')}</Link>
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-1 sm:gap-2">
             <div 
               className="relative" 
               onMouseEnter={() => setActiveDropdown('language')} 
@@ -224,8 +188,8 @@ const Header = () => {
               </button>
               <AnimatePresence>
                 {activeDropdown === 'language' && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute right-0 top-full pt-2 w-48 z-50">
-                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2 grid grid-cols-2 gap-1">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute right-0 top-full pt-2 w-32 z-50">
+                    <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-100 p-2 grid grid-cols-1 gap-1">
                       {LANGUAGES.map((lang) => (
                         <button 
                           key={lang.code} 
@@ -234,7 +198,7 @@ const Header = () => {
                             changeLanguage(lang.code);
                             setActiveDropdown(null);
                           }} 
-                          className={`flex items-center gap-2.5 px-3 py-2.5 rounded-xl transition-all duration-300 group ${i18n.language === lang.code ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/20' : 'hover:bg-slate-50 text-slate-600'}`}
+                          className={`flex items-center justify-center gap-2 px-2 py-2 rounded-lg transition-all duration-300 group ${i18n.language === lang.code ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'hover:bg-slate-50 text-slate-600'}`}
                         >
                           <img src={lang.flag} alt={lang.label} className="w-4 h-2.5 object-cover rounded-[1px] shadow-sm group-hover:scale-110 transition-transform" />
                           <span className={`text-[10px] font-bold tracking-tight ${i18n.language === lang.code ? 'text-white' : 'text-slate-700'}`}>{lang.label}</span>
@@ -246,16 +210,15 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
+            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
+            </button>
 
-            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-[10px] font-bold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 uppercase tracking-widest">
+            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white text-[10px] font-bold rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase tracking-widest">
               {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
-
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden p-2 rounded-lg transition-colors text-slate-700 hover:bg-slate-100">
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
-          </button>
         </div>
       </div>
 
@@ -287,25 +250,10 @@ const Header = () => {
 
               {/* Mobile Services */}
               <div className="space-y-1">
-                <button onClick={() => setMobileSubMenu(mobileSubMenu === 'services' ? null : 'services')} className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">
+                <Link to="/services" className="w-full flex items-center justify-between px-4 py-4 text-base font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-all">
                   {t('header.services')}
-                  <svg className={`w-5 h-5 transition-transform ${mobileSubMenu === 'services' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </button>
-                <AnimatePresence>
-                  {mobileSubMenu === 'services' && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden pl-4 space-y-1 pb-4">
-                      {[
-                        { name: "Land Administration", path: "/sector/land" },
-                        { name: "Building Permits", path: "/sector/land/permits" },
-                        { name: "Health Services", path: "/sector/health" },
-                        { name: "Transport Services", path: "/sector/transport" },
-                        { name: "Business License", path: "/sector/business" }
-                      ].map(s => (
-                        <Link key={s.name} to={s.path} className="block px-4 py-3 text-sm font-semibold text-slate-600 bg-slate-50 rounded-xl hover:bg-blue-50 hover:text-blue-600 transition-all">{s.name}</Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </Link>
               </div>
 
               {/* Mobile Administrative */}
@@ -341,7 +289,7 @@ const Header = () => {
 
 
               <div className="pt-8">
-                <Link to="/virtual-tour" className="block w-full py-4 bg-blue-600 text-white text-center font-black rounded-2xl shadow-xl shadow-blue-600/30 active:scale-95 transition-all">
+                <Link to="/virtual-tour" className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all">
                   {t('header.virtual_tour')}
                 </Link>
               </div>
