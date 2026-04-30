@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import WaveDivider from '../WaveDivider';
 
 const HERO_IMAGES = [
   '/hero-1.jpg',
@@ -313,19 +314,9 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Wave Divider */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 translate-y-[1px]">
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-          >
-            <path
-              d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              fill="#ffffff"
-            />
-          </svg>
+        {/* Branded wave bottom — Red → Black → White */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <WaveDivider variant="redAccent" />
         </div>
       </section>
 {/*

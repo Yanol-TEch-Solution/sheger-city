@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import WaveDivider from "./WaveDivider";
 
 interface FlashCardProps {
   image: string;
@@ -90,7 +89,6 @@ const CityFlashCards = () => {
 
   return (
     <section className="relative overflow-hidden bg-white">
-      <WaveDivider variant="darkToLight" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="flex flex-col lg:flex-row items-start gap-12">
@@ -140,7 +138,6 @@ const CityFlashCards = () => {
         </div>
       </div>
 
-      <WaveDivider variant="lightToWhite" />
     </section>
   );
 };
