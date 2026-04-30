@@ -186,17 +186,7 @@ const ChatBot = ({ isOpen: externalIsOpen, onClose: externalOnClose }: ChatBotPr
           </motion.div>
         )}
 
-        {/* Greeting Bubble - Only show if not controlled externally */}
-        {externalIsOpen === undefined && !isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 10, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            className="absolute bottom-1/2 translate-y-1/2 right-[calc(100%+16px)] bg-white px-4 py-2 rounded-2xl shadow-2xl border border-slate-100 whitespace-nowrap z-50"
-          >
-            <p className="text-[11px] font-bold text-slate-800">Hi, I'm ShegerCity Ai 👋</p>
-            <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-white border-t border-r border-slate-100 rotate-45"></div>
-          </motion.div>
-        )}
+        {/* Greeting Bubble handled by Layout.tsx */}
         {/* Trigger Button - Only show if not controlled externally */}
         {externalIsOpen === undefined && (
           <motion.button

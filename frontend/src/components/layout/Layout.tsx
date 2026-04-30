@@ -72,9 +72,9 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="relative">
           {showGreeting && !isChatOpen && (
             <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              className="absolute bottom-[calc(100%+12px)] right-0 bg-white px-4 py-2 rounded-2xl shadow-2xl border border-slate-100 whitespace-nowrap z-50 flex items-center gap-3"
+              initial={{ opacity: 0, x: 10, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              className="absolute bottom-1/2 translate-y-1/2 right-[calc(100%+16px)] bg-white px-4 py-2 rounded-2xl shadow-2xl border border-slate-100 whitespace-nowrap z-[100] flex items-center gap-3"
             >
               <p className="text-[11px] font-bold text-slate-800">Hi, I'm ShegerCity Ai 👋</p>
               <button 
@@ -88,8 +88,8 @@ const Layout = ({ children }: LayoutProps) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              {/* Tooltip Arrow */}
-              <div className="absolute -bottom-1 right-6 w-2 h-2 bg-white border-r border-b border-slate-100 rotate-45"></div>
+              {/* Tooltip Arrow - Positioned on the right side of the bubble */}
+              <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-white border-t border-r border-slate-100 rotate-45"></div>
             </motion.div>
           )}
           <button

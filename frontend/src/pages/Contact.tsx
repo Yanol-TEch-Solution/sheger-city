@@ -9,39 +9,6 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as const },
 });
 
-const OFFICES = [
-  {
-    name: 'Main City Administration',
-    address: 'Legetafo-Legedadi, Sheger City',
-    mapUrl: 'https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6',
-    phone: '+251 11 123 4567',
-    email: 'main@shegercity.gov.et',
-    hours: 'Mon–Fri: 8:00 AM – 5:00 PM\nSat: 9:00 AM – 1:00 PM',
-    color: 'red',
-    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
-  },
-  {
-    name: 'Citizens Services Centre',
-    address: 'Sululta Town, Sheger City',
-    mapUrl: 'https://www.google.com/maps/search/Citizens+Services+Centre+Sululta+Ethiopia',
-    phone: '+251 11 234 5678',
-    email: 'citizens@shegercity.gov.et',
-    hours: 'Mon–Fri: 8:00 AM – 6:00 PM\nSat: 9:00 AM – 2:00 PM',
-    color: 'red',
-    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0',
-  },
-  {
-    name: 'Digital Services Hub',
-    address: 'Burayu, Sheger City',
-    mapUrl: 'https://www.google.com/maps/search/Digital+Services+Hub+Burayu+Ethiopia',
-    phone: '+251 11 345 6789',
-    email: 'digital@shegercity.gov.et',
-    hours: 'Mon–Fri: 8:00 AM – 8:00 PM\nSat–Sun: 10:00 AM – 4:00 PM',
-    color: 'emerald',
-    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2',
-  },
-];
-
 const colorRing: Record<string, string> = {
   red: 'border-red-500 bg-red-500/10 text-red-500',
   emerald: 'border-emerald-500 bg-emerald-500/10 text-emerald-500',
@@ -56,6 +23,39 @@ const Contact = () => {
     e.preventDefault();
     setSubmitted(true);
   };
+
+  const OFFICES = [
+    {
+      name: t('contact.offices.main.name'),
+      address: t('contact.offices.main.address'),
+      mapUrl: 'https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6',
+      phone: '+251 11 123 4567',
+      email: 'main@shegercity.gov.et',
+      hours: t('contact.offices.main.hours'),
+      color: 'red',
+      icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    },
+    {
+      name: t('contact.offices.citizens.name'),
+      address: t('contact.offices.citizens.address'),
+      mapUrl: 'https://www.google.com/maps/search/Citizens+Services+Centre+Sululta+Ethiopia',
+      phone: '+251 11 234 5678',
+      email: 'citizens@shegercity.gov.et',
+      hours: t('contact.offices.citizens.hours'),
+      color: 'red',
+      icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0',
+    },
+    {
+      name: t('contact.offices.digital.name'),
+      address: t('contact.offices.digital.address'),
+      mapUrl: 'https://www.google.com/maps/search/Digital+Services+Hub+Burayu+Ethiopia',
+      phone: '+251 11 345 6789',
+      email: 'digital@shegercity.gov.et',
+      hours: t('contact.offices.digital.hours'),
+      color: 'emerald',
+      icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2',
+    },
+  ];
 
   return (
     <div className="bg-slate-50">
@@ -76,7 +76,7 @@ const Contact = () => {
             {t('contact.hero_desc')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-5xl sm:text-7xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Get in <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">Touch</span>
+            {t('contact.hero_title')}
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-lg sm:text-xl max-w-xl leading-relaxed">
             {t('contact.hero_desc')}
@@ -94,9 +94,9 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: 'Call Us', value: '+251 11 123 4567', sub: 'Mon–Fri, 8AM–5PM', color: 'red' },
-              { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: 'Email Us', value: 'info@shegercity.gov.et', sub: 'Reply within 24 hours', color: 'red' },
-              { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: 'Visit Us', value: 'Legetafo-Legedadi', sub: 'Sheger City, Ethiopia', color: 'emerald' },
+              { icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', label: t('contact.call_us'), value: '+251 11 123 4567', sub: `${t('contact.mon_fri')}, 8AM–5PM`, color: 'red' },
+              { icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', label: t('contact.email_us'), value: 'info@shegercity.gov.et', sub: t('contact.message_success_desc'), color: 'red' },
+              { icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', label: t('contact.visit_us'), value: 'Legetafo-Legedadi', sub: 'Sheger City, Ethiopia', color: 'emerald' },
             ].map((card, i) => (
               <motion.div key={card.label} {...fadeUp(i * 0.1)} className="bg-white rounded-2xl border border-slate-100 p-7 shadow-sm hover:shadow-lg transition-all text-center group">
                 <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center mx-auto mb-5 transition-all group-hover:scale-110 ${colorRing[card.color]}`}>
@@ -118,12 +118,12 @@ const Contact = () => {
 
             {/* Map */}
             <motion.div {...fadeUp(0)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Our Location</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.location_badge')}</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
-                Find Our Main Office
+                {t('contact.location_title')}
               </h2>
               <p className="text-slate-500 mb-6 leading-relaxed">
-                The Sheger City Administration Headquarters is located in the Legetafo-Legedadi area — easily accessible from the Addis Ababa outer ring road.
+                {t('contact.location_desc')}
               </p>
 
               {/* Google Maps embed — exact pin from shared link */}
@@ -134,7 +134,7 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-red-400 shrink-0" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                     </svg>
-                    <span className="text-white text-sm font-bold truncate">Sheger City Administration Mayor&apos;s Office</span>
+                    <span className="text-white text-sm font-bold truncate">{t('contact.offices.main.name')}</span>
                   </div>
                   <a
                     href="https://maps.app.goo.gl/kCJEKKpiWf7zbq9k6"
@@ -142,7 +142,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="ml-3 shrink-0 text-[10px] font-semibold uppercase tracking-widest bg-red-600 text-white px-3 py-1.5 rounded-full hover:bg-red-500 transition-colors"
                   >
-                    Open Maps
+                    {t('contact.open_maps')}
                   </a>
                 </div>
                 <iframe
@@ -165,15 +165,15 @@ const Contact = () => {
                 className="mt-3 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-red-600 transition-colors"
               >
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                Open in Google Maps
+                {t('contact.open_maps')}
               </a>
             </motion.div>
 
             {/* Contact Form */}
             <motion.div {...fadeUp(0.2)}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">Send a Message</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-3">{t('contact.message_badge')}</p>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight mb-6">
-                We'd Love to Hear From You
+                {t('contact.message_title')}
               </h2>
 
               {submitted ? (
@@ -183,10 +183,10 @@ const Contact = () => {
                   className="bg-emerald-50 border border-emerald-200 rounded-3xl p-12 text-center"
                 >
                   <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-semibold text-emerald-800 font-display mb-2">Message Sent!</h3>
-                  <p className="text-emerald-600">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <h3 className="text-2xl font-semibold text-emerald-800 font-display mb-2">{t('contact.message_success')}</h3>
+                  <p className="text-emerald-600">{t('contact.message_success_desc')}</p>
                   <button onClick={() => { setSubmitted(false); setForm({ name: '', email: '', phone: '', subject: '', message: '' }); }} className="mt-6 px-6 py-3 bg-emerald-600 text-white font-bold rounded-full hover:bg-emerald-700 transition-all">
-                    Send Another
+                    {t('contact.form.another')}
                   </button>
                 </motion.div>
               ) : (
@@ -209,7 +209,7 @@ const Contact = () => {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">Phone Number</label>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('contact.form.phone')}</label>
                       <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
                         placeholder="+251 911 XXX XXX"
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-red-500 focus:bg-white transition-all"
@@ -255,8 +255,8 @@ const Contact = () => {
       <section className="py-24 bg-slate-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-14">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Office Network</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">Our Office Locations</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('contact.office_network')}</p>
+            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 font-display tracking-tight">{t('contact.office_network_title')}</h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {OFFICES.map((office, i) => (
@@ -271,7 +271,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-2 group/loc hover:text-red-600 transition-colors"
-                    title="Open in Google Maps"
+                    title={t('contact.open_maps')}
                   >
                     <svg className="w-4 h-4 mt-0.5 shrink-0 text-slate-400 group-hover/loc:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     <span className="group-hover/loc:underline">{office.address}</span>

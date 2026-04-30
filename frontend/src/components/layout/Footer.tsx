@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logoUrl from '../../assets/logo.png';
+
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
-    <footer className="bg-slate-950 text-slate-300 relative z-20 border-t border-slate-900">
+    <footer className="bg-[#001529] text-slate-300 relative z-20 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
@@ -13,11 +17,11 @@ const Footer = () => {
                 <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
               </div>
               <div>
-                <h3 className="text-white font-semibold">Sheger City</h3>
+                <h3 className="text-white font-semibold">{t('footer.about_title')}</h3>
               </div>
             </div>
             <p className="text-sm text-slate-400 mb-4">
-              Your digital gateway to efficient, transparent government services.
+              {t('footer.about_desc')}
             </p>
             <div className="flex gap-3">
               <a href="#" className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-red-600 transition">
@@ -34,30 +38,30 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.quick_links')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-white transition">About Us</Link></li>
-              <li><Link to="/leadership" className="hover:text-white transition">Leadership</Link></li>
-              <li><Link to="/transparency" className="hover:text-white transition">Transparency</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
+              <li><Link to="/about" className="hover:text-white transition">{t('header.about')}</Link></li>
+              <li><Link to="/leadership" className="hover:text-white transition">{t('leadership.title')}</Link></li>
+              <li><Link to="/transparency" className="hover:text-white transition">{t('transparency_page.title')}</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition">{t('footer.contact')}</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Services</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.services')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/sector/land" className="hover:text-white transition">Land Services</Link></li>
-              <li><Link to="/sector/health" className="hover:text-white transition">Health Services</Link></li>
-              <li><Link to="/sector/transport" className="hover:text-white transition">Transport</Link></li>
-              <li><Link to="/sector/business" className="hover:text-white transition">Business License</Link></li>
-              <li><Link to="/sector/education" className="hover:text-white transition">Education</Link></li>
+              <li><Link to="/sector/land" className="hover:text-white transition">{t('home.services_hub.land')}</Link></li>
+              <li><Link to="/sector/health" className="hover:text-white transition">{t('home.quick_services.health')}</Link></li>
+              <li><Link to="/sector/transport" className="hover:text-white transition">{t('administrative_options.road_transport')}</Link></li>
+              <li><Link to="/sector/business" className="hover:text-white transition">{t('home.quick_services.business')}</Link></li>
+              <li><Link to="/sector/education" className="hover:text-white transition">{t('administrative_options.education')}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
+            <h3 className="text-white font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,11 +88,11 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p className="text-slate-400">&copy; 2026 Sheger City Government. All rights reserved.</p>
+          <p className="text-slate-400">&copy; 2026 {t('footer.about_title')} {t('footer.rights')}</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-slate-400 hover:text-white transition">Privacy Policy</Link>
-            <Link to="/terms" className="text-slate-400 hover:text-white transition">Terms of Service</Link>
-            <Link to="/accessibility" className="text-slate-400 hover:text-white transition">Accessibility</Link>
+            <Link to="/privacy" className="text-slate-400 hover:text-white transition">{t('footer.privacy')}</Link>
+            <Link to="/terms" className="text-slate-400 hover:text-white transition">{t('footer.terms')}</Link>
+            <Link to="/accessibility" className="text-slate-400 hover:text-white transition">{t('footer.accessibility')}</Link>
           </div>
         </div>
       </div>
