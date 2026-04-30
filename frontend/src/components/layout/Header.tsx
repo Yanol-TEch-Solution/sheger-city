@@ -54,7 +54,7 @@ const Header = () => {
 
   const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2`;
 
-  const linkClasses = (isActive: boolean) => `px-4 py-2 text-sm font-bold transition-all duration-300 rounded-xl ${
+  const linkClasses = (isActive: boolean) => `px-3 py-1.5 text-[11px] font-bold transition-all duration-300 rounded-lg ${
     isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50'
   }`;
 
@@ -68,8 +68,8 @@ const Header = () => {
               <img src={logoUrl} alt="Sheger City Logo" className="w-full h-full object-contain drop-shadow-md transition-transform duration-500 group-hover:scale-105 relative z-10" />
             </div>
             <div className="overflow-hidden">
-              <h1 className="text-lg sm:text-2xl font-black transition-colors duration-500 truncate font-display text-slate-900">{t('header.title')}</h1>
-              <p className="text-[10px] sm:text-sm transition-colors duration-500 truncate font-sans text-slate-600">{t('header.subtitle')}</p>
+              <h1 className="text-sm sm:text-base font-black transition-colors duration-500 truncate font-display text-slate-900">{t('header.title')}</h1>
+              <p className="text-[8px] sm:text-[10px] transition-colors duration-500 truncate font-sans text-slate-600">{t('header.subtitle')}</p>
             </div>
           </Link>
 
@@ -210,7 +210,7 @@ const Header = () => {
                   alt={i18n.language} 
                   className="w-5 h-3.5 object-cover rounded-[2px] shadow-sm"
                 />
-                <span className="text-[11px] font-black uppercase tracking-tighter text-slate-700">
+                <span className="text-[9px] font-black uppercase tracking-tighter text-slate-700">
                   {LANGUAGES.find(l => l.code === i18n.language)?.label || 'EN'}
                 </span>
                 <motion.svg 
@@ -305,7 +305,7 @@ const Header = () => {
               </AnimatePresence>
             </div>
 
-            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30">
+            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-[10px] font-bold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 uppercase tracking-widest">
               {t('header.virtual_tour')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
