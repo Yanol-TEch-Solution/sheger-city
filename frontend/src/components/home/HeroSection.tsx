@@ -56,7 +56,7 @@ export default function HeroSection() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative text-white overflow-hidden min-h-[98vh] flex items-center bg-slate-950 pt-20"
+        className="relative text-white overflow-hidden min-h-[92vh] flex items-center bg-slate-950 pt-16"
       >
         {/* Background Image Slideshow with Ken Burns Effect */}
         {HERO_IMAGES.map((img, idx) => (
@@ -228,7 +228,7 @@ export default function HeroSection() {
           </svg>
         </div>
 
-        <div className="relative z-20 max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6 py-20 sm:py-24 md:py-32 w-full mt-4 sm:mt-0">
+        <div className="relative z-20 max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6 py-12 sm:py-16 md:py-20 w-full mt-4 sm:mt-0">
           <motion.div className="max-w-2xl bg-white/5 sm:backdrop-blur-md border border-white/10 p-6 sm:p-12 rounded-[24px] sm:rounded-[40px] shadow-2xl relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 

@@ -79,7 +79,7 @@ const News = () => {
   return (
     <div className="bg-slate-50">
       {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[55vh] flex items-center">
+      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[50vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
@@ -90,7 +90,7 @@ const News = () => {
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
             className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6"
@@ -190,7 +190,7 @@ const News = () => {
             </motion.div>
           </div>
 
-          <WaveDivider variant="darkToWhite" />
+         {/* <WaveDivider variant="darkToWhite" /> */}
         </section>
       )}
 

@@ -51,7 +51,7 @@ const Header = () => {
     { code: 'es', label: 'ES', flag: 'https://flagcdn.com/w40/es.png' }
   ];
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2`;
+  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-1`;
 
   const linkClasses = (isActive: boolean) => `px-3 py-1.5 text-[11px] font-bold transition-all duration-300 rounded-lg ${
     isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50'
@@ -60,7 +60,7 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-12">
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
             <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 relative">
               <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
