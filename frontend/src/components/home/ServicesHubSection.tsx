@@ -74,9 +74,20 @@ export default function ServicesHubSection() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ 
+                  rotateY: 25, 
+                  rotateX: -15, 
+                  scale: 1.08,
+                  y: -20 
+                }}
                 viewport={{ once: false }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-2 transition-all flex flex-col h-full"
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 25,
+                  delay: i * 0.1 
+                }}
+                className="group relative bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all flex flex-col h-full perspective-[800px]"
               >
                 <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center text-red-600 mb-8 group-hover:bg-red-600 group-hover:text-white transition-colors">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
