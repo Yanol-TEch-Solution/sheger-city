@@ -257,7 +257,7 @@ const News = () => {
         </div>
 
         {/* Wave into newsletter */}
-        <WaveDivider variant="lightToWhite" />
+        {/* <WaveDivider variant="lightToWhite" /> */}
       </section>
 
       {/* ─── Newsletter ─── */}
