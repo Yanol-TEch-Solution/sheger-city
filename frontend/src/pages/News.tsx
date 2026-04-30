@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import WaveDivider from "../components/WaveDivider";
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -79,7 +79,7 @@ const News = () => {
   return (
     <div className="bg-slate-50">
       {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[55vh] flex items-center">
+      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[50vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
@@ -90,10 +90,10 @@ const News = () => {
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6"
+            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-400 mb-6"
           >
             <span className="w-10 h-px bg-red-400/50" />
             {t('news_page.hero_badge')}
@@ -112,9 +112,14 @@ const News = () => {
           </motion.p>
         </div>
 
-        {/* Branded wave bottom */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <WaveDivider variant="redAccent" />
+        {/* Custom SVG wave divider like About page */}
+        <div className="absolute bottom-0 left-0 right-0 translate-y-[1px]">
+          <svg viewBox="0 0 1440 80" className="w-full h-auto" fill="none">
+            <path
+              d="M0 80L60 70C120 60 240 40 360 30C480 20 600 20 720 25C840 30 960 40 1080 45C1200 50 1320 50 1380 50L1440 50V80H0Z"
+              fill="#f8fafc"
+            />
+          </svg>
         </div>
       </section>
 
@@ -139,7 +144,7 @@ const News = () => {
                 <button
                   key={cat.id}
                   onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 py-2.5 rounded-xl text-[10px] font-bold tracking-widest transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-md" : "text-slate-400 hover:text-slate-600 hover:bg-slate-50"}`}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-medium tracking-tight transition-all ${activeCategory === cat.id ? "bg-slate-900 text-white shadow-md" : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"}`}
                 >
                   {cat.label}
                 </button>
@@ -190,7 +195,7 @@ const News = () => {
             </motion.div>
           </div>
 
-          <WaveDivider variant="darkToWhite" />
+         {/* <WaveDivider variant="darkToWhite" /> */}
         </section>
       )}
 
@@ -211,38 +216,50 @@ const News = () => {
 
           <AnimatePresence mode="popLayout">
             {filteredArticles.length > 0 ? (
-              <div className="divide-y divide-slate-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {listArticles.map((article, idx) => (
                   <motion.article
                     layout
                     key={article.id}
                     {...fadeUp(idx * 0.08)}
-                    className="flex flex-col sm:flex-row items-start gap-6 py-8 group"
+                    className="relative h-[300px] sm:h-[350px] rounded-[2rem] overflow-hidden shadow-lg group cursor-pointer"
                   >
-                    {/* Thumbnail */}
-                    <div className="relative w-full sm:w-48 h-36 rounded-2xl overflow-hidden flex-shrink-0 shadow-sm">
-                      <img src={article.image} alt={article.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                      <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-slate-900 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md">
-                        {t(`news_page.categories.${article.category}`)}
-                      </span>
-                    </div>
+                    {/* Background Image */}
+                    <img 
+                      src={article.image} 
+                      alt={article.title} 
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    />
+                    
+                    {/* Overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                    
                     {/* Content */}
-                    <div className="flex-1 flex flex-col justify-center">
-                      <div className="flex items-center gap-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">
-                        <span>{article.date}</span>
-                        <span>·</span>
-                        <span>{article.readTime}</span>
+                    <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="px-2 py-1 bg-red-600 text-white text-[10px] font-medium rounded-md">
+                          {t(`news_page.categories.${article.category}`)}
+                        </span>
+                        <span className="text-xs font-medium text-white/70">
+                          {article.date}
+                        </span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-2 font-display leading-snug mb-2">
+                      
+                      <h3 className="text-lg sm:text-xl font-bold text-white font-display leading-tight mb-3 group-hover:text-red-400 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
-                      <p className="text-slate-500 text-xs leading-relaxed line-clamp-2 mb-4">
+                      
+                      <p className="text-white/70 text-xs line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                         {article.excerpt}
                       </p>
-                      <button className="inline-flex items-center gap-1.5 text-red-600 font-black text-[9px] uppercase tracking-[0.2em] group/btn w-fit">
-                        {t('news_page.read_story')}
-                        <svg className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7-7 7" /></svg>
-                      </button>
+
+                      {/* Read More Indicator */}
+                      <div className="flex items-center gap-2 text-white font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 tracking-tight">
+                        Read Story
+                        <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7-7 7" /></svg>
+                        </div>
+                      </div>
                     </div>
                   </motion.article>
                 ))}

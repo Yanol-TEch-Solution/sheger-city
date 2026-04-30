@@ -13,6 +13,7 @@ import VirtualTour from '../pages/VirtualTour';
 import Services from '../pages/Services';
 import ServiceDetail from '../pages/ServiceDetail';
 import News from '../pages/News';
+import ExploreDetail from '../pages/ExploreDetail';
 //import District from '../pages/District';
 
 import Kantiibaa from '../pages/administrative/Kantiibaa';
@@ -81,6 +82,7 @@ const AppRoutes = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/explore/:id" element={<ExploreDetail />} />
             <Route path="/transparency" element={<Transparency />} />
             <Route path="/subcity/:id" element={<SubCity />} />
             {/*<Route path="/district/:id" element={<District />} />*/}

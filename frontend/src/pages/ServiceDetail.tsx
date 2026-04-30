@@ -57,7 +57,7 @@ const SERVICES = [
 
 const ServiceDetail = () => {
   const { id } = useParams();
-  const { t } = useTranslation();
+  useTranslation();
   const [applyMethod, setApplyMethod] = useState<"online" | "person" | null>(null);
   
   const service = SERVICES.find(s => s.id === id) || SERVICES[0];

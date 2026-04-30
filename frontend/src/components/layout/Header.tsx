@@ -8,19 +8,10 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
-  const isHome = location.pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -51,7 +42,7 @@ const Header = () => {
     { code: 'es', label: 'ES', flag: 'https://flagcdn.com/w40/es.png' }
   ];
 
-  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-2`;
+  const headerClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-sm py-1`;
 
   const linkClasses = (isActive: boolean) => `px-3 py-1.5 text-[11px] font-bold transition-all duration-300 rounded-lg ${
     isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'text-slate-700 hover:text-red-600 hover:bg-slate-50'
@@ -60,7 +51,7 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-12">
           <Link to="/" className="flex items-center gap-3 sm:gap-4 group">
             <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 relative">
               <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -213,10 +204,15 @@ const Header = () => {
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} /></svg>
             </button>
 
-            <Link to="/virtual-tour" className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-[9px] font-black rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase tracking-widest">
+            <a 
+              href="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-600 text-white text-[9px] font-black rounded-lg hover:bg-red-700 transition shadow-lg shadow-red-600/30 uppercase tracking-widest"
+            >
               {t('header.virtual_tour')}
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -288,9 +284,14 @@ const Header = () => {
 
 
               <div className="pt-8">
-                <Link to="/virtual-tour" className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all">
+                <a 
+                  href="https://tour.panoee.net/iframe/69d5076793f8052809dbec8b" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block w-full py-4 bg-red-600 text-white text-center font-black rounded-2xl shadow-xl shadow-red-600/30 active:scale-95 transition-all"
+                >
                   {t('header.virtual_tour')}
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
