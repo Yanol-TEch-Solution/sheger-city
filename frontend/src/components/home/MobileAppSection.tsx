@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 export default function MobileAppSection() {
   const { t } = useTranslation();
   return (
-    {/* Mobile App Promotion Section */}
+
       <section className="py-24 sm:py-32 bg-white/60 relative overflow-hidden z-20">
         <div className="max-w-[1600px] mx-auto px-2 sm:px-4 lg:px-6">
            {/* Promotion Content */}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function LeadershipSection() {
   const { t } = useTranslation();
   return (
-    {/* Leadership Section */}
+
       <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
