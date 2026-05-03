@@ -75,22 +75,27 @@ export default function ServicesHubSection() {
             ].map((service, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 50, rotateX: -20, rotateY: -10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0 }}
                 whileHover={{ 
-                  rotateY: 25, 
-                  rotateX: -15, 
-                  scale: 1.08,
-                  y: -20 
+                  rotateY: 8, 
+                  rotateX: -5, 
+                  scale: 1.05,
+                  y: -15,
+                  z: 50
                 }}
                 viewport={{ once: false }}
                 transition={{ 
                   type: "spring", 
-                  stiffness: 400, 
-                  damping: 25,
-                  delay: i * 0.1 
+                  stiffness: 300, 
+                  damping: 20,
+                  delay: i * 0.15 
                 }}
-                className="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all flex flex-col h-full perspective-[800px]"
+                style={{
+                  transformStyle: "preserve-3d",
+                  perspective: 1000
+                }}
+                className="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-red-500/20 transition-all flex flex-col h-full"
               >
                 <div className="relative h-44 -mx-8 -mt-8 mb-8 overflow-hidden rounded-t-[2rem]">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
