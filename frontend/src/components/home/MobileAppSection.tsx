@@ -20,7 +20,7 @@ export default function MobileAppSection() {
             >
               <div className="space-y-4 sm:space-y-6">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                  {t("home.mobile_app.title")}
+                  {t("home.mobile_app.title")} <span className="text-red-600">Super App</span>
                 </h2>
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                   {t("home.mobile_app.desc")}
