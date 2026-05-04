@@ -1,12 +1,61 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-//import WaveDivider from '../WaveDivider';
+import { useState } from 'react';
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function LeadershipSection() {
   const { t } = useTranslation();
+  const [slideStates, setSlideStates] = useState<boolean[]>([false, false, false, false]);
+
+  const toggleSlide = (index: number) => {
+    setSlideStates(prev => {
+      const newStates = [...prev];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
+  };
+
+  const leaders = [
+    {
+      title: t("home.leadership.mayor_title"),
+      name: t("home.leadership.mayor_name"),
+      text: t("home.leadership.mayor_text"),
+      bio: "Driving the transformation of Sheger into a global smart city hub, focusing on integrated urban systems and sustainable development for all residents.",
+      img: "/dr.teshome.jpg",
+      backImg: "/city-1.jpg",
+      reverse: false,
+    },
+    {
+      title: t("home.leadership.deputy1_title"),
+      name: t("home.leadership.deputy1_name"),
+      text: t("home.leadership.deputy1_text"),
+      bio: "Leading major infrastructure initiatives including the new transit corridors and smart utility networks that form the backbone of our modern city.",
+      img: "/mr.guyo.png",
+      backImg: "/city-2.jpg",
+      reverse: true,
+    },
+    {
+      title: t("home.leadership.deputy2_title"),
+      name: t("home.leadership.deputy2_name"),
+      text: t("home.leadership.deputy2_text"),
+      bio: "Dedicated to enhancing the quality of life through modernized healthcare facilities and inclusive educational programs across all sub-cities.",
+      img: "/mr.gugsa.png",
+      backImg: "/city-3.jpg",
+      reverse: false,
+    },
+    {
+      title: t("home.leadership.deputy3_title"),
+      name: t("home.leadership.deputy3_name"),
+      text: t("home.leadership.deputy3_text"),
+      bio: "Spearheading the digitization of government services to ensure transparency, speed, and ease of access for every citizen and business owner.",
+      img: "/mr.hailu.png",
+      backImg: "/city-4.jpg",
+      reverse: true,
+    },
+  ];
+
   return (
     <>
-    {/*  <WaveDivider variant="darkToWhite" /> */}
       <section className="py-24 bg-slate-50/65 text-slate-900 relative z-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -23,49 +72,7 @@ export default function LeadershipSection() {
           </motion.div>
 
           <div className="relative max-w-6xl mx-auto px-4 sm:px-0">
-            {/* Vertical Line - Animated */}
-            <motion.div 
-              initial={{ height: 0 }}
-              whileInView={{ height: '100%' }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-              className="absolute left-0 sm:left-1/2 top-0 w-px bg-gradient-to-b from-red-600 via-slate-200 to-slate-200 sm:-translate-x-1/2" 
-            />
-
-            {[
-              {
-                title: t("home.leadership.mayor_title"),
-                name: t("home.leadership.mayor_name"),
-                text: t("home.leadership.mayor_text"),
-                bio: "Driving the transformation of Sheger into a global smart city hub, focusing on integrated urban systems and sustainable development for all residents.",
-                img: "/dr.teshome.jpg",
-                reverse: false,
-              },
-              {
-                title: t("home.leadership.deputy1_title"),
-                name: t("home.leadership.deputy1_name"),
-                text: t("home.leadership.deputy1_text"),
-                bio: "Leading major infrastructure initiatives including the new transit corridors and smart utility networks that form the backbone of our modern city.",
-                img: "/mr.guyo.png",
-                reverse: true,
-              },
-              {
-                title: t("home.leadership.deputy2_title"),
-                name: t("home.leadership.deputy2_name"),
-                text: t("home.leadership.deputy2_text"),
-                bio: "Dedicated to enhancing the quality of life through modernized healthcare facilities and inclusive educational programs across all sub-cities.",
-                img: "/mr.gugsa.png",
-                reverse: false,
-              },
-              {
-                title: t("home.leadership.deputy3_title"),
-                name: t("home.leadership.deputy3_name"),
-                text: t("home.leadership.deputy3_text"),
-                bio: "Spearheading the digitization of government services to ensure transparency, speed, and ease of access for every citizen and business owner.",
-                img: "/mr.hailu.png",
-                reverse: true,
-              },
-            ].map((person, idx) => (
+            {leaders.map((person, idx) => (
               <div
                 key={idx}
                 className={`relative flex flex-col sm:flex-row items-center justify-between mb-24 sm:mb-40 gap-12 sm:gap-0 ${person.reverse ? "sm:flex-row-reverse" : ""}`}
@@ -109,25 +116,68 @@ export default function LeadershipSection() {
                   className="absolute left-0 sm:left-1/2 top-0 sm:top-1/2 -translate-x-1/2 sm:-translate-y-1/2 w-4 h-4 bg-white border-[3px] border-red-600 rounded-full z-10 shadow-[0_0_15px_rgba(220,38,38,0.3)]" 
                 />
 
-                {/* Image Side */}
+                {/* Image Side with Slide Reveal */}
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9, x: person.reverse ? -40 : 40 }}
                   whileInView={{ opacity: 1, scale: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="sm:w-[45%] w-full pl-8 sm:pl-0 flex justify-center sm:justify-start group"
+                  className="sm:w-[45%] w-full pl-8 sm:pl-0 flex justify-center sm:justify-start"
                 >
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-red-600/5 rounded-[2.5rem] scale-95 group-hover:scale-100 transition-transform duration-700 -z-10" />
-                    <div className="relative overflow-hidden rounded-[2rem] shadow-2xl aspect-[4/5] w-full max-w-[320px]">
-                      <motion.img
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.8 }}
-                        src={person.img}
-                        alt={person.name}
-                        className="w-full h-full object-cover"
+                  <div className="relative w-full max-w-[320px]">
+                    {/* Container for both images */}
+                    <div className="relative overflow-hidden rounded-[2rem] shadow-2xl w-full h-[400px] bg-slate-200">
+                      {/* Back Image (City) - Always visible behind */}
+                      <img
+                        src={person.backImg}
+                        alt={`${person.name} background`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onLoad={() => console.log('Back image loaded:', person.backImg)}
+                        onError={(e) => console.error('Back image error:', person.backImg, e)}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/30 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-8 left-8 right-8 text-white pointer-events-none z-10">
+                        <p className="text-sm font-medium leading-relaxed">
+                          {person.bio}
+                        </p>
+                      </div>
+
+                      {/* Front Image (Leader Photo) - Slides to reveal back */}
+                      <motion.div 
+                        className="absolute inset-0 w-full h-full bg-white z-20"
+                        animate={{ 
+                          x: slideStates[idx] ? '100%' : '0%'
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 100, 
+                          damping: 20 
+                        }}
+                      >
+                        <img
+                          src={person.img}
+                          alt={person.name}
+                          className="w-full h-full object-cover"
+                          onLoad={() => console.log('Front image loaded:', person.img)}
+                          onError={(e) => console.error('Front image error:', person.img, e)}
+                        />
+                      </motion.div>
+
+                      {/* Arrow Button - Right side */}
+                      <button
+                        onClick={() => toggleSlide(idx)}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+                        aria-label={slideStates[idx] ? "Show photo" : "Show bio"}
+                      >
+                        <motion.div
+                          animate={{ 
+                            rotate: slideStates[idx] ? 180 : 0 
+                          }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <FaArrowRight className="w-4 h-4" />
+                        </motion.div>
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -136,7 +186,6 @@ export default function LeadershipSection() {
           </div>
         </div>
       </section>
-      {/* <WaveDivider variant="darkToWhite" /> */}
     </>
   );
 }
