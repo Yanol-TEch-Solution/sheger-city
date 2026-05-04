@@ -65,7 +65,7 @@ export default function WaveDivider({ variant = 'darkToLight', className = '' }:
           <path d="M0 90V38C180 8 360 0 540 8C720 16 900 44 1080 50C1260 56 1380 40 1440 32V90H0Z" fill="#dc2626" />
           {/* 2. White — middle */}
           <path d="M0 90V56C160 32 320 22 480 28C640 34 800 54 960 58C1120 62 1300 48 1440 42V90H0Z" fill="#ffffff" />
-          {/* 3. Black — bottom */}
+          {/* 3. Black — bottom with wave */}
           <path d="M0 90V70C200 52 400 46 600 52C800 58 1000 70 1200 68C1320 66 1400 60 1440 57V90H0Z" fill="#0f172a" />
         </svg>
       </div>
