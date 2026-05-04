@@ -11,7 +11,7 @@ interface GoogleTranslateHeaderProps {
   onLanguageChange?: (lang: string) => void;
 }
 
-export default function GoogleTranslateHeader({ onLanguageChange }: GoogleTranslateHeaderProps) {
+export default function GoogleTranslateHeader(_props: GoogleTranslateHeaderProps) {
   useEffect(() => {
     // Remove Google Translate hash from URL
     const removeGoogleTranslateHash = () => {

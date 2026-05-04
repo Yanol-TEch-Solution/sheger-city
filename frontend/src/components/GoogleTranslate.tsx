@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+
 
 declare global {
   interface Window {
@@ -9,8 +9,6 @@ declare global {
 }
 
 export default function GoogleTranslate() {
-  const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     // Clean up Google Translate URL parameters
