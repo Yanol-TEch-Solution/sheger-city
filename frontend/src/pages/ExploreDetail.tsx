@@ -87,7 +87,7 @@ export default function ExploreDetail() {
         </motion.div>
 
         {/* Back Button */}
-        <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20">
+        <div className="absolute top-20 sm:top-24 left-4 sm:left-8 z-20">
           <BackButton to="/explore" label="Back to Explore" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-xl px-6 py-3" />
         </div>
 

@@ -40,7 +40,7 @@ const Explore = () => {
     <div className="bg-slate-50">
 
       {/* ─── Hero ─── */}
-      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[52vh] flex items-center">
+      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/hero-3.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
