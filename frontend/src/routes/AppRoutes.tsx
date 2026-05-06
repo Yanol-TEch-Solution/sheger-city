@@ -11,6 +11,7 @@ import SubCity from '../pages/SubCity';
 import Sector from '../pages/Sector';
 import Administration from '../pages/Administration';
 import VirtualTour from '../pages/VirtualTour';
+import VideoTour from '../pages/VideoTour';
 import Services from '../pages/Services';
 import ServiceDetail from '../pages/ServiceDetail';
 import News from '../pages/News';
@@ -92,6 +93,7 @@ const AppRoutes = () => {
             <Route path="/administrative" element={<Administration />} />
             <Route path="/sector/:name/*" element={<Sector />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
+            <Route path="/video-tour" element={<VideoTour />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:id" element={<ServiceDetail />} />
           </Routes>
