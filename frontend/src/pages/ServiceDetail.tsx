@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import BackButton from "../components/BackButton";
-
 const SERVICES = [
   {
     id: "business-permit",

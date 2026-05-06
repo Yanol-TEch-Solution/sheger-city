@@ -186,3 +186,25 @@ body {
     display: none; /* Chrome, Safari and Opera */
   }
 }
+
+/* Google Translate - Hide widget but keep functionality */
+#google_translate_element {
+  position: fixed !important;
+  top: -1000px !important;
+  left: -1000px !important;
+  z-index: -1 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}

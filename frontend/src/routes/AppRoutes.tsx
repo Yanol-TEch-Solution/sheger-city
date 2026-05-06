@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
+import ScrollToTop from '../components/ScrollToTop';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
@@ -10,6 +11,7 @@ import SubCity from '../pages/SubCity';
 import Sector from '../pages/Sector';
 import Administration from '../pages/Administration';
 import VirtualTour from '../pages/VirtualTour';
+import VideoTour from '../pages/VideoTour';
 import Services from '../pages/Services';
 import ServiceDetail from '../pages/ServiceDetail';
 import News from '../pages/News';
@@ -44,7 +46,9 @@ import Municipality from '../pages/administrative/Municipality';
 
 const AppRoutes = () => {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       {/* Standalone Administrative Landing Pages (No Main Layout) */}
         <Route path="/administrative/kantiibaa" element={<Kantiibaa />} />
         <Route path="/administrative/public_service" element={<PublicService />} />
@@ -89,12 +93,14 @@ const AppRoutes = () => {
             <Route path="/administrative" element={<Administration />} />
             <Route path="/sector/:name/*" element={<Sector />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
+            <Route path="/video-tour" element={<VideoTour />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:id" element={<ServiceDetail />} />
           </Routes>
         </Layout>
       } />
     </Routes>
+    </>
   );
 };
 

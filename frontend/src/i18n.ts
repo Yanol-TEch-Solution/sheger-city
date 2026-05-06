@@ -222,6 +222,19 @@ const resources = {
           version: "Smart Portal v1.0",
           live_now: "Live Now"
         },
+        city_highlight: {
+          badge: "City Identity",
+          title: "Where Heritage Meets",
+          title_highlight: "Innovation",
+          desc1: "Sheger City stands as a testament to Ethiopia's vision for modern urban development. Established in 2022, our city has rapidly evolved into a thriving metropolitan hub that seamlessly blends rich cultural heritage with cutting-edge technology and sustainable infrastructure.",
+          desc2: "From our bustling markets to our state-of-the-art digital service centers, every corner of Sheger tells a story of progress, community, and ambition. We are home to over 5 million residents across 11 sub-cities, each contributing to the vibrant tapestry that makes Sheger unique.",
+          desc3: "Join us as we build a city that honors its past while boldly stepping into the future—a place where every citizen has access to world-class services, opportunities, and quality of life.",
+          stat1: "Population",
+          stat2: "Total Area",
+          stat3: "Elevation",
+          card_title: "Founded",
+          card_value: "2022"
+        },
         investment_hub: {
           badge: "Business & Economy",
           title: "The Investment Hub",

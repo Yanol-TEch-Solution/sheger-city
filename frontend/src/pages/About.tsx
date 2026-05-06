@@ -1,7 +1,8 @@
-import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { motion, animate, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import BackButton from "../components/BackButton";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -87,7 +88,7 @@ const About = () => {
   ];
 
   const colorMap: Record<string, string> = {
-    red: "bg-red-500/10 text-red-400 border-red-500/20",
+    red: "bg-red-600/10 text-red-600 border-red-600/20",
     emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     teal: "bg-teal-500/10 text-teal-400 border-teal-500/20",
   };
@@ -95,10 +96,15 @@ const About = () => {
   return (
     <div className="bg-slate-50">
       {/* ─── Hero Banner ─── */}
-      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[65vh] flex items-center">
+      <section className="relative overflow-hidden bg-slate-950 text-white min-h-[50vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/city-2.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+
+        {/* Back Button */}
+        <div className="absolute top-20 sm:top-24 left-4 sm:left-8 z-20">
+          <BackButton to="/" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white" />
+        </div>
 
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
@@ -106,26 +112,26 @@ const About = () => {
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[120px] pointer-events-none hidden lg:block"
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-28 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6"
+            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-600 mb-6"
           >
-            <span className="w-10 h-px bg-red-400/50" />
+            <span className="w-10 h-px bg-red-600/50" />
             {t("about.heritage")}
           </motion.div>
           <motion.h1
             {...fadeUp(0.2)}
-            className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
+            className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
           >
             {t("about.title")}{" "}
-            <span className="text-red-400 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">
+            <span className="text-red-600 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">
               {t("header.title")}
             </span>
           </motion.h1>
           <motion.p
             {...fadeUp(0.4)}
-            className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
+            className="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed"
           >
             {t("about.hero_desc")}
           </motion.p>
@@ -239,7 +245,7 @@ const About = () => {
                 <img src="/city-1.jpg" alt="Sheger City" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-semibold uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
+                  <span className="px-3 py-1 bg-red-600 text-white text-[10px] font-semibold uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 hidden sm:block">
@@ -303,7 +309,7 @@ const About = () => {
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('about_page.journey_badge')}</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-4">{t('about_page.journey_badge')}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('about_page.journey_title')}</h2>
           </motion.div>
 

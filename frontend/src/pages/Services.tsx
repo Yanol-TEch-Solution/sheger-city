@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 const Services = () => {
   useTranslation();
@@ -134,7 +135,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col pt-16 font-sans">
       {/* ─── Hero / Header Section ─── */}
-      <section className="bg-black text-white py-20 relative overflow-hidden">
+      <section className="bg-black text-white py-12 sm:py-16 relative overflow-hidden">
         {/* Building Line Art Background Overlay */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1440 400" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -144,10 +145,15 @@ const Services = () => {
           </svg>
         </div>
 
+        {/* Back Button */}
+        <div className="absolute top-4 left-4 sm:left-8 z-20">
+          <BackButton to="/" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white" />
+        </div>
+
         <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <p className="text-[9px] font-bold uppercase tracking-widest text-red-600 mb-2">E-SERVICES PORTAL</p>
-          <h1 className="text-2xl sm:text-4xl font-black mb-3">Fast. Easy. Reliable.</h1>
-          <p className="text-sm text-slate-400 mb-6 max-w-2xl">Access government permits, online anytime, anywhere.</p>
+          <p className="text-xs font-medium tracking-tight text-red-600 mb-3">E-SERVICES PORTAL</p>
+          <h1 className="text-2xl sm:text-4xl font-bold leading-tight tracking-tight font-display mb-3">Fast. Easy. Reliable.</h1>
+          <p className="text-xs sm:text-sm text-slate-400 mb-4 max-w-2xl leading-relaxed">Access government permits, online anytime, anywhere.</p>
           
           <div className="flex flex-col sm:flex-row gap-0 max-w-xl">
             <div className="relative flex-1">

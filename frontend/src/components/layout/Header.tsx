@@ -11,8 +11,6 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const location = useLocation();
 
-
-
   // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -20,7 +18,22 @@ const Header = () => {
   }, [location.pathname]);
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    // 1. Set the cookie for Google Translate reliably
+    const domain = window.location.hostname;
+    if (lng === 'en') {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+    } else {
+      document.cookie = `googtrans=/en/${lng}; path=/;`;
+      document.cookie = `googtrans=/en/${lng}; path=/; domain=${domain}`;
+    }
+
+    // 2. Save i18n language directly so it's ready on reload
+    localStorage.setItem('i18nextLng', lng);
+    
+    // 3. Force a reload. This is the only 100% foolproof way to sync React + Google Translate 
+    // without Google Translate's DOM mutations getting tangled or stuck on previous languages.
+    window.location.reload();
   };
 
   const SUB_CITIES = [
@@ -187,7 +200,6 @@ const Header = () => {
                           onClick={(e) => {
                             e.stopPropagation();
                             changeLanguage(lang.code);
-                            setActiveDropdown(null);
                           }} 
                           className={`flex items-center justify-center gap-2 px-2 py-2 rounded-lg transition-all duration-300 group ${i18n.language === lang.code ? 'bg-red-600 text-white shadow-lg shadow-red-600/20' : 'hover:bg-slate-50 text-slate-600'}`}
                         >

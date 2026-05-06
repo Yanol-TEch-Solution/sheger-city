@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import BackButton from '../components/BackButton';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 40 },
@@ -58,24 +59,30 @@ const Contact = () => {
     <div className="bg-slate-50">
 
       {/* ─── Hero Banner ─── */}
-      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[48vh] flex items-center">
+      <section className="relative bg-slate-950 text-white overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+        
+        {/* Back Button */}
+        <div className="absolute top-20 sm:top-24 left-4 sm:left-8 z-20">
+          <BackButton to="/" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white" />
+        </div>
+        
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 12, repeat: Infinity }}
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
-            <span className="w-10 h-px bg-red-400/50" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-600 mb-6">
+            <span className="w-10 h-px bg-red-600/50" />
             {t('contact.hero_desc')}
           </motion.div>
-          <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
+          <motion.h1 {...fadeUp(0.2)} className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
             {t('contact.hero_title')}
           </motion.h1>
-          <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
+          <motion.p {...fadeUp(0.4)} className="text-white/70 text-sm sm:text-base max-w-xl leading-relaxed">
             {t('contact.hero_desc')}
           </motion.p>
         </div>

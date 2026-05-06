@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import WaveDivider from '../WaveDivider';
 
 const HERO_IMAGES = [
@@ -12,12 +13,32 @@ const HERO_IMAGES = [
 
 export default function HeroSection() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [showVideoPopup, setShowVideoPopup] = useState(false);
   const [weather, setWeather] = useState<{ temp: number; desc: string } | null>(null);
+  const [showVideoPopup, setShowVideoPopup] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { scrollY } = useScroll();
   const weatherY = useTransform(scrollY, [0, 500], [0, 100]);
+
+  const handlePictureInPicture = async () => {
+    if (videoRef.current) {
+      try {
+        if (document.pictureInPictureElement) {
+          await document.exitPictureInPicture();
+        } else {
+          await videoRef.current.requestPictureInPicture();
+        }
+      } catch (error) {
+        console.error('Picture-in-Picture error:', error);
+      }
+    }
+  };
+
+  const handleMaximize = () => {
+    navigate('/video-tour');
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -163,6 +184,23 @@ export default function HeroSection() {
               </div>
             </div>
 
+            {/* Video Preview Button */}
+            <motion.button
+              onClick={() => setShowVideoPopup(true)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-3 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/20 rounded-2xl px-5 py-3 transition-all group"
+            >
+              <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors">
+                <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-xs font-bold text-white tracking-tight">Watch Video</span>
+                <span className="text-[8px] font-semibold tracking-[0.2em] text-white/60 uppercase">City Tour</span>
+              </div>
+            </motion.button>
 
           </motion.div>
         )}
@@ -354,36 +392,75 @@ export default function HeroSection() {
        </section> */}
 
       
-      {/* Video Popup Modal */}
+      {/* Video Popup Modal - Minimized Only */}
       <AnimatePresence>
         {showVideoPopup && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 sm:p-8"
-            onClick={() => setShowVideoPopup(false)}
+          <motion.div
+            drag
+            dragMomentum={false}
+            dragElastic={0.1}
+            dragConstraints={{
+              top: -window.innerHeight + 300,
+              left: -window.innerWidth + 400,
+              right: window.innerWidth - 400,
+              bottom: window.innerHeight - 300,
+            }}
+            initial={{ opacity: 0, scale: 0.8, x: 0, y: 100 }}
+            animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 100 }}
+            style={{ touchAction: 'none' }}
+            className="fixed bottom-6 right-6 z-[9999] w-80 sm:w-96 aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl ring-2 ring-white/20"
           >
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }} 
-              animate={{ scale: 1, opacity: 1 }} 
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10"
-              onClick={e => e.stopPropagation()}
+            {/* Drag Handle / Control Bar */}
+            <div 
+              className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-black/90 to-transparent p-3 flex items-center justify-between cursor-grab active:cursor-grabbing select-none"
+              onPointerDown={(e) => e.stopPropagation()}
             >
-              <button 
-                onClick={() => setShowVideoPopup(false)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-              </button>
-              <video 
-                src="/sheger-city.mp4" 
-                controls 
-                autoPlay 
-                className="w-full h-full object-cover" 
-              />
-            </motion.div>
+              <span className="text-white text-xs font-bold pointer-events-none">Sheger City Tour - Drag to Move</span>
+              <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                {/* Maximize Button - Opens New Page */}
+                <button 
+                  onClick={handleMaximize}
+                  className="w-8 h-8 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-lg flex items-center justify-center text-white transition-colors cursor-pointer"
+                  title="Open Full Screen"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                </button>
+                
+                {/* Picture-in-Picture Button */}
+                <button 
+                  onClick={handlePictureInPicture}
+                  className="w-8 h-8 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-lg flex items-center justify-center text-white transition-colors cursor-pointer"
+                  title="Picture in Picture"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="6" width="18" height="12" rx="2" strokeWidth={2} />
+                    <rect x="13" y="12" width="6" height="4" stroke="currentColor" strokeWidth={2} fill="currentColor" fillOpacity="0.3" rx="1" />
+                  </svg>
+                </button>
+                
+                {/* Close Button */}
+                <button 
+                  onClick={() => setShowVideoPopup(false)}
+                  className="w-8 h-8 bg-red-600/90 hover:bg-red-700 backdrop-blur-md rounded-lg flex items-center justify-center text-white transition-colors cursor-pointer"
+                  title="Close"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+              </div>
+            </div>
+            
+            <video 
+              ref={videoRef}
+              src="/sheger-city.mp4" 
+              controls 
+              autoPlay
+              loop
+              muted
+              className="w-full h-full object-cover" 
+            />
           </motion.div>
         )}
       </AnimatePresence>
