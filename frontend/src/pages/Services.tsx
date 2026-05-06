@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
 
 const Services = () => {
   useTranslation();
@@ -142,6 +143,11 @@ const Services = () => {
             <circle cx="1100" cy="150" r="80" stroke="white" strokeWidth="2"/>
             <path d="M1060 150H1140M1100 110V190" stroke="white" strokeWidth="2"/>
           </svg>
+        </div>
+
+        {/* Back Button */}
+        <div className="absolute top-4 left-4 sm:left-8 z-20">
+          <BackButton to="/" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white" />
         </div>
 
         <div className="max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

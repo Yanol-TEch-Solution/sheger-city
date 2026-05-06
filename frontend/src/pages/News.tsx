@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import BackButton from "../components/BackButton";
 
 
 const fadeUp = (delay = 0) => ({
@@ -83,6 +84,11 @@ const News = () => {
         <div className="absolute inset-0 bg-[url('/city-4.jpg')] bg-cover bg-center opacity-25" />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+
+        {/* Back Button */}
+        <div className="absolute top-20 sm:top-24 left-4 sm:left-8 z-20">
+          <BackButton to="/" className="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white" />
+        </div>
 
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
