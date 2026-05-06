@@ -6,7 +6,7 @@ export default function ExploreSection() {
   const { t } = useTranslation();
   return (
     <>
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white/60 relative z-20 border-b border-slate-100/50">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 sm:mb-12 lg:mb-16 gap-4 sm:gap-6">
             <div className="w-full sm:w-auto">
