@@ -99,16 +99,16 @@ const News = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-400 mb-6"
+            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-600 mb-6"
           >
-            <span className="w-10 h-px bg-red-400/50" />
+            <span className="w-10 h-px bg-red-600/50" />
             {t('news_page.hero_badge')}
           </motion.div>
           <motion.h1
             {...fadeUp(0.2)}
             className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
           >
-            {t('news_page.hero_title')} <span className="text-red-400 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">{t('header.title')}</span>
+            {t('news_page.hero_title')} <span className="text-red-600 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">{t('header.title')}</span>
           </motion.h1>
           <motion.p
             {...fadeUp(0.4)}
@@ -179,8 +179,8 @@ const News = () => {
               </div>
               {/* Text */}
               <div className="lg:col-span-2">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-red-500 mb-4 flex items-center gap-3">
-                  <span className="w-8 h-px bg-red-500" />
+                <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-red-600 mb-4 flex items-center gap-3">
+                  <span className="w-8 h-px bg-red-600" />
                   {t('news_page.featured_story')}
                 </p>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug tracking-tight font-display mb-4">
@@ -210,7 +210,7 @@ const News = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="flex items-end justify-between mb-12 gap-4">
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-2">
                 {t('news_page.explore_more')}
               </p>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-display tracking-tight">
@@ -251,7 +251,7 @@ const News = () => {
                         </span>
                       </div>
                       
-                      <h3 className="text-lg sm:text-xl font-bold text-white font-display leading-tight mb-3 group-hover:text-red-400 transition-colors line-clamp-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-white font-display leading-tight mb-3 group-hover:text-red-600 transition-colors line-clamp-2">
                         {article.title}
                       </h3>
                       
@@ -288,11 +288,11 @@ const News = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.div {...fadeUp(0)} className="bg-slate-950 rounded-[2.5rem] p-10 lg:p-16 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-red-600/10 blur-[100px] pointer-events-none" />
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-400 mb-5 relative z-10">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-5 relative z-10">
               {t('news_page.newsletter_badge')}
             </p>
             <h2 className="text-2xl sm:text-4xl font-bold text-white font-display tracking-tight mb-5 leading-tight relative z-10">
-              {t('news_page.newsletter_title')} <span className="text-red-400">{t('news_page.title')}</span>
+              {t('news_page.newsletter_title')} <span className="text-red-600">{t('news_page.title')}</span>
             </h2>
             <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-xl mx-auto relative z-10">
               {t('news_page.newsletter_desc')}

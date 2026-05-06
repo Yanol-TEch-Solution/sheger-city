@@ -66,12 +66,12 @@ const Leadership = () => {
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-400 mb-6">
-            <span className="w-10 h-px bg-red-400/50" />
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 uppercase tracking-[0.35em] text-[10px] font-semibold text-red-600 mb-6">
+            <span className="w-10 h-px bg-red-600/50" />
             {t('leadership.title')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">
-            Meet the <span className="text-red-400 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">{t('leadership.team')}</span>
+            Meet the <span className="text-red-600 drop-shadow-[0_0_30px_rgba(245,158,11,0.3)]">{t('leadership.team')}</span>
           </motion.h1>
           <motion.p {...fadeUp(0.4)} className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed">
             {t('leadership.hero_desc')}
@@ -88,7 +88,7 @@ const Leadership = () => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">Administration</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-4">Administration</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('leadership.officials')}</h2>
           </motion.div>
 
@@ -109,7 +109,7 @@ const Leadership = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="text-[10px] font-semibold uppercase tracking-widest bg-red-500 text-slate-900 px-2 py-1 rounded-full">
+                    <span className="text-[10px] font-semibold uppercase tracking-widest bg-red-600 text-white px-2 py-1 rounded-full">
                       {leader.dept}
                     </span>
                   </div>

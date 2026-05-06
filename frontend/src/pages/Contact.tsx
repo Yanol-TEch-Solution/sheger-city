@@ -75,8 +75,8 @@ const Contact = () => {
           className="absolute right-1/3 top-1/4 w-[500px] h-[500px] bg-red-500/15 rounded-full blur-[130px] pointer-events-none hidden lg:block"
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
-          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-400 mb-6">
-            <span className="w-10 h-px bg-red-400/50" />
+          <motion.div {...fadeUp(0.1)} className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-600 mb-6">
+            <span className="w-10 h-px bg-red-600/50" />
             {t('contact.hero_desc')}
           </motion.div>
           <motion.h1 {...fadeUp(0.2)} className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl">

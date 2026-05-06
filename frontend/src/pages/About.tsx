@@ -88,7 +88,7 @@ const About = () => {
   ];
 
   const colorMap: Record<string, string> = {
-    red: "bg-red-500/10 text-red-400 border-red-500/20",
+    red: "bg-red-600/10 text-red-600 border-red-600/20",
     emerald: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     teal: "bg-teal-500/10 text-teal-400 border-teal-500/20",
   };
@@ -115,9 +115,9 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 w-full">
           <motion.div
             {...fadeUp(0.1)}
-            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-400 mb-6"
+            className="inline-flex items-center gap-3 tracking-tight text-xs font-medium text-red-600 mb-6"
           >
-            <span className="w-10 h-px bg-red-400/50" />
+            <span className="w-10 h-px bg-red-600/50" />
             {t("about.heritage")}
           </motion.div>
           <motion.h1
@@ -125,7 +125,7 @@ const About = () => {
             className="text-3xl sm:text-5xl font-bold leading-tight tracking-tight font-display mb-6 max-w-3xl"
           >
             {t("about.title")}{" "}
-            <span className="text-red-400 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">
+            <span className="text-red-600 drop-shadow-[0_0_30px_rgba(239,68,68,0.3)]">
               {t("header.title")}
             </span>
           </motion.h1>
@@ -245,7 +245,7 @@ const About = () => {
                 <img src="/city-1.jpg" alt="Sheger City" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <span className="px-3 py-1 bg-red-500 text-slate-900 text-[10px] font-semibold uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
+                  <span className="px-3 py-1 bg-red-600 text-white text-[10px] font-semibold uppercase tracking-widest rounded-full">Sheger City, Ethiopia</span>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-5 shadow-xl border border-slate-100 hidden sm:block">
@@ -309,7 +309,7 @@ const About = () => {
       <section className="py-24 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp(0)} className="text-center mb-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-500 mb-4">{t('about_page.journey_badge')}</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-red-600 mb-4">{t('about_page.journey_badge')}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 font-display tracking-tight">{t('about_page.journey_title')}</h2>
           </motion.div>
 
